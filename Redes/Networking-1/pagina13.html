@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>13-TCP y UDP.</title>
+</head>
+<body>
+    
+    <h1>
+        TCP y UDP.
+    </h1>
+    <p>
+        <img src="https://pildorasdeconocimiento.files.wordpress.com/2012/05/osi-2.jpg" alt="NIVELES DE RED" style="width:auto;">
+        
+        <h2>
+            Introducción.
+        </h2>
+        <p>
+            <img src="https://image.slidesharecdn.com/drcsemana10tcp-160630010716/95/drc-semana10-tcp-10-638.jpg?cb=1467248854" alt="Capas TCP/IP">
+            <br>
+            TCP y UDP Son la capa de transporte, es la primera que une dos entidades (procesos), en vez de dos hosts. <br>
+            Suele ser la primera capa visible para los programadores de aplicaciones, IP se puede considerar la <i>frontera</i>entre los
+            <b>administradores y los programadores.</b>        
+        </p>
+
+        <h2>
+            UDP.
+        </h2>
+        <p>
+            User Datagram Protocol. Sus funciones son:
+            <ul>
+                <li>
+                    Entregar un datagrama entre el emisor y receptor (procesos).
+                </li>
+                <li>
+                    Detección de errores.
+                </li>
+            </ul>
+            
+            <h3>
+                Formato de una trama UDP.
+            </h3>
+            <p>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><b>Bits 0-15</b></td>
+                        <td><b>Bits 16-31</b></td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Source Port</td>
+                        <td>Destination Port</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>Length</td>
+                        <td>Checksum</td>
+                    </tr>
+                    <tr>
+                        <td>64</td>
+                        <td>Data</td>
+                        <td>Data</td>
+                    </tr>
+                </table>
+            </p>
+
+            <h3>
+                Características de UDP.
+            </h3>
+            <p>
+                Los datagramas pueden llegar en un orden diferente al enviado (si IP elige rutas distintas para ellos.)
+                El emisor no tiene la seguridad de que los datagramas llegan al receptor. Por tanto, no tiene conexiones
+                i es confiable. Cada datagrama se envía de forma independiente.
+            </p>
+            <img src="https://4.bp.blogspot.com/-C_M2gq9kFYw/UY1lgoo5UHI/AAAAAAAAADQ/7otlv_voje0/s1600/Protocol.png" alt="">
+        </p>
+
+        <h2>
+            TCP.
+        </h2>
+        <p>
+            Transmission Control Protocol. Asegura que la transmisión se realiza por un medio fiable.
+            Garantiza la recepción de los mensajes en orden correcto. Garantiza al emisor que los mensajes 
+            llegan correctamente al receptor. Por tanto, es orientado a conexión y confiable.
+            <br>
+            <img src="https://www.monografias.com/trabajos82/configuracion-y-servicios-tcp-ip/image001.png" alt="Tamaño de datagramas">
+            <br>
+
+            <h3>
+                Ventana y correción de errores.
+            </h3>
+            <p>
+                TCP necesita confirmación de cada mensaje enviado, para garantizar la confiabilidad. <br>
+                Opciones:
+                <ul>
+                    <li>
+                        <b>Parada y espera:</b> Cada mensaje necesita confirmación.
+                    </li>
+                    <li>
+                        <b>Piggybacking:</b> La configuración puede retrasarse algunos mensajes (ventana).
+                    </li>
+                </ul>
+                la parada y espera es más simple, pero desaprovecha ancho de banda.
+                Ejemplo de parada y espera: 
+                <img src="https://slideplayer.es/slide/2822221/10/images/56/Protocolo+de+Parada+y+Espera%3A+gr%C3%A1fico+de+tiempo.jpg" alt="Parada y espera">
+                Ejemplo de piggybacking con ventana.
+                <img src="https://www.computer-networking.info/1st/html/_images/transport-fig-043-c.png" alt="Piggybacking">
+
+            </p>
+        </p>
+
+        <h2>
+            Sequence number y Acknowledgment number.
+        </h2>
+        <p>
+            <b>TCP</b> intenta que la comunicación se asemeje a un flujo de bytes.
+            <br>
+            <code>
+                Todos los bytes que entran por un extemo ... deben salir por el otro lado.
+            </code>
+            <br>
+            En <b>cada paquete</b> se envía:
+            <ul>
+                <li>
+                    El número de secuencia del primer byte transmitido en el paquete.
+                </li>
+                <li>
+                    El número de secuencia del siguiente byte que se espera.
+                </li>
+            </ul>
+        </p>
+
+        <h3>
+            Estado de la conexión.
+        </h3>
+        <p>
+            Cada extremo de la comunicación debe saber:
+            <ul>
+                <li>
+                    Cuál es su siguiente bytr a enviar (sequence number).
+                </li>
+                <li>
+                    Cuál es su siguiente byte a recibir (acknowledgment number).
+                </li>
+            </ul>
+            Además, también lleva la cuenta de su opinión acerca del <i>sequence number</i>y del 
+            <i>acknowledgment number</i>del otro extremo.
+            <img src="https://i0.wp.com/madpackets.com/wp-content/uploads/2018/04/tcp-seq-ack-flow-e1524681839913.png?resize=538%2C756&ssl=1" alt="">
+            <br>
+            <img src="https://i.imgur.com/a3dWHUc.png" alt="">
+        </p>
+
+        <h2>Corrección de errores.</h2>
+        <p>
+            Si se recibe un <i>sequence number</i> posterior a nuestro <i>acknowledgment number</i> <br>
+            Es un paquete <b>posterior</b> al que esperamos.
+            <ul>
+                <li>
+                    Se puede guardar en la capa TCP hasta que lleguen los anteriores.
+                </li>
+                <li>
+                    O se puede ignorar, y reclamar los paquetes perdidos enviando un <i>acknowledgment number</i> menor que el que esperaba el otro.
+                </li>
+            </ul>
+            El otro lado reenviará los paquetes necesarios.
+            <br>
+            <img src="https://www.dcs.bbk.ac.uk/~ptw/teaching/IWT/transport-layer/lost-acknowledgement.gif" alt="seq number y ack">
+            Si se recibe un sequence number anterior a nuestro acknowledgment number.
+            <ul>
+                <li>
+                    Es un paquete ya recibido (se habrá duplicado). Por tanto, se ignorá.
+                </li>
+            </ul>
+            Si llega un acknowledgment number menor que los bytes enviados.
+            <ul>
+                <li>
+                    Reenviaré a partir de dicho acknowledgment number.
+                </li>
+            </ul>
+            <img src="https://www.dcs.bbk.ac.uk/~ptw/teaching/IWT/transport-layer/retransmission.gif" alt="seq number lose">
+            <br>
+            Si no tengo confirmación de un paquete enviado tras un <i>timeout</i>. <br>
+            <ul>
+                <li>
+                    Reenviaré el paquete
+                </li>
+            </ul>
+        </p>
+
+        <h2>
+            Mensajes TCP.
+        </h2>
+        <p>
+
+            <h3>
+                Establecimiento de conexión.
+            </h3>
+            <ul>
+                <li>
+                    Un servidor escucha en un puerto.
+                </li>
+                <li>
+                    Un cliente envía una solicitud de conexión.
+                </li>
+                <li>
+                    El servidor responde con una aceptación de la conexión.
+                </li>
+                <li>
+                    El cliente acepta la aceptación.
+                </li>
+            </ul>
+        </p>
+
+        <h2>
+            Estados TCP.
+        </h2>
+        <p>
+            Los pirncipales estados son:
+            <ul>
+                <li>
+                    <b>Closed</b> Ninguna conexión.
+                </li>
+                <li>
+                    <b>Listening</b>Un servidor está esperando en un puerto a ser conectado.
+                </li>
+                <li>
+                    <b>Estableshed</b> Un cliente ha conectado con un servidor.
+                </li>
+                <li>
+                    <b>Time wait</b> Esperando a que la conexión termine.
+                </li>
+            </ul>
+            <cite>
+                Todos los estados en: http://www.medianet.kent.edu/techreports/TR2005-07-22-tcp-EFSM.pdf
+            </cite>
+        </p>
+
+    <h2>
+        Puertos.
+    </h2>
+    <p>
+        Se llama puerto a la dirección de nivel de transporte en:
+        <ul>
+            <li>TCP</li>
+            <li>UDP</li>
+        </ul>
+        La asignación de puertos se realiza según el RFC 1700
+        <img src="https://slideplayer.com/slide/5041701/16/images/19/Well+Known+Ports+%28Numbers+0+to+1023%29.jpg" alt="Puertos">
+        <br>
+
+        <h3>
+            Asignación de puertos.
+        </h3>
+        <p>
+            <ul>
+                <li>
+                    <b>Servidor.</b> El proceso escucha en un puerto conocido. <br>
+                    Ejemplos: 80 para HTTP, 25 SMTP,... <br>
+                    Los puertos conocidos se encuentran en el fichero <i>/etc/services</i>
+                </li>
+                <li>
+                    <b>cliente:</b> El cliente inicia una conexión con un servidor. El sistema le asigna un puerto cualquiera sin usar. <br>
+                    Generalmente, un puerto dinámico, el cliente también puede solicitar un puerto, pero es poco frecuente.
+                </li>
+            </ul>
+        </p>
+
+        <h3>Comando <b>netstat</b></h3>
+        <p>
+            Informa de:
+            <ul>
+                <li>
+                    Las conexiones TCP y UDP activas.
+                </li>
+                <li>
+                    Los programas escuchando en puertos TCP y UDP.
+                </li>
+            </ul>
+            <table>
+                <tr>
+                    <td></td>
+                    <td>Linux</td>
+                    <td>Windows</td>
+                </tr>
+                <tr>
+                    <td>Conexiones TCP</td>
+                    <td>-t</td>
+                    <td>-p tcp</td>
+                </tr>
+                <tr>
+                    <td>Conexiones UDP</td>
+                    <td>-u</td>
+                    <td>-p udp</td>
+                </tr>
+                <tr>
+                    <td>Proceso</td>
+                    <td>-p</td>
+                    <td>-o</td>
+                </tr>
+                <tr>
+                    <td>No traducir direcciones</td>
+                    <td>-n</td>
+                    <td>-n</td>
+                </tr>
+                <tr>
+                    <td>Escuchando</td>
+                    <td>-l</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Escuchando y establecidas</td>
+                    <td>-a</td>
+                    <td>-a</td>
+                </tr>
+            </table>
+        </p>
+        
+        <h3>
+            Comando <b>nc</b>
+        </h3>
+        <p>
+            Netstat permite realizar conexiones TCP/UDP y redirigir su entrada/salida. 
+            Usos:
+            <tr>
+                <td>Simular de forma rápida un cliente para probar un servidor.</td>
+                <td>Simular un servidor para probar un cliente.</td>
+                <td>Comprobar si el firewall permite conexiones.</td>
+                <td>Transferir información por red.</td>
+            </tr>
+            Versión Windows: https://eternallybored.org/misc/netcat/
+            Otras versiones para Windows:
+            <br> - Máquina virtual con linux. 
+            <br> - powercat
+            <br> - Windows Subsystem for Linux.
+        </p>   
+    </p>
+
+    <h2>
+        Direcciones de escucha.
+    </h2>
+    <p>
+        Cuando un procesos escucha en un puerto, también elige en qué dirección de red escucha.
+        La dirección IP se puede utilizar como un firewall rudimentario.
+        <table>
+            <tr>
+                <td>Dirección</td>
+                <td>Efecto</td>
+            </tr>
+            <tr>
+                <td>0.0.0.0</td>
+                <td>Escucha en tocas las direcciones IP accesibles.</td>
+            </tr>
+            <tr>
+                <td>127.X.X.X</td>
+                <td> Escucha en una dirección local</td>
+            </tr>
+            <tr>
+                <td>X.X.X.X</td>
+                <td>Escucha en una interfaz de red concreta</td>
+            </tr>
+        </table>
+        No todas las combinaciones son posibles. <br>
+        Es posible escuchar en el mismo puerto en 127.X.X.X y en X.X.X.X <br>
+        0.0.0.0 no es compatible con ningún otro. 
+
+        <h3>
+            Posibilidades.
+        </h3>
+        <p>
+            El servidor está accesible a todo el mundo. <br>
+            El servidor solo está disponible desde la máquina local (por ejemplo email local). <br>
+            El servidor solo está disponible por una de las interfaces de red. <br>
+            Diferentes servidores en diferentes interfaces de red. 
+        </p>
+
+        <h3>¿Más de un proceso escuchando en el miso puerto?</h3>
+        <p>
+            Dependiendo de la versión de Linux/Windows, más de un proceso puede escuchar en el mismo puerto. <br>
+            Se hace para repartir mejor múltiples conexiones de clientes entre las CPU del servidor. 
+        </p>
+    </p>
+      
+    <h2>
+        TCP vs UDP
+    </h2>
+    <p>
+        <h4>TCP</h4>
+        Es un medio de transmisión asegurado, las aplicaciones que usan TCP no envían paquetes, sino bytes. TCP decide 
+        cuando enviar un paquete (las apicaciones pueden opinar). <br>
+        Consume más CPU y memoria, por la ventana de emisión y los reenvíos. <br>
+        <h4>UDP</h4>
+        Es más eficiente, no necesita mantener conexión, ni reordenar paquetes, ni retransmitir paquetes, las aplicaciones son 
+        <i>conscientes</i>de que se envían paquetes, no bytes. En redes con pocos errores, puede ser adecuado. <br>
+        Interesante cuando se necesita mucho  ancho de banda pero no importa perder algún paquete(voz, vídeo).
+    </p>
+
+</p>
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Chapter 8.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+        <!-- Header -->
+        	<header id="header">
+               <div class="content">
+                    <h1><a href="#">Introduction: Creating and Programming Objects in Packet Tracer.</a></h1>
+					<p>
+						
+					</p>
+					<ul class="actions">
+						<li><a href="#one" class="button icon fa-chevron-down scrolly">Start!</a></li>
+					</ul>
+				</div>
+				<div class="image phone"><div class="inner"><img src="../images/pic08.jpg" alt="" /></div></div>
+			</header>
+            <div class="flotante">
+                    <a class='flotante' href='../index.html' ><img src='../images/boton-flotante.png'/></a>    
+            </div>
+		<!-- Introduction -->
+			<article id="one" class="normal">
+                <h2>
+					Introduction: Creating and Programming Objects in Packet Tracer.
+				</h2>
+                <p>
+					In this chapter, you will learn:
+						<ul>
+							<li>
+								How to create a new Thing.
+							</li>
+							<li>
+								How to connect your new Things to the network.
+							</li>
+							<li>
+								How to use available scripts fot the new Thing.
+							</li>
+							<li>
+								How to access the programming environment.
+							</li>
+							<li>
+								How to review and modify existing scripts.
+							</li>
+						</ul>
+				</p>
+				<h2>Creating and Connecting a Things.</h2>
+				<p>
+					Before attempting to create a new Thing, you need to decide what the Things will do, how it will connect to the network, and how it will work. You need to find graphics to represent the states of your new Thing.
+					Usually you will need two graphics, one to represent the biginning or default state and another to represent the end state. You also need to identify an existing Thing that functions in a similar manner as the new Thing. 
+					The existing script can then be modified to create the new script. <br>
+					Clicking on any IoT device that is in the workspace will reveal the specifications about that device. The specifications include: 
+					<ul>
+						<li>Usage - Things may connect to other IoT devices in order to receive LOW or HIGH inputs or it may read the variable set in the Environment object.</li>
+						<li>Features - How the device works or what it does. Devices can generate high and low values based on a button being pushed or toggled on and off or they can detect certain environmental values (eg. Smoke or sunlight).</li>
+						<li>Direct Control - Show you what keystrokes will allow you to physically interact with the Thing.</li>
+						<li>Local and Remote Control -  Shows how to control the Thing locally or remotely (if applicable).</li>
+						<li>Data Specifications -  How the values are produced or the port/slot used to connect to the sensor</li>
+						<li>Example - Describes an example of how is it works.</li>
+					</ul>
+					To create the new Thing: 
+					<ul>
+						<li>Click the Advanced tab/Thing Editor from within the existing object specifications page.</li>
+						<li>Associate the new graphics to their respective states by clicking on a state and browsing to the location of the graphic on your local device. The images will be saved automatically.</li>
+						<li>Click on the Config tab to select the network adaptor to be used to connect to the network (if applicable).</li>
+					</ul>
+					To save the new Thing:
+					<ul>
+						<li>Select Tools/Custom Device Dialog from the uppermost toolbar.</li>
+						<li>
+							Within the Device Template Manager.
+							<ul>
+								<li>Click on Select and click on the Thing to be saved.</li>
+								<li>Modify the template and descrition as appropiate.</li>
+								<li>Click on the type of new Thing.</li>
+								<li>Click on Add -  The new template will be saved in the PT template file on the local disk and the customized Thing will now display with the other sensors.</li>
+							</ul>
+						</li>
+					</ul>
+					Note: This local version of Packet Tracer, with the new Thing, can be sent to another user as long as the user has the new template on their local disk. <br>
+					<video src="../videos/creatingaThinginPT.mp4"controls width="640" height="480"></video>
+				</p>
+				<h2>Packet Tracer -  Create Your Own Thing.</h2>
+				<p>
+					<a href="../documentos/8.1.1.2 Packet Tracer - Create Your Own Thing.pdf" target="_blank" rel="noopener noreferrer">Packet Tracer - Create Your Own Thing Instructions</a> <br>
+					<a href="../documentos/8.1.1.2 Create Your Own Thing.pkt" target="_blank" rel="noopener noreferrer">Create Your Own Thing Packet Tracer File</a>
+				</p>
+				<h2>The Programming Environment.</h2>
+				<p>
+					To be able to provide true IoT solutions, it is critical to have programming knowledge. Packet Tracer provides support for JavaScript, Phyton and Visual Blocky. <br>
+					To enter the programming environment. 
+					<ul>
+						<li>Open an IoT device and click on the Advanced button.</li>
+						<li>Select the Programming tab.</li>
+					</ul>
+					Once in the Programming area, you can program a new script or copy an existing script from another Thing.
+					To modify an existing script to use dor a new Thing. 
+					<ul>
+						<li>
+							Select the script in the panel to the left and select Open. <br>
+							<img src="../images/openThing.PNG" alt="">
+						</li>
+						<li>
+							The selected programming script will appear in the right hand panel and may be edited as appropiate. You can use the editing buttons to make the script modification easier. <br>
+							<img src="../images/scriptThing.PNG" alt="">
+						</li>
+						<li>
+							Once finished any required modifications, simply close the Programming tab and the changes will be saved. 
+						</li>
+					</ul>
+					It is also possible to completely delete the ol script and program your Thing from scratch.
+				</p>
+				<h2>Reviewing and Modifying Script.</h2>
+				<p>
+					Packet Tracer provides a large number of devices that can be modified to create new Things. It is often easier to modify an existing object that has similar functionality to the Thing being created that it is to program an entirely new Thing. 
+					<br>
+					<video src="../videos/reviewingAndModifyingScripts.mp4" controls width="640" height="480"></video>
+				</p>
+				<h2>Packet Tracer - Modify existing script for and IoT Thing.</h2>
+				<p>
+					<a href="../documentos/8.2.1.3 Packet Tracer - Modify Your Thing.pdf" target="_blank" rel="noopener noreferrer">Modify Your Thing Instructions</a> <br>
+					<a href="../documentos/8.2.1.3 Modify Your Thing.pkt" target="_blank" rel="noopener noreferrer">Modify Your Thing Packet Tracer File</a>
+				</p>
+				<h2>Chapter 8. Creating and Programming Objects in Packet Tracer.</h2>
+				<p>
+					At the completion of this chapter, you should be able to:
+					<ul>
+						<li>Create a new Thing.</li>
+						<li>Connect a Thing to the network.</li>
+						<li>Use available scripts for a new Thing.</li>
+						<li>Access the programming environment.</li>
+						<li>Review and modify existing scripts.</li>
+					</ul>
+					For additional help and practice using Packet Tracer, please visit the Tutorials located under Help in the Packet Tracer program. To view some examples of how Packet Tracer can be used, select File, then Open Samples from the main menu.
+				</p>
+				<h2>Packet Tracer IoT Basic Quiz</h2>
+				<p>
+					<img src="../images/return to modules section - packet tracer iot basic quiz.PNG" alt="">
+				</p>
+			</article>
+            
+		<!-- One -->
+			<section id="two" class="wrapper">
+				<div class="inner alt">
+					
+					<section class="special">
+						<ul class="icons labeled">
+							<li><span class="icon fa-camera-retro"><span class="label"><a href="https://pixabay.com/es/" target="_blank" rel="noopener noreferrer">Imag. pixabay</a></span></span></li>
+							<li><span class="icon fa-refresh"><span class="label"><a href="https://github.com/chunche95/Introduction-to-Packet-Tracer" target="_blank" rel="noopener noreferrer">This repository in Github</a></span></span></li>
+							<li><span class="icon fa-cloud"><span class="label"><a href="https://www.linkedin.com/in/paulinoestebanberm%C3%BAdezrodr%C3%ADguez" target="_blank" rel="noopener noreferrer">Me Linkedln</a></span></span></li>
+							<li><span class="icon fa-code"><span class="label"> <a href="http://github.com/chunche95" target="_blank" rel="noopener noreferrer">chunche95-GitHub</a> </span></span></li>
+							<li><span class="icon fa-desktop"><span class="label"><a href="https://www.netacad.com" target="_blank" rel="noopener noreferrer">Cisco Academy</a></span></span></li>
+						</ul>
+					</section>
+				</div>
+			</section>
+
+		
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<p class="copyright">&copy; Human Computing 3.0. - Credits: <a href="https://github.com/chunche95">GitHub&rarr;Chunche95</a></p>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

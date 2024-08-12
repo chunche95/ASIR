@@ -1,0 +1,87 @@
+Router#show ip access-lists 
+Extended IP access list 100
+    10 permit ip any any
+Extended IP access list 101
+    10 permit ip host 8.0.0.200 any
+    20 permit tcp any any established
+    30 permit udp any eq domain any
+    40 permit tcp any eq www any
+    50 permit tcp any eq 443 any
+Extended IP access list 102
+    10 permit ip any any
+    20 permit udp any any
+Extended IP access list 103
+    10 permit ip host 8.0.0.200 any
+    20 permit ip 192.168.1.0 0.0.0.255 any
+    30 permit udp 192.168.1.0 0.0.0.255 host 100.0.0.1
+    40 permit tcp any host 100.0.0.1 eq 443
+    50 permit tcp any host 100.0.0.1 eq www
+    60 permit udp any host 100.0.0.1 eq domain
+Extended IP access list 104
+    10 permit ip any host 8.0.0.200
+    20 permit tcp any any eq www
+    30 permit tcp any any eq 443
+    40 permit udp any any eq domain
+    50 permit udp host 100.0.0.1 192.168.1.0 0.0.0.255
+    60 deny ip any any
+Router#
+
+
+100 --> Fa9/0 out/in
+
+Router(config)#access-list 100 permit ip any any
+Router(config)#interface Fa9/0
+Router(config-if)#ip access-group 100 in
+Router(config-if)#access-list 100 permit ip any any
+Router(config)#interface Fa9/0
+Router(config-if)#ip access-group 100 out
+Router(config-if)#exit
+
+101 --> Fa0/0 out 
+
+Router(config)#access-list 101 permit ip host 8.0.0.200 any
+Router(config)#access-list 101 permit tcp any any established
+Router(config)#access-list 101 permit udp any eq 53 any
+Router(config)#access-list 101 permit tcp any eq 80 any
+Router(config)#access-list 101 permit tcp any eq 443 any
+Router(config)#interface Fa0/0
+Router(config-if)#ip access-group 101 out
+Router(config-if)#exit
+
+102 --> Fa0/0 in
+
+Router(config)#access-list 102 permit ip any any
+Router(config)#access-list 102 permit udp any any
+Router(config)#interface Fa0/0
+Router(config-if)#ip access-group 102 in
+Router(config-if)#exit
+
+103 --> Fa1/0 out
+
+Router(config)#access-list 103 permit ip host 8.0.0.200 any
+Router(config)#access-list 103 permit ip 192.168.1.0 0.0.0.255 any
+Router(config)#access-list 103 permit udp 192.168.1.0 0.0.0.255 host 100.0.0.1
+Router(config)#access-list 103 permit tcp any host 100.0.0.1 eq 443
+Router(config)#access-list 103 permit tcp any host 100.0.0.1 eq 80
+Router(config)#access-list 103 permit udp any host 100.0.0.1 eq 53
+Router(config)#interface Fa1/0
+Router(config-if)#ip access-group 103 out
+Router(config-if)#exit
+
+
+104 --> Fa1/0 in
+
+outer(config)#access-list 104 permit ip any host 8.0.0.200
+Router(config)#access-list 104 permit tcp any any eq 80
+Router(config)#access-list 104 permit tcp any any eq 443
+Router(config)#access-list 104 permit udp any any eq 53
+Router(config)#access-list 104 permit udp host 100.0.0.1 192.168.1.0 0.0.0.255
+Router(config)#access-list 104 deny ip any any
+Router(config)#interface Fa1/0
+Router(config-if)#ip access-group 104 in
+
+
+
+
+
+

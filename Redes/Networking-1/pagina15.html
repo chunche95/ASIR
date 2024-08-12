@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>15-Listas de control de acceso en routers CISCO</title>
+</head>
+<body>
+    
+    <h1>
+        Listas de control de acceso en routers CISCO.
+    </h1>
+    <p>
+        <h2>
+            Listas de control de acceso.
+        </h2>
+        <p>
+            Las ACL son listas con reglas. <br>
+            Cada regla define una condición que puede cumplir un paquete.
+            <br>
+            Cada regla define una acción(permit,deny) a ejecutar sobre el paquete 
+            que cumpla su condición. Siempre hay una regla al final que desecha cualquier paquete.
+        
+            <h3>
+                Numeración.
+            </h3>
+            <p>
+                Se identifican por un número:
+                <ul>
+                    <li>Estándar:
+                        <ul>
+                            <li>1 a 99</li>
+                            <li>1300 a 1999</li>
+                        </ul>
+                    </li>
+                    <li>Ampliadas:
+                        <ul>
+                            <li>
+                                100 a 199
+                            </li>
+                            <li>
+                                2000 a 2699
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                En versiones recientes de IOS (11.2) se pueden usar también nombres de ACL.
+                Una interfaz puede tener una ACL asociada en cada sentido. 
+                <ul>
+                    <li>Entrada de paquetes (Inbound).</li>
+                    <li>Salida de paquetes (Outbound).</li>
+                </ul>
+            </p>
+        </p>
+
+        <h2>
+            Procesamiento de ACL
+        </h2>
+        <p>
+            Al llegar un paquete:
+            <ul>
+                <li>
+                    Si la interfaz no tiene ACL de entrada, se acepta.
+                </li>
+                <li>
+                    Si tiene ACL, se revisan las reglas de la lista.
+                    <ul>
+                        <li>
+                            Se comprueba en orden
+                        </li>
+                        <li>
+                            Si alguna deniega el paquete, se rechaza.
+                        </li>
+                        <li>
+                            Si alguna acepta el paquete, se acepta.
+                        </li>
+                        <li>
+                            Si ninguna se aplica al paquete, se rechaza.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            Antes de enviar un paquete:
+            <ul>
+                <li>
+                    Si la interfaz no tiene ACL de salida, se envía.
+                </li>
+                <li>
+                    Si tiene ACL, se revisan las reglas de la lista:
+                    <ul>
+                        <li>
+                            Se comprueban en orden.
+                        </li>
+                        <li>
+                            Si alguna deniega el paquete, se desecha.
+                        </li>
+                        <li>
+                            Si alguna acepta el paquete, se envía.
+                        </li>
+                        <li>
+                            Si ninguna se aplica al paquete, se desecha.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+
+        <h2>Comandos útiles.</h2>
+        <p>
+            Una vez creada una ACL es necesario:
+            <br>
+            - Asignar y desasignar ACL a interfaces.
+            <br>
+            - Borrar y consultar ACl creadas. 
+            <br>
+
+            <h3>Borrar una ACL</h3>
+            <blockquote>
+                <code>
+                    no access-list <numero>X</numero>
+                </code>
+            </blockquote>
+
+            <h3>Mostrar las ACL existentes.</h3>
+            <blockquote>
+                <code>
+                    show ip access-list
+                </code>
+            </blockquote>
+
+            <h3>ACL asociada a una interfaz.</h3>
+            <p>
+                <blockquote>
+                    <code>
+                        show ip interface &lt;interfaz>
+                    </code>
+                </blockquote> 
+                <br>
+                Es necesario mirar el apartado Inbound y Outbound
+            </p>
+
+            <h3>Asociar una ACL a una interfaz.</h3>
+            <p>
+                <blockquote>
+                    <code>
+                        interface &lt;interfaz> 
+                        ip access-group &lt;numero ACL> &lt;out o in>
+                    </code>
+                </blockquote>
+            </p>
+
+            <h3>Eliminar una ACL de una interfaz.</h3>
+            <p>
+                <blockquote>
+                    <code>
+                        interface &lt;interfsaz>
+                        no ip access-group &lt;numero ACL> &lt; in o out>
+                    </code>
+                </blockquote>
+            </p>
+        </p>
+
+        <h2>
+            ACL estándar.
+        </h2>
+        <p>
+            <blockquote>
+                <code>
+                    access-list  access-list-number {permit|deny}
+                    {host|source source-wildcard|any}
+                </code>
+            </blockquote>
+            <br>
+            Solo hacen referencia a las direcciones IP de origen. <br>
+            Se puede especificar:
+            <ul>
+                <li>
+                    Una Red: Se especifica con IP y WILDCARD (no IP y máscara). El WILDCARD 
+                    es la máscara de red con ceros y unos invertidos. Ejemplo: <br>
+                    La red 192.168.1.0/24 se especifica como <blockquote><code>192.168.1.0 0.0.0.255</code></blockquote>
+                </li>
+                <li>
+                    Una dirección IP. las sigueintes especificaciones son equivalentes:
+                    <blockquote>
+                        <code>
+                            192.168.1.1
+                            192.168.1.1 0.0.0.0
+                        </code>
+                    </blockquote>
+                </li>
+                <li>
+                    Todas las direcciones:Las sigueintes especificaciones son equivalentes:
+                    <blockquote>
+                        <code>
+                            any
+                            0.0.0.0 255.255.255.255
+                        </code>
+                    </blockquote>
+                </li>
+            </ul>
+            Ejemplo: No dejar pasar el tráfico con origen en la red 192.168.1.0/8
+            <blockquote>
+                <code>
+                    access-list 0 deny 192.168.1.0 0.0.0.255
+                </code>
+            </blockquote>
+
+            <h3>Ejercicio</h3>
+            <p>
+                Se desea que la red 10.0.0.0/15 no sea enrutada, excepto el equipo 10..1.1, que es del administrador.
+                
+                <h4>
+                    Solución propuesta.
+                </h4>
+                <p>
+                    Se leige un número libre de ACL (1, por ej.). <br>
+                    Se introducen en orden todas las reglas de la ACL <br>
+                    Se recomienda hacer explícita la regla final de denegación. <br>
+                    El resultado es:
+<blockquote>
+    <code><pre>
+    - Permitir el host de admin (10.0.1.1)
+    access-list 1 permit host 10.0.1.1
+    - Prohibir la red 10.0.0.0/15
+    access-list  deny 10.0.0.0 0.1.255.255
+    - Permitirel resto de redes
+    access-list 1 permit any
+    - Explicitar la regla final de denegación.
+    access-list 1 deny any
+    - Asociar esta ACL a la interfaz de entrada de la red 10.0.0.0/15
+    interface Fa0/0
+    ip access-group 1 in
+    </pre></code>
+</blockquote>
+                </p>
+            </p>
+        </p>
+
+        <h2>
+            ACL Ampliadas.
+        </h2>
+        <p>
+            Pueden hacer referencia a otras características del paquete:
+            <ul>
+                <li>
+                    Dirección de origen y destino
+                </li>
+                <li>
+                    ProtocoloICMP,TCP o UDP
+                </li>
+                <li>
+                    Puerto
+                </li>
+                <li>
+                    Conexión previamente establecida
+                </li>
+            </ul>
+        
+            <h3>
+                Operadores (para puertos TCP/UDP).
+            </h3>
+            <p>
+                <table>
+                    <tr>
+                        <td>Operador</td>
+                        <td>Segnificado</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            eq
+                        </td>
+                        <td>
+                            =  igual
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            lt
+                        </td>
+                        <td>
+                            &lt; Menor
+                        </td>                    
+                    </tr>
+                    <tr>
+                        <td>
+                            ne
+                        </td>
+                        <td>
+                            &ne; No igual
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            gt
+                        </td>
+                        <td>
+                            > Mayor
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            
+            <h3>
+                IP
+            </h3>
+            <p>
+                Ejemplo: Prohibir el tráfico hacia la red 172.16.0.0/12
+                <blockquote>
+                    <code>
+                        access-list 101 deny <b>ip</b> any 172.16.0.0 0.0.15.255
+                    </code>
+                </blockquote>
+            </p>
+
+            <h3>Protoclo de mensajes de control de Internet (ICMP)</h3>
+            <p>
+                ccess-list access-list-number [dynamic dynamic-name [timeout minutes]]
+                {deny | permit} icmp source source-wildcard destination destination-wildcard
+                [icmp-type   [icmp-code] | [icmp-message]] [precedenceprecedence] [tos tos] 
+                [log | log-input] [time-range time-range-name][fragments]
+            </p>
+
+            <h3>
+                Protoclo de control de transporte (TCP)
+            </h3>
+            <p>
+                Ejemplo: Permite ek protocolo <b>TCP</b> desde la red 192.16.3.0/24 
+                con puerto de origen 21 hacia la red 172.16.1.0/24.
+                <blockquote>
+                    <code>
+                        access-list 101 permit tcp 172.16.3.0 0.0.0.255 eq 21 172.16.1.0 0.0.0.255
+                    </code>
+                </blockquote>
+                <br>
+                Ejemplo 2: Permite la comunicación TCP hacia la red 10.0.0.0/8 si ya se ha establecido conexión(la red 10.0.0.0/8 
+                es la que tiene el cliente).
+                <blockquote>
+                    <code>
+                        access-list 102 permittcp any 10.0.0.0 0.0.0.255 established
+                    </code>
+                </blockquote>
+
+                <h3>
+                    Protoclo de datagrama de usuario (UDP)
+                </h3>
+                <p>
+                    access-list access-list-number [dynamic dynamic-name [timeout minutes]]   
+                    {deny | permit} udp   
+                    source source-wildcard [operator [port]] 
+                    destination destination-wildcard   [operator [port]]
+                    [precedence precedence] [tos tos] [log | log-input] 
+                    [time-range time-range-name][fragments]
+                </p>
+            </p>
+
+        </p>
+
+        <h2>
+            Proceso de definición de ACL's.
+        </h2>
+        <p>
+            Para definir las ACL de un router es necesario:
+            Determinar las interfaces del router. Pos cada interfaz:
+                <ul>
+                    <li>
+                        Determinar qué tráfico será permitido
+                    </li>
+                    <li>
+                        Determinar qué tráfico debe ser prohibido
+                    </li>
+                    <li>
+                        Ordenar las reglas para que no entren en conflicto.
+                    </li>
+                </ul>
+            Es posible que se generen reglas redundantes. 
+            Pueden eliminarse, teniendo en cuenta que el tráfico prohibido es mejor eliminarlo cuanto
+            antes de la red.
+        </p>
+    </p>
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

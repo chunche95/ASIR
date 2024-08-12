@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>5-Medios de transmisión</title>
+</head>
+<body>
+    <h1>5- Medios de transmisión</h1>
+    <p>
+        <h2>Introducción</h2>
+        <p>
+            Los medios de transmisión son el medio físico que facilita el transporte
+            de la información. La calidad de la transmisión dependerá de sus características.
+            <table>
+                <tr>
+                    <td>Medios guiados</td>
+                    <td>Cable de pares trenzados</td>
+                    <td>Cable coaxial</td>
+                    <td>Fibra óptica</td>
+                </tr>
+                <tr>
+                    <td>Medios no guiados</td>
+                    <td>Ondas de radio</td>
+                    <td>Microondas</td>
+                    <td>Infrarrojos</td>
+                    <td>Ondas de luz</td>
+                </tr>
+            </table>
+        </p>
+        <h2>
+            Medios guiados
+        </h2>
+        <p>
+            Transmiten impulsos eléctricos o lumínicos. Los bits se "transforman" en la tarjeta de red.
+            Ésta los convierte en señales eléctricas o lumínicas respetando iertos criterios definidos por
+            el protocolo usado en esa red. <br>
+            Cada cable tiene unas características propias: 
+            <ul>
+                <li>Velocidad de transmisión</li>
+                <li>Alcancce</li>
+                <li>Calidad(ausencia de ruido/interferencias)</li>
+                <li>Tipo de transmisión(digital,analógica)</li>
+            </ul>
+        </p>
+        <h3>Cables de pares trenzados</h3>
+        <p>
+            El trenzado se comporta como un apantallamiento (la interferencia se anula a sí misma en la siguiente vuelta). 
+            El más común consta de 8 hilos trenzados dos a dos identificados por colores. Fabricados en cobre, 
+            transmiten la información en modo de impulsos eléctricos. <br>
+            Se clasifican en categorías, por  el número de trenzas por unidad de longitud.
+            A mayor trenzado, menos interferencias y mayor velocidad de transferencia. <br>
+            Afectado por la atenuación, para aumentar ésta, se hace uso de repetidores.
+        </p>
+        <h3>Cables de pares trenzados</h3>
+            <img src="https://www.telecocable.com/blog/wp-content/uploads/2017/06/cable-utp_ftp_sfp-905x370.png" alt="cables">
+            <ul>
+                <li><b>UTP (Unshielded Twisted Pair)</b></li>
+                <li>Pares trenzados sin apantallar</li>
+                <li>Más barato</li>
+                <li>Más fáciles de instalar</li>
+                <p>
+                    Cuatro pares de alambres codificados por color que han sido trenzados y cubiertos por un revestimiento de 
+                    plástico flexible.
+                    Se usa en las LAN Ethernet. Es barato y fácil de instalar.
+                </p>
+            </ul>
+            <ul>
+                <li><b>STP (Shielded Twisted Pair)</b></li>
+                <li>Apantallamiento en cada par de hilos</li>
+                <li>Mayor calidad, resistencia a interferencias</li>
+                <li>Mayor grosor</li>
+            </ul>
+            <ul>
+                <li><b>FTP (Foiled Twisted Pair)</b></li>
+                <li>Pantalla común a todos los pares</li>
+            </ul>
+        <h2>TIA/EIA-568-A y TIA/EIA-568-B</h2>
+        <p>
+            Define características del cableado LAN:
+            <ul>
+                <li>Tipos de cables</li>
+                <li>Longitud del cable</li>
+                <li>Conectores</li>
+                <li>Terminación de los cables</li>
+                <li>Métodos para realizar pruebas de cables</li>
+            </ul>
+        </p>
+
+        <h2>UTP categoría 6</h2>
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIQFRUVFRUVFRUVFxgVFxUXFRYWFhYVGBcaHiggGBsmHhUVITEiJikuLi4vFx8zODMsNygtLisBCgoKDg0OGhAQGysiHx8rKzAtMC0uNzAtLS0tLS8tLy0tLyswLTEvLS0vLS0tKysrLS0tLS0wLS0tLSstLS0tK//AABEIAN8A4gMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAAEBQADAQIGB//EAE0QAAIBAgMFAwYLBAgFAwUAAAECEQADBBIhBRMiMUEyUWEGFFJxkdEVIzNCU1RigZKT0gdDcqJ0gqGxs7TB4SRjc7LwZIPCFkSEo/H/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAQIDBAX/xAAwEQACAgAEBAMHBQEBAAAAAAAAAQIRAxIhURMxQaGR4fAEMlJhcYHBFCJCsdHxM//aAAwDAQACEQMRAD8A9tuXIqvzoVVj2il+8qpEGvnIqecilQuVneVaFjXzgVPOBSwXKyHpQsZi+KyLtLg9bq9ShYe13StPOBQl65pVOelCxj5wKwMSImRHf66T7RsG7bKCNSpg9lsrK2RvstGU+BPOl2N2ZfuaZkC57VzILjgAo1tsgKqMo+LJzDWXmNNVCzqhfFZ34rkBsi+GU+c3BxAkC4wk7uyonMGz62m000cmZms39k3gp3d4qW3Rzteu5syoy9SQQWynXtajSAaULOu34qb8Uua+oOrKPAkaVlL6kwGUnwINNC0xhvxU39BA1sKUQL39TfUJUoUL39Tf0JUoAvfipvxQlYoAzfisb8UJUoAvfirEuTQFE4aoAmpUqUAt2q0Ck+8pltxoFc/vq6xVoyxgLlZ3lAC9Wwu1rKZsPFythcoAXa2F2mUWMBcqxblLlu1at2mUmYLvXeVK9oYRrjqwdlUK6sAzKTmKkQVOnZq97utY3lMozC9dl35EX2AzMzZbjDMWyGSCpEAqwyiBDE6HSrrey7oZSt5oATNL3CSy7uXmSW7LjKdDvJPKCelyrA9TKTMBXtiby1Yt3HY7sfGNOZrhNso0M4JEkkyII6EVhNilHFwG0+VnCrcEKtojgUQDqk3ANOVxhpzpm+JREZ3YKqgszEwAFEkk9BFeNeUflPidrXTh8Nnt4WcsCQ17xfrrzCcgNW8Ob0Nx1O923+0rZ+GJXetfcc1sAOAR0LkhJ++uef8AbArGUwV4quutwAn5vIKR87vonyZ/ZzhbYBxDnNpoqlufKbuUqPUvtrtB5J7PG7AtBg5gNvHM8LGQQ0dKxJy6HSKjepyGz/2vYNzF21fs8gWMOon+CW6ejXcbM2pbxCC5Ye1dQ/OR8wnuMDQ+B1pFt/8AZ/gXhQd2SGIDHOJBA5NxdTyNeZ7R2JjNk3t/hLnLnlOdLgGuVh84R81oYcweRpbFI90zN6I/F/tSnaWJxKXCbSFwUXQhslvjUMeFZuEgsYBkZeRB0G8ifKu1tGxvFGS4kC9amSjHkQeqGDB8COYNdFWiHONtbGQ+WyjMunDbuZFcLbYDMTLhizjReGBmiZBOIx2LWCtkPLXuHIy8Ksy2hmkgMYUkkAQ2nKm6X0LFAylljMoILLOokcx0ra44UFmIAAJJOgAGpJPQRQhz9vHYwZgLebtlS1p0nS6V0LSgBW0Mp1bPodNDsXcurcHbKi3w7teF7smQ/MqsZY1jVtSQKaRWBrqNZ5GgEOJ2hilBAty0TmFm4y6rajRWnRmugwSQEmOUvEOg9Q6R/YeXqrapQGKJwtDUThqAKqVKlQog8o2gVy2+rovKx4FcjhVa42VfvPQeuvXhL9pyk9Q4Xq2F6tTggNDdt5u46UPftunaGnQjUH763SMWGi9W63aWC9Vi3auUljJbtXJdpdaaTFH4aOmpifumNPbUcSZi9bRJ1Md1a3FIq0d/WYnp4f60Ulue4/31huiWwG2TV28it8QmXQRJMUEXYHUrPqOn9tE0+Q16nD/tZ2y5FrZ9swbsXLv8OaEU+BZWY/wDvrrf2deSyWLdtmXiZC8HosjLPi2rH+r3V55jwuJ2yynNmDLaYnl+7tjKOnaavbts2xuyEZFYI6AFgvCwiBJ0IIUj1EaTI8c5PV0eyMUqV7d/8AVO8vcF8MFVla0plXnNLEgwJLCZEgjTpWdsvubtojUHM5Hey5QT4Zs2vq9dc5sBN3fR3IQJM8yW0IgKNTzpvtbEredGJ4YKx1CkjMT4mOXSB10rzexznOLlOOV38/yd/aoRhJKLvT1yGtvFKjek+7ZmMjM3Zg5ZkL3dwPdXm9zaN7FOhuXN5v3VTaA7AnTJ1XL19pnnXY2sXhxfXeOouG2ytcOYKwGVZk8IJAj26UbiLWGYucKuFF91Yb4BYUsCCxYcz4DU9a605avo+n0OGJGemV1a6/W77HjVy4+x9pq/K0WyXo0DW2glvVBW4PURXuIT7Te2vLv204E7uzcuZC5tqGNsQpZGCkiZ0+M9gFdf5OYu9d2Zh3QzcfD2lBEBlJARrknQlRLctSK6RLLTqML2yHKsgupkNx7oVrZaTcLFg/GM6hnJAERlTnl1GxfkznRk33bDhs6F8xbfQ5GYS6i6AD9gacow17GxrbPErSFiVYWEMqxaI3gcDkTmB76vt4nGG4Ru1VAxIJAJK57YC9oa5TdMjuHProwZt7FYXA7XFcDQI1skZczMD2/lBmgNHU6a0PhfJnIqJvFKoLSwLeWVtbsbvtxuyLZJWO07HlpRGyrmMzW1vBcotjeMRDM8NmjLoOLLHQiT10HsYbFBrZuPcKlmLqpZiuoiSGB1k6aqI5GaA6EVKhrFAZojDUNROGoAqpUqVCnJeWjwtcps/E5bF1xzlVB7p/8A7XR+X7whritk3c1q+ncFf8J1r34KuBwxDUmicJtV7eh40PNG1BH+lLjiY6f21lMQDzWfVNd8pLH962pUXbRJtkwR1tn0T4dxrfD2up5cvX99K8FfUEqJUHmBoG9feKMfHaQKzlZzbCmcp3TOlX4LEMSNBHI+o9KX2jOrEASBroNe/wB1YxWPNu29wL8iXz2zHEACI0mBIj+uO6syaQSsfYtmttbVGRjckHMYClFZ9RrrCiB6z0rUeUKLEI5y5i5GUQqm+CwBOuuHfQawREnQI1xilCl208dkSFhmto1608OQYNlWOoHIDU0zwm2bOXM2HIBDXHItq+UWXuJvCRy1R46idY5nzyehpxSeiDMVt8GRu7xZXy6KCA5fIqFiYBMjrHjSv4YDOoNt1ZnuJ81gDbZ0zGDoDkMeINPrm0raMRdwrBlC6gWSxDC7eKzmgQLLPMwemtKcTi7LsoFky73Mj5EmVZlLGCWUE2yBOvD4VMKWtEmup5293cbauO3IulweI+Luf/Fq95xVhLjBVVNRmZ8qkhToIkczrr4Hwrw79omCZWtYxBqkJc9UyhPhJZT/ABCur2X5as2AJtvF0Jbth4khFcjNHpAPH9Wetc3hviZd3/Z2WIlh5tkdbtDDWEdE3dzjYopVmMEQJaTrqeQ6UNjLSoyKV7pgk5wWgRJ7UyNPA6TAA8hMddu4i5aN65etbsOXLElXzZQuYc5E/h8KfbZGa7aZRK23UaDmUdXcL3wFjTqCOlc3Fxer0eq0r+zcZqS0XL7iXyuU2NyiAK94vrLZLYQDQags3ENSY05CdNdh7Tuea3rm4t3rlpt2IUcTELlMDn2oI5zHfo88pntXFVbts3ULgLkgmSobMG16NAiJ11q3EPYweFgBLaBohepV+IidS3DOvWBXFNvEeui6HduPDWmu55V+1Da73cNZF62LLhTKwVEM4IOU6rpa5H/WvQfIiw1rAYW2ymRYtzy5suY6ffXlOPZ9s7UW1rkzl7scltrAYT4KAg8Wr3C3HT2V1gnuc5yT5KvH/QHHbVa3cKC2WAGHOaQAN9cuWyDJn5giAdTrFaYHbwcqpXViBpAjMSF0JknSTEwCDypsB/56uVZyDnAn1eEf3AVWZEWI8plW4y7t2AOVQsF2ZWvq4yzwj4honnI5Dldj9sG1fFsqN3lSWOhBfe/OJiRuxwxMFjPCRTZra68K689BrHKe+slQeYB9f/nroBHc8pU1yIWhwgl1APHaUtzJCgXQZiNI0kVb/wDUNuWAU8KM7mVhVU3Q068xujp9oUzTDoCxCrx9rTtQAuv3AD7q3yDuGvPTnQA+zsaL1sXFBAJdYPMFHZGHtU0ywtCqoGgAA8KKw1AFVKlSoU4P9o54DXH+TOCYA3GK5HRlidddNfZXY/tFHDXCYW4fNbggE22DgHuPP/WvpYH/AJnnxbBbdsnSY9dFwFHMUAt4nWtoJr0HNpkuXzOk/dTO0wtqHukz0Ucz6u4ePspaLcaxr0Hv91bMhOrGT7ajKb4nHu5B5AHSOyvqHX1mrTtsOZKNxMqawATGTWfBdfWOpqlUB0BljyHuq2yhCwAOuvrrm4roXNZtZ26rBAUJJW0QpAYK4YNaIJ0MBmT76cYTymtW7kPZUkX7uoyyGfOrIs6nMqDikCYB8AMDs9ZFy7wWgdX6t1yWxzZj3CsWdlXGdMz5Ljs169micPbtkNbLkcidTGnJa4Sy3Vmsrep1i7VWUt2sPh2IsZijKqgZHuQCx4VAZQIgyzHlFWtjlvsrKllVA3lssvHct3XuBSmvDO7zHn2xoDrXM4HG4hMhZVOYXMQV9G1xK0juJk+v100w+2MqqXUoRbEdDw/Jx35kME+AqcLW0Yk3VMxtbCg5ldQUcEEHkQeY/wDO+vN8Zg72zrhuWpuYcmZ55fBp5HpJEHrXpeLxAuKSNSp5nqDynx1/soOyxOhiDzHQ10xMNTWvMzhScTbyR/aBg2QW7qFD13bMoPfmtZv7pHgK7M+U2AbdkX0AQyAVZdMpWAI8R7K8w2h5E4S8ZUNab/lxl/AQQPuigl/Z3c+bjXA7sh/0evHLCmnuepTjR6JtvyzwFkFrdy7m+wd2p66lxHMnsg8z315htjyjxO07wsYVGYnQRICLymT2B3sY8BTrA/sxsSGvX713vAi2D6zq3sIrutk7Ms4dMli2lteZCjme9jzY+JrPDfUuZdALyI8l7eAtZRDXXg3bneRyVe5BJj1k9a6lDQyUVbrTVELlqyq1qyubNErFZrFAYqVKlAYonDUNROFoAqpUqVCnE+XyStcJslOJkPJ1KmvQvLZJWuDtJlYHuM178B/sOU1YrtWgshoBBgzymYq3MnpJ7R7aeYfDZcbZPRr+HYffdSa9Jx+OdLjAKSq2wyqEY71uPMuYTljKvSeKpi+0LDStCGE8R6HjWZPTT2itma3A4k5d46cq9d+GrkTuDGomW58XF2OxCzPPUaVVY25cCw1li3fDhYJtjP2dBxt4/Fk98cf18dvXgdf0eJ6/6eTpu+ZddPET91EWMWgYEbrKPmsZB9cEGvVDti6CZs5uJgMufsgqF5pzhs3TQfcG2EuMyKzKFJAJUEmJ1iSB/dVXtkZaV68DMvZpx1b9eJ5Am1AWDu6FtQXDqGVfo7IIy2h4jU99bef2NFLWwJzZZz21PRiAScRc6y5Cg9K9cxXJf40/7hQO2fOsyebhYhs4MakFCoE9SFdf64PSsPEh8PfyJllv2PPPPrEFt7bJcfGF3BJHQXCNW5fJWwFHImtzjbOrPdtMWZHIzIS5QQgaDCKB80SeUmu0842hBO6t5tIBykDiMnR5JgqImNCdNAd71zHA6JbMlBpACrvLociX1OTdme/p0FWKl07+RHBvqee3MdbP7y2B/EPfW9vFWfpbX4199er4PNu0zghsq5gYnNAmY0591TF/Jv8Awt/ca3+pW3fyMrBrqeX28dZ+ltfjX30XZ2lYH76z+NffXbY03wwNtWYbo5QCmXeQflASCR2Yg98xoaEs3cfnM27eUsSC0aAW1ygZXMSwaeeUnTMKy8dbd/IvDe5zybVw/wBPY/MX30Rb2vhvrGH/ADE99P2v4zdId3bNw586gABdDkOr+rSdZ5ihZx4VoXnmC9klRu7QQiX55hcmSYk6nScvFW3cuR7gSbZwv1nD/mp76ITbeF+s4b81PfTzZb3iG3yqpDQsRqIE8mMiZg6E+iKNrOeO3fyLT3ObXbuE+tYb81PfW/w9hPrWG/NT310NSpcdvXgWmc78PYT61hfzU99T4ewn1rC/mp766KpUuO3rwFM534dwn1rDfmp76ym28KSFGJw5JIAAuoSSTAAE6kk10NLPKP5H/wB3D/49qqsrdB2iUThqGNFYWslCalSpUKcx5WpK1xW4rvfKRJFcpuK9WFKomGV2rUvhm7sRYU/mpFdxtHG3kuEJbLqEVuR5/HFgCBzOS2P6w765GwsG2P8A1GGP/wC+3XoG6+03trl7RrVM1hNRbtWI32riRI3BYgXDOV1BKtcAUaHoqevPpyq3EbSvoSNzmHFDAORwhdSACTmLQI7iehhvuvtN7am6+03trzZHud+JH4UZtGQCRBIBI7vCt6r3X2m9tTdfab210OJXjkBUAgEZ00P8QpXtdjbuWlt2bbBwxbgY6h7SgBhonC7tJB7Hrplirei8TdtOv2hQW19qLh2RWFxs4YyCNMpSZ+5mb1IaAX2NoFiVGEBPCZIKKAxRCOwTIYsY9ETrWbe080kYLKOIDPoxIBgQFOWYnXoQRPKrv/qO1BMYgjSIykkkkAAA66DNPKCNZ0rNzygtgwRe5oFnLJLvctgkTIXNbiefENKAK2cVuFw1hUyNHKQdWHVRrwzpIhl110IxeDt5H4E7LdB3GrMKc6K8txKrc57QB51MXb4H4m7LdfA0AtxDBLttN0m7KyzZCx7NwkgjQZSiTPPeDl1Ft4xt5kbDKwzXRmRDByhWQAsY6kMTpIgDqC8dtPdOiZbjAqCzKezmJVeYy9qBqw5+BqgeUlnLmO+1IygQxYEgTHgWQHoN4mutAX4hoS464YcKCFygkPkLmQDxKOAcMmSRQWKxjKqFbCMTnzRafiyugXKBquZGa5BnRCPEXXfKFFCsVuhTvJJIzAWkzk5RJnUCDB1rZ/KK0OYxA0Y6hR2FV35nSFdT4zpNAC4faLZJbBqYDyVBE5CoGVSpkHOsGdQGPTU1b4ysWw6KRdt2/SBD3RaLSVHLU+qNddNNobb3bFArE723bDM2RPjBbIJbKYjecvCqsZ5QZba3Ft3GBsveYEkQEVW0OQqRxDimNNJOlAU+fNkVls23LLcygWnXi3gW0WGpRSDJEEiD6qwmPuN/9oqLoc7WyQFLqslRrotxWj7D8omuhwhLoGJIJEwGke2B/dV26+03toDnMXirq21dcKjZ1LA5CCoFrMA6SSGL6AAxAOsxLDZy5mZLtm2GVUaQBHG10ARJggW1JEnt8zzLPdfab21N14t7aA08yt+gnsFLfKDCoLMhFB3uH1AH09qmu6+03tpb5QpFnm3yuH/x7Vaj7yJLkWUThqGNE4aoAmpUqVCifbaSKQeb11G0UkUr3NdYukZYpu2YNr+kYf8Ax7ddDtZcSX+JHALbr2gCXdWhgPslU6jR250sx1qN2f8A1GG/x7dMtrWbzXIXOUhCAjm2SZuZ5YERzsn7jz1rnju4o64Hvvl9yi+2NliqSRvAnEgBBa2bbFS3dnGpnQnSQK3JxpIMCM5OUZOz8cFBM8vkSY15+qq/N8YBl3kgoZYZdWyR4FRPLLy1mrLCYsMSxOUvyXJIXiy5SxOkZM0iZmJrzdf5HpbVfwGOzGu5AbwAaTppoPGCR38vCjKQW7GLyCXJZVSAxSGYFszMVElezpppzEzUxHneU5S/YMZt3OeGyzk+dnycuHLM61tTpcmcnhJyf7ojfGzlEEA501In5w6aUDtDH7plW46Sy3HkoAAlvLnYlrg0GcaCTz00o3GE5RABOdOZgdodYNB44KXTeC0rw62/+Ie2zA5c4AABYaJpr0rqcCp8dZGjXsONQINuOfrbvGvq1rZcfbYqBesEtBUbskmQCI4u5wfUwPWqsHsm2IKWrZykFSLznLoCFWF0WCNOR0JmrrGy1tsrLZtBgSQd65MntNqupOknmYE8hQB627g0D2/wH9VVYtLmR+NOy3zD3H7VW57voW/xn9FVYt7uR+C32W+ee4/YoCh8QQ62iykuo/dkgAhyAxz9Rbfw4fESM2MXOS2VSC9os1rQQguFdHOhUA6eiAYIAom7h8zKzW7WfKQp3rKYggkQusBjr0znlJoezg7RaVW0xD3RAxFxoZyGurliOYBK/fFAbHadrnv7Gv8Ayz0UNrxacMHXoPCj/NmiJtR3bvuj7XgPYKEfZ68jZs8UjW42vAVIHB6Ej1TRXnTZsnxOeM2XenNlmM0ZJietAbNh3PNrZ9duf/lWTauHm1vu7B5d3aqmxtDOQEOHYkFgFvZpAOUkQnKdJ76vz3fQt/jP6KAwllwIDWwO4IQP+6tslz00/Af11jPd9C3+M/oqZ7voW/xn9FAZyXPTT8B/XUyXPTT8B/XWM930Lf4z+ipnu+hb/Gf0UBnJc9NPwH9dLdvq+51ZCN7h+Skfv7XXNTHPd9C3+M/opdt9rm61VAN7h+Tkn5e30yitR95ElyYQaIw1D0Rh6gCalSpUKD4laEyCjMRQ1Ugv2uIRDE/H4bT/APIt0535+jf+T9VKNsHgT/r4b/MWq32ng2e4blq4iEoFLTxEBs2UaSmhYZgfncjAITbUVSs1CKcqboab8/Rv/J+qpvz9G/8AJ+qkAweIOcecRoFBNwknhtcQgQpBW5rGuYyKtbBX9IxIDTdJOZiOMnIMp0IUEaaajxrlnex14UfiQ635+jf+T9VZ35+jf+T9VIbezbo0F8KCWJAdzGY3CRJ5njQ5jqMmnOnyXUAjMNO8yfaedai2+aoxOKjydlOKvGB8W/bT0PSH2qE2lgd86My3QEBBUbuGBe1c1k6a2V5dCaNxV5YXiHbTr9oUDtnCvdZDbvi3lDSJ7RJRln1FB9zMOtaMAlvYCgywvOOHhbdkcLK0xPOFC+rxk1rb8nkE6X2JzSzFXJDTI1aBz5gDTQzWfMsTB/4lQxAEhzoAxaBKkDtcyCQFA1Bkb3sDeJ4cSupTMSdSFuXWI5RBV1WI6ToeYB2z8Lui5C3TnaYOQAasejaniiTrAUdKvxd45H+Lfst6HcftVtg3C20VmWQqgwZEgAHnWcXeXI/EOy3XwNAD3LRZkuBLgZVZQeA6Plnm32RQ+E2aEZWy3SVYlZ3eilMgWQeUdeZIrXH7OF5w++KZbeVcpAhiGhj4CQYBElRMxU2dhGtly1y0zOvympZWKqGUKfmZwz8/nRHWgCFwYHzcRHxh7es3CCSGzysQQIIiTVd7AZrjPF4ZlIK/FxxBFYzM6rbUeGp9VFvA3RbS2cQvBe3hbiJuLvjcynikaEDmQfVV16xcZby+cKN4fiyJm2vVdCDrqcwMjNA7INADtsUMAH3zQGB0tCSzIxJEx+7Qfce+s29iIGVgt2VMr8np8YLkDXQaEeomiFsvntMbyZbYIZBMPwsuaZ59nQgxB76ofBXGS2r3kZlcszEkaTKkR85RoO/mdTQDffn6N/5P1Vnfn6N/5P1UnvYK4Xd1upbLhS2VpJZbbLocoIUHLprME6SQd7OHvKwbzgNHzSxysAhAB079ZoBrvj9G/wDJ+qpvj9G/8n6q23y+kPbU36+kPbQGu+P0b/yfqpb5QXSbPYcfG4fU5fp7Xc1NN+vpD20t8oLqmzAI+Vw/X/n2q1H3kSXItNEYeqKvw9QoTUqVKgKMRQ1E36HqkAdr9hP6Rhv8xapy15QQpZQzTlBIBMc4HWk21+wn/Xw3+YtVbtDDhrrBb9tHu2ghUibkLvMrJxAjVmnQ9nprUm2oqtzWHFOTvYam6omSNNTry9fdWxNIV2GxZmN6Sc2bKpBkm4wHbPCN4CB9hdelY+ApDI95mLJdEGf3gVQ5GbmMp165ulc80tu51yYfxdjoKlLtnYBrbu7XMwcKAoBAXLPISehjv0EzTGtptrU5yST0dlGK5L/Gn/cKB2zh8S7IbFwIAGzA/OMoy9PsFfU5o3HIGUBgCC6SCJB4h0pTtewUuW93Ztlcl4t8XILru90rFbbEKZeeXLn0NMmm52hB+MQMYHJWAGYk8MCWggTMQp0BNb3sNjZ0uKZKTyEKLl3MAI0lGTXnI60JaxTsRlwVuCyglkK5Ocgwra+IkDkatwly47IpwVpQe0xSAsAEsJGoJzgDQjKCQMwAAfYNWFtA/aCqG1nWBOvXWpi/k3/hb+41p5ha+itfgX3VVi8DayP8Va7LfMXuPhQAm0NlPeuK29dEForwEhsxkSNYHMHryHKtdk4K+jh70OzKCzB2K23JdnRVPNZYAHnAE9kVjEWMt22BYQ28ssRaDTw3M0mJBBFqB1ztoYkCWze4pwdmQ1zmmhA1QDQeqdQTqO4AX28DjBlm6SoYHKGAOUGzpmKyf38ydZA06TDYPHQN5f1hJyhAJzLvIlToVDR/Fy5RdgLRZyLmFsqusHIJ0FsiZHXOw/qH7mPmFr6K1+BfdQC/AJjQLu9a2SUQWoiBcAcMTAHCfiz+IeJxtHZt5jb3V11VFVSM3by3bTcRIJ7KOJ56+NMfMLX0Vr8C+6p5ha+itfgX3UAjwuyMT5vui6glrBILO+iGxvOOQYbJdJXrn5iTWbWx762cTbD3Gd0K2rjXJbsBVJMSDIknXWnfmFr6K1+BfdU8wtfRWvwL7qAUDB4sEZWy21yFVzLmkaPmIWCpkHL9lteJcubGExxHHfIMIOEWxrmO8PYM6AR6zoKbeYWvorX4F91TzC19Fa/AvuoAXY6YkF/OCpBy5MsadrN0GkZD7e6TPKL5H/3cP/j2qK8wtfRWvwL7qX7ewdtbQIt2wRdw8EKAfl7fWK1H3kSXJhNX4eqDRGHqAIqVKlQpRfoeib9D1SAG1+wn/Xw3+YtUXjdll7jOHy57YtMInQFyGBmAePqDyFC7Y7Cf9fDf5i1TjK3pD2f70lFOKssJOLbQmbycUxx9UJ0hmyIU4mBBmCDPRpPWK2u+TqlQA8aQTlHETn4iOpGeQehUHpTfK3pD2f71MrekPZ/vXLhQ2O3HxNyrAYMWlKjWWdyepLsW174kD7qJqvK3pD2f71MrekPZ/vW0qVI5Ntu2V41ZUDXtpyMHtDqKVbU2lbsPlYXiMqsWDtAkvoddDFtiOmnMaSzxStC8Q7adPtDxrTEYlEZUe4gZwcoI1YKyqY74NxfxVSCp9uWochcQcmcHjAGZApKzn73USARr3a1jGbds2w2l/MN5ALwDu1LSSGMKYgGPWBTW1etlhbV0zEMQuXXLbYW2MdwMD2Ve1ieeU/1RQCx8aov7o5wM2TMbrBp3Zu5sv0cDLmntaR1qvCYxbyXQcylVJAF1nkQ3PlDCBK9My6macGz14ZiJyjl3eqqsTZhHjKOF+S941oBfjMfbsuttt8Zts8hnbsgsFAHMkJcPhl8RWibSQ72SVFsEgvedJg3Ac4Im38mx68OvhTPOAyKWXOVJUZdYEZo7uYqh8XZkg3bM5mUg5ZLKoLLBPEQpHtoAG1te1oHW+hKgsS8qp3W9ZZDSYAI5c6vw+ORnFsrfVpAPHKhirMVnNJ7DCY6Vc+NtKjOWUKjKjQhOVmygLA/jUad9bnH2p+WtciSdIEZZzGeE/GLz9KgCfNR33Pxt76nmo9K5+NvfVXnict9a0JU6rowElefMDpVWI2paRQzXVykSCqlhBnWVnThb8J7qAK81HpXPxt76nmo9K5+NvfW+VvSHs/3rS/cyKXd1VVBLMRAAHMkzQE81HpXPxt76nmo9K5+NvfQOB25h707rEWnI5hecd+WZjxrO0Nr27Kbx3OWY4bbuZ8QoMDxNaySvLWpnPGs16Bvmo9K5+NvfS7b9gC1Mv8rh+bMf39vpNb7I21ZxImxfR45rEMPWp1HsrG3wdzzHyuH6f8+1VUXGSTVEzKUbTsvq/D1Qavw9ZNBFSpUqFKb9D0RfqiqQA2x2E/pGG/zFqmr4y2HFsuociQpOpHF0/qt+E91K9sdhP6Rhv8xaq3aWz7T3Jd4e4oRBPobxmIHU5bjAnuOkTUm2oqtzWGouTvYZXr6oCzEADme6sWL6uoZSCDyI60p2dh7FnNYV5a4MsxxHJb3YEgRoLTafZbuNDvs7DEZ95+8JYjqbSC2VMCdBbOvSTHOuWd/LxO3Djy18DoprR7ygqCQMxhfEwWgfcCfupH8C2UCkXAMhnkhOZUCluXaAE+uD0FYTyXtwONzAMaKe1veRI5fHNI5GBPWWae3cZMPrLsOMcTlGWCc6RJgdodYNB4/DC4yNcS1mXVJusI47TSOD0kt+2Outvm4tWlVZaHBjQdp8xgaADXQdBVG0cEt65buMl4NanLBQc7lpzPFyO6UEdxPWCOqOLq9DFjBKHV1W3nVci/HOeG3mQqRl1ALmfE0wz3fQt/jb9FLbGAy3UugXyypu/wB3DLqWnWZZiGJ6lR3Uz35+jufyfqoQxnu+hb/G36Kqxb3cj8Fvst889x+xV3nB+jufyfqqrF3zkf4u52W9DuP2qAouEsyA7oPlOUC6Q0GJIGTwoMbIRicoXXMWC33IJfMpcjL2jxCfA+NFXkZntv8AGDIrQsWyJYRn1bmBp6mPfS255P2z2RfWSGOU2+eZ2zDXSc7z0OZjEmaAN+BVyFN0mrByTcYtmUo0glNNbaEjkYof4CtBSciBSsE79yMgMwSV1Gg59B3Vj4ETOzBbwnIQo3YClAwRgJ0Ik6+A7qxhNjhQwIuy1sW2CFFC8OUQA2oGsAz2vVAFljZdp5KLbYFGQ5b7GUuO7sDC8izMfu8Kuu7FDIUa2pBJJO9aSTnnXJ1Ny4fWx5UE2wFIAnEc80jd8yzMSpmR2iPUTz51u+wlIYBbwBJ6Wjlkscq66KM0heQYBuYoBs2MKkIdwGJyhTdMkgAwBkkniX2jvq1nudUtfjP6KWtgQzTF6cwZx8WS0XBdSTMiCAPV6gQxu3MwKtZcgiCDkII7iM1GBNtDYtjE8ZtWAy8rtq6UdT/Gqf31bYtJh7YDOpE6PdxDM0npmK+HKsX9jWyc1q1esv6VsoAfArmgirksZU+M3jd7MLSj1EAxXNYuO1kkvpra/DNvCwYvPH76U/ygTEbEw2Li4bOHcj94l5w3qLIoJ++iNsIy2FXKgUXMONHZiAL9rvXX21odkWiQ9tcRbJ5tZZEzesAxVu2nIshclz5XDjMxU/v7Wpg1vCxMWTUcTpy108jOJh4SuUOvy18ww1fYqg1fYrRkvqVKlQpVeoeiL1UVSAG2ewn9Iw3+YtUfe2cjXUvHNnTlDGCMrLBWYPbNAbZPAn/Xw3+YtU43q+kvtFJK4r6iMmm6FtnYircW7mYshcryiHa4xB0n94eR1yrPIVr8AWtTLgnN3c2N4k8v+e/sX72m+X0l9oqb1fSX2iufDjsdeNPcVDYCA5ldgwzZTw8ipAUwAWXrzkwJJgQ0w9oIqoOSgKPUBFZ3q+kvtFTer6S+0VVBLkZliSlzZVjnAUE8s6f9wpdtPCpeuWrm9ZTbnQKTmm5ZuEHw+Jj+tIgimGKurC8S9tOo9IUFtOxce5aa3eVFSc65tHm5ZbkPspcAPQt1BNaMlOHwgS6l3fE5UKFchhsxL3G8GZ8rT3LEazTXztO/+w+6l2Gs3luo5u2ygQq6Zjqzku7j1NlVQeS5telNd6vpL7RQFfnad/8AYfdVWLxaZH1+a3Q9x8KJ3q+kvtFU4u6uR+Jey3UdxoALEqHe1cW4qm3mIm2zElkK85GnFPfpzGtLr2xwSxTFXUDC6AFDDKHWEAKkaISxH8WkUzxSXC9p0upkSS1skrnJRlEsJ5ErpHeecQtTB4xWJGKttLqYZuygZ3ZRwmZNxlnTht2+smgNl2Z8bvPOrgGYHKFeSqu7qhbNrGfKNIgagzWj7J+Md1xTKXZGJCNmIQcmIYDnroAO8Hpc2FxUL/xFtiCpliuhCWwTomstvtNO2uoiKzjcHiHS2BiEzJdLk5shK/GhQxUcY4rcrC9k8UwaApsbLKwPO3gLbVVVXULu0KAwGjmQSPAVZbwB0DYliMmRhlucQ4gx1ciSGmYmQDMaVjD4bFrCnEWsqrbA4sxJS2QxYskwzQTr0qxLOL0DX7UZMrEMDxEMCyjII5qw10yx1mgL9nWFtO7bwFXLEKLZBlnZ+J/nRmyjQQAKNxF226lGJhgQYzKYPiNR91BbHw72nvG5dVldiUGctAz3G5EDLwtbHXsnWIAYYnK6Mu8K5gRmRgGWeqkzBoTQ5i75Orb4sHibtk9UfNetP61bUHxmjF2at20ExRsXTMwLTZBpGgYk5ueojnS29sXH4c5sJtA3x86zjGBnxW6gDIfCIo5tm3MVYCYzLbOaclnE3eg0JdQh6nhMjkfVmvkYWDCPLlt08Cm35PLZM4TF3sMD2kC722fEI85T99MtsXxuFUuWbeYcExEnf2tYiBSaxsLHYUgYPHo9s87WNzXsn8FxSHjwNPNs3D5uoZkLbzDZsugJ39qYBJMVrDWqHDhBPL6+wUavsVRV9iqbL6lSpUKVXapiiiKxkoAO9YV1Kuqsp5qwDA9dQdKF+BcN9Ww/5Se6m2SpkqqTRKFPwLhvq2H/ACk91T4Fw31bD/lJ7qbZKmSrme4pCn4Fw31bDflJ7qnwLhvq2H/KT3U2yVMlMz3FIVrsXDfVsN+UnuqfA2G+rYb8pPdTTJUy0zPcUhX8C4b6thvyk91T4Gw31bDflJ7qaZamSmZ7ikKvgXDfVsN+UnuqfAuG+rYf8pPdTXLUy0zPcUhV8C4b6th/yk91T4Fw31bDflJ7qa5KmSmZ7ikKvgXDfVsP+UnurHwLhvq2G/KT3U2yVMlMz3FIU/AuG+rYf8pPdU+BcN9Ww/5Se6m2Spkpme4pCj4Fw31bD/lJ7qnwNhvq2H/KT3U2yVMlMz3GVCn4Gw31bD/lJ7qx8DYb6th/yk91N8gqbsUzPcZUKPgbDfVsP+UnurKbJw6kMuHsAgyCLaAgjkQY0NNt2Km7FMz3FIFirrFWbsVlVislNqlSpQH/2Q==" alt="">
+        <ul>
+            <li>Cubierta</li>
+            <li>Par trenzado</li>
+            <li>Separador de pares en forma de cruz</li>
+        </ul>
+
+        <h2>FTP categoría 5</h2>
+        <img src="https://aalejandradiosdadorodriguez1114.files.wordpress.com/2014/05/stp.gif" alt="">
+        <ul>
+            <li>Cubierta exterior</li>
+            <li>Pantalla de protección externa</li>
+            <li>Hilo de drenaje</li>
+            <li>Pantalla de aluminio exterior</li>
+            <li>Hilos, incluye aislante con código de color</li>
+        </ul>
+
+        <h2>STP categoría 6</h2>
+        <img src="https://www.cableadoi.com/wp-content/uploads/2017/03/cable-cat6.jpg" alt="">
+        <ul>
+            <li>Cubierta exterior</li>
+            <li>Pantalla de aluminio -- 1 por cada par</li>
+            <li>Hilo de drenaje</li>
+            <li>Hilos, incluye aislante de código de color</li>
+        </ul>
+
+        <h1>Conectores típicos</h1>
+        <h2>RJ11</h2>
+        <img src="https://i.ebayimg.com/images/g/iU0AAOSwax5YpgTa/s-l300.jpg" alt="">
+        <p>Típicos de conexiones telefónicas</p>
+
+        <h2>RJ45</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6eJo70cN8bwOssMu6xCSoVs0JWC11ffi9hCGqTkGrNy9uCXL_" alt="">
+        <p>Ethernet, el  conector RJ11 es compatible con puertos RJ45. <br>
+            Conector RJ45 Usado para conectar redes de cableado estructurado, categoría 4,5,5e,6 y 6a.
+            RJ es un acrónimo inglés de "Registered Jack". Posee ocho pines o conexiones eléctricas, que 
+            normalmente se usan como extremos de cables de par trenzado. <br>
+            Las especificaciones EIA-TIA 568, describe los códigos de color de los cables para colocar pines a las
+            asignaciones (diagrama de pines o contactos) para: <br>
+            1- Cable director de Ethernet. <br>
+            2- Cable de conexión cruzada.
+
+        </p>
+
+        <h2>DB9</h2>
+        <img src="data:image/jpeg;base64,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" alt="">
+        <p>Típico de puerto serie</p>
+
+        <h2>DB25</h2>
+        <img src="https://img.clasf.com.ar/2018/02/11/Adaptador-Puerto-DB25-Hembra-A-DB25-Macho-CONGRESO-20180211135452.jpg" alt="">
+        <p>
+            Puerto paralelo, el de las impresoras anteriores a las USB, conectores de las impresoras financieras PR de Olivetti, principalmente.
+        </p>
+
+        <h3>Cable recto</h3>
+        <p>
+            Se utiliza para conectar equipos de nivel 3 con equipos de nivel 1-2
+        </p>
+        <h3>Cable cruzado</h3>
+        <p>
+            Se utiliza para conectar equipos de niveles equivalentes(3 con 3, 2 con 2).
+        </p>
+        <img src="https://ugc.kn3.net/i/origin/http://www.colisito.com.ar/wp-content/uploads/2009/06/cable-de-red-normas-A-y-B.jpg" alt="recto-cruzado-1">
+        <pre> </pre> 
+        <pre>      Cable recto                 y           cable cruzado.</pre>
+        <pre> </pre>
+        <img src="https://t2.kn3.net/taringa/2/5/8/5/2/4/iniciarsesion_08/A79.jpg" alt="recto-cruzado-2">
+        <pre>
+
+
+        </pre>
+        <h3>Cable PoE</h3>
+        <p>
+            Power over Ethernet
+        </p>
+        <h3>¿Se necesitan todos estos cables?</h3>
+        <p>La mayoría de equipos detectan automáticamente al otro equipo
+            <br>
+            Se cruzan ellos mismos si es necesario. Hay algunas excepciones, como Cisco.
+        </p>
+
+        <h2>Estándares</h2>
+        <p>
+            <ul>
+                <li>TIA/EIA 568B
+                        <p>
+                            Define características del cableado completo (junto con rosetas,conectores,...)
+                        </p>            
+                </li>
+                <li>ISO/IEC 11801
+                    <p>
+                        Define características del cable (MHz soportados e impedancia).
+                    </p>
+                </li>
+                <li>Ethernet
+                    <p>
+                        Define características del cableado,aplicadas a un protocolo físico y de enlace concretos (distancias máximas, retardos máximos, ...)
+                    </p>
+                </li>
+            </ul>
+            <img src="https://slideplayer.es/slide/164039/2/images/63/Sistemas+de+cableado+UTP.jpg" alt="">
+            <img src="https://slideplayer.es/slide/164039/2/images/66/Sistemas+de+cableado+UTP.jpg" alt="">
+            <pre>
+                <h3> 
+                TIA/EIA 568B            ISO/IEC 11801       Maximum Data Rate
+                </h3>
+                                                Class A          100 khz
+                    Cat 1                       Class B          Up to 1 Mbps (1Mhz)
+                    Cat 2                                        4 Mbps
+                    Cat 3                       Class C          16 Mbps
+                    Cat 4                                        20 Mbps
+                    Cat 5                       Class D          100 Mbps (100 Mhz)
+                    Cat 5e                                       1000 Mbps (100 Mhz)
+                                                Class E          200 Mhz
+                    Cat 6                                        Up to 250-400 Mhz
+                    Cat 6e                                       Up to 625 Mhz
+                    Cat 7                       Class F          Up to 600-700 Mhz
+                    Cat 8                                        Up to 2 GHz
+            </pre>
+        </p>
+
+        <h2>Categorías IEEE</h2>
+        <p>
+            De acuerdo a su rendimiento (velocidad/uso).
+            <pre>
+                Categoría 1 (1 Mhz). Hilo telefónico para voz.
+                Categoría 2 (4 Mhz). Par trenzado sin apantallar de cobre.
+                Categoría 3 (16 Mhz – 10 Mbps).
+                Categoría 4 (20 Mhz – 20 Mbps).
+                Categoría 5 (100 Mhz – 100 Mbps).
+                Categoría 6 (250 Mhz – 1 Gbps).
+                Categoría 7 (600 Mhz – 10 Gbps).
+                Categoría 8 (en desarrollo)
+            </pre>
+        </p>
+        <h2>Ethernet</h2>
+        <img src="https://4.bp.blogspot.com/-LgXMDRlWqWs/VwPGMVIr9WI/AAAAAAAAAA8/zedSoEpjOCgqOYiIVV6JgE9tV_Xt9KWpA/s1600/ethernet_1.gif" alt="">
+        <p>
+            <pre>
+<b>  Tecnología    Velocidad de transmisión   Tipo de cable                          Distancia máxima        Topología</b>
+    10Base2       10 Mbps                    Coaxial                                  185 m              Bus (Conector T)
+    10BaseT       10 Mbps                    Par Trenzado                             100 m              Estrella (Hub o Switch)
+    10BaseF       10 Mbps                    Fibra óptica                             2000 m             Estrella (Hub o Switch)
+    100BaseT4     100Mbps                    Par Trenzado (categoría 3UTP)            100 m              Estrella. Half Duplex (hub) y Full Duplex (switch)
+    100BaseTX     100Mbps                    Par Trenzado (categoría 5UTP)            100 m              Estrella. Half Duplex (hub) y Full Duplex (switch)
+    100BaseFX     100Mbps                    Fibra óptica                             2000 m             No permite el uso de hubs
+    1000BaseT     1000Mbps                   4 pares trenzado (categoría 5e ó 6UTP )  100 m              Estrella. Full Duplex (switch)
+    1000BaseSX    1000Mbps                   Fibra óptica (multimodo)                 550 m              Estrella. Full Duplex (switch)
+    1000BaseLX    1000Mbps                   Fibra óptica (monomodo)                  5000 m             Estrella. Full Duplex (switch)
+                      
+            </pre>
+        </p>
+
+        <h2>Categorías VS Clase</h2>
+        <p>
+            La <b>categoría</b> es un estándar de la calidad del cable. <br>
+            La <b>clase</b> es un estándar de la calidad de la red completa. <br>
+                <ul>
+                    <li>Cable</li>
+                    <li>Rosetas/conectores</li>
+                    <li>Equipos de interconexión</li>
+                </ul>
+            Lo interesante es conseguir una buena <b>clase</b>. 
+            Para lo que es necesario usar materiales de una buena <b>categoría</b>.
+            <img src="https://sofiacuraarias.files.wordpress.com/2015/05/categorias_de_cable_par_trenzado_utp-e1432623954862.jpg" alt="">
+        </p>
+
+        <h2>Coaxial</h2>
+        <p>
+            Conductor de cobre rodeado de una capa de aislante flexible, sobre este material aislante hay una malla de cobre que actúa como:
+            <ul>
+                <li>segundo alambre de circuito</li>
+                <li>apantallamiento para el Conductor interno</li>
+            </ul>
+            La envoltura del cable recubre el blindaje.
+            <img src="data:image/jpeg;base64,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" alt="">
+            Hoy en día ha caído en desuso en las redes de área local.
+            Aún se usa en televisión, tiene un gran ancho de banda con muy poca interferencia. <br>
+            Tipos:
+            <ul>
+                <li>Thicknet: original</li>
+                <li>Thinnet: más barato y manejable</li>
+            </ul>
+        </p>
+
+        <h2>Fibra óptica</h2>
+        <p>
+            La información se tranmsite en forma de pulsos de luz.
+            En cada instante si hay presencia o ausencia de señal luminosa. <br>
+            Se puede usar diferentes colores para la multiplexación por ffrecuencia. En un
+            extremo se coloca un LED emisor de luz o láser, en el extremo opuesto se sitúa 
+            un detector de luz.
+
+            <h3>Ventajas de la fibra óptica</h3>
+            <p>
+                Gran ancho de banda. <br>
+                La atenuación es mínima. <br>
+                No hay interferencias, no se producen campos magnéticos. <br>
+                Longitud del cable, capacidad y velocidad son muy altas. <br>
+                Seguridad de datos: sólo se puede acceder (pinchar) el cable por medios destructivos. <br>
+                Seguridad frente a accidentes, no hay corriente eléctrica, no es peligroso.
+            </p>
+
+            <h3>Inconvenientes de la fibra óptica</h3>
+            <p>
+                Son frágiles. <br>
+                Los transmisores y receptores son caros. <br>
+                Empalmar un cable es difícil. <br>
+                Necesitan un conversior eléctrico para conectar al PC. <br>
+                No hay chips ópticos.
+            </p>
+
+        </p>
+
+       <h3>Principio físico</h3>
+       <p>
+           Consiste en dos cilindros coaxiales de vidrios transparentes y de diámetros muy pequeños. El cilindro
+            interior se llama núcleo y el exterior envoltura. <br>
+            El índice de refracción del núcleo es mayor que el de la envoltura.
+            En el límite entre el núcleo y envoltura se produce una reflaxión total de la luz, como consecuencia la
+            luz no puede escapar del núcleo, quedando guiada dentro de él.
+       </p>
+       <h2>Tipos</h2>
+       <p>
+           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Fibra_optica.svg/1280px-Fibra_optica.svg.png" alt="">
+           <ul>
+               <li>Multimodo.
+                   <p>El diámetro del núcleo es muy superior a la longitud de onda de la luz. 
+                    De índice <b>escalonado</b>:El índice de refracción es constante en el núcleo. <br>
+                    De índice <b>gradual</b>:El índice de refracción varía dentro del núcleo hasta igualar al del revestimiento.
+
+                   </p>
+               </li>
+               <li>Monomodo.
+                    <p>
+                        El diámetro del núcleo es poco mayor que la longitud de onda. <br>
+                        Únicamente se propaga un rayo de luz. Necesita un diodo láser de elevado coste.
+                    </p>
+               </li>
+           </ul>
+       </p>
+       <h2>Conectores</h2>
+       <img src="data:image/jpeg;base64,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" alt="">
+       <h2>Medios no guiados</h2>
+       <p>
+           Las señales no viajan por un canal cerrado. 
+           <ul>
+               <li>Ventajas</li>
+               <ul>
+                   <li>
+                       Bajo coste
+                   </li>
+                   <li>
+                       Comodidad
+                   </li>
+               </ul>
+               <li>Desventajas</li>
+               <ul>
+                   <li>
+                       Interferencias
+                   </li>
+                   <li>
+                       Riesgo de seguridad
+                   </li>
+               </ul>
+           </ul>
+       </p>
+
+       <h2>Bluetooth</h2>
+       <p>
+        IEEE 802.15 <br>
+        Baja velocidad, bajo coste de energía, corto alcance (PAN).
+       </p>
+       <h2>Wimax</h2>
+       <p>
+        IEEE 802.16 <br>
+        Worldwide Interoperability for Microwave Access.
+        Usa ondas de radio en las frecuencias de 2,5 a 3,5 GHz. Se usaen zonas de difícil acceso 
+        para medios guiados (por terreno o por número de usuarios).
+       </p>
+       <h2>Wifi</h2>
+       <p>
+        IEEE 802.11 <br>
+        Destinada a LAN. Microondas y radiofrecuencia.
+       </p>
+
+       <img src="https://ccnadesdecero.es/wp-content/uploads/2018/01/Comparaci%C3%B3n-de-los-est%C3%A1ndares-802.11.png" alt="">
+       <img src="https://4.bp.blogspot.com/-q2Z23mX80ZE/UigC8jo4r_I/AAAAAAAAA4g/7cJ_1iGmJK0/s1600/canales+wifi.gif" alt="">
+
+    </p>
+    
+    <address>
+        Human Computing  3.0 &copy;
+    </address>   
+</body>
+</html>

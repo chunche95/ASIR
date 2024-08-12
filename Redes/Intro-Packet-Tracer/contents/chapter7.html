@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Chapter 7.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+        <!-- Header -->
+        	<header id="header">
+               <div class="content">
+                    <h1><a href="#">Introduction: Packet tracer Environment Controls.</a></h1>
+					<p>
+						
+					</p>
+					<ul class="actions">
+						<li><a href="#one" class="button icon fa-chevron-down scrolly">Start!</a></li>
+					</ul>
+				</div>
+				<div class="image phone"><div class="inner"><img src="../images/pic07.jpg" alt="" /></div></div>
+			</header>
+            <div class="flotante">
+                    <a class='flotante' href='../index.html'><img src='../images/boton-flotante.png'/></a>    
+            </div>
+		<!-- Introduction -->
+			<article id="one" class="normal">
+                <h2>
+					Packet tracer Environment Controls.
+				</h2>
+                <p>
+					In this chapter, you will learn: 
+					<ul>
+						<li>The environmental controls that are available in Packet Tracer.</li>
+						<li>How to configure environmental controls within containers.</li>
+						<li>How smart devices interact with the Packet tracer environmental elements.</li>
+						<li>How to adjust environmental elements.</li>
+						<li>How to set conditions and take action</li>
+					</ul>
+				</p>
+				<h2>Environmental Controls available in Packet Tracer.</h2>
+				<p>
+					In the Physical workspace there are containers. Each container, the intercity, city, buildings and wiring closets, all have their own set of environmental values. There are 24 default environmental elements, such as temperature, rain, 
+					water level, wind speed and snow. Many devices or Things effect or respond to the environment in some way. A Fire Sprinkler will raise the water level and humidity in a container. An old car will increase various gases and ambient temperature 
+					when turned on. A smoke detector cab be used to trigger an alarm when the smoke in environment increases to a certain point. <br>
+					If there are no devices configured to affect the environment, their values  are looped on a 24-hour cycle. For example, the sun will come up at 6pm. The ambient temperature will peak at 25ºC at <b>noon</b>(medidía). This cycle is set on the intercity 
+					level and its ambient temperature range will propage all the way down to the main wiring closet automatically. If a heater is added to the Corporate Office and turned on, the temperature inside the Corporate Office will increase along with all the containers within it.
+					<br> 
+					Note however, the heater does not  heat up the parent container, Hom City, it will only heat up the child containers. <br>
+					When the heater is turned off , the Corporate Office will eventually converge to the parent container's ambient temperature, Home City, based on its transference values determine the rate that the child container converges with the parent container and works the same way 
+					for all enviroment types. <br>
+					<video src="../videos/environmentalControlsAvailable.mp4"controls width="640" height="480"></video>
+				</p>
+				<h2>Configuring the Environment using Containers.</h2>
+				<p>
+					Important terms and concepts:
+					<ul>
+						• Current time – time inside a container that increments by 30 minute increments. Every 1 second in real time equates to 30 minutes in “Container” time. The timer goes from 0 (midnight) to 11:59. (Figure).
+						<br>							
+						<img src="../images/environments-CorporateOffice.PNG" alt=""> <br>
+						• KeyFrame – represents a single moment in time
+						<br>						
+						• KeyFrame graph – A graph that shows the value of environmental elements at any given point in time throughout the day. (Figure).
+						<br>						
+						<img src="../images/environments-HomeCity.PNG" alt=""> <br>
+						• Transference - values that determine the rate that the child container converges with the parent container and works the same way for all environment types.
+					</ul>
+					To modify environmental elements within a container:
+					<ul>
+						1. Select Environmental from the top right hand corner of the Physical view.
+						<br>						
+						2. Select the appropriate container location.
+						<br>						
+						3. Modify the time, if required.
+						<br>						
+						4. Select Environmental Values/Edit – a keyframe graph will appear.
+						<br>						
+						5. Select the Advanced tab and modify the required environmental conditions using the dropdown boxes as required.
+						<br>						
+						Note: Remember to hit enter after modifying a value to add that value. (Figure). 
+						<br>						
+						<img src="../images/environments-HomeCitySimulationTimeScale.PNG" alt=""> <br>
+						6. The modified values will be reflected immediately in the keyframe graph.
+						<br>						
+						7. You can also manipulate the graph by dragging the timeline to modify the time and value of a particular environmental value.
+					</ul>
+				</p>
+				<h2>Packet tracer - Modify and Monitor Environmental Controls in Packet Tracer.</h2>
+				<p>
+					<a href="../documentos/7.1.2.2 Packet Tracer - Modify and Monitor Environmental Controls.pdf" target="_blank" rel="noopener noreferrer">Modify and Monitor Environment Controls Instructions</a> <br>
+					<a href="../documentos/7.1.2.2 PT Environmental Controls.pkt" target="_blank" rel="noopener noreferrer">Environmental Controls Packet Tracer File</a>
+				</p>
+				<h2>Chapter 7: Packet Tracer Environment Controls</h2>
+				<p>
+					At the completion of this chapter, you should be able to:
+					<ul>
+						<li>Describe the types of environmental controls that are available in Packet Tracer.</li>
+						<li>Configure environmental controls within containers.</li>
+						<li>Explain how smart devices interact with the Packet Tracer environmental elements.</li>
+						<li>Adjust environmental elements.</li>
+						<li>Set conditions so that IoT devices will take action.</li>
+					</ul>
+					For additional help and practice using Packet Tracer, please visit the Tutorials located under Help in the Packet Tracer program. To view some examples of how Packet Tracer can be used, select File, then Open Samples from the main menu.
+				</p>
+			</article>
+            
+		<!-- One -->
+			<section id="two" class="wrapper">
+				<div class="inner alt">
+					
+					<section class="special">
+						<ul class="icons labeled">
+							<li><span class="icon fa-camera-retro"><span class="label"><a href="https://pixabay.com/es/" target="_blank" rel="noopener noreferrer">Imag. pixabay</a></span></span></li>
+							<li><span class="icon fa-refresh"><span class="label"><a href="https://github.com/chunche95/Introduction-to-Packet-Tracer" target="_blank" rel="noopener noreferrer">This repository in Github</a></span></span></li>
+							<li><span class="icon fa-cloud"><span class="label"><a href="https://www.linkedin.com/in/paulinoestebanberm%C3%BAdezrodr%C3%ADguez" target="_blank" rel="noopener noreferrer">Me Linkedln</a></span></span></li>
+							<li><span class="icon fa-code"><span class="label"> <a href="http://github.com/chunche95" target="_blank" rel="noopener noreferrer">chunche95-GitHub</a> </span></span></li>
+							<li><span class="icon fa-desktop"><span class="label"><a href="https://www.netacad.com" target="_blank" rel="noopener noreferrer">Cisco Academy</a></span></span></li>
+						</ul>
+					</section>
+				</div>
+			</section>
+
+		
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<p class="copyright">&copy; Human Computing 3.0. - Credits: <a href="https://github.com/chunche95">GitHub&rarr;Chunche95</a></p>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

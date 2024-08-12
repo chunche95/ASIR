@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>06-Capa de enlace</title>
+</head>
+<body>
+    
+    <h1>06- Capa de enlace.</h1>
+    <p>
+        Es la capa 2 de la arquitectura OSI. Se encarga de conseguir que la comunicación de datos se produzca correctamente
+        a través de un medio físico de transmisión. Para lograr que dos dispositivos adyacentes se comuniquen, se necesita un
+        control de intercambio de datos: el control del enlace. <br>
+        La capa de enlace proporciona a la capa de Red un servicio de transporte de bits fiable(asegura que los bit se transmiten 
+        correctamente por el medio físico). <br>
+        El bloque de datos transmitido se denomina <b>trama</b>.
+    </p>
+
+    <h2>Funciones de la capa de enlace</h2>
+    <p>
+        Sincronización a nivel de trama. <br>
+        Control de flujo: las estaciones deben ponerser de acuerdo en el ritmo de transmisión de datos. <br>
+        Control de errores: los enlaces no son perfectos, hay que controlar que no haya errores en la transmisión. <br>
+        Direccionamiento: si hay varios posibles destinos,  es necesario identificar a quien va dirigida la trama. <br>
+        Gestión del enlace:
+        <ul>
+            <li>Inicio de la transmisión</li>
+            <li>Mantenimiento de la transmisión</li>
+            <li>Finalización de la transmisión</li>
+        </ul>
+    </p>
+
+    <h2>MAC y LLC</h2>
+    <p>
+        En la arquitectura IEEE 802, el nicel de enlace se divide en dos subcapas:
+        <ul>
+            <li>
+                LLC: Se encarga de las funciones comunes de la capa independientemente del medio físico usando:
+                <ul>
+                    <li>Control de errores</li>
+                    <li>Direccionamiento</li>
+                    <li>Sus funciones han sido definidas por el subgrupo 802.2</li>
+                </ul>
+            </li>
+            <li>
+                MAC: Se encarga del acceso al medio (gestión del enlace).
+            </li>
+        </ul>
+    </p>
+
+    <h2>Tramas</h2>
+    <p>
+        Una trama es un bloque de bits agrupados que son enviados por la línea.
+        El tamaño de la trama depende del tipo de red. <br>
+        Agrupar los bits en tramas facilita:
+        <ul>
+            <li>La detección y corrección de errores</li>
+            <li>La compartición del medio</li>
+        </ul>
+        Una trama se compone de tres partes:
+        <ul>
+            <li>información sobre la trama</li>
+            <li>Datos</li>
+            <li>Redundancia</li>
+        </ul>
+    </p>
+
+    <h2>Control de flujo</h2>
+    <p>
+        Algunos protocolos de nivel 2 lo soportan. No es el caso de Ethernet.
+    </p>
+
+    <h2>Acceso al medio</h2>
+    <p>
+        <h3>Calsificación general</h3>
+        <p>
+            <ul>
+                <li>Medio repartido:
+                    <ul>
+                        <li><b>FDM</b>: Multiplexación en frecuencias.
+                            Cada vez menos usado: se puede infrautilizar el ancho de banda.
+                        </li>
+                        <li><b>TDM</b>: Multiplexación en tiempo</li>
+                    </ul>
+                </li>
+                <li>Medio compartido:
+                    <ul>
+                        <li>
+                            Sin colisiones
+                            <ul>
+                                <li>Sondeo</li>
+                                <li><b>Paso de testigo (Token Bus)</b></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Con colisiones
+                            <ul>
+                                <li>CSMA/CD(Ethernet)</li>
+                                <li>CSMA/CA(Wifi)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+    </p>
+
+    <h2>FDM</h2>
+    <p>
+        Se multiplexa el canal por frecuencia. Cada canal se asigna a un nodo de la red.
+        Usado en:
+        <ul>
+            <li>Red telefónica(analógica)</li>
+            <li>Radio FM/AM</li>
+            <li>DSL</li>
+        </ul>
+    </p>
+
+    <h2>TDM</h2>
+    <p>
+        Se multiplexa el canal por tiempo (a la Round Robin). Cada canal se asigna a un nodo de la red.
+        Más común en transmisiones digitales:
+        <ul>
+            <li>GSM</li>
+            <li>SONET</li>
+        </ul>
+    </p>
+
+    <h2>Paso de testigo</h2>
+    <p>
+        Cada nodo debe esperar a tener el turno de emisión. El turno se utiliza, y se cede al siguiente por un testigo.
+        <ul>
+            <li>Un mensaje especial que indica que no se quiere emitir más</li>
+            <li>Y señala el siguiente equipo que emitirá.</li>
+        </ul>
+        Ejemplos: Token Bus
+    </p>
+
+    <h2>CSMA/CD</h2>
+    <p>
+        <i>Carrier-sense multiple access with collision detection</i> <br>
+        Multiple access: Cualquiera puede emitir usando el mismo medio. <br>
+        Carrier-sense: Antes de emitir, se comprueba que nadie más esté emitiendo. <br>
+        Collision detection:
+        <ul>
+            <li>Durante la transmisión, detecto si otro también emite</li>
+            <li>si se produce una colisión, dejo de emitir</li>
+            <li>Y espero un timepo aleatorio para volver a intentarlo.</li>
+        </ul>
+    </p>
+
+    <h2>CSMA/CA</h2>
+    <p>
+        <i>Carrier-sense multiple access with collision avoidance</i> <br>
+        Similar a CSMA/CD <br>
+        Collision avoidance para evitar los nodos ocultos:
+        <ul>
+            <li>Antes de emitir los datos se envían un RTS(request to send) <br>
+            <p>Es un mensaje pequeño, con poca probabilidad de colisión</p></li>
+            <li>Un nodo central recibe los RTS y determina quién recibe un CTS (clear to send)</li>
+            <li>El que recibe el CTS puede enviar sus datos sin problema</li>
+        </ul>
+    </p>
+
+    <h2>Control de errores</h2>
+    <p>
+        Consiste en enviar algunos bits añadidos a los datos con información que permita detectar o corregir los errores. <br>
+        El procentaje de redundancia se calcula como:
+            <pre>
+                      bits_de_control
+                    ___________________ x 100
+                       bits_totales
+            </pre>
+        Los errores pueden:
+        <ul>
+            <li>Detectarse.</li>
+            <li>Adicionalmente, corregirse.</li>
+        </ul>
+    </p>
+
+    <h2>Errores</h2>
+    <p>
+        - Un único bit, más comunes en transmisiones en paralelo. <br>
+        - Ráfaga de bits, una interferencia actúa sobre los medios de transmisión. Perturban varios bits seguidos. 
+        Afectan más a comunicaciones en serie.
+    </p>
+
+    <h2>Detección de errores</h2>    
+    <p>
+        <h3>ECO</h3>
+        <p>
+            El recpetor envía una copia exacta de la información recibida al emisor. <br>
+            El emisor confirma con otra trama que la información es correcta.
+        </p>
+        <h3>Paridad lineal</h3>
+        <p>
+            Se añade un bit extra, indicando si el número de bits con valor a 1 es par o impar.
+            <ul>
+                <li>
+                    100100 - Con paridad par, se envía como 100100 <b>0</b>
+                </li>
+                <li>
+                    100100 - Con paridad impar, se envía como 100100 <b>1</b>
+                </li>
+            </ul>
+        </p>
+
+        <h3>Paridad de bloque</h3>
+        <pre>
+                            Datos                Paridad lineal
+                 
+                            1100 0 01                   0
+                 
+                            0110 1 10                   0
+                 
+                            1011 0 10                   0
+                 
+                            1001 1 11                   1
+                 
+                            0111 0 01                   0
+                 
+                            1100 1 11                   1
+                 
+                            1010 0 00                   0
+                            ___________________________________
+        Paridad de bloque   0001 0 00                   0
+                
+        </pre>
+
+        <h3>Conclusión</h3>
+        <ul>
+            <li>Si falla un bit, puedo arreglarlo</li>
+            <li>Si fallan dos bits, lo detecto</li>
+            <li>Si fallan más,</li>
+                <ul>
+                    <li>Puedo no enterarme</li>
+                    <li>Puede parecer que ha fallado solo uno</li>
+                    <li>Puedo detectar el error</li>
+                </ul>
+        </ul>
+    </p>
+
+
+    <h2>Distancia de Hamming</h2>
+    <p>
+        Cuando se produce un error, cambian algunos bits. <br>
+        Según la codificación utilizada, no todas las combinaciones de 0's y 1's son posibles. Ej: 4B/5B. <br>
+        La distancia de <b>Hamming</b> de un código es la cantidad de bits que hay que cambiar en una combinación válida para 
+        llegar a otra combinación válida. <br>
+        Cuanto mayor sea la distancia, más robusto es el código frente a errores.
+        <ul>
+            <li>Si la distancia es <i>d</i>, se pueden detectar errores de hasta <i>d-1</i> bits</li>
+            <li>Si la distancia es <i>d</i>, se pueden corregir errores de hasta <i>[(d-1)/2]</i> bits.</li>
+        </ul>
+    </p>
+
+    <h2>CRC</h2>
+    <p>
+        Al principio de la comunicación, emisor y recpetor acuerdad un Polinomio Generador.
+        Al iniciar la transmisión se añaden un número predeterminado de ceros a la información a enviar y se divide utilizando el
+        polinomio generador.  <br>
+        El receptor realiza nuevamente una división sobre los datos recibidos y si el resto es 0 indica que la trama se ha recibido sin 
+        errores. <br>
+        Finalmente, se descartan los bits añadidos en el transmisor para quedarnos con el mensaje original.
+
+        <h3>¿Por qué CRC?</h3>
+        Hay versiones de CRC para diferentes longitudes de polinomio: CRC16, CRC32,... <br>
+        Los errores se producen típicamente a ráfagas. Para un <i>CRC</i> de <i>n bits:</i>
+        <ul>
+            <li>Se detectan todos los errores de ráfagas de menos de <i>n</i> bits incorrectos</li>
+            <li>Se detecta una fracción de las ráfagas más largas. (1-2<sup>-n</sup> )</li>
+        </ul>
+    </p>
+
+    <h2>Corrección de errores</h2>
+    <p>
+        La detección de errores es el principal paso, una vez detectado:
+        <ul>
+            <li>
+                Se puede ignorar ( las capas más altas deben arreglar el error)
+            </li>
+            <li>
+                Se puede corregir
+            </li>
+        </ul>
+        Ethernet no corrige errores, pero veremos algunas técnicas que pueden usar otras capas 2.
+    </p>
+
+    <h2>Retransmisión</h2>
+    <p>
+        Es el método de corrección más sencillo. Se detecta el error y se pide al emisor que vuelva a enviar la trama. <br>
+        Se tienen que memorizar las tramas enviadas hasta la recepción de un ACK que confirme que el envío de información fue exitosa.
+    </p>
+
+    <h2>Corrección: Código Hamming</h2>
+    <p>
+        Codificación que permite la detección y la corrección de un bit. <b>Tiene distancia 3.</b> <br>
+        Se influyen bits de paridad de la siguiente forma:
+        <ul>
+            <li>
+                Los bits de las posiciones s= 2 <sup>(p-1)</sup>  son de paridad: 1,2,4,8,...
+            </li>
+            <li>
+                El resto son de datos.
+            </li>
+            <li>
+                El bit de la posición <i>'s'</i> se incluye en el bit de paridad <i>'p'</i> si la expresión de 's'en binario 
+                tiene a 1 el bit 'p'.
+            </li>
+        </ul>
+        Ejemplo Hamming(11,7). Para la transmisión de 0110101
+
+        <pre>           
+                p1  p2  d1  p3  d2  d3  d4  p4  d5  d6  d7
+                s1  s2  s3  s4  s5  s6  s7  s8  s9  s10 s11
+        Datos           0       1   1   0       1   0   1
+        p1              0       1       0       1       1
+        p2              0           1   0           0   1
+        p3                      1   1   0
+        p4                                      1   0   1
+        </pre>
+    </p>
+    
+    <h2>¿Y si hay más de un error?</h2>
+    <p>
+        Su distancia de Hamming es 3, así que no se puede detectar. <br>
+        En Hamming extendido se añade un bit de paridad adicional, permite detectar errores de dos bits, pero no corregirlos.
+    </p>
+
+    
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

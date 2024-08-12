@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>18 - NAT</title>
+</head>
+<body>
+    
+    <h1>
+        Network Address Translation (NAT).
+    </h1>
+    <p>
+        <h2>Introducción</h2>
+        <p>
+            En un enrutamiento normal IP los paquetes siempre conservan su IP origen y destino,
+            aunque pasen por diferentes routers. <br>
+            <i>¿Qué pasaría si un router cambiase la dirección IP de origen por la suya propia? </i> 
+            El destino de la comunicación pensaría que el origen de la misma es ese <i>router</i>. La
+            información de vuelta se enviaría al router, no al origen real.
+        </p>
+
+        <h2>Enrutamiento.</h2>
+        <p>
+            En un enrutamiento normal IP los paquetes siempre sonservan su IP origen y destino, aunque 
+            pasen por diferentes routers. 
+        </p>
+        
+        <h2>
+            NAT
+        </h2>
+        <p>
+            NATP cambia la dirección IP de origen. 
+            El origen está en una red privada interna. La reemplaza por la IP externa del router, también 
+            puede cambiar el puerto de origen. Deja anotados estos cambios en una tabla de correspondencias:
+            <br>
+            Al recibir n paquete de respuesta, deshace el cambio antes de enrutar.
+            <img src="https://i.blogs.es/bad791/nat/450_1000.jpg" alt="NAT">
+        </p>
+
+        <h2>Ventajas de NAT.</h2>
+        <p>
+            El NAT crea un firewall automático y casi imposible de saltar. Los equipos externos no pueden 
+            iniciar comunicaciones, sólo los internos. Los equipos internos ni siquiera existen en Internet. <br>
+            El NAT permite compartir una sola IP pública entre muchos ordenadores, ahorro en direcciones IP públicas.
+        </p>
+
+        <h2>Redirección permanente de puertos.</h2>
+        <p>
+            Puede ser interesante que haya entradas NAT permanentes en la tabla de correspondencias. <br>
+            Un servidor web en nuestra red local debería recibir todo el tráfico que tenga como destino la IP del router 
+            y el puerto 80. <br>
+            Programas P2P pueden funcionar mejor redireccionando directamente el tráfico al programa, para que otros peers
+            puedean encontrarnos. <br>
+            <i>
+                El puerto interno expuesto no tiene por qué coincidir con el externo.
+            </i>
+        </p>
+
+        <h2>
+            ¿Qué puertos exponer?
+        </h2>
+        <p>
+            Cada protocolo tiene un puerto asignado (aunque algunos pueden cambiarse). Hay que referirse a la documentación
+            de cada servicio ( o a /etc/services ).
+            <table>
+                <tr>
+                    <td>
+                        <b>Protocolo</b>
+                    </td>
+                    <td>
+                        <b>Puerto(s)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SSH</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>HTTP</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>HTTPS</td>
+                    <td>443</td>
+                </tr>
+                <tr>
+                    <td>SMTP</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>POP3</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>IMAP</td>
+                    <td>143</td>
+                </tr>
+                <tr>
+                    <td>FTP</td>
+                    <td>20,21</td>
+                </tr>
+                <tr>
+                    <td>VNC</td>
+                    <td>5900</td>
+                </tr>
+                <tr>
+                    <td>RDP</td>
+                    <td>3389</td>
+                </tr>
+                <tr>
+                    <td>DNS</td>
+                    <td>53</td>
+                </tr>
+            </table>
+        </p>
+
+        <h2>
+            Ejemplo NAT: ICS de Windows.
+        </h2>
+        <p>
+            <img src="https://i.stack.imgur.com/RHMkx.png" alt="Ejemplo Windows">
+            <i>Internet Connection Sharing</i>permite compartir una conexión Internet entre muchos
+            ordenadores. <br>
+            Un equipo tiene una conexión a Internet (por ejemplo, LAN) y la comparte mediante una conexión
+            (por ejemplo, Wifi). <br>
+            Habilita el enrutamiento, y en la conexión de Wifi instala:
+            <ul>
+                <li>Un servidor DHCP</li>
+                <li>Un servidor NAT</li>
+                <li>Un servidor DNS</li>
+
+                <cite>
+                <b>DHCP</b>: Sirve para la configuracion dinaámica del host - Asigna IP de forma automática. <br>
+                <b>NAT</b>: Traducción de Direcciones de Red. Hace 'invisible' un host. <br>
+                <b>DNS</b>: Sistema de Nombres de Dominio, traducción de dirección real en una IP.
+                </cite>
+            </ul>
+        </p>
+    
+        <h2>
+            DMZ
+        </h2>
+        <p>
+            La <i>zona desmilitarizada</i>la componen los hosts que una empresa expone a Internet. Puede configurarse 
+            de varias maneras.
+
+            <h3>DMZ Expuesta</h3>
+            <p>
+               Se caracteriza por tener a un(os) host(s) fuera del firewall que tiene el router. <br>
+               Son facilmente accesibles desde Internet. <br>
+               <b>Características:</b> <br>
+               (Problemas) <br>
+               - Velocidad de acceso de la LAN a la DMZ <br>
+               - Seguridad de la DMZ <br>
+               (Ventajas) <br>
+               + Fácil <br>
+               + Barato <br>
+            </p>
+            
+            <h3>DMZ Host</h3>
+            <p>
+                Para acceder a los hosts 'públicos' debe pasarse primero por un firewall, que lo comparten con los otros hosts 
+                NO públicos. <br>
+                <b>Características:</b> <br>
+                (Problemas) <br>
+                - Más dificil (abrimos puertos).
+                - Inseguro, tráfico externo por la LAN. <br>
+                (Ventajas) <br>
+                + Más seguro para los servidores. <br>
+                + Accesos de la LAN a la DMZ (y viceversa) más rápido. 
+            </p>
+
+            <h3>DMZ con doble firewall.</h3>
+            <p>
+                Se configuran dos firewall de acceso desde el router. Uno es para dar acceso a la DMZ y tiene un segundo 
+                filtro para tener acceso a la LAN. <br>
+                <b>Características:</b> <br>
+                (Problemas) <br>
+                - Más difícil <br>
+                - Más caro <br>
+                (Ventajas) <br>
+                + Máxima seguridad. <br>
+            </p>
+
+        </p>
+
+
+    </p>
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

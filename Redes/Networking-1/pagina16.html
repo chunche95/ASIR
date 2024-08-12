@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>Ethernet - Bucles LAN</title>
+</head>
+<body>
+    
+    <h1>
+        Ethernet - Bucles LAN.
+    </h1>
+    <p>
+
+        Generalmente, una LAN se configura de forma jerárquica.
+        - Óptimo según el cableado estructurado. <br>
+        - Fácil de entender. <br>
+        A veces conviene una topología en forma de malla.
+        <ul>
+            <li>Mayor tolerancia a fallos.</li>
+            <li>A veces, mayor velocidad entre switches.</li>
+        </ul>
+
+        <h2>
+            Bucles LAN.
+        </h2>
+        <p>
+            Problema:
+            <blockquote>
+                Una trama podría estar <i>viajando</i> por la red por siempre. ( <q>Switching loop</q> ).
+            </blockquote>
+            Solución 1: <b>STP</b>
+            <br>
+            <code>
+                Ciertos enlaces de la red se deshabilitan, para volver a una topología jerárquica. 
+                Estos enlaces se habilitan de nuevo cuando se modifican las condiciones.
+            </code>
+            <br>
+            Solución 2: <b>Link Aggregation</b>
+            <br>
+            <code>
+                Se modifica el comportamiento de los switches. Usando varias conexiones como una sola,
+                con más velocidad.
+            </code>
+        </p>
+
+        <h2>
+            802.1D: Spanning Tree
+        </h2>
+        <p>
+            Es un protocolo de red para conseguir un árbol (red jerárquica) a base de deshabilitar enlaces de una malla.
+            <ul>
+                <li>
+                    El administrador puede definir una raíz (centro de la estrella).
+                </li>
+                <li>
+                    Los switches envían paquetes entre sí para calcular sus distancias a esa raíz.
+                </li>
+                <li>
+                    El puerto más cercano de cada switch se convierte en el puerto raíz.
+                </li>
+            </ul>
+
+            <h3>
+                Nomenclatura.
+            </h3>
+            <p>
+                <b>Root Port</b>(RP): Es el puerto por el que se llega más <i>barato</i>a la raíz. <br>
+                Coste del enlace: Un enlace lento es más costoso. Esta es la medida para decidir entre enlaces: <br>
+                <code>
+                    Coste = 10000/Mbs
+                </code>
+                <br>
+                Tomamos el más "barato", que es el más rápido. <br>
+                <b>Designated Port</b>(DP): Es el puerto conectado al RP de algún otro switch. <br>
+                <b>Bumped Port</b>(BP): Puerto enchufado aotro switch, que no es RP ni DP.
+                <img src="https://2.bp.blogspot.com/-9Ma8GAtSXhQ/VrDBm652TKI/AAAAAAAAYe0/Lv6JV5vFJno/s1600/Captura174.PNG" alt="Nomenclatura">
+            </p>
+
+            <h3>Coste de un elnace.</h3>
+            <p>
+                Definidos por un estándar. Nosotros los aproximamos con <code>10000/velocidad</code>.
+                <pre>
+        Data rate                    STP Cost (802.1D-1998)      RSTP Cost (802.1W-2001)
+        4 Mbit/s                     250                         5000000
+        10 Mbit/s                    100                         2000000
+        16 Mbit/s                    62                          1250000
+        100 Mbit/s                   19                          200000
+        1 Gbit/s                     4                           20000
+        2 Gbit/s                     3                           10000
+        10 Gbit/s                    2                           2000
+                </pre>
+            </p>
+        </p>
+
+        <h2>Bridge Protocol Data Units.</h2>
+        <p>
+            Cada switch viene de fábrica con un Id para ser <b>root</b>,aunque el administrador lo puede cambiar. <br>
+            Se envían tramas BPDU para comunicarse entre los switches.
+            <ul>
+                <li>
+                    Quíen tiene el menor Id.
+                </li>
+                <li>
+                    Qué coste tiene cada uno de sus puertos para llegar a la raíz.
+                </li>
+            </ul>
+            Generalmente, se envían cada 2 segundos.
+            <br>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Spanning_tree_protocol_at_work_5.svg/1024px-Spanning_tree_protocol_at_work_5.svg.png" alt="BPDU">
+            <br>
+            Ejemplo:
+            <br>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif" alt="">
+        </p>
+
+        <h2>IEEE 802.3ad: Link Aggregation</h2>
+        <p>
+            Los switches no envían entre sí tramas ethernet estándar, agrupan varios enlaces y los utilizan como uno solo. Sirve para eliminar los cuellos de botella entre switches. <br>
+            <img src="https://i2.wp.com/howdoesinternetwork.com/wp-content/uploads/02-Etherchannel-4G.png" alt="Link Aggregation"> <br>
+            Explicación'simple' del LA: <br>
+            <img src="https://osrg.github.io/ryu-book/en/html/_images/fig12.png" alt="LA">
+
+            <h3>
+                Configuración en Cisco.
+            </h3>
+            <p>
+                Los puertos que se quieren agregar se añaden al mismo <i>channel-group.</i>
+                <blockquote>
+                    <code>
+                        switch(config)# interface fa0/1
+                        switch(config-if)# channel-group 1 mode active
+                    </code>
+                </blockquote>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJZDSLFntW7BVSK2abi-oPRdL6VoV8HVyQQG81ffCmSAWEhXHbig" alt="port channel Cisco">
+            </p>
+        
+        <h2>
+            Redundancia a nivel de red.
+        </h2>
+        <img src="https://1.bp.blogspot.com/-4kbV0zpVcSo/Wz64GqkiunI/AAAAAAAAAdY/gPNiiDuFZOgibzrGrOsUw9mjoWq-QnYUwCLcBGAs/s1600/40.2.jpg" alt="Redundancia del router">
+        <hr>
+        <img src="data:image/png;base64,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" alt="">
+
+        </p>
+
+    </p>
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>   
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>3-Arquitectura de red</title>
+</head>
+<body>
+    
+    <h1>3-Arquitectura de red</h1>
+    <p>
+        <h2> Introducción</h2>
+        <p>
+            Podemos considerar una arquitectura de red como un <i>plan</i> cuyo objetivo es 
+            establecer los mecanismos a implementar para que dos dispositivos se comuniquen.
+            <br>
+            Veremos que las arquitecturas deben:
+            <ul>
+                <li> Facilitar la adición de nuevas tecnologías.</li>
+                <li> Facilitar el cambio de tecnología.</li>
+                <li> Facilitar la interoperabilidad entre diferentes proveedores.</li>
+            </ul>
+        </p>
+
+        <h3> Arquitectura monolítica</h3>
+        <p>
+
+            Inicialmente, cada empresa creaba su propia arquitectura sin tener en cuenta otras existentes, de forma que
+            unas eran incompatibles con otras. <br>
+            Se solía crear un simbolo único que se enfrentase a las necesidades de la comunicación en red abordando todos 
+            los aspectos al mismo  tiempo. <br>
+            En entornos sencillos este enfoque funcionaba, en entornos más complejos no.
+        </p>
+
+        <h3>comunicación por niveles</h3>
+        <p>
+            Pronto se vió que la arquitectura monolítica no era funcional y se pasó al modelo por capas. <br> 
+            Para hacer más sencilla la comunicación, se divide en varias capas o niveles. <br>
+            Cada capa proporciona servicios que las capas superiores pueden utilizar.
+        </p>
+        <h3>Comunicación por niveles</h3>
+        <p>
+            Cada nivel tiene una <b>interfaz</b>. Dos niveles adyacentes usan esta interfaz para comunicarse entre ellos. <br>
+            <i>Interfaz: normas de comunicación entre dos capas. </i>  <br>
+            Cada capa en el host de origen comunica ( de forma virtual) con la capa homóloga del host destino. En realidad 
+            lo hacen  a través de las capas inferiores. <br>
+            Cada capa conoce los servicios proporcionados por la capa de abajo y lo que tiene que proporcionar a la capa de arriba.
+        </p>
+
+        <h3>Comunicación por niveles.</h3>
+        <p>
+            El nivel más alto suele llevar la semántica de la comunicación. <br>
+                <i>Los demás niveles  sirven solamente para que este funcione.</i> <br>
+            Cada nivel intermedio realiza unas determinadas funciones (da servicio). 
+            El nivel más bajo realiza la comunicación real. (Transmisión de magnitudes físicas).
+        </p>
+        <h3>Protocolos y servicios</h3>
+        <h4>Protocolos</h4>
+        <p> Comunicación horizontal, son el conjunto de reglas que permite la comunicación entre los participantes. </p>
+        <ul>
+            <li>Todos los fabricantes que respeten las normas serán <b>compatibles</b> entre ellos.</li>
+            <li>Regula aspectos concretos de la comunicación.</li>
+            <li>Comunicación virtual excepto en el nivel más bajo.</li>
+        </ul>
+        <h4>Servicios</h4>
+        <p> Comunicación vertical, son las funciones proporcionadas entre capas dentro del mismo equipo. </p>
+        <ul>
+            <li> Las capas inferiores proporcionan servicios a las capas superiores.</li>
+            <li> Cada capa debería sar únicamente los servicios proporcionados por la capa inmediatamente inferior.</li>
+            <li> Cuando una capa hace uso de los servicios de la siguiente, la petición se realiza a través de las interfaces.</li>
+        </ul>
+
+        <h2>Factores a considerar en una comunicación</h2>
+        <p>
+            ¿Qué problemas se deben tener en cuenta en la comunicación entre dos ordenadores?
+            <h3>¿Qué hace falta?</h3>
+            <ul>
+                <li>
+                   <b> Encaminamiento </b>
+                    <q>
+                        Busca un camino entre el host de origen y el host de destino de la comunicación.
+                    </q>
+                </li>
+                <li>
+                   <b> Direccionamiento </b>
+                    <q>
+                        Identificar de forma univoca los host que participan a la comunicación.
+                    </q>
+                </li>
+                <li>
+                   <b> Acceso al medio </b>
+                    <q>
+                        Determinar las normas con las que los host pueden tomar el control del medio compartido y comunicar.
+                    </q>
+                </li>
+                <li>
+                   <b> Saturación del receptor </b>
+                    <q>
+                        Si el receptor es más lento en procesar la información con respecto al emisor, hay que regular el flujo de información.
+                    </q>
+                </li>
+                <li>
+                   <b> Mantenimiento del orden de envío </b>
+                    <q>
+                        Es posible que ciertos paquetes enviados por caminos distintos lleguen con un orden diferente al que se enviaron.
+                    </q>
+                </li>
+                <li>
+                   <b> Control del errores </b>
+                    <q>
+                        -Detección de errores: Determinar si la información recibida es correcta, ya que la información enviada por el medio podría 
+                        verse afectada por factores como el ruido o la atenuación. <br>
+                        -Control de errores: Corregir los errores detectados.
+                    </q>
+                </li>
+                <li>
+                   <b> Multiplexación </b>
+                    <q>
+                        Un único canal puede ser usado en múltiples comunicaciones simultáneamente.
+                    </q>
+                </li>
+                <li>
+                   <b> Segmentación y ensamblamiento </b>
+                    <q>
+                        -Segmentación: Algunos bloques de información pueden ser demasiado grandes para ser enviados y hay que fraccionarlos. <br>
+                        -Ensamblamiento: Si se ha segmentado la información hay que volver a reconstruirla en el destino.
+                    </q>
+                </li>
+                <li>
+                   <b> Privacidad </b>
+                    <q>
+                        Los datos trasnmitidos no deberían poder ser:
+                        <ul>
+                            <li>Vistos por terceros</li>
+                            <li>Modificados por terceros</li>
+                        </ul>
+                    </q>
+                </li>
+            </ul>
+        </p>
+        <h3>Modelo OSI</h3>
+        <p>
+            Modelo desarrollado por la ISO ( <i>International Standarization Organization</i> ) <br>
+            Modelo principalmente teoríco que define 7 capas. Cada capa tiene una función definica. 
+            Por cada capa se define un protocolo internacionalmente normalizado.
+            <a href="https://www.monografias.com/trabajos107/elmodelo-osi/image011.jpg" target="_blank" rel="noopener noreferrer">Ver Imagen</a>
+            <img src="https://www.uaeh.edu.mx/scige/boletin/huejutla/n10/multimedia/r1/r1_1.jpg" alt="Modelo OSI - Imagen">
+            <h5>Elementos por capa:</h5>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi8_dk-xWPGwk70yQjqjCBFFJJUmHMslHGSrXyxPaWJ3EWbZwx-g" alt="Explicacion de elementos">
+        </p>
+        
+        <h3>PDU - Protocol data unit.</h3>
+        <p>
+            Se trata de la encapsulación de los datos. Es una unidad de información que cada protocolo gestiona, normalmente, está compuesta por dos partes: 
+            <ul>
+                <li>Cabecera</li>
+                <li>Datos</li>
+            </ul>
+            El protocolo superior envía solo los datos, los procolos inferiores van añadiendo sus cabeceras.
+        </p>
+
+        <h4>Servicios</h4>
+        <p>
+            Cada capa se dedica a prestar servicios  a su capa superior. Con el fin de:
+            <ul>
+                <li>Resolver uno o varios problemas de la comunicación.</li>
+                <li>QUe las capas supeiores ya no tengan que preocuparse por estos servicios.</li>
+            </ul>
+        </p>
+
+        <h4>Conexión/Confiable</h4>
+        <p>
+            Cada servicio puede ser o no orientado a conexión.
+            <h5>¿Se establece conexión?</h5>
+            <p>
+                <i>Orientado a la conexión:</i> Crea una conexión, manda los datos, cierra la conexión. Esto garantiza la llegada en orden de los paquetes. <br>
+                <i>Sin conexión:</i> No crea una conexión, por lo tanto los paquetes pueden llegar desordenados.
+            </p>
+            <h5>¿Se garantiza la entrega?</h5>
+            <p>
+                <i>Confiable:</i> Garantiza que la información llegará al destinatario. <br>
+                <i>No confiable:</i> La información se podría perder en la red.
+            </p>
+        </p>
+
+        <h3>Capa Física</h3>
+        <p>
+            Se encarga de la transmisión  física de los datos, indica como usar el medio fñisico para la transmisión de la información y como nos conectareos a éste desde  los equipos.
+
+            <h4>Funciones </h4>
+            <p>
+                Especifica los medios de transmisión. <br>
+                Tipos de cableado y conectores a usar. <br>
+                Distribución y regulación del espectro electromagnético para las comunicaciones sin cable. <br>
+                Tipos de  dispositivos y adaptadores de red. <br>
+                Especificaciones y procedimientos en la codificación de la información a señales utilizables en el canal.
+            </p>
+        </p>
+        
+        <h3>Capa de enlace </h3>
+        <p>
+            Su ibjetivo es convertir el medio de transmisión proporcionado por la capa física en un <b> canal libre de errores</b> 
+            entre dos dispositivos conectados directamente. Además, sirve de <b>enlace lógico fiable.</b>
+
+            <h4>Funciones</h4>
+            <ul>
+                <li>Sincronización entre emisor y receptor.</li>
+                <li>Estructuración de los datos en tramas.</li>
+                <li>Control de errores.</li>
+                <li>Control de flujo.</li>
+                <li>Determina el tamaño máximo y mínimo de <strong>trama.</strong></li>
+                <li>Direccionamiento físico.</li>
+                <li>Gestión de control de acceso al medio.</li>
+            </ul>
+        </p>
+
+        <h3>Capa de red.</h3>
+        <p>
+
+            Define todos los aspectos necesarios para comunicar equipos de redes distintas. <br>
+            Usa los enlaces para llegar a ordenadores a más de un salto.
+
+            <h4>Funciones.</h4>
+            <ul>
+                <li>Direccionamiento lógico.</li>
+                <li>Especificaciones de los tamaños máximo y mínimo de los <strong>paquetes</strong></li>
+                <li>Definir si la comunicación se establece mediante circuitos virtuales o comunicación de paquetes (datagramas).</li>
+                <li>Encaminamiento  (enrutamiento). tiene que determinar el mejor camino para que la información llegue al destino.</li>
+            </ul>
+        </p>
+
+        <h3>Capa de transporte.</h3>
+        <p>
+            Es la encargada de regular el flujo de información desde el origen hasta el destino de una manera sincronizada y precisa. <br>
+            <strong>ES LA PRIMER CAPA QUE TIENE LA ILUSIÓN DE DISPONER DE UNA COMUNICACIÑON DIRECTA ENTRE ORIGEN Y DESTINO.</strong> <br>
+            Permite la interconexión extremo a extremo entre aplicaciones. - <i>Origen y destino no son PC, son procesos.</i>
+
+            <h4>Funciones.</h4>
+            <ul>
+                <li>Establecer, mantener y terminar los circuitos virtuales que se crean durante la transmisión de datos.</li>
+                <li>Proporciona un servicio orientado a la conexión que garantiza que la comunicación está libre de errores, sin perdidas o duplicados.</li>
+                <li>Control de congestión entre origen y destino. </li>
+            </ul>
+        </p>
+
+        <h3>Capa de sesión</h3>
+        <p>
+            Es la encargada de establecer, mantener y finalizar las sesiones de usuarios entre dos PC's.
+
+            <h4>Funciones.</h4>
+            <ul>
+                <li>Mejora el servicio proporcionado por la capa de transporte permitiendo la reanudación de la conexión en case de interrupción.</li>
+                <li>En canales half-duplex  determina los turnos para controlar el diálogo.</li>
+            </ul>
+        </p>
+
+        <h3>Capa de presentación.</h3>
+        <p>
+            Ofrece servicios para especificar el formato de los datos que se están enviando.
+
+            <h4>Funciones</h4>
+            <ul>
+                <li>Se encarga de la compresión y del cifrado de la información enviada.</li>                
+                <li>Se encarga de definir el significado de la información.</li>
+                <li>También puede definir formatos para informaciones más complejas:
+                    <ul>
+                        <li>Lenguajes de marcas: HTML,CSS,XML,...</li>
+                        <li>Formatos de imagen: JPEG,PNG,...</li>
+                        <li>Formatos de audios: MIDI,MP3,...</li>
+                        <li>Formatos de texto: ASCII,...</li>
+                        <li>Formatos de video: MP$,MPEG,AVI,...</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+
+        <h3>Capa de aplicación.</h3>
+        <p>
+            Es la razón por la que se monta una red, es la encargada de interactuar con el usuario finalizar
+            y de proporcionarle los servicios en red que éste necesite. Incluye los protocoos específicos de cada 
+            aplicación. <br>
+            Ejemplo: <br>
+             > Protocolos de transferencia de archivos (FTP) <br>
+             > Correo electrónico (SMTP,IMAP,POP) <br>
+             > Conexión remota (Telnet, SSH) <br>
+             > Gestión de nombres de dominio (DNS)  <br>
+             > ...
+        </p>
+
+        <h2>Aceptación del modelo ISO/OSI</h2>
+        <p>
+            El modelo OSI es un gran modelo <i>teórico.</i>
+            Se desarrollo con fines comerciales, pero:
+            <ul>
+                <li>Era caro</li>
+                <li>Tenía bastantes errores</li>
+                <li>Demasiado <i>corporativo</i></li>
+            </ul>
+            No pudo competir con TCP/IP porque:
+            <ul>
+                <li>Es gratis</li>
+                <li>Legó antes</li>
+                <li>Corrigió los errores antes</li>
+                <li>Tenía mayor '<i>libertad</i>' </li>
+            </ul>
+        </p>
+
+        <h2>Arquitectura Internet</h2>
+        <p>
+            La gran difusión de Internet, ha permitido que este modelo sea hoy en día un estándar de hecho. <br>
+            OSI ha quedado como arquitectura para el estudio teórico. <br>
+            Se apoya sobre un modelo de red de conmutación de paquetes.
+
+            <h3>TCP/IP VS OSI</h3>
+            <p>
+                OSI asignaba un porotcolo por cada capa. TCP-IP plantea más de un protocolo por cada capa. <br>
+                OSI - cada capa puede usar solo los servicios de la capa inmediatamente inferior. TCP-IP - una capa puede usar servicios de capas inferiores no adyacentes.
+            </p>
+
+            <h4>Capas en el modelo Internet.</h4>
+            <p>
+                La capa de acceso al medio recoge las especificaciones de las capas física y de enlace.
+                Por ejemplo: IEEE 802, pero puede usar otras. <br>
+                TCP-IP cubre las de 
+                <ul>
+                    <li>Red</li>
+                    <li>Transporte de OSI</li>
+                </ul>
+                La capa de aplicación implementa las capas de sesión, presentación y aplicación de OSI.
+            </p>
+
+            <h4>TCP vs UDP</h4>
+
+            <table>
+                <tr>
+                    <td></td>
+                    <td>_TCP_</td>
+                    <td>_UDP_</td>
+                </tr>
+                <tr>
+                    <td>Conexión</td>
+                    <td>Sí</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Confiable</td>
+                    <td>Sí</td>
+                </tr>
+                <tr>
+                    <td>Control de congestión</td>
+                    <td>Sí</td>
+                </tr>
+                <tr>
+                    <td>Velocidad</td>
+                    <td></td>
+                    <td>Mayor</td>
+                </tr>
+            </table>
+        </p>
+
+        <h2>Otros ejemplos de arquitectura</h2>
+        <p>
+            <h3>Arqitectura RTC</h3>
+            <p>
+                RTC (Red Telefónica Conmutada.), transmisión de voz por corriente eléctrica. <br>
+                Conmutación de circuitos, puede transmitir datos de ordenadores usando modulación. 
+                Protocolo PPP a nivel físico de TCP-IP.
+            </p>
+
+            <h3>Iberpac</h3>
+            <p>
+                Red de datos extendida por toda España, se basa sobre el estándar X.25, transmisión lenta, redunda el control de errores. <br>
+                Usada para bancos.
+            </p>
+            
+            <h3>RDSI o ISDN</h3>
+            <p>
+                Tiene su propio cableado y sus adaptadores específicos, ofrece voz y datos a través de canales multiplexados. <br>
+                Un cliente puede contratar más canales si necesita más ancho de banda. Este tipo de red no es compatible con terminales analógicos.
+            </p>
+            <h3>DSL</h3>
+            <p>
+                Permite alta velocidad en cableado de baja calidad. Usa frecuencias que no se usan en comunicación vocal. 
+                <ul>
+                    <li>ADSL (Asyetric): Canal mayor de bajada que subida</li>
+                    <li>SDSL (Symetric): Los canales tienen el mismo ancho de banda</li>
+                </ul>
+            </p>
+        </p>
+
+        <h2>Sistemas de interconexión</h2>
+        <dl>
+             <dt>  <strong>Nv:</strong>____<strong> Sistema de interconexión:</strong>
+             </dt>
+            <dd>
+                Transporte y superior &rarr; Pasarela (Proxy)
+            </dd>
+            <dd>
+                Red &rarr; Enrutador (Router)
+            </dd>
+            <dd>
+                Enlace &rarr; Puente (bridge), Conmutador (Switch), Concentrador (Hub)
+            </dd>
+            <dd>
+                Físico &rarr; Repetidor
+            </dd>
+        </dl>
+    </p> <!-- Fin de parrafo de tema 3-->
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

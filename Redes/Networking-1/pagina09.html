@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>9-Enrutamiento IP.</title>
+</head>
+<body>
+    <h1>
+        9-Enrutamiento IP.
+    </h1>
+    <p>
+        <h2>Introducción.</h2>
+        <p>
+            IP se encarga de llevar cada paquete hasta su red. Una vez llegado a la red.
+            IP suopone que:
+            <ul>
+                <li>
+                    La red de difusión (bus), con la cual llega a su destino.
+                </li>
+                <li>
+                    La entrada a la red es un router que conoce las subredes dentro de la red,
+                    con lo que se sigue enrutando el paquete.
+                </li>
+            </ul>
+        </p>
+        
+        <h2>
+            Pathping en Windows.
+        </h2>
+        <p>
+                <img src="https://filebrowser.clouddirect.net/Uploads/images/knowledge%20base/Broadband/pathping.png" alt="pathping windows">
+        </p>
+            
+        <hr>
+        
+        <h2>
+            Mtr en Linux.
+        </h2>
+        <p>
+                <img src="https://www.tecmint.com/wp-content/uploads/2018/06/specify-order-of-output-fields.png" alt="mtr linux">
+        </p>
+            
+        <h2>
+            Cómo enruta IP.
+        </h2>
+        <p>
+            Hace falta los siguientes datos para enrutar un paquete IP:
+            <ul>
+                <li>
+                    La dirección de destino del paquete.
+                </li>
+                <li>
+                    La red a la que pertenece la dirección de destino.
+                </li>
+                <li>
+                    La interfaz de red donde se alcanza la red de destino.
+                </li>
+                <li>
+                    La dirección del router que nos ayuda a alcanzar el destino.
+                </li>
+            </ul>
+        </p>
+
+        <h2>
+            IP vs MAC.
+        </h2>
+        <p>
+            Un host con IP recibe y procesa paquetes tanto con su propia dirección IP como la de otros:
+            <ul>
+                <li>
+                    Ethernet ( o el protocolo usado en la capa de <i>enlace</i> ) pasa a IP todos los paquetes que 
+                    llegan con su dirección MAC.
+                </li>
+                <li>
+                    IP pasa hacia arriba los apquetes con la dirección IP propia.
+                </li>
+                <li>
+                    IP enruta (envia) los paquetes no dirigidos a su propia dirección IP.
+                </li>
+            </ul>
+            Por tanto, para que funcione IP tiene que ser posible enviar paquetes IP a otros host aunque no sea el indicado en la 
+            dirección IP destino.
+            <ul>
+                <li>
+                    Se hace usando las direcciones MAC o físicas del otro host.
+                </li>
+                <li>
+                    La unión entre direcciones MAC y físicas es el protocolo ARP.
+                </li>
+            </ul>
+        </p>
+
+        <h2>
+            Red IP vs Red Ethernet.
+        </h2>
+        <p>
+            IP trabaja sobre la capa de enlace sin conocer sus detalles, ni siquiera conoce la topología física.
+            Un enlace físico pordía  tener más de una dirección IP. <br>
+            como consecuencia, pueden haber más de una red IP encima de la misma red Ethernet, por interés administrativo o de seguridad.
+            <img src="https://1.bp.blogspot.com/-PgW7RS4AGnA/VtWOWntrkYI/AAAAAAAABXI/lHNemb4rLeQ/s640/ej%2BOSPF.png" alt="Ejemplo enrutamiento dinámico">
+        </p>
+
+        <h2>
+            Tablas de enrutamiento.
+        </h2>
+        <p>
+            Cada host con IP debe tener onfiguradas sus tablas de enrutamiento, existen tablas de 
+            enrutamiento en Windows, Linux /Unix Y MAC OS, sin embargo, se estudiaran los dos primeros SO.
+            <br>
+            Se maneja con el comando <b><i>route</i></b>. <br>
+
+            <h3>
+                Filas y columnas.
+            </h3>
+            <p>
+                Cada <strong>fila</strong> de la tabla es una regla. <br>
+                <i>
+                    Tiene información de como llegar a una red o host. <br>
+                </i>
+                cada <strong>columna</strong> es el nombre de la información. <br>
+                <i>
+                    Destino, máscara, etc.
+                </i>
+            </p>
+
+            <h4>
+                Descripción de columnas.
+            </h4>
+            <p>
+                <ul>
+                    <li>
+                        <b>Destino:</b> IP(host o red) con el que se comparará la dirección de destino de los paquetes a enrutar.
+                    </li>
+                    <li>
+                        <b>Máscara:</b> Máscara que se aplica a la dirección de destino del paquete IP.
+                        <ul>
+                            <li>
+                                Para saber si una entradaes utilizable por una IP destino, se aplica la máscara sonre la IP  destino 
+                                del paquete y se comprueba si coincide con la IP destino de la entrada.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Puerta de enlace:</b> Dirección IP del siguiente enrutador,si se utiliza esta entrada.
+                    </li>
+                    <li>
+                        <b>Interfaz:</b>Enlace del host local por el que saldrá el paquete si se utiliza esta entrada.
+                    </li>
+                    <li>
+                        <b>Métrica:</b> Si es posible usar más de una entrada, se usará preferiblemente la entrada con menor métrica.
+                    </li>
+                </ul>
+            </p>
+
+            <h3>Windows - Route.</h3>
+            <p>
+                <img src="https://www.solvetic.com/uploads/monthly_12_2018/tutorials-19562-0-58221600-1545639336.png" alt="Route en windows">
+                
+                <h4>
+                    Modificar las tablas en Windows.
+                </h4>
+                <p>
+                    Añadir una ruta para la red 10.1.0.0/16 usando la interfaz 2, con métrica 1. Se envía al router 10.1.0.1. 
+                    <blockquote>
+                        <code>
+                            ROUTE ADD 10.1.0.0 MASK 255.255.0.0 10.1.0.1 METRIC 1 IP 2
+                        </code>
+                    </blockquote>
+                    La métrica y la interfaz son opcionales e internet puede especificarse como 0.0.0.0
+                </p>
+
+                <h4>
+                    Activar el enrutamiento.
+                </h4>
+                <p>
+                    Hay varios métodos, peor toos acaban cambiando la entrada de registro:
+                    <code>
+                        HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\IpEnableRouter 
+                    </code>
+                    Debe estar a 1. Seguidamente reiniciamos el sistema.
+                </p>
+            </p>
+
+            <h3>Linux - Route.</h3>
+            <p>
+                <img src="https://www.cyberciti.biz/media/new/images/faq/2013/11/route-display-command.png" alt="route en Linux/Unix">
+                <h4>
+                        Modificar las tablas en Linux.
+                    </h4>
+                    <p>
+                        Añadir una ruta para la red 10.1.0.0/16 usando la interfaz 2, con métrica 1. Se envía al router 10.1.0.1. 
+                        <blockquote>
+                            <code>
+                                sudo route add -net 10.1.0.0 netmask 255.255.0.0 gw 10.1.0.1 metric 1 dev eth0
+                            </code>
+                        </blockquote>
+                        La métrica y la interfaz son opcionales e internet puede especificarse como 0.0.0.0 o como <i>default.</i>
+                    </p>
+    
+                    <h4>
+                        Activar el enrutamiento.
+                    </h4>
+                    <p>
+                        El <i>ip forwarding</i> es el parámetro de kernel. Se puede comprobar su estado con <i>sysctl net.ipv4.ip_forward</i>. <br>
+                        Se puede activar con <b>sysctl -w net.ipv4.ip_forward=1</b>, para qe se active en el siguiente inicio se debe cambiar el fichero
+                        /etc/sysctl.conf
+                        <code>
+                            net.ipv4.ip_forward=1
+                        </code>
+                    </p>
+            </p>
+        </p>
+    </p>
+    
+    <address>
+            Human Computing  3.0 &copy;
+    </address>
+       
+</body>
+</html>

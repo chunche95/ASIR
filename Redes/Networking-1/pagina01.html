@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>Tema 1 - Clasificacion de redes</title>
+</head>
+<body>
+    <h1>Tema 1 - Clasificacion de redes</h1>
+
+    <h2>¿Por qué sar redes?</h2>
+
+    Las redes permiten compartir recursos entre ordenadores.
+    <ul>
+        <li>
+            <i>Hardware</i>
+                <ul>
+                    <li>CPU</li>
+                    <li>Disco</li>
+                    <li>Impresoras, escáner</li>
+                    <li>Conexión  a otras redes</li>
+                </ul> 
+        </li>
+        <li>
+            <i>Software</i>
+                <ul>
+                    <li>Programas</li>
+                    <li>Datos</li>
+                    <li>Aplicaciones</li>
+                </ul>
+        </li>
+    </ul>
+
+    <h3> Ventajas de una red</h3>
+    <p>
+        La <b>compartición de recursos</b> aporta las siguientes ventajas:
+        <ul>
+            <li>Reducción de costes</li>
+            <li>Mejora de comunicaciones (trabajo colaborativo)</li>
+            <li>Gestión simplificada</li>
+                <ul><li> Centralización del trabajo</li></ul>
+            <li>Mejora de la producitividad</li>
+        </ul>
+    </p>
+
+    <h3>Criterios de clasificación de redes</h3>
+    <ul>
+        <li>
+            Modelo de transmisión
+        </li>
+        <li>
+            Topología (física)
+        </li>
+        <li>
+            Modo de transmisión
+        </li>
+    </ul>
+
+    <h2> Modelo de transmisión</h2>
+    <ul>
+        <li>Difusión</li>
+        <li>Punto a punto</li>
+    </ul>
+    <h3> Redes de difusión</h3>
+    <p>
+        Son redes que se caracterizan por tener una comunicacion 'comunitaria'. <br>
+        Sí 'A' quiere comunicarse con 'B'. <br>
+        <ul>
+            <li>- A manda la información a todos los nodos que componen la red &rarr; Multidifusión.</li>
+            <li>- De todos estos, sólo B se queda con la información.</li>
+            <li>- El resto de los participantes la reciben, pero la ignoran.</li>
+        </ul>
+        <h4>Características</h4>
+        <ul>
+            <li> Se necesita un arbitraje del medio.</li>
+                <ul>
+                    <li>Asignación estática: tiempo dividido en cuantos</li>
+                        <ul><li><i>Un host utiliza el medio en su cuanto. Si no lo sa, se queda sin usar.</i></li></ul>
+                    <li>Asignación dinámica: bajo demanda</li>
+                </ul>
+            <li> Límite máximo de usuarios: colisiones.</li>
+            <li> Privacidad.</li>
+            <li>Ejemplos:</li>
+                <ul>
+                    <li>Radio de la policía</li>
+                    <li>WiFi</li>
+                    <li>comunicacion oral entre personas</li>
+                </ul>
+
+        </ul>
+
+    </p>
+
+    <h3> Redes punto a punto.</h3>
+    <p>
+        Este tipo de redes se caracteriza por tener un direccionamiento conocido, es decir: <br>
+        Sí 'A' quiere comunicarse con 'B'. <br>
+        <ul>
+            <li>
+                Entre A y B existen otros elementos de interconexión que se ocupan de seleccionar un camino de A a B.
+            </li>
+            <li>
+                Los equipos que no estén directamente en la interconexión no interactúan.
+            </li>
+        </ul>
+        <h4>Características</h4>
+        <ul>
+            <li>Se crea un circuito dedicado (real o virtual) por el que pasa la información.</li>
+                <ul>
+                    <li> Necesita establecer la conexión y liberarla.</li>
+                    <li> Puede desaprovechar recursos.</li>
+                    <li> Mientras exista la conexión, la comunicación está garantizada. </li>
+                </ul>
+        </ul>
+
+        <h4>Conmutación de paquetes.</h4>
+            <ul>
+                <li>El mensaje se divide en paquetes, que se envían de forma individual.</li>
+                <li>Cada paquete puede seguir un camino distinto.</li>
+                <li>Cada paquete puede llegar o no.</li>
+                <li>El orden de emisión no tiene por qué ser el de recepción.</li>
+                <li>La congestión puede afectar a toda la red. Más difícil resolver congestiones.</li>
+            </ul>
+        <h4> Circuitos VS Paquetes</h4>
+            
+            <table>
+                <tr>
+                    <td></td>
+                    <td>
+                       <b> Circuitos </b>
+                    </td>
+                    <td>
+                       <b> Paquetes</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Retardo inicial</td>
+                    <td>Mayor</td>
+                    <td> --- </td>
+                </tr>
+                <tr>
+                    <td>Asignación dinámica de recursos</td>
+                    <td> --- </td>
+                    <td>Sí</td>
+                </tr>
+                <tr>
+                    <td>La congestión afecta a toda la red</td>
+                    <td> --- </td>
+                    <td> Sí </td>
+                </tr>
+                <tr>
+                    <td>Complejidad en la recepción</td>
+                    <td> --- </td>
+                    <td> Mayor </td>
+                </tr>
+                <tr>
+                    <td>Latencia(tras la conexión)</td>
+                    <td> Menor </td>
+                    <td> --- </td>
+                </tr>
+                <tr>
+                    <td>Tipo de latencia</td>
+                    <td> Constante</td>
+                    <td> Variable</td>
+                </tr>
+                <tr>
+                    <td>Tolerancia a fallos</td>
+                    <td> --- </td>
+                    <td> Mayor </td>
+                </tr>
+                <tr>
+                    <td>Mejor para</td>
+                    <td>Tráfico constante</td>
+                    <td>T´rafico a ráfagas</td>
+                </tr>
+            </table>
+    </p> <!--Parrafo del apartado 1-->
+    
+    <h3>Topología</h3>
+    <p>
+        La topología es una rama de las matemáticas que estudia la forma <i>intrínseca</i> de un objeto. <br>
+        No son importantes las deformaciones como: estiramientos, doblamientos. <br>
+        Sí son importantes: los cortes, las uniones. <br>
+        Son iguales: <i>Un círculo y un cuadrado</i> | <i> Una botella y un donut</i>. <br>
+        Son distintos: <i> Un círculo y un cuadrado</i> | <i>Una botella y un donut</i>. 
+        <hr>
+        <h4>1-Bus</h4>
+        <p> 
+            Los equipos de la red comparten un único cable. <br>
+            Se caracteriza por:
+            <ul>
+                <li>Requiere poco cable</li>
+                <li>Si falla el bus, ningún equipo mantiene la comunicación</li>
+                <li>Son redes de <i>difusión</i></li>
+            </ul>
+        </p>
+        <h4>2-Anillo</h4>
+        <p>
+            Cada equipo tiene un enlace con el siguiente equipo. El último se une con el primero. <br>
+            Se caracteriza por: 
+            <ul>
+                <li>Si falla un enlace, la red no funciona</li>
+                <li>Son redes punto a punto</li>
+                <li>Sin congestión de la red, posiblemente de algún nodo</li>
+            </ul>
+        </p>
+        <h4>3-Anillo doble</h4>
+        <p>
+            Se trada de dos anillos <i>'paralelos'</i>, cada uno en una dirección. <br>
+            Si se rompe un enlace o un nodo, se puede recuperar la forma de anillo. 
+        </p>
+
+        <h4>4-Estrella</h4>
+        <p>
+            Se trata de una red en la que sus nodos se conectan a un nodo central. <br>
+            si falla un nodo, no afecta al resto de la red. <br> 
+            Si falla el nodo central impide el funcionamiento de la red. 
+        </p>
+        <h4>5-Árbol</h4>
+        <p>
+            <ul>
+                <li>Los nodos se conectan de forma rárquica.</li>
+                    <ul>
+                        <li><i>Los  un nivel inferior se conectan a uno(y sólo uno) de los nodos del nivel superior. </i></li>
+                        <li><i>La <b>raíz</b> del árbol es un único nodo sin nodo superior.</i></li>
+                    </ul>
+                <li>Si un enlace falla, el <i>'subárbol'</i> se queda aislado.</li>
+            </ul>
+        </p>
+        <h4>6-Malla completa</h4>
+        <p>
+            Esta red se caracteriza porque todos sus nodos se conectan entre ellos, es <b>muy cara</b>, pero muy tolerable a los fallos de nodos y enlaces. <br>
+        </p>
+        <h4>7-Malla irregular</h4>
+        <p>
+            Es parecida a la completa, pero son la conexión total entre los nodos. <br>
+            Es una topología "por descarte".
+        </p>
+
+        <h3>Topología física VS topología lógica</h3>
+        <ul>
+            <li>Física: Conexiones entre equipos.</li>
+            <li>Lógica: Cómo se utilizan las conexiones.</li>
+        </ul>
+        Existen: 
+        <ul>
+            <li>Bus lógico: Cada equipo mira si es destinatario de dichos datos para procesarlos.</li>
+            <li>Anillo lógico: Bus con testigo, el quipo que tiene el testigo, es el poseedor de los permisos para transmitir en el medio. Cuando termina, transmite el testigo a otro equipo.</li>
+        </ul>
+
+        <h3>Extensión de la red.</h3>
+        <p>
+            Tenemos 4 tipos, que son:
+            <ul>
+                <li>PAN - Personal Area Network (&lt 10m) </li>
+                <li>LAN - Local Area Network (&lt 1Km)</li>
+                <li>MAN - Metropolitan Area Network (&lt 10Km)</li>
+                <li>WAN - Wide Area Network (&gt 10Km)</li>
+            </ul>
+        </p>
+
+        <h3>Propiedad de la red</h3>
+        <p>
+            Existen dos tipos de propietarios de una red:
+            <ul>
+                <li>
+                    Redes Privadas
+                        <ul>
+                            <li>De particulares o empresas</li>
+                            <li>Sólo se conectan equipos y usuarios autorizados</li>
+                            <li>Un responsable maneja toda la red</li>
+                        </ul>
+                </li>
+                <li>
+                    Redes públicas
+                        <ul>
+                            <li>Compañías telefónicas y de acceso a Internet</li>
+                            <li>Se alquilan a usuarios</li>
+                            <li>Es difícil controlar a los usuarios de la red</li>
+                        </ul>
+                </li>
+            </ul>
+        </p>
+    <h3>Modos de transmisión</h3>
+        <ul>
+            <li>Simplex: la comunicación es en un solo sentido.</li>
+            <li>Semi Duplex: El canal puede invertirse, pero cada momento tiene solo un sentido.</li>
+            <li>Full Duplex: El canal permite comunicacion simultánea en ambos sentidos.</li>
+        </ul>
+    <h3>Medios de transmisión</h3>
+        <ul>
+            <li>Redes Cableadas (medios guiados)
+                <ul>
+                    <li>La señal viaja por un cable</li>
+                    <li>Eléctrico. (Par trenzado, cable coaxial)</li>
+                    <li>Óptico. (Fibra óptica)</li>
+                </ul>
+            </li>
+            <li>Redes Inalámbricas (Radiofrecuencia)</li>
+        </ul>
+    
+
+    <address>
+             Human Computing  3.0 &copy;
+    </address>
+        
+    </p> <!-- Parrafo del apartado 3 en adelante (topología)-->
+
+</body>
+</html>

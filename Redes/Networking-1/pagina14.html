@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>14-Componentes de red </title>
+</head>
+<body>
+    
+    <h1>
+        14-Componentes de red.
+    </h1>
+    <p>
+        <h2>Repetidor</h2>
+        <p>
+            Un <b>repetidor</b>es un equipo con dos puertos de comunicaciones. 
+            Repite la señal recibida por un extremo hacia el otro extremo.
+            Puede regenerar y amplificar la señal. <br>
+            Un <b>conmutador</b> es un repetidor con más de dos puertos.
+        </p>
+        <h2>Puente</h2>
+        <p>
+            Un puente es similar a un hub, incluyendo sus funcionalidades pero con 
+            una lógica más avanzada, no solo trabaja a nivel electrónico, además, entiende 
+            las tramas y puede decidir si las retransmite o no. Solo retransmite tramas si 
+            el destinatario está al otro lado. <br>
+            Un puente (bridge) con más de dos puertos se denomina <b>switch.</b>
+            
+            <h3>Ventajas del switch. </h3>
+            <p>
+                Reduce el dominio de colisión, una colisión se produce si dos nodos envían 
+                información  la vez, mezclándose en el cable.  <br>
+                Aumenta la velocidad de la red, cada enlace puede usarse por separado, por lo
+                que el ancho de banda no se reparte entre los puertos, sino que se multiplica entre 
+                los puertos.
+            </p>
+            
+            <h3>Límites del switch.</h3>
+            <p>
+                El switch opera a nivel 2. Todos los ordenadores conectados al switch pueden comunicarse
+                entre sí usando tramas Ethernet. <br>
+                No puede aislarse el tráfico entre zonas distintas de la red, si no se utilizan varios switch no
+                interconectados. Es difícil cambiar la topología física en el nivel 2. 
+                <hr>
+                Es costoso cambiar topología/configuración del nivel 1 y 2. <br>
+                La topología es, aproximadamente, como se distribuyen los dominios de colisión (a dónde llega un
+                broadcast enviado por un ordenador). <br>
+                Habría que cambiar las instalaciones y cableado. <br>
+                Virtual LAN. Se configura el switch para controlar los dominios de colisión, sin cambiar la distribución 
+                física.
+            </p>
+        </p>
+        
+        <h2>VLAN</h2>
+        <p>
+            Hay diferentes formas de decidir a qué VLAN pertenece un nodo. 
+            <ul>
+                <li>
+                    VLAN por puerto: cada puerto del switch es de una VLAN concreta.
+                </li>
+                <li>
+                    VLAN por MAC: se crea una lista de direcciones MAC y se asocia a cada VLAN.
+                </li>
+                <li>
+                    VLAN etiquetada (tagged): estándar IEEE 802.1Q
+                </li>
+                <li>
+                    Otras formas no estándar (dependientes del fabricante).
+                </li>
+            </ul>
+            Un nodo puede pertenecer a más de una VLAN. Un router a Internet o un servidor suelen estar en varias VLAN.
+            Un ordenador en puesto de trabajo suele estar en una sola VLAN.
+            <br>
+            Las VLAN por puertos son las más simples de definir. <br>
+            Un puerto = una o varias VLAN. 
+            No importa si los ordenadores cambian o se añaden a la red, pero la asignación a VLAN es local al switch.
+            <br>
+            Las VLAN por MAC son difíciles de gestionar, cada cambio en una MAC supone cambiar la lista de asignaciones.
+            Pero todos los switches pueden compartir a asignación a VLAN. 
+            
+            <h3>Tagged VLAN</h3>
+            <p>
+                Cada trama Ethernet tiene una cabecera adicional para indicar a qué VLAN pertenece. Esta cabecera se configura
+                por cada equipo. Al cambiar el formato Ethernet, todos los equipos (nodos, switches) deben ser compatibles. <br>
+                La cabecera viaja entre switches. No se pierde la información de la VLAN al saltar de switch, por compatibilidad,
+                se puede definir qué puertos de un switch quitan la cabecera. <br>
+                A un puerto se le asigna:
+                <ul>
+                    <li>Una VLAN principal</li>
+                    <li>Si el puerto debe transmitir con o sin cabecera</li>
+                    <li>Opcionalmente, varias VLAN admitidas</li>
+                </ul>
+                <table>
+                    <tr>
+                        <td>El puerto está configurado como.</td>
+                        <td>Untagged.</td>
+                        <td>Tagged.</td>
+                    </tr>
+                    <tr>
+                        <td>La trama llega como tag.</td>
+                        <td>Dos opciones: Se comprueba que la trama es de alguna VLAN asignada al puerto. <br> Se descarta.</td>
+                        <td>Se comprueba que la trama es de alguna VLAN asignada al puerto.</td>
+                    </tr>
+                    <tr>
+                        <td>La trama llega sin tag.</td>
+                        <td>Se añade el tag con la VLAN principal del puerto.</td>
+                        <td>Dos opciones: Se añade el tag con la VLAN principal del puerto. <br> Se descarta.</td>
+                    </tr>
+                </table>
+                A un puerto se le asigna:
+                <ul>
+                    <li>O una VLAN, convirtiéndose en un puerto Untagged</li>
+                    <li>O todas las VLAN, convirtiendose en un puerto Tagged, que Cisco llaman Trunk.</li>
+                </ul>
+            </p>
+
+            <h3>Comparación de VLANs</h3>
+            <table>
+                <tr>
+                    <td>Tipo de VLAN</td>
+                    <td>MAC</td>
+                    <td>Puertos</td>
+                    <td>802.1Q</td>
+                </tr>
+                <tr>
+                    <td>Configuración centralizada</td>
+                    <td>Si, con un fichero de configuración para todos los switchs</td>
+                    <td>Por switch</td>
+                    <td>Por equipo si el puerto no es untagged, si no por switch.</td>
+                </tr>
+                <tr>
+                    <td>Requiere equipos compatibles</td>
+                    <td>No</td>
+                    <td>No</td>
+                    <td>Sí, en los puertos no untagged</td>
+                </tr>
+                <tr>
+                    <td>Sensibles al cambio de equipos</td>
+                    <td>Si</td>
+                    <td>No</td>
+                    <td>Sí, si los equipos no están en untagged</td>
+                </tr>
+                <tr>
+                    <td>VLAN común a todos los switches</td>
+                    <td>Sí</td>
+                    <td>No</td>
+                    <td>Sí</td>
+                </tr>
+            </table>
+        </p>
+
+    </p>
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

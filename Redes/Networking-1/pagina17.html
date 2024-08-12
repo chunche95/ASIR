@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>17-Redes privadas virtuales</title>
+</head>
+<body>
+    
+    <h1>
+        Redes privadas virtuales.
+    </h1>
+    <p>
+        <h2>
+            VPN
+        </h2>
+        <p>
+            <i>Virtual Private Network.</i>
+            La interconexión entre dos sistemas se realixa a través de una red insegura, 
+            pero garantizando la seguridad de la comunicación. 
+            <ul>
+                <li>
+                    Confidencialidad
+                </li>
+                <li>
+                    Integridad
+                </li>
+            </ul>
+        </p>
+        
+        <h3>Encriptación</h3>
+        <p>
+            Consiste en ocultar la información que se envía, sólo el receptor puede interpretar la 
+            inform del emisor. Para el resto de sistemas intermedios los datos no significan nada,
+            esto aumenta la <b>Confidencialidad</b>, al dificultar la modificación de la información
+            por sistemas intermedios, mejora la <b>integridad</b>.
+        </p>
+
+        <h3>
+            Autentificación.
+        </h3>
+        <p>
+            Consiste en saber con quién nos conectamos, el sistema remoto deben autentificarse
+            (los clientes suelen usar contraseñas, los servidores certificados). Aumentan la <b>Confidencialidad</b>
+            al evitar que otras personas operen en nuestra red mejora la <b>integridad</b>.
+        </p>
+        
+        <h3>
+            Datos sobre datos (metadatos).
+        </h3>
+        <p>
+            La encriptación oculta los datos que se transmitan, pero los routers ntermedios siguen enrutando cada
+            paquete, pueden saber:
+            <ul>
+                <li>
+                    Cuántos paquetes se envían
+                </li>
+                <li>
+                    A qué hora
+                </li>
+                <li>
+                    Con cuántos datos.
+                </li>
+            </ul>
+            Para evitar este problema se puede usar tráfico de relleno.
+            <ul>
+                <li>
+                    No se podrá distinguir información real de la de relleno.
+                </li>
+                <li>
+                    Problema: mayor consumo del ancho de banda.
+                </li>
+            </ul>
+        </p>
+
+        <h2>
+            Tipos de VPN.
+        </h2>
+        <p>
+            <ul>
+                <li>
+                    Acceso remoto
+                </li>
+                <li>
+                    Punto a punto
+                </li>
+                <li>
+                    Interna (VPN over LAN)
+                </li>
+            </ul>
+        </p>
+
+        <h3>
+            Acceso remoto
+        </h3>
+        <p>
+            Usuarios finales utilizan una VPN para conectarse a la LAN de su empresa. Se usa cualquier red final disponible.
+            particulares, 3G, aeropuertos, hoteles,...
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDKhztPrdka6Ya2EcPmaTguW5hXG6HSshnn2cv6e_UAVFU5LNI" alt="Acceso remoto">
+        </p>
+
+        <h3>
+            Punto a punto
+        </h3>
+        <p>
+            Los LAN de la misma empresa usan un enlace de VPN a modo de red local, permite a diferentes sedes trabajar como si estuviesen en la central.
+            <img src="https://i.imgur.com/tVvIEiP.png" alt="punto a punto">
+        </p>
+
+        <h3>
+            VPN over LAN
+        </h3>
+        <p>
+            Los accesos a la LAN  pueden ser poco seguros: Wifi, puntos de red no vigilados. 
+            <br>
+            La LAN puede segmentarse (por ejemplo, VLAN), y permitir solo conexiones a la LAN más interna por VPN.
+            <img src="https://www.cisco.com/c/dam/en/us/support/docs/wireless-mobility/wlan-security/81837-vpnclient-wlan-wlc-conf-1.gif" alt="VPN Over LAN">
+            <hr>
+            <img src="https://openvpn.net/wp-content/uploads/vpn_server_resources/layer-3-routing-diagram.png" alt="">
+        </p>
+        
+        <h2>
+            Tunnelling
+        </h2>
+        <p>
+            <h3>
+                Encapsulamiento de protocolos.
+            </h3>
+            <p>
+                Según el modelo ISO/OSI, unos protocolos se encapsulan dentro de otros. Los protocolos superiores solo son datos para los inferiores.
+            </p>
+            <h3>
+                Encriptación de datos.
+            </h3>
+            <p>
+                Cualquier capa puede encriptar los datos que envía y los datos son los protocolos superiores.
+            </p>
+            <h3>
+                Tunnelling
+            </h3>
+            <p>
+                Un nivel de red puede encriptarse y volver a meterse como datos a cualquier nivel, los extremos de la comunicación usan interfaces virtuales.
+                Los datos enviados por esa interfaz se encriptan y se envian por una interfaz real.
+            </p>
+        </p>
+
+        <h2>
+            Tunnelling: Nivel
+        </h2>
+        <p>
+            VPN a nivel de enlace (ethernet):
+            <ul>
+                <li>
+                    Se transmiten los broadcast de ethernet.
+                </li>
+                <li>
+                    Funcionan: DHCP,ARP,...
+                </li>
+                <li>
+                    Drivers TAP
+                </li>
+            </ul>
+            VPN a nivel de red (IP):
+            <ul>
+                <li>
+                    Se transmiten paquetes IP y broadcast IP
+                </li>
+                <li>
+                    Funcionan: TCP,UDP, ICMP, enrutamiento,...
+                </li>
+                <li>
+                    Drivers TUN
+                </li>
+            </ul>
+            VPN a nivel de transporte (TCP):
+            <ul>
+                <li>
+                    La VPN conecta con un programa en la otra red (dirección IP y puerto TCP).
+                </li>
+            </ul>
+        </p>
+
+        <h2>
+            VPN: Protocolos.
+        </h2>
+        <p>
+            <ul>
+                <li>
+                    PPTP - Muy extendido, puede encapsular cualquier protocolo, seguridad más debil.
+                </li>
+                <li>
+                    L2TP - Usa IPSec para el cifrado.
+                </li>
+                <li>
+                    IPSec - Soporte por OSI, más complejo, pero más flexible, fácil de implemntación en sistemas Windows.
+                </li>
+            </ul>
+        </p>
+    </p>
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

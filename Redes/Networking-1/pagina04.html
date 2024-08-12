@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>4-Aspectos Físicos de la transicion </title>
+</head>
+<body>
+    <h1>4-Aspectos Físicos de la transicion </h1>
+    <p>
+       La <i><b>capa física</b></i> se encarga de la transmisión de bits por el medio o canal de comunicación. <br>
+       El nivel de enlace <i>genera grupo de bits</i> <b>tramas.</b> Los medios físicos transportan señales, que
+       representan los bits.
+    </p>
+    <h2>
+        Elementos.
+    </h2>
+    <p>
+        Elementos de una comunicación:
+    </p>
+    <table>
+        <tr>
+            <td>Emisor</td>
+            <td> 
+                Codificar en señales los dígitos binarios que representan las tramas de la capa de enlace
+                de datos.
+            </td>
+        </tr>
+        <tr>
+            <td>Medio</td>
+            <td>
+                Transmisión las magnitudes físicas por el canal.
+            </td>
+        </tr>
+        <tr>
+            <td>Receptor</td>
+            <td>
+                Recuperar estas señales individuales desde los medios, restaurarlas para sus representaciones de 
+                bit y enviar los bits hacia la capa de enlace de datos.
+            </td>
+        </tr>
+    </table>
+    <p>
+        La capa física debe contemplar:
+    </p>
+    <table>
+        <tr>
+            <td>
+                Medios físicos y conectores asociados.
+            </td>
+            <td>
+                Una representación de los bits en los medios.
+            </td>
+            <td>
+                Codificación de los datos y de la información de control.
+            </td>
+            <td>
+                Sistema de circuitos del receptor y transmisor en los dispositivos de red.
+            </td>
+        </tr>
+    </table>
+
+    <h2>Estándares</h2>
+    <p>
+        Un estándar es un acuerdo entre varias partes.
+        Sirve para garantizar la  <b>interoperabilidad.</b> <br>
+        <i>
+            Cada elemento es sustituible por partes equivalentes de otro proveedor.
+        </i>
+        <br>
+        <h3>Tipos de estándares</h3>
+        <i>De iure</i>: Acordao entre varias partes. <br>
+        <i>De factor</i>: Por costumbre o dominancia de algún proveedor.
+        <br>
+        Ejemplos: <br>
+        ISO &rarr; Organizacion Internacional para la estandarización. <br>
+        IEEE &rarr; Instituto de Ingenieros Elécticos y Electrónicos. <br>
+        ANSI &rarr; Instituto Nacional Estadounidense de Estándares. <br>
+        ITU &rarr; Unión Internacional de Telecomunicaciones. <br>
+        EIA/TIA &rarr; La Asociación de Industrias Electrónicas y la Asociación de las Industrias
+        de las Telecomunicaciones. <br>
+    </p>
+
+    <h2>Medios de transmisión</h2>
+    <p>
+       <h3>Tipos básicos de medios de red.</h3> 
+       Cable de cobre. Pulsos eléctricos. <br>
+       Fibra. Patrones de luz. <br>
+       Inalámbrico. Patrones de transmisión de radio. <br>
+       <h3> Tipos de señal</h3>
+       <i>Señal analógica. </i> <br>
+       Todos los niveles de señal son importantes. En cualquier momento, no hay cuantización <br>
+       <i>Señal  digital.</i> <br>
+       Sólo unos pocos niveles son válidos. En algunos momentos(muestreo). Los demás niveles se aproximan 
+       a los válidos.
+    </p>
+    <img src="data:image/png;base64,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" alt="señal analogica y digital">
+
+
+    <h3>Convesión de una señal analógica a digital</h3>
+    <p>
+        <b>Codificador</b> Transforma de analógica a digital. <br>
+        <b>Descodificador</b> Transforma de digital a analógica. <br>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Conversor_AD.svg/500px-Conversor_AD.svg.png" alt="Conversor AD">
+        <hr>
+        <b>Muestreador</b> A mayor número de muestras por segundo (frecuencia de muestreo. <br>
+            <ul>
+                <li>Más fiel es la onda digital resultante</li>
+                <li>Más información se genera por segundo</li>
+            </ul>
+        <b>Cuantificador</b> A mayor número de bits, 
+            <ul>
+                <li>Mayor presición</li>
+                <li>más información se genera por segundo</li>
+            </ul>
+        Ejemplos A/D.
+        <br>
+        Información analógica &rarr; Teléfono o TV analógica &rarr; TV digital <br>
+        Información digital &rarr;  Fax,Módem telefónico &rarr; ADSL,fibra. <br>
+        La señal no es digital, la información que lleva sí.
+        Consideramos canal digital a uno diseñado originalmente para llevar información digital. <br>
+        Siempre se puede cuantizar después para convertir en digital. 
+    </p>
+    <h2>Señalización</h2>
+    <p>
+    La capa física debe generar las señales(inalámbrica, óptica o electrónicas) que representan el "1" y el "0" en los medios. <br>
+    El método de sincronización de las comunicaciones de bits se denomina <b>método de señalización.</b>
+    La transmisión de la trama a través de los medios se realiza mediante una cadena o <i>stream</i> de bits. <br>
+    
+    El tiempo de bit es el tiempo que ocupa el medio la transmisión de un bit.<br>
+    El tiempo de bit debe estar sincronizado entre emisor y receptor (se usan señales de reloj para este fin). <br>
+    Para sincronizar los relojes e identificar inicios/finales de tramas (información a nivel de enlace), se usa combinaciones de
+    bits preestablecidas (patrones).
+    </p>
+    <h2>Banda Base/Banda ancha</h2>
+    <b>Banda base.</b>
+    <br>
+    <p>
+        Se pueden usar simplemente voltajes para indicar niveles, no se puede multiplexar en el medio, se suele utilizar en medios de <i>baja velocidad.</i>
+    </p>
+    <b>Banda ancha.</b>
+    <br>
+    <p>
+        El medio se comparte, usa diferentes frecuencias(multiplexación por frecuencia).
+        Cada frecuencia es un canal independiente.
+    </p>
+    <h2>Modulación de señal</h2>
+    <p>
+        Las señales no se suelen emitir sin más, excepto banda base, sino que se transmiten como variaciones de una onda senusoidal.
+        <br>
+        Los bits se representan en el medio al cambiar una o más de las características de la señal. <br>
+        <ul>
+            <li>Amplitud</li>
+            <li>Frecuencia</li>
+            <li>Fase</li>
+        </ul>
+    </p>
+
+    <h2>Suma de señales</h2>
+    <p>
+        Se pueden sumar varias señales. Es la forma de multiplexar varias señales por un medio. <br>
+        En el lado receptor se pueden separar las señales, si cada señal tiene un rango de frecuencias distinto, usando la <i>Transformada de Fourier.</i>
+        <img src="https://image.slidesharecdn.com/10transformadafourier-130701161347-phpapp01/95/10-transformada-fourier-29-638.jpg?cb=1372695257" alt="Fourier">
+    </p>
+
+    <h2>Baudios/bit rate</h2>
+    <p>
+        <b>Baudios</b> Número de señales digitales enviadas por segundo. <br>
+        <i>Cada señal es de un conjunto limitado de posibilidades</i>
+        <b>Bit rate</b> Número de bits enviados por segundo. <br>
+        <i>bitrate= baudios * bitporbaudio</i>
+    </p>
+<hr>
+    <h2>Codificación de canal</h2>
+    <p>
+        Cada señal enviada no tiene por que ser directamente el dato que se quiere enviar, el conjunto de señales
+        recibidas puede ser reinterpretadas. <br>
+        Para distinguir el inicio y fin de la transmisión de los datos reales. <br>
+        Para mejorar la detección de errores. <br>
+        Para sincronizar los relojes de muestreo entre el emisor y receptor. <br>
+        Para el resto de la explicación se supondrán señales en banda base, aunque sería aplicable a banda ancha. <br>
+    </p>
+    <h2>CODIFICACION UNIPOLAR</h2>
+    <img src="https://images.slideplayer.es/72/13632637/slides/slide_4.jpg" alt="unipolar">
+    <table>
+        <tr>
+            <td>
+                Ventajas
+            </td>
+            <td>
+                Simple de entender e interpretar.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Desventajas
+            </td>
+            <td>
+                La amplitud media no es 0, por lo que hay un componente de corriente continua apreciable.
+            </td>
+        </tr>
+    </table>
+    <h2>CODIFICACION NRZ-L</h2>
+    <img src="https://image.slidesharecdn.com/expocision-110328104053-phpapp02/95/codificaciones-unipolar-polar-bipolar-4-728.jpg?cb=1301309465" alt="NRZ">
+    <table>
+        <tr>
+            <td>
+                Ventajas
+            </td>
+            <td>
+                Ya no hay corriente continua
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                Desventajas
+            </td>
+            <td>
+                Si mando muchos 0's o 1's seguidos, puedo perder la sincronización del reloj.
+            </td>
+        </tr>
+    </table>
+    <h2>CODIFICACION NRZI</h2> 
+    <img src="" alt="">
+    <table>
+            <tr>
+                <td>
+                    Ventajas
+                </td>
+                <td>
+                   Si manda muchos 1's no pierdo sincronía
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    Desventajas
+                </td>
+                <td>
+                    Si mando muchos 0's sí pierdo sincronía
+                </td>
+            </tr>
+        </table>
+        <h2>CODIFICACION RZ</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/RZcode.png" alt="codificacion rz">
+        <table>
+            <tr>
+                <td>Ventajas</td>
+                <td>No pierde sincronía</td>
+            </tr>
+            <tr>
+                <td>Desventajas</td>
+                <td>Necesito 3 niveles posibles en vez de dos, hardware más complejo</td>
+                <td>La mitad de los baudios se gasta en la sincronía</td>
+            </tr>
+        </table>
+        <h2>CODIFICACION MANCHESTER</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Manchester_encoding_both_conventions.svg/600px-Manchester_encoding_both_conventions.svg.png" alt="">
+        <table>
+            <tr>
+                <td>Ventajas</td>
+                <td>Sólo dos niveles de señal</td>
+            </tr>
+            <tr>
+                <td>
+                    Desventajas
+                </td>
+                <td>
+                    Transacciones extra a principio de señal.
+                </td>
+            </tr>
+        </table>
+        <h2>CODIFICACION MANCHESTER DIFERENCIAL</h2>
+        <img src="https://comunicationsone.files.wordpress.com/2011/01/160.jpg" alt="">
+        <table>
+            <tr>
+                <td>
+                    Ventajas
+                </td>
+                <td>
+                    Ahorra algunas Transacciones extra al principio.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Desventajas
+                </td>
+                <td>
+                    Sigo quedando transacciones extra al principio.
+                </td>
+            </tr>
+        </table>
+        <img src="https://1.bp.blogspot.com/-Cf9SfukZIvI/UYL1YTfRwFI/AAAAAAAAAFM/P95rbe0Zup4/s1600/a.png" alt="">
+
+        <h2>CODIFICACION AMI</h2>
+        <img src="https://image.slidesharecdn.com/expocision-110328104053-phpapp02/95/codificaciones-unipolar-polar-bipolar-12-728.jpg?cb=1301309465" alt="AMI">
+        <ul>
+            Desventajas <br>
+            <li>Perdida de sincronía con muchos ceros.</li>
+        </ul>
+
+
+        <h2>B8ZS</h2>
+        <img src="https://1.bp.blogspot.com/-u1R8N-ZnSL8/WJeoWGZN7-I/AAAAAAAAB90/Z1Rl7OZqfzY7DU-GEqXPxcv369kZSbMSQCPcB/s1600/nnn.jpg" alt="">
+        <table>
+            <tr>
+                <td>Ventajas</td>
+                <td>Sincronización con muchos ceros.</td>
+            </tr>
+        </table>
+
+        <h2>4B/5B</h2>
+        
+            <ul>
+                <li>Se agrupan paquetes de 5 bits</li>
+                <li>Correspondencia entre cada paquete de 5 bits con:</li>
+                    <ul>
+                        <li>Una secuencia de 4 bits</li>
+                        <li>Un código de control</li>
+                        <li>Algo inválido(error)</li>
+                    </ul>
+            </ul>
+        
+
+
+    <h2> Velocidad de transferencia</h2>
+    <p>
+        Cada medio físico admite la transferencia de información a cierta velocidad. <br>
+        La transferencia de datos puede medirse de tres formas: 
+        <ul>
+            <li>
+                <b>Ancho de banda</b>: Capacidad que posee un medio de transportar datos sin procesar.
+                El ancho de banda digital(kbps o Mbps) mide la cantidad de información que puede fluir 
+                desde un lugar hacia otro en un período de tiempo determinado.
+            </li>
+            <li>
+                <b>Rendimiento</b>: Medida de transferencia de <i>bits</i> a través de los medios durante
+                un período de tiempo determinado. Generalmente no coincide con el ancho de banda
+                (colisiones en el medio si es de acceso compartido, errores de transmisión o sincronía, ...)
+            </li>
+            <li>
+                <b>Transferencia útil</b>: Mide la transferencia efectiva de los datos del usuario entre las
+                entidades de la capa de aplicación descartando la <i>sobrecarga de cabeceras</i> del resto de capas.
+            </li>
+        </ul>
+    </p>
+
+    <h2>Multiplexación</h2>
+    <p>
+        Uso compartido del medio por los hosts de la red. 
+        <ul>
+            <li>
+                Por frecuencia
+            </li>
+            <li>
+                Por tiempo
+            </li>
+            <li>
+                Por frecuencia y tiempo
+            </li>
+        </ul>
+        El efecto es conseguir varios canales a través de solo un medio de transmisión.
+    </p>
+    <h3>Multiplexación por tiempo.</h3>
+    <p>
+        Se divide el tiempo en ranuras (slots).
+        Las ranuras se reparten por orden entre los canales; si el medio tiene una capacidad <i>c</i>,
+        cada uno de los <i>n</i> canales tiene una capacidad de <i>c/n</i>.
+    </p>
+
+    <h3>Multiplexación por frecuencia</h3>
+    <p>
+        Se divide el rando de frecuencias que el medio soporta, se reparte dicho rango entre varios canales (banda ancha).
+    </p>
+
+    <h3>Multiplexación en tiempo y frecuencia</h3>
+    <p>
+        Se usa la multiplexación en tiempo en cada canal resultante, se usa la multiplexación en frecuencia.
+    </p>
+
+
+    <h2>Sincronización</h2>
+    <p>
+        Proceso mediante el cual el equipo receptor, conoce los momentos exactos en que debe medir la magnitud de la señal para
+        identificar la información recibida. Dependiendo del tipo de sincronización, la transmisión puede ser: 
+        <ul>
+            <li>Asíncrona</li>
+            <li>Síncrona</li>
+        </ul>
+    </p>
+
+    <h3>Asíncrona</h3>
+    <p>
+        Las señales que permiten marcar los tiempos están incluidas en el mensaje transmitido. Los datos se transmiten 
+        enviándolos carácter a carácter, donde cada carácter tiene una longitud de 5 a 8 bits. 
+        El receptor tiene la oportunidad de resincronizar al principio de cada carácter.
+        La transmisión asíncrona es sencilla y no costosa, si bien requiere de 2 o 3 bits  suplementarios por cada carácter. <br>
+        Está en <b>desuso.</b>
+    </p>
+    
+    <h3>Síncrona</h3>
+    <p>
+        Los bits se envían a una cadencia constante sin discriminar los caracteres que componen. <br>
+        El emir¡sor y el receptor se encargan de la sincronización de modo que sean capaces de reconstruir la información original. <br>
+        Deben sar relojes a la misma frecuencia. El comienzo y el finalde cada bloque de datos se identifican de bits conocidos en
+        ambos lados de la comunicación. El modo de transmisión Síncrona permite velocidades de transmisión mayores que la asíncrona
+        ya que es menos sensible al ruido  obtiene un mejor rendimiento de la línea de datos. <br>
+        Es la utilizada en <i><b>Manchester, Manchester diferencial, RZ.</b></i>
+    </p>
+    <h3>Paralelo/serie</h3>
+    <p>
+        Modo de transmisión serie. Una única línea transmite los datos. <br>
+        Ejemplos: ADSL, USB 1.0. <br>
+        Modo de transmisión paralelo. La información se envía simultáneamente por varias líneas. Más rápido, pero con mayores problemas
+        de sincronía a distancias largas. <br>
+        Ejemplos: Buses internos del ordenador.
+    </p>
+
+    <h3>Problemas en la transmisión</h3>
+    <p>
+        En una transmisión, la señal recibida puede ser distinta de la emitida op¡¡por culpa de perturbaciones: 
+        <ul>
+            <li>
+                Atenuación
+                <p> 
+                    Debilitamiendo de la señal debido a la resistencia eléctrica del canal
+                    La amplitud de la señal disminuye, se puede mejorar con:
+                    <ul>
+                        <li>Mejores cables: cobre, oro</li>
+                        <li>Amplificadores</li>
+                        <li>Retransmisores/Repetidores</li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                Distorsión
+                <p>
+                    Deformación de la señal. Distintas frecuencias se transmiten mejor por el medio.
+                    <br> Inducción y resistencia del canal.
+                </p>
+            </li>
+            <li>
+                Interferencia
+                <p>
+                    Suma a la señal que se transmite de otra señal de origen conocido.
+                    <ul>
+                        <li>Otras señales tranmitidas en canales cercanos</li>
+                        <li>Aparatos eléctricos: fluorecentes, motores, alternadores,...</li>
+                        <li>Causas naturales: tormentas solaress, rayos,...</li>
+                        <li>Alimentación eléctrica.</li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                Ruido
+                <p>
+                    Es la suma de múltiples interferencias, puede intentar aislarse. <br>
+                    Ruido térmico : agitación de los electrones. <b>No se puede eliminar completamente.</b>
+                </p>
+            </li>
+            <li>
+                Diafonía
+                <p>
+                    La señal de un canal, considerado perturbador, aparece en el otro, considerado
+                    perturbado. <br>
+                    Diafonía inteligente es aquella en que en el circuito perturbado se "entiende" 
+                    la señal que se transmite por el circuito perturbador. Ej:
+                    <ul>
+                        <li>Escuchar otra conversación por teléfono.</li>
+                    </ul>
+                </p>
+            </li>
+        </ul>
+
+    </p>
+    
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

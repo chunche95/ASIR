@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Chapter 6.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+        <!-- Header -->
+        	<header id="header">
+               <div class="content">
+                    <h1><a href="#">Introduction: Creating and Controlling a Small Smart Home Network.</a></h1>
+					<p>
+						
+					</p>
+					<ul class="actions">
+						<li><a href="#one" class="button icon fa-chevron-down scrolly">Start!</a></li>
+					</ul>
+				</div>
+				<div class="image phone"><div class="inner"><img src="../images/pic06.jpg" alt="" /></div></div>
+			</header>
+            <div class="flotante">
+                    <a class='flotante' href='../index.html' ><img src='../images/boton-flotante.png'/></a>    
+            </div>
+		<!-- Introduction -->
+			<article id="one" class="normal">
+                <h2>
+					Creating and Controlling a Small Smart Home Network.
+				</h2>
+                <p>
+                   in this chapter you will learn how to connect and control smart devices using either a Home Gateway device or a remote registration server.
+				</p>
+				<h2>Connecting and Monitoring IoT Devices Using a Home Gateway.</h2>
+				<p>
+					The Home Gateway device acts as a local connection to you  IoT smart devices. This device was designed to provide Internet access, wireless connectivity and local logic for smart devices. the Home Gateway devices provides an IoT registration service that 
+					is always turned on adn an auto discovery service for Things in the local Ethernet and wireless network. Once connected to the home gateway, the user can control and monitor the smart devices from their smartphone, tablet or PC. <br>
+					Once a home gateway device has been added to the logical workspace, click on the device. You will see the following: 
+					<ul>
+						<li>Physical tab -  the device has an Internet port, four LAN ports and multiple antennae.</li>
+						<li>Config tab -  this shows the interfaces and network settings that are configurable.</li>
+						<li>GUI tab - this shows the registration server inside the device that allows for interaction with IoT devices. It is on by default but can be turned off.</li>
+						<li>Attributes tab -   this is blank by default but can show  features and values such as MTBF, cost, power source and wattage.</li>
+					</ul>
+					After connecting the home gateway to an existing network, select the Config tab, Ther internet and the wireless interfaces should obtain IP addressing information from the network. <br>
+					To connect an IoT device, such as a fan, wirelessly, click on the fan and select the Config tab. The simple confgi tab appears. Select the Advanced button in the lower right hand corner to view more options. <br>
+					To configure and register the fan with the home gateway. 
+					<ul>
+						<li>
+							Add a tablet, PC or smart phone to the workspace and connect it to the home gateway. Click on the remote device and select Desktop/IPConfig to verify connectivity.
+						</li>
+						<li>
+							Return to the desktop and select the web browser. Use the default gateway address from the remote device as the URL. This is the address of the home gateway. Once into the home gateway, you should see the registered fan and be able to modify its settings.
+						</li>
+					</ul>
+					<video src="../videos/connectingandmonitoringIoTdevicesUsingHomeGateway.mp4" controls width="640" height="480"></video>
+				</p>
+				<h2>Pakcet tracer - Connect Devices to a Home Gateway and Monitor.</h2>
+				<p>
+					<a href="../documentos/6.1.1.2 Packet Tracer - Connect and Monitor IoT Devices.pdf" target="_blank" rel="noopener noreferrer">PT -  Connect and Monitor IoT Devices Instructions.</a>
+					<br>
+					<a href="../documentos/6.1.1.2 Smart_Home.pkt" target="_blank" rel="noopener noreferrer">PT -  Smart Home Packet Tracer File</a>
+				</p>
+				<h2>Registering Devices to a Dedicated Registration Server.</h2>
+				<p>
+					IoT devices can also be registered to a dedicated Registration Server for remote monitoring, configuration or programming. The dedicated registration server has the benefit of being able to provide many other services to your network, such as Web, DHCP, DNS, email and FTP. <br>
+					With a dedicated server, IoT devices would first be connected to a wireless network and would then be configured to register to the server. <br>
+					To connect and configure the registratuion server: 
+					<ul>
+						<li>Connect the server to your network using a wired or wireless connection.</li>
+						<li>Click on the server and select Desktop/IP Configuration. Ensure that DHCP has been turned on and then verify that the server is obtaining an IP addresse.</li>
+						<li>Select Services/IoT and turne the Registration Server on.</li>
+					</ul>
+					To cinfigure a remote device to interact with the registration server:
+					<ul>
+						<li>Connect a remote device such as a tablet, PC or smart phone  to the wireless network.</li>
+						<li>Click on the remote device and select Desktop/Web browser. Use the IP address of the regsitration server as the URL.</li>
+						<li>The first time you access the server, you will have to create a user login. Subsequent visits will require you to login using the login credentials. For security reasons, it is important to protect  your IoT devices by using strong passwords on your server.</li>
+					</ul>
+					To register IoT devices with the Dedicated Server:
+					<ul>
+						<li>Click on each device and select the Config tab.</li>
+						<li>Select the remote server option under IoT server and supply the IP address od the server, plus the login information.</li>
+						<li>Use the remote device to verify the presence of the registered IoT devices.</li>
+					</ul>
+					<video src="../videos/registrationdevicestoadedicatedtegistrationserver.mp4" controls width="640" height="480"></video>
+				</p>
+				<h2>Packet tracer - Connect and Control Devices using a Registration Server.</h2>
+				<p>
+					<a href="../documentos/6.2.1.2 Packet Tracer - Connect IoT Devices to a Registration Server.pdf" target="_blank" rel="noopener noreferrer">Connect IoT devices a registration server Instructions</a>
+					<br>
+					<a href="../documentos/6.2.1.2 Registration Server.pkt" target="_blank" rel="noopener noreferrer">Registration Server Packet Tracer File</a>
+				</p>
+				<h2>Chapter 6.</h2>
+				<p>
+					At the completion of this chapter, you should be able to create and connect IoT devices into a small home network using the built-in  registration server of the gome gateway or a dedicated registration server. <br>
+					For additional help and practice usign Packet Tracer, please visit the Tutorials located under Help in the Packet tracer program. To view some examples of how Packet Tracer can be used, select File, then Open Samples from the main menu. 
+				</p>
+			</article>
+            
+		<!-- One -->
+			<section id="two" class="wrapper">
+				<div class="inner alt">
+					
+					<section class="special">
+						<ul class="icons labeled">
+							<li><span class="icon fa-camera-retro"><span class="label"><a href="https://pixabay.com/es/" target="_blank" rel="noopener noreferrer">Imag. pixabay</a></span></span></li>
+							<li><span class="icon fa-refresh"><span class="label"><a href="https://github.com/chunche95/Introduction-to-Packet-Tracer" target="_blank" rel="noopener noreferrer">This repository in Github</a></span></span></li>
+							<li><span class="icon fa-cloud"><span class="label"><a href="https://www.linkedin.com/in/paulinoestebanberm%C3%BAdezrodr%C3%ADguez" target="_blank" rel="noopener noreferrer">Me Linkedln</a></span></span></li>
+							<li><span class="icon fa-code"><span class="label"> <a href="http://github.com/chunche95" target="_blank" rel="noopener noreferrer">chunche95-GitHub</a> </span></span></li>
+							<li><span class="icon fa-desktop"><span class="label"><a href="https://www.netacad.com" target="_blank" rel="noopener noreferrer">Cisco Academy</a></span></span></li>
+						</ul>
+					</section>
+				</div>
+			</section>
+
+		
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<p class="copyright">&copy; Human Computing 3.0. - Credits: <a href="https://github.com/chunche95">GitHub&rarr;Chunche95</a></p>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

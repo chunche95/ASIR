@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>12-Comandos IOS </title>
+</head>
+<body>
+    
+    <h1>
+        12-Comandos IOS.
+    </h1>
+    <p>
+        <h2>General.</h2>
+        <p>
+            CTRL-ALT-6 para parar un comando incorrecto. <br>
+            ? para conseguir siguientes comandos <br>
+            TAB para autocompletar. <br>
+            Un comando con no deshace el comando. 
+        </p>
+
+        <h2>Modos</h2>
+        <p>
+            Press RETURN to get started - Desactivado.
+            <br>
+            Router > <br>
+            Show para mostrar información. <br>
+            enable para configuración (privated commands). <br>
+            Router # <br>
+            Resto de comandos .
+            Configure terminal para cambiar la configuración.  <br>
+            Router (config)# <br>
+            Raíz de la configuración.
+            <hr>
+            Para activar la configuración:
+            <blockquote>
+                <code>
+                        Router > enable <br>
+                        Router # configure terminal <br>
+                        Router (configure)#            
+                </code>
+            </blockquote>
+            <hr>
+            Para salvar la configuración:
+            <blockquote>
+                <code>
+                    Router# write memory  <br>
+                    Router# copy running-config startup-config <br>
+                </code>
+            </blockquote>
+        </p>
+
+        <h2>
+            Asignar IP.
+        </h2>
+        <blockquote>
+            <code>
+                Router(config)# interface fa0/0 <br>
+                Router(config-if)# ip address 192.168.6.1 255.255.255.0 <br>
+                Router(config-if)# no shutdown <br>
+                Router(config-if)# exit <br>
+                Router(config)# 
+            </code>
+        </blockquote>
+
+<h2>Consultar IP.</h2>
+<pre>
+<blockquote>
+    <code>
+        Router > show ip interface
+        Router > show ip interface brief
+    </code>
+</blockquote>
+</pre>
+
+<h2>Enrutamiento</h2>
+<h3>Añadir/Borrar ruta</h3>
+<pre>
+<code>
+    Router >(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
+</code>
+<code>
+    Router >(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
+</code>
+</pre>
+    
+<h2>Consultar rutas</h2>
+<blockquote>
+    <code>
+            Router > show ip route 
+    </code>
+</blockquote>
+
+<hr>
+
+<h2>VLAN</h2>
+<h3>Consultar VLANs</h3>
+<blockquote>
+    <code>
+        Switch > show vlan brief <br>
+        Switch > show interfaces trunk
+    </code>
+</blockquote>
+
+<h3>Crear una VLAN</h3>
+<blockquote>
+    <code>
+        Switch(config)# vlan 2 <br>
+        Switch(config-vlan)# name NOMBREVLAN <br>
+        Switch(config-vlan)# exit
+    </code>
+</blockquote>
+
+<h3>Asignar un puerto a una VLAN.(access)</h3>
+<blockquote>
+    <code>
+        Switch(config)# interface FastEthernet0/1  <br>
+        Switch(config-if)#switchport access vlan 2
+    </code>
+</blockquote>
+
+<h3>Asignar un puerto como Trunk</h3>
+<blockquote>
+    <code>
+        Switch(config)# interface FastEthernet0/1 <br>
+        Switch(config-if)# switchport mode trunk
+    </code>
+</blockquote>
+
+<h3>Permitir/denegar una VLAN en un puerto trunk.</h3>
+<blockquote>
+    <code>
+        Switch(config)# interface FastEthernet0/1 <br>
+        Switch(config-if)# switchport trunk allowed vlan remove 2 <br>
+        Switch(config-if)# switchport trunk allowed vlan add 2
+    </code>
+</blockquote>
+
+<h2>Routers</h2>
+<p>
+  Los routers pueden tener interfaces virtuales, a las que llegan las tramas 802.1q de cierta VLAN.
+  Estas interfaces se configuran como las demás, y se añaden a la tabla de rutaas de la misma forma.
+  
+  <blockquote>
+      <code>
+          Router(config)#interface fa0/0.1 <br>
+          Router(config-subif)# encap dot1q 2 <br>
+          Router(config-subif)# ip address 192.168.6.1 255.255.255.0 <br>
+          Router(config-subif)# exit <br>
+          Router(config)# interface fa0/0 <br>
+          Router(config-if)# no shutdown <br>
+          Router(config-if)# exit
+      </code>
+      <code>
+          Router# show interfaces
+      </code>
+  </blockquote>
+</p>
+
+<h2>STP</h2>
+<p>
+    Consultar y poner la prioridad de un switch. <br>
+    <code>
+        Switch# show spanning-tree <br>
+        Switch(config)# spanning-tree vlan 1 priority 1
+    </code>
+</p>
+
+<h2>Link Agregation</h2>
+<p>
+    Se añade a un mimso channelgroup todos los enlaces conectados al mismo switch. 
+    <code>
+        Switch(config)# interface fa0/1 <br>
+        Switch(config-if)# channel-group 1 mode active
+    </code>
+</p>
+
+<h2>ACL</h2>
+
+<h3>Numeración</h3>
+<p>
+    Se identifican por un número:
+    <ul>
+        <li>Estándar
+            <ul>
+                <li>1 a 99</li>
+                <li>1300 a 1999</li>
+            </ul>
+        </li>
+        <li>
+            Ampliadas 
+            <ul>
+                <li>100 a 199</li>
+                <li>2000 a 2699</li>
+            </ul>
+        </li>
+    </ul>
+    Una interfaz ouede tener una ACL asociada en cada sentido:
+    <ul>
+        <li>
+            Entradas de paquetes (Inbound)
+        </li>
+        <li>
+            Salida de paquetes (Outbound)
+        </li>
+    </ul>
+</p>
+
+<h3>Consultar ACLs definidas.</h3>
+<code>
+    Router# show ip access-list 
+</code>
+
+<h3>Asociar una ACL a una interfaz</h3>
+<code>
+    Router(config)# interface fa0/1 <br>
+    Router(config-if)# ip access-group 'NUMEROACL' out o in 
+</code>
+
+<h3>Desasociar una ACL a una interfaz</h3>
+<code>
+    Router(config)# interface fa0/1 <br>
+    Router(config-if)# no ip access-group 'NUMEROACL' out o in 
+</code>
+
+<h3>ACL estándar.</h3>
+Crear una ACL o añadir una regla <br>
+<code>
+    Router(config)# access-list 'nº' permit/deny 'host|source-wildcard|any'
+</code>
+Borrar una ACL. <br>
+<code>
+    Router(config)# no access-list 'nº'
+</code>
+
+<h3>ACL extendidas.</h3>
+Protocolo IP ( hay más opciones, no explicadas aquí.)
+<code>
+    Router(config)# access-list &ltnumero> &ltpermit o deny> ip
+        &lthost|source source-wildcard|any>
+        &lthost|destination destination-wildcard|any>
+</code>
+
+<h2>Procesamiento de ACL</h2>
+<p>
+    Al llegar un paquete. 
+    <pre>
+    1. Si la interfax no tiene ACL de entrada se acepta.
+    2. Si tiene ACL, se revisan las reglas de la lista:
+        1. Se compueban en orden.
+        2. Si alguna deniega el paquete, se rechaza.
+        3. Si alguna acepta el paquete, se acepta.
+        4. Si ninguna se aplica al paquete, se rechaza.
+    </pre>
+    Antes de enviar un paquete:
+    <pre>
+    1. Si la interfaz no tiene ACL de salida, se envía.
+    2. Si tiene ACL, se revisan las reglas de la lista:
+        1. Se comprueban en orden. 
+        2. Si alguna deniega el paquete, se desecha.
+        3. Si alguna acepta el paquete, se envía. 
+        4. Si ninguna se plica al paquete, se desecha.
+    </pre>
+
+    <h3>Comandos útiles</h3>
+    <p>
+        Una vez creada una ACL (más adelante) es necesario:
+        - Asignar y desasignar ACL a interfaces. <br>
+        - Borrar y consultar ACL creadas.
+        <hr>
+        El WILDCARD es la máscara de red con ceros y unos invertidos. <br>
+        Ejemplo: La red 192.168.1.0/24se especifica como 
+        192.168.1.0 0.0.0.255
+        <br>
+        Son equivalentes las siguientes direcciones:
+        <pre>
+        any
+        0.0.0.0 255.255.255.255
+        </pre>
+        Ejemplo: No dejes pasar el tráfico con origen en la red: 192.168.1.0/8
+        <code>
+            access-list 10 deny 192.168.1.0 0.0.0.255
+        </code>
+
+    </p>
+</p>
+
+</p>
+
+
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

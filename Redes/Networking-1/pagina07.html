@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>7-Ethernet. Switch y Hubs</title>
+</head>
+<body>
+    
+    <h1>7-Ethernet. Switch y Hubs</h1>
+    <p>
+        Recuerda que la arquitectura IEEE 802, el nivel de enlace se divice en dos subcapas: <br>
+        &rarr; LLC: Se encarga de las funciones comunes de la capa independientemente del medio físico usado.
+        (Ej: control de errores o de flujo). Sus funciones han sido definidas por el subgrupo 802.2. <br>
+        &rarr; MAC: Se encarga del acceso al medio. <br>
+    </p>
+    
+    <h2>Dominios de colisión</h2>
+    <p>
+        Un dominio de colisión es un conjunto de segmentos de cable que interconectan na red donde, al transmitir
+        dos o más estaciones, puede producirse una colisión. <br>
+        La subcapa MAC:
+        <ul>
+            <li>Se encarga de que no haya colisión.</li>
+            <li>O si se produce, gestionar las colisiones.</li>
+        </ul>
+
+        <h3>Compartición del medio.</h3>
+        <p>
+            En las redes de difusión, cuyo medio de transmisión está compartido por diferentes dispositivos, hace falta un
+            mecanismo para que cada equipo pueda usar el medio durante un tiempo suficiente. <br>
+            Los protocolos se tiene que encargar de resolver los conflictos de acceso al medio. Por esta razón, la capa de
+            enlace de redes de difusión es más compleja que la de las redes punto a punto. 
+        </p>
+
+        <h3>Gestión de un dominio de colisión</h3>
+        <p>
+            <ul>
+                <li><b>Detección de portadora:</b>
+                    <p>
+                        Se trata de la capacidad de las estaciones transmisoras para detectar si en un determinado momento
+                        el canal está siendo ocupado por otra transmisión.
+                    </p>
+                </li>
+                <li><b>Detección de colisión</b>
+                    <p>
+                        Se trata de la capacidad de las estaciones para determinar si se ha producido una colisión en el medio.
+                    </p>
+                </li>
+            </ul>
+        </p>
+    </p>
+
+    <h2>Precedente de Ethernet (802.3)</h2>
+    <ul>
+        <li>
+            <h3>ALOHA</h3>
+            <p>
+                Elaborado en 1970 por la Universidad de Hawaii. Se manda una trama y se espera una confirmación. <br>
+                Se no llega la confirmación se supone que ha habido una colisión y se retransmite la trama.
+                <ul>
+                    <li>Uso de temporizadores</li>
+                    <li>La trama retransmitida podría colisionar otra vez</li>
+                    <li>Poco eficiente</li>
+                </ul>
+                Se mejora repartiendo el tiempo en slots. 
+                <ul>
+                    <li>Disminuye la probabilidad de colisión</li>
+                    <li>No comprueba si el canal está libre antes de transmitir</li>
+                </ul>
+            </p>
+        </li>
+        <li>
+            <h3>CSMA</h3>
+            <p>
+                <i>Carrier Sense Multiple Access</i> <br>
+                Escucha el canal antes de empezar a transmitir, para comprobar que no está en uso.
+                <ul>
+                    <li>
+                        <b>CSMA persistente:</b>
+                        <p>
+                            Comprueba continuamentesi el canal está libre.
+                            <ul>
+                                <li>En cuanto detecta disponibilidad, envía</li>
+                                <li>Si varios dispositivos están esperando disponibilidad del canalpara realizar un envío,
+                                    enviarán al mismo tiempo y se prducirá colisión</li>
+                            </ul>
+                        </p>
+                    </li>
+                    <li>
+                        <b>CSMA no persistente:</b>
+                        <p>
+                            Si al intentar transmitir está ocupado, espera un tiempo aleatorio antes de intentar transmitir
+                            otra vez.
+                            <ul>
+                                <li>Reduce las colisiones, pero aumenta el retardo con bajo tráfico</li>
+                            </ul>
+                        </p>
+                    </li>
+                    <li>
+                        <b>CSMA-CD <i>(Collision detection):</i></b>
+                        <p>
+                            Las estaciones son capaces de detectar una colisión después de haber empezado a transmitir.
+                            <ul>
+                                <li>Si esto ocurre, abortan la transmisióny vuelven a intentarlo después de un tiempo aleatorio.</li>
+                            </ul>
+
+                        </p>
+                    </li>
+                </ul>
+            </p>
+        </li>
+    </ul>
+
+    <h2>Ethernet (802.3)</h2>
+    <p>
+        Ethernetse basa sobre el CSMA/CD persistente Utilizando cable UTP de 
+        categoría 5e o 6. <br>
+        <ul>
+            <li>100 Base TX.
+                <p>Usando codificación 4B/5B - MTL-3</p>
+            </li>
+            <li>1000 Base T.
+                <p>PAM-5.</p>
+            </li>
+            <li>1000 Base X (SX, LX, ...)
+                <p>Fibra óptica con codificación 8B/10B</p>
+            </li>
+        </ul>
+    </p>
+
+    <h2>Tramas</h2>
+    <img src="https://sites.google.com/site/comdatosgrupo4/_/rsrc/1268113615709/contenidos/cap2_capa-enlace-datos/tipostramaether.JPG?height=195&width=400" alt="tramas">
+    
+    <h2>LLC</h2>
+    <img src="https://image.slidesharecdn.com/3-redesip-150113123851-conversion-gate02/95/introduccin-a-redes-ip-69-638.jpg?cb=1424161876" alt="">
+    <p>
+        <b>DSAP y SSAP</b>: Especifican los protocolos de nivel superior. <br>
+        Control: 
+        <ul>
+            <li>
+                Paquetes <b>U</b>, con un campo de control de 8 bits, están pensados para servicios no orientados a conexión. Son los usados <i>normalmente.</i>
+            </li>
+            <li>
+                Paquetes <b>I</b>, con un campo de control y secuencia numérica de 16 bits, están pensados para servicios orientados a conexión.
+            </li>
+            <li>
+                Paquetes <b>S</b>, con un campo de control de 16 bits, están pensados para usarse en funciones supervisoras en la capa LLC (Logical Link Control).
+            </li>
+        </ul>
+    </p>
+
+    <h2>SNAP</h2>
+    <p>
+        Cuando DSAP y SSAP tienen el valor AA o BB.
+        Distingue protocolos adicionales a los del LLC, por ejemplo: no hay un numero asignado para que IP viaje sobre LLC.
+    </p>
+
+    <h2>¿Se usa LLC, SNAP?</h2>
+    <p>
+        Lo normal son tramas Ethernet-Dix o 802.3 RAW.
+    </p>
+
+    <h2>Tamaño</h2>
+    <p>
+        <h4>Tamaño mínimo: 54 bytes ( 46 de datos.). </h4>
+        Se necesita un <b>mínimo</b> para poder detectar las colisiones en 10BaseT (2500 metros máximos a 10Mbs). <br>
+        <h4>Tamaño máximo: 1518 bytes (1500 de datos). </h4>
+        Para limitar las colisiones y mejorar la compartición del medio.  <br>
+        Estoslímites son obsoletos. Con los switches no hay colisiones, mayores velocidades permiten tramas jumbo.
+    </p>
+
+    <h2>MTU</h2>
+    <p>
+        <i>Maximum Transfer Unit</i> <br>
+        El sistema operativo puede permitir configurarlo para:
+        <ul>
+            <li>
+                Mejorar el rendimiento: tramas jumbo.
+            </li>
+            <li>
+                Reducir la latencia: tramas más pequeñas.
+            </li>
+        </ul>
+
+        <pre>
+
+        <b>Network</b>              <b>MTU(bytes)</b>
+        ---------------------------------------
+        16 Mbps Token Ring       17914
+        4 Mbps Token Ring        4464
+        FDDI                     4352
+        Ethernet                 1500
+        IEE 802.3/802.2          1492
+        PPPoE(WAN Miniport)      1480
+        X.25                     576
+
+        </pre>
+    </p>
+    
+    <h2>Direcciones MAC</h2>
+    <p>
+        Se llaman <b>direcciones físicas</b>, aunque son de la capa de enlace. <br>
+        Son números de 48 bits (6 bytes).
+        <ul>
+            <li>
+                Se expresan como números hexadecimales separados por dos puntos (D4:AA:21:F3:00:C8)
+            </li>
+            <li>
+                En ocasiones (Windows) se utilizan como separadores un guión (-) D4-AA-21-F3-00-C8.
+            </li>
+        </ul>
+        Cada tarjeta de red tiene una dirección MAC única.
+        <ul>
+            <li>
+                24 bits indican el <b>fabricante</b>
+            </li>
+            <li>
+                24 bits como <b>dentificador de la tarjeta</b> dentro del fabricante.
+            </li>
+        </ul>
+    </p>
+
+    <h3>Consultar la propia MAC</h3>
+    <p>
+        <ul>
+            <li>
+                <h4>Windows.</h4>
+                <i> ipconfig /all</i>
+            </li>
+            <li>
+                <h4>Linux.</h4>
+                <i>ifconfig -a | grep HWaddr</i>
+            </li>
+        </ul>
+    </p>
+
+    <h2>Broadcast</h2>
+    <p>
+        Hay ocasiones en las que interesa hablar con todos los ordenadores de la red.
+        <ul>
+            <li>
+                MDNS/Zeroconf
+            </li>
+            <li>
+                ARP
+            </li>
+            <li>
+                DHCP
+            </li>
+        </ul>
+        La dirección MAC FF:FF:FF:FF:FF:FF es de broadcast, e implica que los destinatarios del paquete enviado son 
+        todos los equipos de la subred.
+    </p>
+
+    <h2>Equipos de interconexión.</h2>
+    <p>
+        <h3>Componentes de red. Repetidor.</h3>
+        <p>
+            Un repetidor es un quipo con dos puertos de comunicaciones. Repite la señal  recibida por 
+            un extremo hacia el otro extremo. <br>
+            <ul>
+                <li>
+                    Puede regenerar y amplificar la señal.
+                </li>
+                <li>
+                    Puede almacenar la trama completa antes de empezar a retransmitirla.
+                </li>
+                <li>
+                    Un concentrador (hub) es un repetidor con más de dos puertos.
+                </li>
+            </ul>
+        </p>
+
+        <h3>Componentes de red. Puente.</h3>
+        <p>
+            Un puente es similar a un hub, incluyendo sus funcionalidades pero con una lógica más avanzada.
+            No solo trabaja a nivel eléctrico. Además, entiende las tramas y puede decidir si las retransmite o 
+            no. <br>
+            <i>Solo retrasmite tramas si el destinatario está al otro lado.</i>
+            <br>
+            Un puente (bridge) con más de dos puertos se denomina <b>switch.</b>
+        </p>
+
+        <h4>¿Direcciones MAC?</h4>
+        <p>
+            Los hub y los switch no tienen una dirección MAC. 
+            <ul>
+                <li>
+                    Los paquetes no se dirigen directamente a ellos.
+                </li>
+                <li>
+                    La introducción de un hub/switch en una infraestructura de red ya existente
+                    mo cambia a configuración de ningún otro equipo. 
+                </li>
+            </ul>
+        </p>
+        <h4>Switch ¿Configuración?</h4>
+        <p>
+            ¿Cómo conoce un bridge qué equipos están en qué zonas de la red? <br>
+            Generalmente, un bridge/switch no tiene este tipo de configuración.
+            El <b>switch</b> aprende "<i>hacia atrás</i>" 
+            <ul>
+                <li>
+                    Nada más ser encufado, se comporta como un <b>hub.</b>
+                </li>
+                <li>
+                    Cada vez que recibe una trama, apunta la dirección de origen de la trama y el puerto por donde
+                    ha llegado.
+                </li>
+                <li>
+                    De esta forma, cuando una trama tenga como destino una dirección MAC conocida, sólo envía por el puerto 
+                    por el que llegan sus paquetes. 
+                </li>
+                <li>
+                    En una red grande es casi obligarotio utilizar switches. <br>
+                    <i>Para evitar tormentas de broadcast.</i>
+                </li>
+                <li>
+                    Aún así, inicialmente hay inundaciones hasta que los switches conocen las MAC de los equipos. 
+                </li>
+            </ul>
+        </p>
+    </p>
+
+    <h2>ARP</h2>
+    <p>
+        Es un protocolo que se encuentra en la frontera de las capas de red y enlace, aunque generalmente aparece como 
+        protocolo de red. <br>
+        Determina la dirección MAC de un equipo de nuestra misma subred conocida su dirección IP, para hacer la entrega de la 
+        trama localmente. <br>
+        Suele realizarlo el sistema operativo.
+
+        <h3>Comandos ARP - Linux</h3>
+        <code>
+            Consultar las direcciones conocidas.
+            <blockquote>
+                arp -a
+            </blockquote>
+            Borrar una entrada (dirección IP).
+            <blockquote>
+                sudo arp -d XXX.XXX.XXX.XXX
+            </blockquote>
+            Añadir manualmente una entrada (dirección IP,MAC).
+            <blockquote>
+                sudo arp -s XXX.XXX.XXX.XXX MM:MM:MM:MM:MM:MM
+            </blockquote>
+        </code>
+
+        <h3>Comandos ARP - Windows</h3>
+        <code>
+            Consultarlas direcciones conocidas.
+            <blockquote>
+                arp -a
+            </blockquote>
+            Borrar una entrada (dirección IP).
+            <blockquote>
+                arp -d XXX.XXX.XXX.XXX
+            </blockquote>
+            Borrar todas las entradas
+            <blockquote>
+                arp -a
+            </blockquote>
+            Añadir manualmente una entrada (dirección IP,MAC)
+            <blockquote>
+                arp -s XXX.XXX.XXX.XXX  MM:MM:MM:MM:MM:MM
+            </blockquote>
+        </code>
+    </p>
+
+    <address>
+        Human Computing  3.0 &copy;
+    </address>
+   
+</body>
+</html>

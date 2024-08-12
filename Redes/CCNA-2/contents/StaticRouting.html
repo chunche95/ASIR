@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Becas Digitaliza - Routign estático.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+				<span class="logo fa fa-globe"></span>
+				<h1>Routing estático.</h1>
+				<p>
+                	El enrutamiento es fundamental para cualquier red de datos, ya que transfiere información a través de una internetwork de origen a destino. Los routers son dispositivos que se encargan de transferir paquetes de una red a la siguiente...
+				</p>
+			</div>
+
+		<!-- Main -->
+
+				<div class="box container">
+					<section>
+						<header>
+							<h2>Routing estático</h2>
+						</header>
+						<p>
+							El enrutamiento es fundamental para cualquier red de datos, ya que transfiere información a través de una internetwork de origen a destino. Los routers son dispositivos que se encargan de transferir paquetes de una red a la siguiente. <br>
+							Los routers descubren redes remotas de manera dinámica, mediante protocolos de routing, de manera manual, o por medio de rutas estáticas. En muchos casos, los routers utilizan una combinación de protocolos de routing dinámico y rutas estáticas. 
+							Este capítulo trata sobre el enrutamiento estático. <br>
+							Las rutas estáticas son muy comunes y no requieren la misma cantidad de procesamiento y sobrecarga que los protocolos de routing dinámico. <br>
+							En este capítulo, se utilizarán topologías de ejemplo para configurar las rutas estáticas IPv4 e IPv6 y para presentar técnicas de resolución de problemas. A lo largo del proceso, se analizarán varios comandos importantes de IOS y los resultados 
+							que generan. Se incluirá una introducción a la tabla de routing con redes conectadas directamente y rutas estáticas.
+						</p>
+						<h2>Actividad: ¿Qué camino debemos tomar?</h2>
+						<p>
+							<img class="image" src="images/Actividades/que camino debemos tomar.PNG"  alt=""> <br>
+							<a href="Documents/2.0.1.2 Which Way Should We Go Instructions.pdf" target="_blank" rel="noopener noreferrer">Actividad de clase: Qué camino debemos tomar (Instrucciones)</a>
+						</p>
+						<h2>Alcance de redes remotas</h2>
+						<p>
+							Un router puede descubrir redes remotas de dos maneras:
+							<ul>
+								<li>
+									<strong>Manualmente:</strong> las redes se introducen de forma manual en la tabla de rutas por medio de rutas estáticas.										
+								</li>
+								<li>
+									<strong>Dinámicamente:</strong> las rutas remotas se descubren de forma automática mediante un protocolo de routing dinámico.
+								</li>
+							</ul>
+							En la figura 1, se proporciona una situación de ejemplo de routing estático. En la figura 2, se proporciona una situación de ejemplo de routing dinámico con EIGRP. <br>
+							<img src="images/situacion de rutas estaticas y predeterminadas-alcance de redes remotas.PNG" alt=""> <br>
+							Un administrador de red puede configurar una ruta estática manualmente para alcanzar una red específica. A diferencia de un protocolo de routing dinámico, las rutas estáticas 
+							no se actualizan automáticamente, y se deben volver a configurar manualmente cada vez que cambia la topología de la red. <br>
+							<img src="images/situacion de routing dinamico alcance de redes remotas.PNG" alt="">
+						</p>
+						<h2>¿Por qué utilizar el routing estático?</h2>
+						<p>
+							El routing estático proporciona algunas ventajas en comparación con el routing dinámico, por ejemplo:
+							<ul>
+								<li>
+									- Las rutas estáticas no se anuncian a través de la red, lo cual aumenta la seguridad.
+								</li>
+								<li>
+									- Las rutas estáticas consumen menos ancho de banda que los protocolos de routing dinámico. No se utiliza ningún ciclo de CPU para calcular y comunicar las rutas.
+								</li>
+								<li>
+									- La ruta que usa una ruta estática para enviar datos es conocida.
+								</li>
+							</ul>
+							El routing estático tiene las siguientes desventajas:
+							<ul>
+								<li>
+									- La configuración inicial y el mantenimiento son prolongados.
+								</li>
+								<li>
+									- La configuración es propensa a errores, especialmente en redes extensas.
+								</li>
+								<li>
+									- Se requiere la intervención del administrador para mantener la información cambiante de la ruta.
+								</li>
+								<li>
+									- No se adapta bien a las redes en crecimiento, el mantenimiento se torna cada vez más complicado.
+								</li>
+								<li>
+									- Requiere un conocimiento completo de toda la red para una correcta implementación.
+								</li>
+							</ul>
+							<img src="images/comparacion entre routing dinamico y estatico.PNG" alt=""> <br>
+							En la ilustración, se comparan las características del routing dinámico y el routing estático. Observe que las ventajas de un método son las desventajas del otro. <br>
+							Las rutas estáticas son útiles para redes más pequeñas con solo una ruta hacia una red externa. También proporcionan seguridad en una red mñas grande para ciertos tipos de tráfico o enlaces a otras redes que 
+							necesitan más control. Es importante comprender que el routing estático y el routing dinámico son mutuamente excluyentes. En cambio, la mayoría de las redes utilizan una combinación de protocolos de routing dinámico 
+							no son mutuamente excluyentes. En cambio, la mayoría de las redes utilizan una combinación de protocolos de routing dinámico y rutas estáticas. Esto puede ocasionar que el router tenga varias rutas a una red de 
+							destino a través de rutas estáticas y rutas descubiertas dinámicamente. Sin embargo, recuerde que el valor de la distancia administrativa (AD) es una medida de la preferencia de los orígenes de ruta. Los orígenes 
+							de ruta con valores bajos de AD se prefieren sobre los orígenes de rutas con valores altos de AD. El valor de AD para una ruta estática es 1. Por lo tanto, una ruta estática tendrá prioridad sobre todas las rutas 
+							aprendidas dinámicamente, que tendrán valores mayores de AD. <br>
+						</p>
+						<h2>Cuándo usar rutas estáticas</h2>
+						<p>
+							El routing estático tiene tres usos principales:
+							<ul>
+							   <li>Facilita el mantenimiento de la tabla de enrutamiento en redes más pequeñas en las cuales no está previsto que crezcan significativamente.</li>
+							   <li>Proporciona routing hacia las redes de rutas internas y desde estas. Una red de rutas internas es aquella a la cual se accede a través un de una única ruta y cuyo router tiene solo un vecino.</li>
+							   <li>Utiliza una única ruta predeterminada para representar una ruta hacia cualquier red que no tenga una coincidencia más específica con otra ruta en la tabla de routing. Las rutas predeterminadas se utilizan 
+								   para enviar tráfico a cualquier destino que esté más allá del próximo router ascendente.</li>
+							</ul>
+							En la ilustración, se muestra un ejemplo de la conexión de una red de rutas internas y de la conexión de una ruta predeterminada. En dicha ilustración, observe que cualquier red conectada al R1 solo tiene una manera 
+							de alcanzar otros destinos, ya sean redes conectadas al R2 o destinos más allá del R2. Por lo tanto, la red 172.16.3.0 es una red de rutas internas y el R1 es un router de rutas internas. <br>
+							En este ejemplo, se puede configurar una ruta estática en el R2 para alcanzar la LAN del R1. Además, como el R1 tiene solo una forma de enviar tráfico no local, se puede configurar una ruta estática predeterminada en 
+							el R1 para señalar al R2 como el siguiente salto para todas las otras redes. <br>
+							<img src="images/redes y routers de rutas internas.PNG" alt="">
+						</p>
+						<h2>Actividad: Identificar las ventajas y desventajas del routing estático</h2>
+						<p>
+							<img src="images/Actividades/identificar las ventajas y desventajas del routing estatico.PNG" alt="">
+						</p>
+						<h2>Aplicaciones de las rutas estáticas</h2>
+						<p>
+							Como se muestra en la ilustración, las rutas estáticas suelen usarse con más frecuencia para conectarse a una red específica o para proporcionar un gateway de último recurso para una red de rutas internas. 
+							También pueden utilizarse para lo siguiente:
+							<ul>
+								<li>Para reducir el número de rutas anunciadas mediante el resumen de varias redes contiguas como una sola ruta estática</li>
+								<li>Para crear una ruta de respaldo en caso de que falle un enlace de la ruta principal</li>
+							</ul>
+							Se analizarán los siguientes tipos de rutas estáticas IPv4 e IPv6:
+							<ul>
+								<li> Ruta estática estándar </li>
+								<li> Ruta estática predeterminada </li>
+								<li> Ruta estática resumida </li>
+								<li> Ruta estática flotante </li>
+							</ul>
+							<img src="images/utilice  las tablas estaticas.PNG" alt="">
+						</p>
+						<h2>Ruta estática estándar.</h2>
+						<p>
+							IPv4 e IPv6 admiten la configuración de rutas estáticas. Las rutas estáticas son útiles para conectarse a una red remota específica. <br>
+							En la ilustración, se muestra que el R2 se puede configurar con una ruta estática para alcanzar la red de rutas internas 172.16.3.0/24. <br>
+							<strong>Nota:</strong> en el ejemplo, se resalta una red de rutas internas, pero, de hecho, una ruta estática se puede utilizar para conectarse a cualquier red. <br>
+							<img src="images/conexion a una red de rutas  internas.PNG" alt="">
+						</p>
+						<h2>Ruta estática por defecto</h2>
+						<p>
+							Una ruta predeterminada es una ruta que coincide con todos los paquetes y es utilizada por el router si un paquete no coincide con ninguna otra ruta más específica en la 
+							tabla de routing. Una ruta predeterminada puede ser aprendida de forma dinámica o configurada de manera estática. Una ruta estática predeterminada es simplemente una ruta 
+							estática con 0.0.0.0/0 como dirección IPv4 de destino. Al configurar una ruta estática predeterminada, se crea un gateway de último recurso. <br>
+							Las rutas estáticas predeterminadas se utilizan en los siguientes casos:
+							<ul>
+								<li> 
+									Cuando ninguna otra ruta de la tabla de routing coincide con la dirección IP destino del paquete. En otras palabras, cuando no existe una coincidencia más específica. 
+									Se utilizan comúnmente cuando se conecta un router periférico de una compañía a la red ISP.
+								</li>
+								<li>
+									Cuando un router tiene otro router único al que está conectado. En esta situación, se conoce al router como router de rutas internas.
+								</li>
+							</ul>
+							Consulte la figura para ver una situación de la ruta predeterminada de la red de rutas internas. <br>
+							<img src="images/conexion de un router de rutas internas.PNG" alt="">
+						</p>
+						<h2>Ruta estática resumida</h2>
+						<p>
+							Para reducir el número de entradas en la tabla de routing, se pueden resumir varias rutas estáticas en una única ruta estática si se presentan las siguientes condiciones:
+							<ul>
+								<li> Las redes de destino son contiguas y se pueden resumir en una única dirección de red. </li>
+								<li> Todas las rutas estáticas utilizan la misma interfaz de salida o la dirección IP del siguiente salto.</li>
+							</ul>
+							En la ilustración, el R1 requiere cuatro rutas estáticas separadas para alcanzar las redes 172.20.0.0/16 a 172.23.0.0/16. En cambio, una ruta estática resumida puede configurarse 
+							y aún proporcionar conectividad a esas redes. <br>
+							<img src="images/uso de una unica ruta estatica resumida.PNG" alt="">
+						</p>
+						<h2>Ruta estática flotante</h2>
+						<p>
+							Otro tipo de ruta estática es una ruta estática flotante. Las rutas estáticas flotantes son rutas estáticas que se utilizan para proporcionar una ruta de respaldo a una ruta estática o dinámica principal, 
+							en el caso de una falla del enlace. La ruta estática flotante se utiliza únicamente cuando la ruta principal no está disponible. <br>
+							Para lograrlo, la ruta estática flotante se configura con una distancia administrativa mayor que la ruta principal. La distancia administrativa representa la confiabilidad de una ruta. Si existen varias 
+							rutas al destino, el router elegirá la que tenga una menor distancia administrativa. <br>
+							Por ejemplo, suponga que un administrador desea crear una ruta estática flotante como respaldo de una ruta descubierta por EIGRP. La ruta estática flotante se debe configurar con una distancia administrativa 
+							mayor que el EIGRP. El EIGRP tiene una distancia administrativa de 90. Si la ruta estática flotante se configura con una distancia administrativa de 95, se prefiere la ruta dinámica descubierta por el EIGRP a 
+							la ruta estática flotante. Si se pierde la ruta descubierta por el EIGRP, en su lugar se utiliza la ruta estática flotante. <br>
+							En la ilustración, el router de la sucursal generalmente reenvía todo el tráfico al router de la oficina central (HQ) mediante el enlace WAN privado. En este ejemplo, los routers intercambian información de la 
+							ruta utilizando el EIGRP. Una ruta estática flotante, con una distancia administrativa de 91 o superior, se puede configurar para que funcione como ruta de respaldo. Si el enlace WAN privado falla y la ruta EIGRP 
+							desaparece de la tabla de routing, el router selecciona la ruta estática flotante como la mejor ruta para alcanzar la LAN de la oficina central. <br>
+							<img src="images/configuracion de una ruta de respaldo.PNG" alt="">
+						</p>
+						<h2>Actividad: Identificar el tipo de ruta estática</h2>
+						<p>
+							<img src="images/Actividades/identificar el tipo de ruta estatica.PNG" alt="">
+						</p>
+						<h2>Comando ip route</h2>
+						<p>
+							Las rutas estáticas se configuran con el comando <code><strong>ip route</strong></code> de configuración global. La sintaxis básica del comando se muestra en la figura.
+							Se requieren los siguientes parámetros para configurar el routing estático:
+							<ul>
+								<li>
+									-<strong>dirección de red:</strong> dirección de red de destino de la red remota que se agrega a la tabla de routing, también llamada “prefijo”.
+								</li>
+								<li>
+									-<strong>máscara-subred:</strong> máscara de subred, o simplemente máscara, de la red remota que se agrega a la tabla de routing. La máscara de subred 
+									puede modificarse para resumir un grupo de redes.
+								</li>
+							</ul>
+							Además, deberá utilizarse uno de los siguientes parámetros o ambos:
+							<ul>
+								<li>
+									-<strong>dirección-ip:</strong> dirección IP del router de conexión que se va a utilizar para reenviar el paquete a la red de destino remota. Se la suele 
+									denominar “siguiente salto”.
+								</li>
+								<li>
+							        -<strong>exit-intf:</strong> interfaz de salida que se va a utilizar para reenviar el paquete al siguiente salto.
+								</li>
+							</ul>
+							La Distancia distancia se utiliza para crear una ruta estática flotante al establecer una distancia administrativa mayor que la de una ruta descubierta de forma dinámica. <br>
+							<img src="images/sintaxis del comando ip route.PNG" alt="">
+						</p>
+						<h2>Opciones de siguiente salto</h2>
+						<p>
+							En este ejemplo, las figuras 1 a 3 muestran las tablas de routing de los routers R1, R2 y R3. <br>
+							<div>
+								<img src="images/verificacion de la tabla de routing del R1.PNG" alt="">
+								<img src="images/verificacion de la tabla de routing del R2.PNG" alt="">
+								<img src="images/verificacion de la tabla de routing del R3.PNG" alt="">
+							</div>
+							Observe que cada router tiene entradas solo para redes conectadas directamente y sus direcciones locales asociadas. Ninguno de los routers tiene 
+							conocimiento de las redes que están fuera de las interfaces conectadas directamente. <br>
+							Por ejemplo, el R1 no tiene conocimiento de las redes:
+							<ul>
+								<li>172.16.1.0/24: LAN en el R2</li>
+								<li>192.168.1.0/24: red serial entre el R2 y el R3</li>
+								<li>192.168.2.0/24: LAN en el R3</li>
+							</ul>
+							En la figura 4, se muestra un ping correcto del R1 al R2. En la figura 5, se muestra un ping incorrecto a la LAN del R3. 
+							Esto se debe a que el R1 no tiene una entrada en su tabla de routing para la red LAN del R3. <br>
+							<img src="images/verificacion de la conectividad del R1 al R2.PNG" alt=""> <br>
+							El siguiente salto se puede identificar mediante una dirección IP, una interfaz de salida, o ambas. El modo en que se especifica 
+							el destino genera uno de los siguientes tres tipos de ruta:
+							<ul>
+								<li>Ruta del siguiente salto: solo se especifica la dirección IP del siguiente salto</li>
+								<li>Ruta estática conectada directamente: solo se especifica la interfaz de salida del router</li>
+								<li>Ruta estática especificada completamente: se especifican la dirección IP del siguiente salto y la interfaz de salida</li>
+							</ul>
+							<img src="images/verificacion de la conectividad del R1 al R3.PNG" alt="">
+						</p>
+						<h2>Configuración de una ruta estática de siguiente salto</h2>
+						<p>
+							En una ruta estática de siguiente salto, solo se especifica la dirección IP del siguiente salto. La interfaz de salida se deriva del próximo salto. 
+							Por ejemplo, en la figura 1, se configuran tres rutas estáticas de siguiente salto en el R1 con la dirección IP del siguiente salto, el R2. <br>
+							Antes de que un router reenvíe un paquete, el proceso de la tabla de routing debe determinar qué interfaz de salida utilizará para reenviar el paquete. 
+							A esto se lo conoce como resolución de rutas. <br>
+							La Figura 2 detalla el proceso básico de envío de paquetes en la tabla de routing para R1. Cuando un paquete está destinado a la red 192.168.2.0/24, el R1:
+							<ul>
+								<li>
+									1. Busca una coincidencia en la tabla de routing y encuentra que debe reenviar paquetes a la dirección IPv4 172.16.2.2 del siguiente salto, 
+									tal como lo indica la etiqueta 1 en la ilustración. Todas las rutas que hacen referencia solo a la dirección IPv4 del siguiente salto y que no hacen 
+									referencia a una interfaz de salida deben resolver la dirección IPv4 del siguiente salto con otra ruta de la tabla de routing que tenga una interfaz de salida.
+								</li>
+								<li>
+									2. En esta instancia, el R1 debe determinar cómo alcanzar la dirección 172.16.2.2. Por lo tanto, busca por segunda vez si existe una coincidencia para 172.16.2.2. 
+									En este caso, la dirección IPv4 hace coincidir la ruta de la red conectada directamente 172.16.2.0/24 con la interfaz de salida Serial 0/0/0, tal como lo indica la 
+									etiqueta 2 en la ilustración. Esta búsqueda le comunica al proceso de la tabla de routing que este paquete se reenvía fuera de esa interfaz.
+								</li>
+							</ul>
+							En realidad, se requieren dos procesos de búsqueda en la tabla de routing para reenviar cualquier paquete a la red 192.168.2.0/24. Cuando el router realiza varias búsquedas 
+							en la tabla de routing antes de reenviar un paquete, lleva a cabo un proceso que se conoce como “búsqueda recursiva”. Debido a que las búsquedas recursivas consumen recursos 
+							del router, deben evitarse siempre que sea posible. <br>
+							Una ruta estática recursiva es válida (es decir, es candidata para agregarse a la tabla de routing) solo cuando el siguiente salto especificado resuelve a una interfaz de 
+							salida válida, ya sea de forma directa o indirecta. Si la interfaz de salida está “down” (inactiva) o “administratively down” (administrativamente inactiva), la ruta estática 
+							no se instalará en la tabla de routing. <br>
+							<div>
+								<img src="images/configuracion de rutas estaticas de siguiente salto en el R1.PNG" alt=""> <br> <p>Imagen 1</p> <br>
+								<img src="images/verificacion de la tabla de routing del R1-1.PNG" alt=""> <br>
+								<img src="images/verificacion de la tabla de routing del R1-2.PNG" alt=""> <br> <p>Imagen 2</p> <br>
+								<img src="images/configuracion de rutas estaticas de siguiente salto en el R2-1.PNG" alt=""> <br>
+								<img src="images/configuracion de rutas estaticas de siguiente salto en el R2-2.PNG" alt=""> <br> <p>Imagen 3</p> <br>
+								<img src="images/configuracion de rutas estaticas de siguiente salto en el R3-1.PNG" alt=""> <br>
+								<img src="images/configuracion de rutas estaticas de siguiente salto en el R3-2.PNG" alt=""> <br> <p>Imagen 4</p>
+							</div>
+							Utilice el verificador de sintaxis en las figuras 3 y 4 para configurar y verificar las rutas estáticas del siguiente salto en el R2 y el R3.
+						</p>
+						<h2>Configuración de una ruta estática conectada directamente</h2>
+						<p>
+							Al configurar una ruta estática, otra opción es utilizar la interfaz de salida para especificar la dirección del siguiente salto. <br>
+							En la figura 1, se configuran tres rutas estáticas conectadas directamente en el R1 mediante la interfaz de salida. La tabla de routing para el R1 en la figura 2 muestra 
+							que cuando un paquete está destinado a la red 192.168.2.0/24, el R1 busca una coincidencia en la tabla de routing y encuentra que puede reenviar el paquete desde su interfaz 
+							serial 0/0/0. No se necesita ninguna otra búsqueda. <br>
+							<img src="images/configuracion de rutas estaticas conectadas directamente en el R1.PNG" alt=""> <br> <i>Imagen 1</i> <br>
+							<img src="images/verificacion de la tabla de routing del R1 conectada directamente -1.PNG" alt=""> <br>
+							<img src="images/verificacion de la tabla de routing del R1 conectada directamente -2.PNG" alt=""> <br> <i>Imagen 2</i> <br>
+							Observe que la tabla de routing se ve diferente para la ruta configurada con una interfaz de salida que para la ruta configurada con una entrada recursiva. <br>
+							La configuración de una ruta estática conectada directamente con una interfaz de salida permite que la tabla de routing resuelva esta interfaz en una única búsqueda, no en dos. 
+							Aunque la entrada de la tabla de routing indica “conectado directamente”, la distancia administrativa de la ruta estática sigue siendo 1. Solo una interfaz conectada directamente 
+							puede tener una distancia administrativa de 0. <br>
+							Nota: para las interfaces punto a punto, puede utilizar rutas estáticas que señalan a la interfaz de salida o a la dirección del siguiente salto. Para interfaces multipunto o de 
+							difusión, es más conveniente utilizar rutas estáticas que señalen a una dirección del siguiente salto. <br>
+							Utilice el verificador de sintaxis en las figuras 3 y 4 para configurar y verificar las rutas estáticas conectadas directamente en el R2 y el R3. <br>
+							<img src="images/configuracion de rutas estaticas conectadas directamente en el R2.PNG" alt=""> <br>
+							<img src="images/configuracion de rutas estaticas conectadas directamente en el R2-2.PNG" alt=""> <br> <i>Imagen 3</i> <br>
+							<img src="images/configuracion de rutas estaticas conectadas directamente en el R3-1.PNG" alt=""> <br>
+							<img src="images/configuracion de rutas estaticas conectadas directamente en el R3-2.PNG" alt=""> <br> <i>Imagen 4</i> <br>
+							<strong>Nota</strong> : CEF (Cisco Express Forwarding) es el comportamiento predeterminado en la mayoría de las plataformas que ejecutan IOS 12.0 o posterior. CEF proporciona búsquedas optimizadas 
+							para el reenvío de paquetes eficaz mediante dos estructuras de datos principales almacenadas en el plano de datos: una base de información de reenvío (FIB), que es una copia de la 
+							tabla de routing y la tabla de adyacencia que incluye información de direccionamiento de la capa 2. La información combinada en estas dos tablas trabaja en conjunto de manera que 
+							no sea necesario realizar una búsqueda recursiva para encontrar direcciones IP del siguiente salto. Es decir, una ruta estática que utiliza una IP del siguiente salto solo requiere 
+							una única búsqueda cuando CEF está habilitado en el router. Aunque son comunes las rutas estáticas que utilizan solo una interfaz de salida en redes punto a punto, el uso del 
+							mecanismo de reenvío CEF predeterminado hace que esta práctica sea innecesaria. CEF se analizará en mayor detalle más adelante en el curso. <br>
+						</p>
+					</section>
+				</div>
+				
+
+				<footer class="major container medium">
+					<h3>Quote about Networking...</h3>
+					<p>
+						Networking is a lot like nutrition and fitness: we know what to do, the hard part is making it a top priority.	
+					</p>
+					<ul class="actions special">
+						<li><a href="DynamicRouting.html" class="button">Next chapter</a></li>
+					</ul>
+				</footer>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container medium">
+
+					<header class="major last">
+						<h2>Questions or comments?</h2>
+					</header>
+					<form method="post" action="#">
+						<div class="row">
+							<div class="col-6 col-12-mobilep">
+								<input type="text" name="name" placeholder="Name" />
+							</div>
+							<div class="col-6 col-12-mobilep">
+								<input type="email" name="email" placeholder="Email" />
+							</div>
+							<div class="col-12">
+								<textarea name="message" placeholder="Message" rows="6"></textarea>
+							</div>
+							<div class="col-12">
+								<ul class="actions special">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/chunche95" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:humancomputing3@gmail.com" class="icon fa-user-plus"><span class="label">Mail</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Human Computing 3.0. &reg;</li><li>Design: <a href="https://github.com/chunche95">Chunche95</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

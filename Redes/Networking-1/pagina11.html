@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>11- Protocolo IPv6</title>
+</head>
+<body>
+    
+    <h1>
+        11- Protocolo IPv6.
+    </h1>
+    <p>
+
+        En IPv4, las direcciones son de 32 bits, 2<sup>32</sup>direcciones posibles, unos 4 mil millones de ips. <br>
+        Inicialmente fueron direcciones<i>suficientes</i>, actualmente, se encuentran agotadas. <br>
+        Ante la escasez de direcciones, se palia el problema con:
+        <ul>
+            <li>
+                CIDR
+            </li>
+            <li>
+                Direcciones privadas, con acceso NAT.
+            </li>
+            <li>
+                Direcciones dinámicas (DHCP), para los accesos ADSL.
+            </li>
+        </ul>
+        Estas soluciones son solo <b>temporales</b>.
+        
+        <h2>IPv6</h2>
+        <p>
+            Las direcciones tienen 128 bits de longitud:
+            <ul>
+                <li>
+                    2<sup>128</sup>son más o menos 300 trillones de direcciones.
+                </li>
+                <li>
+                    De momento serán<i>suficientes</i>.
+                </li>
+            </ul>
+        </p>
+
+        <h2>Direcciones IPv6.</h2>
+        <p>
+            Se especifican en hexadecimal, separando grupos de 32 bits con ":". Ejemplo
+            de direcciones IPv6 <b>1002:0000:0000:8bd5:853a:8a2b:e374:0345 </b> <br>
+            Simplificaciones:
+            <ul>
+                <li>
+                    Se pueden omitir los ceros iniciales de cada grupo:
+                    <blockquote>
+                        <b>1002:0:0:8bd5:853a:8a2b:e374:0345</b>
+                    </blockquote>
+                </li>
+                <li>
+                    Se pueden omitir varios grupos que valgan 0 (Sólo una vez).
+                    <blockquote>
+                        <b>1002::8bd5:853a:8a2b:e374:345</b>
+                    </blockquote>
+                </li>
+            </ul>
+            <img src="https://4.bp.blogspot.com/-IV6OW4GmHzg/VZGVv8rxGbI/AAAAAAAAAGk/hNce5TwK25A/s1600/INI.png" alt="ipv6 direcciones">
+        </p>
+
+        <h2>Direcciones reservadas.</h2>
+        <p>
+            <table>
+                <tr>
+                    <td>
+                       <b> Dirección </b>
+                    </td>
+                    <td>
+                        <b>Descripción</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ::/128
+                    </td>
+                    <td>
+                        Dirección indefinida, ningún host puede tener esta dirección. <i>Como 0.0.0.0 en IPv4.</i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ::1/128
+                    </td>
+                    <td>
+                        La del propio host,<i>127.0.0.0/8 en IPv4.</i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        fe80::interfaz/10
+                    </td>
+                    <td>
+                    <i>link-local</i>Equivalente a APIPA<i>16.254.0.0/16 de IPv4</i>.
+                    El identificador de interfaz es el EUI-64bits.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ffc0::subred:interfaz/10
+                    </td>
+                    <td>
+                    <i>site-local</i>,como<i>link-local</i>,pero permitiendo subredes. <b>Ya no se usan.</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        fc00::/7
+                    </td>
+                    <td>
+                    <i>Unique-local.</i>Parecidas a las redes privadas IPv6.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ff00::/8
+                    </td>
+                    <td>
+                        Grupos multicast.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2001:0DB8::/32
+                    </td>
+                    <td>
+                        Ejemplos para documentación.
+                    </td>
+                </tr>
+            </table>
+        </p>
+
+        <h3>link-local con eui-64</h3>
+        <p>
+            Inicialmente, Windows y Linux calculaban las direcciones link-local con el eui-64 (Identificador de interfaz de 64 bits derivada de los 48 bits de la dirección MAC).
+            <br>
+            Actualmente, Windows usa una dirección aleatoria.
+            
+            <h4>
+                Tipos de comunicación.
+            </h4>
+            <p>
+                <ul>
+                    <li>
+                        <b>Unicast</b>
+                        <ul>
+                            <li>
+                                El paquete se envía au una dirección concreta de destino.
+                            </li>
+                            <li>
+                                Esto también existen en IPv4 y en Ethernet.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Broadcast</b>
+                        <ul>
+                            <li>
+                                En IPv4, con todos los bits de host a 1.
+                            </li>
+                            <li>
+                                Ethernet hay broadcast a toda la red, todos los bits a 1.
+                            </li>
+                            <li>
+                                En IPv6, no hay, aunque se puede usar <b>FF01::1</b> <i>Multicast: All Nodes Address.</i>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Multicast.</b>
+                        <ul>
+                            <li>
+                                El paquete se envía a varios host de, posiblemente, varias redes (FF01::/16)
+                            </li>
+                            <li>
+                                En IPv4, con direcciones de clase D.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Anycast.</b>
+                        <ul>
+                            <li>
+                                El paquete se envía a un solo host de un conjunto de hosts.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+        </p>
+
+        <h2>Subnetting en IPv6</h2>
+        <p>
+            Conceptualmente es igual que en IPv4. El IETF recomienda en su RFC 3177 que todas las redes sean almenos /64. <br>
+            Se recomienda:
+            <ul>
+                <li>
+                    Usuarios en el ambito doméstico, con conexiones permanentes o bajo demanda deberían recibir /48.
+                </li>
+                <li>
+                    Pequeñas y grandes empresas deberían recibir /48.
+                </li>
+                <li>
+                    Conjuntos muy grandes de abonados deberían recibir un /47.
+                </li>
+                <li>
+                    Redes móviles, como vehículos o teléfonos móciles, un /64.
+                </li>
+            </ul>
+        </p>
+
+    <h2>Configuración de IPv6.</h2>
+        <h3>Linux Debian</h3>
+        <pre>
+            iface eth0 inet6 static 
+            address 2607:f0d0:2001:000a:0000:0000:0000:0002 
+            netmask 64 
+            gateway 2607:f0d0:2001:000a:0000:0000:0000:0001
+        </pre>
+        <img src="https://farm8.staticflickr.com/7282/16415082398_5fb0920506_b.jpg" alt="IPv6 Linux/Unix">
+
+        <h3>Windows</h3>
+        <p>
+            En la propia configuración del adaptador de red, como IPv4.
+            <img src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/91/74/metablogapi/4544.clip_image002_thumb_5D7C4341.jpg" alt="ipv6 windows">
+        </p>
+        
+        <h3>IOS.</h3>
+        <p>
+            puede usarse el sufijo eui 64, o indicar la dirección completa. 
+            <pre>
+                ipv6 address 21e1:0DF8::8a18:1:/64 eui 64
+                ipv6 address 21e1:0DF8::8a18:1:1/64
+            </pre>
+        </p>
+
+        <h2>
+            Convivencia IPv4/IPv6.
+        </h2>
+        <p>
+            Todos los sistemas operativos actuales cuentan con pila IPv6. Los backbones de Internet funcionan con IPv6. <br>
+            Los ISP siguen funcionando con IPv4, pocas empresas usan IPv4 de forma general. <br>
+            Para hacerlo interoperables hay varias soluciones:
+            <ul>
+                <li>
+                    iPv4 mapeada a IPv6.
+                    <p>
+                        <code>
+                            ::ffff:0:0/96
+                        </code>
+                        IPv4 mapeada en el entorno IPv6, los programas que sólo entienden IPv4 usan este tipo de direcciones, traducidas por IPv6 directamente.
+                    </p>
+                </li>
+                <li>
+                    Túneles dinámicos de IPv6 a IPv4. 
+                    <p>
+                        <code>
+                            ::0:0/96
+                        </code>
+                        Túnel dinámico, para transmitir IPv6 sobre IPv4 de forma automática.
+                    </p>
+                </li>
+            </ul>
+        </p>
+    
+    Cuando se mezclan direcciones IPv4 e IPv6, la notación es mixta.
+    <pre>
+        ::ffff:192.168.10.6: IPv4 mapeada
+        ::192.168.10.6: túnel dinámico.
+    </pre>
+
+    </p>
+
+    
+
+    <address>
+        Human Computing 3.0 &COPY;
+    </address>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+#Menu en Powershell
+do
+{
+    clear-host
+    Write-Host "Men? de operaciones"
+    Write-Host "-----------------------------"
+    Write-Host "1. Muestra procesos"
+    Write-Host "2. Muestra memoria instalada"
+    Write-Host "3. Muestra versi?n Powershell"
+    Write-Host "4. Muestra configuraci?n IP"
+    Write-Host "5. Salir"
+    Write-Host "-----------------------------"
+
+    $numero=Read-Host "Selecciona una opci?n:"
+
+    Switch( $numero ) {
+     '1'{clear-host
+         write-host "Estos son los procesos:"
+         write-host "======================="
+         get-Process | select-object ProcessName|out-host -paging
+        }
+
+     '2'{clear-host
+         write-host "Cantidad total de memoria:"
+         write-host "=========================="
+         get-WmiObject -Class Win32_ComputerSystem | select-object TotalPhysicalMemory|write-host
+         }
+     '3'{clear-host
+         write-host "Esta es la version de PowerShell:"
+         write-host "================================="
+         Get-Host | Select-Object Version | out-host
+         }
+
+     '4'{clear-host
+         write-host "Configuraci?n de red:"
+         write-host "====================="
+         IPCONFIG
+        }
+     
+     '5'{write-host "Adios..."
+         break}
+
+     default {write-host "`Por favor elige una opcion correcta" -foregroundcolor red}
+    }
+    pause
+}
+until ( $numero -eq 5 )

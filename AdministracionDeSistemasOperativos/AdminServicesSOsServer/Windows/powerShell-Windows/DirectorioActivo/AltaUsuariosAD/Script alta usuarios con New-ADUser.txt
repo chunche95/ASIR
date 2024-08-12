@@ -1,0 +1,24 @@
+mport-Module ActiveDirectory
+$csvcontent = Import-CSV -Path "C:\Usuarios.csv"
+foreach ($user in $csvcontent)
+{
+New-ADUser-SamAccountName ($user.Usuario)
+-AccountPassword (ConvertTo-SecureString “P4ssw0rd” 
+-AsPlainText -Force)-ChangePasswordAtLogon $true
+-DisplayName ($user.Nombres+” “+$user.Apellidos)
+-Name ($user.Nombres+” “+ $user.Apellidos)
+-givenname $user.Nombres
+-surname $user.Apellidos
+-Path ($user.Ou)
+-userprincipalname ($user.Usuario+ “@dominio.net”)
+-Description $user.Cargo
+-Office $user.Direccion
+-OfficePhone $user.Telefono
+-City $user.Ciudad
+-State $user.State
+-Title $user.Cargo
+-Department $user.Division
+-Company “Dominio Prueba”
+-Enabled $true
+}
+

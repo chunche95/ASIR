@@ -1,0 +1,12 @@
+git add "_f.sh" 
+git add "Ejemplos.ps1" 
+git add "ejercicios.txt" 
+git add "https--amigos-de-la-informatica.blogspot.com-.url" 
+git add "PowerShell-Scripts-Repository.url" 
+git add "JAIME-RUIZ.url" 
+git add "MY-FP-SCHOOL.url" 
+git add "Powershell-Scripts-master" 
+git add "repositorio.txt" 
+git add "resueltos"
+git nota "examen PS"
+git sube

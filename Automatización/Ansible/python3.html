@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ansible</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="index.html" class="icon fa-home"><span>Home</span></a>
+                        <a href="#python3" class="icon fa-folder"><span>Python 3</span></a>
+						<a href="https://ualmtorres.github.io/CursoAnsible/tutorial/" target="_blank" class="icon fa-desktop"><span>Course</span></a>
+						<a href="https://github.com/chunche95/Ansible" class="icon fa-github"><span>GitHub</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="home" class="panel content">
+								<header>
+									<h1>Python 3</h1>
+                                    <p>
+                                        <ul class="text-center">
+                                            <li>Learn network programmability with Cisco or GNS3 and Python version 3.</li>
+                                            <li>Learn how to leverage the configuration of network devices with Python.</li>
+                                            <li>Learn how to leverage NAPALM for network automation.</li>
+                                            <li>Use Netmiko for SSH connections to routers and switches.</li>
+                                            <li>Quick start guide using Telnet and SSH.</li>
+                                            <li>Learn how to scale your network scr</li>
+                                        </ul>
+                                    </p>                               
+                                    <h1>Ansible</h1>
+                                    <p>
+                                        <ul class="text-center">
+                                            <li>Automate network configurations with Ansible.</li>
+                                            <li>Troubleshoot networks using Ansible.</li>
+                                            <li>Learn how to leverage the power of DevOps (Ansible).</li>
+                                        </ul>
+                                        <a href="#python3" class="jumplink pic">
+                                            <span class="arrow icon fa-chevron-right"><span>See my work</span></span>                                
+                                        </a>                 
+                                    </p>                                   
+                                </header>
+                            </article>                               
+                        <!-- Python 3 and Ansible - Introduction and configuration-->                    
+						<!-- Intro -->
+							<article id="python3" class="panel">
+								<header>
+									<h1>Ansible</h1>
+                                    <p>
+                                        Ansible is an open source IT tool provided by Red-Ha Enterprise Linux (RHEL) that assists in configuration management, orchestration service, task automation, and application deployment. <br>
+                                        This tool is aimed at helping system administrators looking to minimize recurring tasks, hassle-free deployment, and easy automation. <br>
+                                        The Ansible-like tools that exist are Puppet, SaltStack and Chef, which are the main administrative configuration tools available in the market. <br>
+                                        Each of these has its own advantages and disadvantages, so choosing the correct option can be a bit challenging, depending on what functions are needed or what programming language is preferred. <br>
+                                        <hr>
+                                        Ansible is a kind of tool made in Python, which uses YAML templates to scripting its work. <br>
+                                        YAML stands for "YAML Ain't Markup Language" which means that it is an easy to read language. This helps new users to understand it easily. <br>
+                                        Another advantage is that since it is not necessary to install an agent on the hosts, which improves communication speed, since it uses the push and pull models to send commands to its Linux nodes and, for Windows nodes, it uses the WinRM protocol. <br>
+                                        At its disadvantages, we have that, it has a poor user interface, a non-personalized platform and immature compared to other tools. <hr>
+                                    </p>
+                                    <h1>Ansible setup on Ubuntu</h1>
+                                    <p>
+                                        Before starting the installation process and for the installation of the Linux package, you must ensure that Python 3 (Version 3.5 or higher) is installed.
+                                        We can install from source, the development suite may be needed as the build-essential package for Ubuntu.
+                                        Ansible can be installed on Ubuntu using one of the following methods:
+                                        <ul>
+                                            <li>
+                                                Install Ansible PPA for Ubunutu using the following command: <br>
+                                                <blockquote>
+                                                    <code>
+                                                        <i>sudo apt-add repository ppa:ansible/ansible</i>
+                                                    </code>
+                                                </blockquote>
+                                            </li>
+                                            <li>
+                                                Next, configure the key server.
+                                            </li>
+                                            <li>
+                                                Third, update the package manager using command: <br>
+                                                <blockquote>
+                                                    <code>
+                                                        <i>sudo apt-get update</i>
+                                                    </code>
+                                                </blockquote>
+                                            </li>
+                                            <li>
+                                                Fourth and last step, install Ansible: <br>
+                                                <blockquote>
+                                                    <code>
+                                                        <i>sudo apt-get install -y ansible </i>
+                                                    </code>
+                                                </blockquote>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                    <h1>Ansible master node configuration</h1>
+                                    <p>
+                                        Generally, the Ansible configuration file (ansible.cfg) is located in /etc/ansible/ansible.cfg or in the home directory owned by the user who installed Ansible.
+                                        As soon as it has been installed, you can start using it with its default settings. In the next few paragraphs, we will discuss the most important and useful Ansible settings that will enhance your experience working with Ansible.
+                                        Starting with Ansible 2.4 and later, 'ansible-config' is a command used by Ansible users to list enabled Ansible options with their values.
+                                        The ansible configuration file is divided into several sections, but in this article, we will only focus on the general [default] section. So let's look at the basic parameters.
+                                        We edit the configuration file, writing.
+                                        <blockquote>
+                                            <code>
+                                                <i>
+                                                    sudo nano /etc/ansible/ansible.cfg
+                                                </i>
+                                            </code>
+                                        </blockquote>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <b>inventory</b>: Points to the inventory location Ansible uses to find out the available hosts.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        inventory = /etc/ansible/hosts
+                                                    </blockquote>
+                                                </td>                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>roles_path</b>: Indicates the location where the Ansible Playbook has to search for additional roles.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        roles_path = /etc/ansible/roles 
+                                                    </blockquote>
+                                                </td>                                                
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>log_path</b>: Indicates the location where Ansible logs are stored. Permission to write to this file must be given to user Ansible.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        log_path = /var/log/ansible.log 
+                                                    </blockquote>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>retry_files_enabled</b>: Indicates the retry feature that allows Ansible to create a '.retry' file every time a Playbook fails. It is recommended to leave this option disabled unless you really want it, as if it is enabled it will create multiple files that take up a lot of disk space.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        rety_files_enabled = False
+                                                    </blockquote>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>host_keychecking</b>: Test parameter is used in constantly changing environments, where old hosts are dropped and new hosts take their place. This parameter is generally used in a cloud or virtualized environment.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        host_key_checking = False
+                                                    </blockquote>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Forks</b>: Indicates the number of parallel tasks that can be run on the client host. By default, the value of this property is 5 and this saves system resources and network bandwidth, but in case you have enough resources and good bandwidth, you can increase this number.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        forks = 5
+                                                    </blockquote>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>remote_port</b>: Contains the por number used by SSH on hosts.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        remote_port = 22
+                                                    </blockquote>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>nocolor</b>: Gives tha ability to use different colors for the playbook and Ansible tasks showing errors and successes.
+                                                </td>
+                                                <td>
+                                                    <blockquote>
+                                                        nocolor = 0
+                                                    </blockquote>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <hr>
+                                    </p>
+                                    <h1>Ansible clients node configuration</h1>
+                                    <h2>Linux SO</h2>
+                                    <p>
+                                        OpenSSH-server is the only major tool that needs to be installed on the client node, and by default all new versions of Linux use SSH as the main remote access tool. Therefore, you need to review the following points carefully:
+                                        <ul>
+                                            <li>The SSH service is always working.</li>
+                                            <li>The SSH port, which is pel 22 by default, must be allowed in the system's firewall.</li>
+                                        </ul>
+                                    </p>
+                                    <h2>Windows SO</h2>
+                                    <p>
+                                        For Ansible to be able to remotely manage the Windows host, the following applications must be installed on the Windows nodes.
+                                        <ul>
+                                            <li>PowerShell version 3.0 or higher.</li>
+                                            <li>.NET version 4.0 or higher.</li>
+                                        </ul>
+                                    </p>
+                                </header>
+                                 <!-- Footer -->
+                                <div id="footer">
+                                    <ul class="copyright">
+                                        <li>&copy; Human Computing 3.0 &REG;.</li><li>Design: <a href="https://github.com/chunche95">Chunche95</a></li>
+                                    </ul>
+                                </div>
+                            </article>
+                    </div>                   
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://use.fontawesome.com/f47775a990.js"></script>
+
+
+	</body>
+</html>

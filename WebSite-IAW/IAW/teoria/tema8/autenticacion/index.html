@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML><HEAD><TITLE>Sistema de autentificaci�n en PHP</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<STYLE type=text/css>BODY {
+	FONT-SIZE: 10pt; FONT-FAMILY: verdana,arial,helvetica
+}
+TD {
+	FONT-SIZE: 10pt; FONT-FAMILY: verdana,arial,helvetica
+}
+.fuente8 {
+	FONT-SIZE: 8pt; FONT-FAMILY: verdana,arial,helvetica
+}
+.coment {
+	FONT-SIZE: 8pt; FONT-FAMILY: verdana,arial,helvetica; BACKGROUND-COLOR: #eeeeee
+}
+.codigo {
+	FONT-SIZE: 8pt; COLOR: #660000; FONT-FAMILY: verdana,arial,helvetica
+}
+</STYLE>
+
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY text=black vLink=#cc0033 link=#cc0033 bgColor=white topMargin=10
+marginwidth="10" marginheight="10">
+<p align="center"><font face=verdana size=5><b>Un sistema de Autentificaci&oacute;n
+en PHP</b></font></p>
+      <hr>
+      <form action="index.php" method="POST">
+        <p align="center">
+          <input type="submit" name="submit" value="Volver" align="middle">
+        </p>
+</form>
+      <p><FONT face=verdana size=4><B>Funcionamiento del sistema de autentificaci�n
+        en PHP</B></FONT><BR>
+        <BR>
+        Un sistema de autentificaci�n es un m�dulo de seguridad
+        para asegurarnos de que el usuario que visita las p�ginas es quien dice ser. Por
+        supuesto, sabiendo que ese usuario es conocido, podremos darle acceso a m�s
+        aspectos de la p�gina que si fuese un usuario desconocido. Pero supongo que, si
+        est�s leyendo este art�culo, ya conocer�s lo que es un sistema de
+        autentificaci�n y lo que deseas hacer es crear uno para tus p�ginas. <BR>
+        <BR>
+        <BR>
+        <B>Esquema de un sistema de
+        autentificaci�n</B> <a href="index.php?errorusuario=si"><img
+src="diagrama-inicial.gif"
+alt="Pincha para verlo en ejecucion" name="Diagrama"
+width=326 height=277 hspace="3" vspace="3" border=0 align="right" usemap="#DiagramaMap" id="Diagrama">
+<map name="DiagramaMap">
+  <area shape="rect" coords="71,13,176,65" href="index.php.html">
+<area shape="rect" coords="74,122,176,162" href="control.php.html"><area shape="rect" coords="6,243,106,273" href="aplicacionsegura01.php.html">
+<area shape="rect" coords="72,219,175,238" href="seguridad.php.html">
+<area shape="rect" coords="153,244,177,272" href="aplicacionsegura03.php.html">
+<area shape="rect" coords="112,245,145,269" href="aplicacionsegura02.php.html">
+</map>
+        </a>(<a href="index.php?errorusuario=si">Ejecucion</a>) (Pincha en los modulos del grafico para ver el codigo PHP de cada uno) <BR>
+        <BR>
+        Vamos a empezar por definir un diagrama para
+        realizar la autentificaci�n de usuario en unas p�ginas web, que nos servir� para
+        programar luego las p�ginas ajust�ndose al diagrama. <BR>
+        <BR>
+        En la imagen anterior podemos ver el diagrama, que
+        empieza por la p�gina donde se pide un usuario y contrase�a para acceder a la
+        aplicaci�n de acceso restringido. <BR>
+        <BR>
+        Los datos de autentificaci�n (usuario
+        y contrase�a escritos en la p�gina inicial) se env�an a la p�gina dibujada con
+        l�nea de puntos, que se encarga de hacer una comprobaci�n de dichos datos del
+        usuario. Seg�n los datos de autentificaci�n, se redirecciona al navegador a la
+        p�gina de la aplicaci�n restringida, en caso de que sean correctos, o a la
+        p�gina donde volver a escribir el usuario/contrase�a, en caso de que sean
+        incorrectos. Esta p�gina la he dibujado con l�nea de puntos porque no es una
+        p�gina donde se pare el navegador para nada, sino que s�lo es una p�gina de paso
+        que redirecciona a un sitio u otro dependiendo de los datos que reciba. <BR>
+        <BR>
+        La aplicaci�n de acceso restringido, aparte de mostrar las
+        funcionalidades que quer�amos proteger con usuario contrase�a, debe de realizar
+        unas comprobaciones de seguridad para saber si se ha pasado con �xito el proceso
+        de autentificaci�n o si se est� intentando acceder de manera no permitida a esa
+        p�gina. Esta comprobaci�n la he dibujado como una capa con color verde m�s
+        oscuro sobre la p�gina de la aplicaci�n. Si no se satisface dicha comprobaci�n
+        (el usuario no se ha autentificado correctamente) se vuelve a la p�gina donde
+        escribir el usuario y la contrase�a. <BR>
+        <BR>
+        Este es el esquema b�sico, que
+        espero que se entienda bien. Ahora, veamos algunas preguntas que podr�a hacerse
+        el lector. <BR>
+        <BR>
+        <B>�Por qu� hacemos esta comprobaci�n de seguridad dentro de
+        la aplicaci�n? </B><BR>
+        Podr�a ser que alguien conociese la URL de la aplicaci�n
+        de acceso restringido y la escribiese directamente sobre la barra de direcciones
+        del explorador, as� que hacemos esta comprobaci�n para saber que realmente no se
+        est� accediendo sin pasar por la p�gina que comprueba si el usuario/contrase�a
+        es correcto <BR>
+        <BR>
+        <B>�C�mo sabemos que ciertamente se ha pasado por la p�gina
+        que comprueba los datos de autentificaci�n?</B> <BR>
+        Esta comprobaci�n la
+        podr�amos hacer de varias maneras, as� pues, depende de nuestro script de
+        autentificaci�n y el nivel de seguridad que tratemos de implementar. Un ejemplo
+        simple podr�a ser crear una variable de sesi�n en la p�gina que comprueba los
+        datos, si es que eran correctos, y en capa se seguridad de las p�ginas de acceso
+        restringido comprobar�amos si esa sesi�n est� o no definida. <BR>
+        <BR>
+        <B>�C�mo
+          pueden entrar a esa p�gina si no hay enlaces directos y para pasar a ella
+          necesitamos que nos redireccione la p�gina de comprobaci�n del
+        usuario/contrase�a?</B> <BR>
+        Pues de diversas maneras, para empezar, el historial
+        de los ordenadores guarda las URL a las que se ha accedido y cualquier persona
+        podr�a recuperar la URL de nuestra aplicaci�n con acceso restringido. Tambi�n se
+        podr�a probar distintas URL que podr�amos imaginarnos como posibles para la
+        aplicaci�n y esperar a acertar con el nombre de archivo en alg�n momento,
+        incluso esta tarea se la podr�amos encomendar a un programa para realizar muchas
+        m�s pruebas. En cualquier caso, nuestra seguridad no se puede quedar en
+        simplemente que los posibles intrusos no conozcan la direcci�n de la p�gina.<BR>
+        <BR>
+        <FONT
+face=verdana size=4><B>P�gina inicial con el formulario de autentificaci�n en
+        PHP</B></FONT><BR>
+  <BR>
+        Vamos a realizar la p�gina inicial, que tiene el
+        formulario de autentificaci�n en el que el visitante deber�a rellenar con su
+        usuario y contrase�a. Como es la p�gina inicial, la llamaremos index.php, que es
+        el documento por defecto configurado en nuestro servidor. <BR>
+  <BR>
+        Para realizar
+        esta p�gina, utilizaremos HTML b�sico, excepto en una comprobaci�n que nos
+        permitir� saber si se accede al formulario de nuevo por no haber introducido
+        correctamente el usuario y contrase�a, pues, en ese caso, habr�a que mostrar un
+        cartelito informando que el usuario o la contrase�a no son v�lidos. <BR>
+  <BR>
+        Para
+        pasar a la p�gina inicial el mensaje de que el usuario/contrase�a introducidos
+        no son v�lidos utilizaremos una variable pasada a trav�s de la URL. La
+        llamaremos errorusuario, y si contiene la cadena "si" es que estamos recibiendo
+        un error. <BR>
+  <BR>
+        El c�digo ser�a el siguiente: <BR>
+  <BR>
+  <SPAN
+class=codigo>&lt;html&gt; <BR>
+  &lt;head&gt; <BR>
+  &lt;title&gt;Autentificaci�n
+    PHP&lt;/title&gt; <BR>
+  &lt;/head&gt; <BR>
+  &lt;body&gt;
+  <BR>
+  &lt;h1&gt;Autentificaci�n PHP&lt;/h1&gt; <BR>
+  &lt;form action="control.php"
+  method="POST"&gt; <BR>
+  &lt;table align="center" width="225" cellspacing="2"
+  cellpadding="2" border="0"&gt; <BR>
+  &lt;tr&gt; <BR>
+  &lt;td colspan="2"
+  align="center" <BR>
+  &lt;?if ($_GET["errorusuario"]=="si"){?&gt;
+  <BR>
+  bgcolor=red&gt;&lt;span style="color:ffffff"&gt;&lt;b&gt;Datos
+    incorrectos&lt;/b&gt;&lt;/span&gt; <BR>
+  &lt;?}else{?&gt;
+  <BR>
+  bgcolor=#cccccc&gt;Introduce tu clave de acceso <BR>
+  &lt;?}?&gt;&lt;/td&gt;
+  <BR>
+  &lt;/tr&gt; <BR>
+  &lt;tr&gt; <BR>
+  &lt;td align="right"&gt;USER:&lt;/td&gt;
+  <BR>
+  &lt;td&gt;&lt;input type="Text" name="usuario" size="8"
+  maxlength="50"&gt;&lt;/td&gt; <BR>
+  &lt;/tr&gt; <BR>
+  &lt;tr&gt; <BR>
+  &lt;td
+    align="right"&gt;PASSWD:&lt;/td&gt; <BR>
+  &lt;td&gt;&lt;input type="password"
+  name="contrasena" size="8" maxlength="50"&gt;&lt;/td&gt; <BR>
+  &lt;/tr&gt;
+  <BR>
+  &lt;tr&gt; <BR>
+  &lt;td colspan="2" align="center"&gt;&lt;input type="Submit"
+  value="ENTRAR"&gt;&lt;/td&gt; <BR>
+  &lt;/tr&gt; <BR>
+  &lt;/table&gt;
+  <BR>
+  &lt;/form&gt; <BR>
+  &lt;/body&gt; <BR>
+  &lt;/html&gt; </SPAN><BR>
+  <BR>
+      </p>
+      <TABLE width="90%" align="center">
+  <TBODY>
+  <TR>
+    <TD class=coment><B>Nota:</B> La variable errorusuario, recibida por la
+      URL y que informa si se produjo un error anterior al introducir usuario y
+      contrase�a, se est� recogiendo por mediaci�n del array asociativo $_GET,
+      que guarda todas las variables enviadas por la URL.</TD>
+  </TR></TBODY></TABLE>
+<p><BR>
+  El formulario tiene el atributo action dirigido
+hacia la p�gina "control.php", que es la que se encarga de recoger los datos y
+ver si son correctos. Ser� tratada en el pr�ximo cap�tulo.</p>
+<p><BR>
+  <FONT
+face=verdana size=4><B>Control de los datos de autentificaci�n en
+PHP</B></FONT><BR>
+<BR>
+Esta p�gina ser� encargada de decidir si los datos de
+configuraci�n son correctos y actuar en consecuencia. Dependiendo del nivel de
+seguridad que queramos aplicar a nuestra aplicaci�n, esta p�gina ser� m�s o
+menos complicada. <BR>
+<BR>
+En un principio no deseo liar mucho las cosas, as� que
+explicar� una versi�n muy reducida de este archivo de control, en la que se
+comprueba si el usuario y contrase�a sean dos valores espec�ficos. Esto tiene la
+desventaja que s�lo podemos crear un usuario/contrase�a distinto y no un sistema
+que permita muchos usuarios distintos. Bueno, en realidad si que permitir� que
+accedan muchos usuarios a la vez, pero utilizando todos el mismo nombre de
+usuario y contrase�a. <BR>
+<BR>
+En aplicaciones m�s avanzadas podr�amos tener en
+una base de datos una lista de usuarios con sus contrase�as. Entonces, en este
+archivo de control deber�amos hacer una b�squeda para ver si existe una
+correspondencia en la base de datos de ese usuario con esa contrase�a. Esto lo
+veremos en adelante, ahora nos quedamos con la versi�n reducida. <BR>
+<BR>
+Despu�s
+de la comprobaci�n podr�n pasar dos cosas: <BR>
+Si los datos son correctos,
+definir� una variables de sesi�n que servir� para saber que ese visitante ha
+sido validado correctamente y tiene permiso para acceder a la aplicaci�n. Adem�s
+redireccionar� al visitante a la p�gina de la aplicaci�n restringida. <BR>
+Si el
+usuario/contrase�a no era correcto, se env�a al navegador a la p�gina de inicio
+pasando la variable errorusuario=si, que indica que ha habido un error en la
+autentificaci�n. <BR>
+<BR>
+El c�digo se puede ver a continuaci�n: <BR>
+<BR>
+<SPAN
+class=codigo>&lt;? <BR>
+//vemos si el usuario y contrase�a es v�ildo <BR>
+if
+($_POST["usuario"]=="usuario" &amp;&amp; $_POST["contrasena"]=="password"){ <BR>
+&nbsp;&nbsp;&nbsp; //usuario y contrase�a v�lidos <BR>
+&nbsp;&nbsp;&nbsp;
+//defino una sesion y guardo datos <BR>
+&nbsp;&nbsp;&nbsp; session_start(); <BR>
+&nbsp;&nbsp;&nbsp; session_register("autentificado"); <BR>
+&nbsp;&nbsp;&nbsp;
+$autentificado = "SI"; <BR>
+&nbsp;&nbsp;&nbsp; header ("Location:
+aplicacion.php"); <BR>
+}else { <BR>
+&nbsp;&nbsp;&nbsp; //si no existe le mando
+otra vez a la portada <BR>
+&nbsp;&nbsp;&nbsp; header("Location:
+index.php?errorusuario=si"); <BR>
+} <BR>
+?&gt; </SPAN><BR>
+<BR>
+</p>
+<TABLE width="90%" align=center>
+  <TBODY>
+  <TR>
+    <TD class=coment><B>Referencia:</B> Dos enlaces a documentaci�n
+      relacionada en nuestro manual de Programaci�n en PHP:</TD>
+  </TR></TBODY></TABLE>
+<P><strong><font size="4" face="verdana">C</font></strong><FONT
+face=verdana size=4><B>apa de seguridad en PHP</B></FONT><BR>
+  <BR>
+  Este archivo,
+en nuestro caso llamado seguridad.php, se encargar� de dotar seguridad a toda la
+aplicaci�n de acceso restringido. La t�cnica que vamos a utilizar es incluirlo
+al principio de todas las p�ginas que queramos que permitan un acceso
+restringido. <BR>
+<BR>
+El m�dulo de seguridad, incluido al principio de cada
+archivo, realizar� las comprobaciones oportunas y actuar� permitiendo ver el
+archivo o denegando su visualizaci�n dependiendo de dichas comprobaciones. <BR>
+<BR>
+Dependiendo del nivel de seguridad que deseemos implementar, la creaci�n
+de este archivo puede ser m�s o menos complicada. Como no deseo complicar en un
+principio los scripts, esta versi�n resultar� bastante sencilla. <BR>
+<BR>
+Lo
+�nico que har� ser� recuperar la variable de sesi�n donde guardo si ese usuario
+ha sido autentificado o no. Luego se comprueba esa variable para saber si se ha
+autentificado el usuario o no, realizando estas acciones: <BR>
+<BR>
+Si no se hab�a
+autentificado, redirijo al navegador a la p�gina que tiene el formulario de
+autentificaci�n. Adem�s, salgo del script PHP, con lo que la p�gina deja de
+ejecutarse y el resto no se ver�. S�lo se mandar� al navegador la redirecci�n
+con lo que el navegador se mover� la formulario y ser� imposible ver nada en la
+p�gina segura. <BR>
+<BR>
+Si se hab�a autentificado, no hago nada. Ni tan siquiera
+trato este caso, de modo que se seguir�a ejecutando la p�gina con el contenido
+que correspondiese. No hay que olvidar que este archivo de seguridad se va a
+ejecutar como un include al principio de todos los archivos de la aplicaci�n
+restringida, lo que significa que, si no se hace nada, se seguir�a mostrando la
+p�gina donde este archivo est� incluido. <BR>
+<BR>
+El c�digo se puede ver a
+continuaci�n: <BR>
+<BR>
+<SPAN class=codigo>&lt;? <BR>
+//TOMO VARIABLES DE SESION
+SOBRE LA AUTENTIFICACION <BR>
+session_register("autentificado"); <BR>
+//COMPRUEBA
+QUE EL USUARIO ESTA AUTENTIFICADO <BR>
+if ($autentificado != "SI") { <BR>
+&nbsp;&nbsp;&nbsp; //Si autntificado es distinto de &quot;SI&quot;, envio a la p�gina de autentificacion y no ejecuto mas del archivo .php <BR>
+&nbsp;&nbsp;&nbsp; header("Location: index.php"); <BR>
+&nbsp;&nbsp;&nbsp;
+//ademas salgo de este script <BR>
+&nbsp;&nbsp;&nbsp; exit(); <BR>
+} <BR>
+?&gt;
+</SPAN>
+<p><FONT face=verdana size=4><B>Archivos de la aplicaci�n con acceso restringido en PHP</B></FONT>
+<BR>
+<BR>
+La aplicaci�n con acceso restringido se realizar� como
+cualquier otra aplicaci�n de PHP, con la salvedad de que, a todos los archivos
+que queramos proteger, habr� que incluirles al principio la capa de seguridad,
+representada por el archivo seguridad.php. <BR>
+<BR>
+Como dec�a, todo en el
+archivo de la aplicaci�n se realizar� como cualquier otro archivo de PHP, es
+decir, con s�lo incluir el m�dulo de seguridad, el archivo ya tendr� el acceso
+restringido y todo lo dem�s lo haremos de manera transparente a este estado de
+seguridad. <BR>
+<BR>
+El c�digo de una p�gina segura ser�a el siguiente: <BR>
+<BR>
+<SPAN class=codigo>&lt;?include ("seguridad.php");?&gt; <BR>
+&lt;html&gt;
+<BR>
+&lt;head&gt; <BR>
+&lt;title&gt;Aplicaci�n segura&lt;/title&gt;
+<BR>
+&lt;/head&gt; <BR>
+&lt;body&gt; <BR>
+&lt;h1&gt;Si est�s aqu� es que te has
+autentificado&lt;/h1&gt; <BR>
+&lt;br&gt; <BR>
+---- <BR>
+&lt;br&gt; <BR>
+Aplicaci�n
+segura <BR>
+&lt;br&gt; <BR>
+---- <BR>
+&lt;br&gt; <BR>
+&lt;br&gt; <BR>
+&lt;a
+href="salir.php"&gt;Salir&lt;/a&gt; <BR>
+&lt;/body&gt; <BR>
+&lt;/html&gt;
+</SPAN><BR>
+<BR>
+<TABLE width="90%" align=center>
+  <TBODY>
+  <TR>
+    <TD class=coment><B>Importante:</B> El include del archivo seguridad.php
+      se ha de realizar en la primera l�nea del archivo PHP de la aplicaci�n. Si
+      no lo hacemos en la primera l�nea o si escribimos texto en la p�gina antes
+      de incluir la capa de seguridad, el script podr�a fallar y hacer que no
+      funcione la aplicaci�n o que sea menos segura. Este efecto se produce
+      porque no se puede escribir en la p�gina nada si se desea hacer una
+      redirecci�n con PHP (funci�n header) y si se escribe algo, la redirecci�n
+      no podr� funcionar. </TD></TR></TBODY></TABLE><BR><BR>
+      Un detalle
+incluido es un enlace para salir de la aplicaci�n, que se dirige a el archivo
+salir.php.
+<P><FONT
+face=verdana size=4><B>Salir de la aplicaci�n segura en PHP</B></FONT><BR>
+  <BR>
+  La
+seguridad de la aplicaci�n se basa en la definici�n de unas variables de sesi�n
+que se consultan en cada p�gina segura. Puede ocurrir que el usuario entre en la
+aplicaci�n e inicie una sesi�n y que se marche de la aplicaci�n segura sin
+cerrar la sesi�n, con lo que quedar�a abierta para que cualquier otra persona
+pueda acceder a la aplicaci�n volviendo por el historial de p�ginas del
+navegador. <BR>
+<BR>
+Las sesiones se finalizan solas cuando pasa un determinado
+tiempo sin recibir nuevas peticiones, pero no deseamos que antes de que se
+finalicen se pueda acceder con ese ordenador a nuestra aplicaci�n restringida. <BR>
+<BR>
+Parece interesante, pues, ofrecer al visitante la opci�n de acabar la
+sesi�n en cualquier momento, para asegurarnos en ese caso que la sesi�n se ha
+terminado y no se podr� acceder si no es introduciendo nuevamente el usuario y
+contrase�a correctos. <BR>
+<BR>
+El archivo en concreto lo �nico que hace es
+terminar la sesi�n asociada a su acceso. Podemos ver el c�digo a continuaci�n. <BR>
+<BR>
+<SPAN class=codigo>&lt;? <BR>
+session_start(); <BR>
+session_destroy();
+<BR>
+?&gt; <BR>
+&lt;html&gt; <BR>
+&lt;head&gt; <BR>
+&lt;title&gt;Has
+salido!!&lt;/title&gt; <BR>
+&lt;/head&gt; <BR>
+&lt;body&gt; <BR>
+Gracias por tu
+acceso <BR>
+&lt;br&gt; <BR>
+&lt;br&gt; <BR>
+&lt;a href="index.php"&gt;Formulario de
+autentificaci�n&lt;/a&gt; <BR>
+&lt;/body&gt; <BR>
+&lt;/html&gt; </SPAN>
+<P><FONT
+face=verdana size=4><B>Autentificaci�n PHP para m�ltiples usuarios usando
+MySQL</B></FONT><BR>
+<BR>
+Vamos a ver las p�ginas PHP que necesitar�amos para
+realizar un acceso restringido por clave y contrase�a para m�ltiples usuarios,
+donde cada uno tenga unos datos de acceso propios. <BR>
+<BR>
+<B>La base de datos</B> <BR>
+<BR>
+La base de datos que vamos a utilizar contendr� una tabla para los
+usuarios, donde cada uno dispondr�, al menos, de dos campos: un nombre de
+usuario y una contrase�a, los dos de tipo texto.
+<TABLE cellSpacing=1 cellPadding=4 align=center bgColor=#000000 border=0>
+  <TBODY>
+  <TR>
+    <TD style="COLOR: #ffffff; BACKGROUND-COLOR: #000000" align="center"
+      colSpan=2><B>Tabla usuario</B></TD></TR>
+  <TR>
+    <TD style="FONT-SIZE: 8pt; COLOR: #ffffff; BACKGROUND-COLOR: #666666"
+    align="center">Nombre del campo</TD>
+    <TD style="FONT-SIZE: 8pt; COLOR: #ffffff; BACKGROUND-COLOR: #666666"
+    align="center">Tipo del campo</TD></TR>
+  <TR>
+    <TD bgColor=#ffffff>nombre_usuario</TD>
+    <TD bgColor=#ffffff>Texto</TD></TR>
+  <TR>
+    <TD bgColor=#ffffff>clave_usuario</TD>
+    <TD bgColor=#ffffff>Texto</TD></TR></TBODY></TABLE><BR>En una base de datos de
+usuarios, el nombre de usuario deber�a ser un valor �nico, irrepetible para otro
+usuario, es decir, no podremos tener dos usuarios con el mismo nombre. Por esta
+raz�n, el campo nombre_usuario podr�a ser la clave principal de la tabla, aunque
+tambi�n podr�amos haber creado un campo adicional, llamado por ejemplo
+id_usuario, de tipo autonim�rico y colocarlo como clave principal. <BR><BR>Para
+conseguir no insertar dos usuarios con el mismo nombre de usuario, a la hora de
+insertarlos en la tabla, comprobaremos que no haya ning�n usuario ya introducido
+con el nombre de usuario que se pretende insertar. Este paso, aunque importante,
+no lo vamos a ver, pues s�lo nos vamos a centrar en decidir si un usuario puede
+entrar o no en la aplicaci�n, suponiendo que los usuarios se encuentran ya
+insertados en la base de datos. <BR><BR>En el ejemplo suponemos que utilizamos
+una base de datos MySQL, sin embargo, cualquier tipo de base de datos podr�
+servir para unos objetivos como los que nos proponemos. <BR><BR><B>El
+funcionamiento del script</B> <BR><BR>El script que se utilizar� para decidir si
+un usuario puede o no entrar en la aplicaci�n es muy sencillo. Simplemente hace
+una llamada a la base de datos para comprobar si los datos de autentificaci�n
+escritos por el visitante (usuario y contrase�a) corresponden con los de alg�n
+usuario. En caso de que as� sea, se permite la entrada y de no ser as�, se
+deniega. <BR><BR>
+Lo primero ser�a abrir una
+conexi�n con la base de datos y seleccionar la base con la que hemos de
+trabajar. <BR>
+<BR>
+<SPAN class=codigo>//se conecta con la base de datos <BR>
+$conn =
+mysql_connect("servidor","usuario","password"); <BR>//selecciono la BBDD
+<BR>mysql_select_db("nombre_bbdd",$conn); </SPAN><BR><BR>Un segundo paso es
+construir una sentencia SQL que nos permita comprobar si existe o no un usuario
+con los datos de autentificaci�n introducidos. Utilizamos una simple sentencia
+SELECT, sobre la tabla de usuarios, donde se extraen usuarios que tengan el
+mismo nombre de usuario y la contrase�a introducidos en la p�gina de acceso.
+<BR><BR><SPAN class=codigo>//Sentencia SQL para buscar un usuario con esos datos
+<BR>$ssql = "SELECT * FROM usuario WHERE nombre_usuario='$usuario' and
+clave_usuario='$contrasena'"; <BR><BR>//Ejecuto la sentencia <BR>$rs =
+mysql_query($ssql,$conn); </SPAN><BR><BR>Si esa sentencia SELECT responde con
+alg�n registro encontrado, sabremos que existe un usuario donde sus datos de
+autentificaci�n corresponden perfectamente con los introducidos. En ese caso
+podremos realizar las acciones encaminadas a permitir el acceso. Por el
+contrario, si la sentencia SELECT no encuentra ning�n registro, sabremos que no
+existe un usuario con los datos de autentificaci�n introducidos y por lo tanto,
+deberemos realizar las acciones encaminadas a restringir el acceso.
+<BR><BR><SPAN class=codigo>if (mysql_num_rows($rs)!=0){ <BR>&nbsp;&nbsp;&nbsp;
+//usuario y contrase�a v�lidos <BR>&nbsp;&nbsp;&nbsp; //defino una sesion y
+guardo datos <BR>&nbsp;&nbsp;&nbsp; session_start(); <BR>&nbsp;&nbsp;&nbsp;
+session_register("autentificado"); <BR>&nbsp;&nbsp;&nbsp; $autentificado = "SI";
+<BR>&nbsp;&nbsp;&nbsp; header ("Location: aplicacion.php"); <BR>}else {
+<BR>&nbsp;&nbsp;&nbsp; //si no existe le mando otra vez a la portada
+<BR>&nbsp;&nbsp;&nbsp; header("Location: index.php?errorusuario=si");
+<BR>}</SPAN> <BR><BR>Las acciones para restringir o permitir el acceso son
+exatamente iguales a las que ven�amos utilizando en el script de control sin
+utilizar la base de datos. As� que no vamos a comentarlas m�s, sino que os
+referimos al art�culo donde las explicamos. <BR><BR>El c�digo completo del
+ejemplo ser�a el siguiente. <BR><BR><SPAN class=codigo>&lt;? <BR>//conecto con
+la base de datos <BR>$conn = mysql_connect("servidor","usuario","password");
+<BR>//selecciono la BBDD <BR>mysql_select_db("nombre_bbdd",$conn);
+<BR><BR>//Sentencia SQL para buscar un usuario con esos datos <BR>$ssql =
+"SELECT * FROM usuario WHERE nombre_usuario='$usuario' and
+clave_usuario='$contrasena'"; <BR><BR>//Ejecuto la sentencia <BR>$rs =
+mysql_query($ssql,$conn); <BR><BR>//vemos si el usuario y contrase�a es v�ildo
+<BR>//si la ejecuci�n de la sentencia SQL nos da alg�n resultado <BR>//es que si
+que existe esa conbinaci�n usuario/contrase�a <BR>if (mysql_num_rows($rs)!=0){
+<BR>&nbsp;&nbsp;&nbsp; //usuario y contrase�a v�lidos <BR>&nbsp;&nbsp;&nbsp;
+//defino una sesion y guardo datos <BR>&nbsp;&nbsp;&nbsp; session_start();
+<BR>&nbsp;&nbsp;&nbsp; session_register("autentificado"); <BR>&nbsp;&nbsp;&nbsp;
+$autentificado = "SI"; <BR>&nbsp;&nbsp;&nbsp; header ("Location:
+aplicacion.php"); <BR>}else { <BR>&nbsp;&nbsp;&nbsp; //si no existe le mando
+otra vez a la portada <BR>&nbsp;&nbsp;&nbsp; header("Location:
+index.php?errorusuario=si"); <BR>} <BR>mysql_free_result($rs);
+<BR>mysql_close($conn); <BR>?&gt; </SPAN><BR><BR>
+<TABLE cellSpacing=2 cellPadding=2 width="90%" align=center border=0>
+	<TBODY>
+	<TR>
+		<TD class=coment><B>Nota:</B> Es importante destacar que esta p�gina no
+      deber�a contener ning�n tipo de texto antes de la apertura de c�digo PHP,
+      ni tan siquiera saltos de l�nea. Esto es debido a que al final se realiza
+      una redirecci�n y este tipo de instrucciones solamente se puede ejecutar
+      si no se ha escrito todav�a ning�n car�cter en el
+cuerpo.
+		</TD>
+	</TR>
+	</TBODY>
+</TABLE>
+ <BR>
+ <HR>
+ <BR>
+</BODY></HTML>

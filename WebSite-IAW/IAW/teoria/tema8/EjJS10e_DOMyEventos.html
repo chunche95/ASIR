@@ -1,0 +1,206 @@
+<!--
+	Phantom @ajlkn
+-->
+<html>
+	<head>
+		<title>EjJS10e_DOMyEventos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <style>
+            @import url("../../assets/css/main.css");
+            @import url("../..assets/css/noscript.css");
+        </style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../index.html" class="logo">
+									<span class="symbol"><img src="../../images/logo.svg" alt="Logo" /></span><span class="title">Home</span>
+								</a>
+
+						</div>
+					</header>
+
+		<!-- Main -->
+		<div id="main">
+					<div class="inner">
+							<header>
+                                <h1> EjJS10e_DOMyEventos </h1>
+                            </header>
+
+								<p>
+                                HTML con JavaScript en HTML, abrilo con un browser y para probar,
+                                 copiar y pegar a un fichero de texto plano de extensión html. <br>
+
+                                 Descargar archivo DOM&Events: <a href="archivo.txt">Archivo</a> <br>
+                                 Ver funcionamiento de archivo DOM&Events: <a href="HTMLJS.html">Archivo.html</a> <hr>
+                                 <blockquote>
+                                     <pre>
+                                     <code>
+                                            
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    &lthead&gt
+        &ltmeta http-equiv="Content-Type" content="text/html; charset=utf8" /&gt
+        &lttitle&gtEjemplo de código JavaScript de DOM y Eventos&lt/title&gt
+        &ltscript type="text/javascript"&gt
+            function Muestra(numero){ //===============================
+                switch( numero ){
+                case "2" :
+                    alert( "Es 2" );
+                    break;
+                case "3" :
+                    alert( "Es 3" );
+                    break;
+                case "5" :
+                    alert( "Es 5" );
+                    break;
+                default :
+                    alert( "No es ni 2 ni 3 ni 5" );
+                }
+            }
+            function IntroduceNumero(){ //==============================
+                var num = prompt("Introducde un numero");
+                Muestra(num);
+                // Crear nodo de tipo Element
+                var parrafo = document.createElement("p");
+                // Crear nodo de tipo Text
+                var contenido = document.createTextNode("Numero Introducido : " + num);
+                // Añadir el nodo Text como hijo del nodo Element
+                parrafo.appendChild(contenido);
+                // Añadir el nodo Element como hijo de la pagina
+                document.body.appendChild(parrafo);             
+            }
+            function resalta(elemento) {
+                switch(elemento.style.borderColor) {
+                case 'silver':
+                case 'silver silver silver silver':
+                case '#c0c0c0':
+                    elemento.style.borderColor = 'black';
+                    break;
+                case 'black':
+                case 'black black black black':
+                default:
+                    elemento.style.borderColor = 'silver';
+                    break;
+                }
+            }
+            function MiFunctionCambioColor() { //Cambio de todos los parafos de color de fondo==============.
+                    var myNodelist = document.getElementsByTagName("p");
+                    var i;
+                    for( i in myNodelist ){ //Con buble especifico de arrays.
+                    /*for (i = 0; i &lt myNodelist.length; i++) {  //Con bucle tradicional */
+                        switch( myNodelist[i].style.backgroundColor ){
+                            case "yellow" :
+                                myNodelist[i].style.backgroundColor = "lightblue";
+                                break;
+                            case "lightblue" :
+                                myNodelist[i].style.backgroundColor = "lightgreen";
+                                break;
+                            case "lightgreen" :
+                                myNodelist[i].style.backgroundColor = "yellow";
+                                break;
+                            default :
+                                myNodelist[i].style.backgroundColor = "yellow";
+                                break;
+                        }
+                    }
+            }
+            function muestraMensaje() { //Manejadores de Eventos Semanticos================== Función externa
+                alert('Ejemplo de Manejador de Eventos Semanticos');
+            }
+            function inicializa(){ //Se Inicializan las funciones de Eventos Semanticos tras cargar la página.
+                // Asignar la función externa al elemento Boton1.
+                document.getElementById("Boton1").onclick = muestraMensaje;
+                // Asignar la función externa al elemento Contenido3.
+                document.getElementById("contenido3").onclick = MiFunctionCambioColor;
+            }
+        
+        &lt/script&gt
+    &lt/head&gt
+&ltbody onload=inicializa()&gt
+    &lth1&gtEjemplo de DOM y Eventos&lt/h1&gt
+    &ltp id="contenido1" style="width:350px; height:60px; border:thick solid silver" 
+            onclick="IntroduceNumero()" 
+            onmouseover="resalta(this)" 
+            onmouseout="resalta(this)"&gt
+        Pincha el recuadro o pasa el ratón para ver el resultado&lt/p&gt
+
+    &ltp id="contenido2" style="width:350px; height:60px; border:thin solid silver"
+            onmouseover="this.style.borderColor='yellow';"
+            onmouseout="this.style.borderColor='silver';"&gt
+        Otro contenido que se resalta de otra forma &lt/p&gt
+
+    &ltp id="contenido3" style="width:350px; height:60px; border:thin solid silver"&gt
+        Tercer caso de Contenido. Pincha y cambiaran los colores &lt/p&gt
+        
+    &ltinput id="Boton1" type="button" value="Pinchame y verás" /&gt
+
+&lt/body&gt
+&lt;/html&gt;
+                                     </code>
+                                    </pre>
+                                 </blockquote>
+								</p>
+
+</div>
+		</div>
+
+        <!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+						<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; Human Computing 3.0. All rights reserved</li><li>Design: Paulino E. Bermúdez R.</li>
+				</ul>
+			</div>
+		</footer>
+</div>
+
+
+<!-- Scripts -->
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+
+</body>
+</html>

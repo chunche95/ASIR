@@ -1,0 +1,19 @@
+Modificar el sistema de autentificación para verificar mediante un array asociativo de nombre $usuario los tres posibles usuarios del sistema :
+
+    user : user
+    admin : admin
+    TuNombre : TuApellido
+
+Entregar todos los archivos necesarios del proyecto completo en una carpeta de nombre
+
+ASIR2_Ap1Ap2_Nmbre_Ej0810Autentificacion
+
+dicha carpeta irá comprimida en un fichero zip compatible Ubuntu del mismo nombre que has de entregar.
+
+Cambiar el aspecto , numero, enlaces y contenido de las páginas de la zona segura. 
+
+Incluir una de las páginas de tu zona segura con las siguientes preguntas con sus respuestas justificadas.
+
+    ¿Puedes incluir en el sistema alguna página php que no esté en la zona segura?, pruebalo.
+    ¿Puedes incluir en el sistema alguna página html que no esté en la zona segura?, pruebalo.
+    ¿Puedes incluir en el sistema alguna página html que esté en la zona segura?, pruebalo.

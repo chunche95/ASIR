@@ -1,0 +1,53 @@
+/**
+ * Veterinaria - estilo.css
+ * 
+ * @author    Bartolome Sintes Marco <bartolome.sintes+mclibre@gmail.com>
+ * @copyright 2007 Bartolome Sintes Marco
+ * @license   http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * @version   2007-03-08
+ * @link      http://www.mclibre.org
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  any later version.
+ *   
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *   
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+html, body { background-color: #F6E8ED; color: black; font-family: sans-serif;
+   margin: 0px; padding: 0px; 
+}
+
+h1 { background-color: #D391A7; color: white; 
+  text-transform: uppercase; 
+  margin: 0px; padding: 5px;
+}
+
+div#menu { background-color: #EBCCD7; color: white; margin: 0px; }
+
+div#menu ul { list-style-type: none; margin: 0px 5px; padding: 5px; }
+div#menu li { display: inline; padding: 0px 15px;}
+div#menu a { background-color: #EBCCD7; color: black; font-weight: bold; }
+
+div#contenido { padding: 10px; }
+img { border: none; }
+tr.neg { background-color: #F9DDAE; color: black; }
+td, th { padding-left: 5px; padding-right: 5px; }
+
+div.calendario table.anyadir a { color: white; text-decoration: none; }
+div.calendario table.borrar a { color: black; text-decoration: none; }
+div.calendario td { text-align: center; }
+div.calendario table.anyadir caption a { color: black; font-weight: bold; 
+  text-decoration: none; }
+div.calendario table.borrar caption a { color: black; font-weight: bold; 
+  text-decoration: none; }
+
+p.aviso { color: red; }

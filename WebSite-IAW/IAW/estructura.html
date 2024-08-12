@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom  @ajlkn
+-->
+<html>
+	<head>
+		<title>Estructura de paginación de ficheros</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="iaw.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="iaw.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">HC3.0</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="iaw.html">Home</a></li>
+							<li><a href="built/generic.html">Subjects</a></li>
+							<li><a href="built/generic.html">Proyect</a></li>
+							<li><a href="built/generic.html">Presentations</a></li>
+							<li><a href="built/generic.html">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+							
+						<div class="inner">
+							<a href="iaw.html" class="button" >Volver atrás</a>
+							<hr>
+							<h1>Estructura de paginación de ficheros.</h1>
+							<pre>
+==================================================
+===Estructura de Carpetas=========================
+==================================================
+\opt\lampp\htdocs\ 					| Raiz del sistema de ficheros de Apache.
+.................\index.html 				| (Indice general del servidor web.
+.................\gral.css 				| (css raiz del sistema de hojas de estilo)
+.................\IAW 					| (Carpeta para los html de la asignatura de IAW)
+.......................\iaw.html 			| (Indice general del servidor web.
+.......................\iaw.css 			| (Hacer llamada al css superior para ir en cascada)
+.......................\UnidadesTematicas 		| (Carpeta para el contenido de la ut01)
+...............................\ut01 			| (Carpeta para el contenido de la ut01)
+....................................\ut01.html 		| (Indice general del contenido del ut01.
+....................................\ut01.css		| (Hacer llamada al css superior para ir en cascada)
+............................... 			| (igual con ......)
+............................... 			| (.....todas las unidades tematicas)
+...............................\utNN 			| (Carp para el contenido de la utNN)
+....................................\utNN.html		| (Indice general del contenido del utNN.
+....................................\utNN.css 		| (Hacer llamada al css superior para ir en cascada)
+.......................\CMS 				| (Carpeta para el proyecto CMS)
+.......................\Nombre_de_la_Presentacion 	| (Carp. a la presentación del proyecto de Investigación)
+.......................\srcIAW 				| (Carp. para el cap. de php independientemente de la UTXX que sea.)
+...............................\index.php 		| (Indice general para la parte de php.
+...............................\php.css 		| (Hacer llamada al css superior para ir en cascada)
+...............................\CursoPHP5_CNIE 		| (Curso CNIE) [NO INCLUIR]
+...............................\Pruebas 		| (Carpeta para hacer pruebas de php)
+...............................\EjerciciosManual 	| (Ejercicios pedidos del Manual CNIE con su numeración)
+.....................................\index.html 	| (Indeice para los ejercicios del manual)
+.....................................\ejmanual.css 	| (Hacer llamada al css superior para ir en cascada)
+...............................\EjerciciosPHPClase 	| (Ejercicios pedidos pdf's con su numeración)
+.....................................\index.html 	| (Indeice para los ejercicios PHP de clase)
+.....................................\ejclase.css 	| (Hacer llamada al css superior para ir en cascada)
+...............................\ProyectoPHP 		| (Carpeta para el proyecto de php)
+.....................................\index.html 	| (Indice del proyecto)
+.....................................\proyecto.css 	| (NO HACER llamada al css superior. 
+.....................................		           El del proyecto es independiente)
+======================================================================================
+==========================Si hubiera otras asignaturas================================
+======================================================================================
+.................\OtraAsignatura 			| (Carpeta para los html de la asignatura de ASGBBDD)
+.........................\otrasigantura.html 		| (Carpeta para los html de la asignatura)
+.........................\otrasigantura.css 		| (Hacer llamada al css superior para ir en cascada)
+.........................\....
+	
+							</pre>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+							<ul class="copyright">
+									<li>&copy; Human Computing 3.0. All rights reserved</li><li>Design: Paulino E. Bermúdez R.</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

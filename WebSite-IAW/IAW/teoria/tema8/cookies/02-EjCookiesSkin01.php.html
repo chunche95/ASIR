@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>/home/andres/Documentos/MisDatos/Instituto/Asignaturas/ImplantacionAppWeb/10-Apuntes/ut09PHP/srcIAW/ejemplos/03-Cookies/02-EjCookiesSkin01.php</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.32" />
+	<meta name="date" content="2018-02-07T10:04:21+0100" />
+	<style type="text/css">
+	body
+	{
+		font-family: Monospace, monospace;
+		font-size: 10pt;
+	}
+	.style_0
+	{
+		color: #000000;
+		background-color: #ffffff;
+	}
+	.style_1
+	{
+		color: #2e8b57;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_3
+	{
+		color: #003030;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_6
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_8
+	{
+		color: #404080;
+		background-color: #ffffff;
+	}
+	.style_10
+	{
+		color: #000000;
+		background-color: #ffffff;
+	}
+	.style_18
+	{
+		color: #400080;
+		background-color: #ffffff;
+	}
+	.style_21
+	{
+		color: #000000;
+		background-color: #ffffff;
+	}
+	.style_22
+	{
+		color: #400080;
+		background-color: #ffffff;
+	}
+	.style_23
+	{
+		color: #003030;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_24
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_118
+	{
+		color: #000000;
+		background-color: #ffffff;
+	}
+	.style_119
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_120
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_121
+	{
+		color: #003030;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_122
+	{
+		color: #400080;
+		background-color: #ffffff;
+	}
+	.style_123
+	{
+		color: #808000;
+		background-color: #ffffff;
+	}
+	.style_125
+	{
+		color: #808080;
+		background-color: #ffffff;
+	}
+	.style_127
+	{
+		color: #300080;
+		background-color: #ffffff;
+	}
+
+	</style>
+</head>
+
+<body>
+<p>
+<span class="style_18">&lt;?</span><br />
+<span class="style_125">//Ejemplo&nbsp;ejecucion&nbsp;de&nbsp;css&nbsp;dinamico&nbsp;con&nbsp;Cookies.</span><br />
+<span class="style_125">//Veo&nbsp;si&nbsp;recibo&nbsp;datos&nbsp;del&nbsp;formulario</span><br />
+<span class="style_121">if</span><span class="style_127">(</span><span class="style_121">isset</span><span class="style_127">(</span><span class="style_123">$_POST</span><span class="style_127">[</span><span class="style_119">"estilo"</span><span class="style_127">])){</span><br />
+&nbsp;&nbsp;<span class="style_125">//es&nbsp;que&nbsp;estoy&nbsp;recibiendo&nbsp;un&nbsp;estilo&nbsp;nuevo,&nbsp;lo&nbsp;tengo&nbsp;que&nbsp;meter&nbsp;en&nbsp;las&nbsp;cookies</span><br />
+&nbsp;&nbsp;<span class="style_123">$estilo&nbsp;</span><span class="style_127">=&nbsp;</span><span class="style_123">$_POST</span><span class="style_127">[</span><span class="style_119">"estilo"</span><span class="style_127">];</span><br />
+&nbsp;&nbsp;<span class="style_125">//meto&nbsp;el&nbsp;estilo&nbsp;en&nbsp;una&nbsp;cookie</span><br />
+&nbsp;&nbsp;<span class="style_118">setcookie</span><span class="style_127">(</span><span class="style_119">"estilo"</span><span class="style_127">,&nbsp;</span><span class="style_123">$estilo</span><span class="style_127">,&nbsp;</span><span class="style_118">time</span><span class="style_127">()&nbsp;+&nbsp;(</span><span class="style_122">60&nbsp;</span><span class="style_127">*&nbsp;</span><span class="style_122">60&nbsp;</span><span class="style_127">*&nbsp;</span><span class="style_122">24&nbsp;</span><span class="style_127">*&nbsp;</span><span class="style_122">90</span><span class="style_127">));</span><br />
+<span class="style_127">}</span><span class="style_121">else</span><span class="style_127">{</span><br />
+&nbsp;&nbsp;<span class="style_125">//si&nbsp;no&nbsp;he&nbsp;recibido&nbsp;el&nbsp;estilo&nbsp;que&nbsp;desea&nbsp;el&nbsp;usuario&nbsp;en&nbsp;la&nbsp;p�gina,&nbsp;miro&nbsp;si&nbsp;hay&nbsp;una&nbsp;cookie&nbsp;creada</span><br />
+&nbsp;&nbsp;<span class="style_121">if&nbsp;</span><span class="style_127">(</span><span class="style_121">isset</span><span class="style_127">(</span><span class="style_123">$_COOKIE</span><span class="style_127">[</span><span class="style_119">"estilo"</span><span class="style_127">])){</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_125">//es&nbsp;que&nbsp;tengo&nbsp;la&nbsp;cookie</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_123">$estilo&nbsp;</span><span class="style_127">=&nbsp;</span><span class="style_123">$_COOKIE</span><span class="style_127">[</span><span class="style_119">"estilo"</span><span class="style_127">];</span><br />
+&nbsp;&nbsp;<span class="style_127">}</span><span class="style_121">else</span><span class="style_127">{</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_125">//no&nbsp;tengo&nbsp;Cookie&nbsp;y&nbsp;tomo&nbsp;el&nbsp;estilo&nbsp;de&nbsp;los&nbsp;ejemplos.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_123">$estilo&nbsp;</span><span class="style_127">=&nbsp;</span><span class="style_119">"ejemplos"</span><span class="style_127">;</span><br />
+&nbsp;&nbsp;<span class="style_127">}</span><br />
+<span class="style_127">}</span><br />
+<br />
+<span class="style_123">$ruta&nbsp;</span><span class="style_127">=&nbsp;</span><span class="style_119">"../"</span><span class="style_127">;&nbsp;</span><span class="style_125">//Se&nbsp;define&nbsp;la&nbsp;ruta&nbsp;deacceso&nbsp;a&nbsp;los&nbsp;css.</span><br />
+<br />
+<span class="style_18">?&gt;</span><br />
+<br />
+<span class="style_21">&lt;!</span><span class="style_22">DOCTYPE&nbsp;</span><span class="style_23">HTML&nbsp;</span><span class="style_21">PUBLIC&nbsp;</span><span class="style_24">"-//W3C//DTD&nbsp;HTML&nbsp;4.0&nbsp;Transitional//EN"</span><span class="style_21">&gt;</span><br />
+<br />
+<span class="style_1">&lt;html&gt;</span><br />
+<span class="style_1">&lt;head&gt;</span><br />
+<span class="style_1">&lt;title&gt;</span><span class="style_0">Cookies&nbsp;en&nbsp;PHP</span><span class="style_1">&lt;/title&gt;</span><br />
+<br />
+<span class="style_18">&lt;?</span><br />
+<span class="style_125">//miro&nbsp;si&nbsp;he&nbsp;tengo&nbsp;un&nbsp;estilo&nbsp;definido,&nbsp;porque&nbsp;entonces&nbsp;tengo&nbsp;que&nbsp;cargar&nbsp;la&nbsp;correspondiente&nbsp;hoja&nbsp;de&nbsp;estilos</span><br />
+<span class="style_121">if</span><span class="style_127">(&nbsp;</span><span class="style_121">isset</span><span class="style_127">(</span><span class="style_123">$estilo</span><span class="style_127">)&nbsp;){</span><br />
+&nbsp;&nbsp;<span class="style_121">echo&nbsp;</span><span class="style_120">'&lt;link&nbsp;rel="STYLESHEET"&nbsp;type="text/css"&nbsp;href="'&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_123">$ruta</span><span class="style_127">.</span><span class="style_123">$estilo&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_120">'.css"&gt;'</span><span class="style_127">;</span><br />
+<span class="style_127">}</span><span class="style_121">else</span><span class="style_127">{</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_121">echo&nbsp;</span><span class="style_120">'&lt;link&nbsp;rel="STYLESHEET"&nbsp;type="text/css"&nbsp;href="'&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_123">$ruta</span><span class="style_127">.&nbsp;</span><span class="style_120">'ejemplos.css"&gt;'</span><span class="style_127">;</span><br />
+<br />
+<span class="style_127">}</span><br />
+<span class="style_18">?&gt;</span><br />
+<span class="style_1">&lt;/head&gt;</span><br />
+<br />
+<br />
+<span class="style_1">&lt;body&gt;</span><br />
+<span class="style_1">&lt;div&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"center"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;h1&gt;</span><span class="style_0">Ejemplo&nbsp;de&nbsp;uso&nbsp;de&nbsp;cookies&nbsp;en&nbsp;PHP</span><span class="style_1">&lt;/h1&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;h2&gt;</span><span class="style_0">Almacenar&nbsp;la&nbsp;hoja&nbsp;de&nbsp;estilos&nbsp;css&nbsp;que&nbsp;queremos&nbsp;utilizar&nbsp;para&nbsp;definir&nbsp;el&nbsp;aspecto&nbsp;de&nbsp;la&nbsp;p</span><span class="style_10">&amp;aacute;</span><span class="style_0">gina&nbsp;en&nbsp;una&nbsp;Cookie.&nbsp;</span><span class="style_1">&lt;/h2&gt;</span><br />
+<span class="style_1">&lt;/div&gt;</span><br />
+<br />
+<span class="style_1">&lt;form&nbsp;</span><span class="style_3">action</span><span class="style_8">=</span><span class="style_6">"</span><span class="style_18">&lt;?php&nbsp;</span><span class="style_121">echo&nbsp;</span><span class="style_123">$_SERVER</span><span class="style_127">[</span><span class="style_120">'PHP_SELF'</span><span class="style_127">];&nbsp;</span><span class="style_18">?&gt;</span><span class="style_6">"&nbsp;</span><span class="style_3">method</span><span class="style_8">=</span><span class="style_6">"post"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;div&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"center"</span><span class="style_1">&gt;</span><span class="style_0">Aqu</span><span class="style_10">&amp;iacute;&nbsp;</span><span class="style_0">puedes&nbsp;seleccionar&nbsp;el&nbsp;estilo&nbsp;que&nbsp;prefieres&nbsp;en&nbsp;la&nbsp;p</span><span class="style_10">&amp;aacute;</span><span class="style_0">gina:&nbsp;</span><span class="style_1">&lt;br&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;select&nbsp;</span><span class="style_3">name</span><span class="style_8">=</span><span class="style_6">"estilo"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;option&nbsp;</span><span class="style_18">&lt;?&nbsp;</span><span class="style_121">if</span><span class="style_127">(&nbsp;</span><span class="style_123">$estilo&nbsp;</span><span class="style_127">==&nbsp;</span><span class="style_119">"ejemplos"&nbsp;</span><span class="style_127">)&nbsp;</span><span class="style_121">echo&nbsp;</span><span class="style_120">'selected'</span><span class="style_127">;&nbsp;</span><span class="style_18">?&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_3">value</span><span class="style_8">=</span><span class="style_6">"ejemplos"</span><span class="style_1">&gt;</span><span class="style_0">Original</span><span class="style_1">&lt;/option&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;option&nbsp;</span><span class="style_18">&lt;?&nbsp;</span><span class="style_121">if</span><span class="style_127">(&nbsp;</span><span class="style_123">$estilo&nbsp;</span><span class="style_127">==&nbsp;</span><span class="style_119">"otro"&nbsp;</span><span class="style_127">)&nbsp;</span><span class="style_121">echo&nbsp;</span><span class="style_120">'selected'</span><span class="style_127">;&nbsp;</span><span class="style_18">?&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_3">value</span><span class="style_8">=</span><span class="style_6">"otro"</span><span class="style_1">&gt;</span><span class="style_0">Otro</span><span class="style_1">&lt;/option&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;option&nbsp;</span><span class="style_18">&lt;?&nbsp;</span><span class="style_121">if</span><span class="style_127">(&nbsp;</span><span class="style_123">$estilo&nbsp;</span><span class="style_127">==&nbsp;</span><span class="style_119">"ninguno"&nbsp;</span><span class="style_127">)&nbsp;</span><span class="style_121">echo&nbsp;</span><span class="style_120">'selected'</span><span class="style_127">;&nbsp;</span><span class="style_18">?&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_3">value</span><span class="style_8">=</span><span class="style_6">"ninguno"</span><span class="style_1">&gt;</span><span class="style_0">Ninguno</span><span class="style_1">&lt;/option&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;/select&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">&amp;nbsp;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;input&nbsp;</span><span class="style_3">type</span><span class="style_8">=</span><span class="style_6">"submit"&nbsp;</span><span class="style_3">value</span><span class="style_8">=</span><span class="style_6">"Actualizar&nbsp;el&nbsp;estilo"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;/div&gt;</span><br />
+<span class="style_1">&lt;/form&gt;</span><br />
+<br />
+<span class="style_1">&lt;form&nbsp;</span><span class="style_3">action</span><span class="style_8">=</span><span class="style_6">"indiceCookies.html"&nbsp;</span><span class="style_3">method</span><span class="style_8">=</span><span class="style_6">"POST"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;p&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"center"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;input&nbsp;</span><span class="style_3">type</span><span class="style_8">=</span><span class="style_6">"submit"&nbsp;</span><span class="style_3">name</span><span class="style_8">=</span><span class="style_6">"submit"&nbsp;</span><span class="style_3">value</span><span class="style_8">=</span><span class="style_6">"Volver"&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"middle"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;/p&gt;</span><br />
+<span class="style_1">&lt;/form&gt;</span><br />
+<br />
+<span class="style_1">&lt;/body&gt;</span><br />
+<span class="style_1">&lt;/html&gt;</span><br />
+
+</p>
+</body>
+</html>

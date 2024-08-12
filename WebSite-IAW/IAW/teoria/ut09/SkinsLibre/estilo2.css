@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(223, 143, 24);
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(242, 0, 161);
+}
+h1 {
+    color: gray;
+}
+h2 {    
+    color: rgb(23, 189, 211);
+}
+h3 {
+    color: yellow;
+}

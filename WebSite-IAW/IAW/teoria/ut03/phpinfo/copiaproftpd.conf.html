@@ -1,0 +1,99 @@
+<!--
+	Phantom @ajlkn
+-->
+<html>
+	<head>
+		<title>Lineas de PHP Info</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../teoria.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+						</div>
+					</header>
+		<!-- Main -->
+		<div class="main">
+<pre class="wrapper">
+	# This is a basic ProFTPD configuration file (rename it to  <br>
+	# 'proftpd.conf' for actual use.  It establishes a single server <br>
+	# and a single anonymous login.  It assumes that you have a user/group <br>
+	# &quot;daemon&quot; and &quot;ftp&quot; for normal operation and anon. <br>
+<br>
+	ServerName			&quot;ProFTPD&quot; <br>
+	ServerType			standalone <br>
+	DefaultServer			on <br>
+
+	# Port 21 is the standard FTP port. <br>
+	Port				21 <br>
+	# Umask 022 is a good standard umask to prevent new dirs and files <br>
+	# from being group and world writable. <br>
+	Umask				022 <br>
+
+	# To prevent DoS attacks, set the maximum number of child processes <br>
+	# to 30.  If you need to allow more than 30 concurrent connections <br>
+	# at once, simply increase this value.  Note that this ONLY works <br>
+	# in standalone mode, in inetd mode you should use an inetd server <br>
+	# that allows you to limit maximum number of processes per service <br>
+	# (such as xinetd) <br>
+	MaxInstances			30 <br>
+<br>
+	# Set the user and group that the server normally runs at. <br>
+	User daemon <br>
+	#Group daemon <br>
+<br>
+	# Normally, we want files to be overwriteable. <br>
+	&lt;Directory /opt/lampp/htdocs/*&gt; <br>
+	AllowOverwrite		on <br>
+	&lt;/Directory&gt; <br>
+<br>
+	# only for the web servers content <br>
+	DefaultRoot /opt/lampp/htdocs <br>
+<br>
+	&lt;Limit SITE_CHMOD&gt;                  <br>                                                                                                                                        
+	DenyAll                              <br>                                                                                                                                     
+	&lt;/Limit&gt;   <br>
+
+	# daemon gets the password &quot;xampp&quot; <br>
+	UserPassword daemon 2TgxE8g184G9c <br>
+<br>
+	# daemon is no normal user so we have to allow users with no real shell <br>
+	RequireValidShell off <br>
+<br>
+	# daemon may be in /etc/ftpusers so we also have to ignore this file <br>
+	UseFtpUsers off <br>
+</pre>
+</div>
+</div>
+
+
+<!-- Footer -->
+<footer id="footer">
+	<!-- Logo -->
+	<a href="../phpInfo.html" class="logo">
+		<span class="title"><img src="../../../images/logo.svg"  alt="Logo" width="60" height="60">Volver atrás</span>
+	</a>
+<hr>
+	<div class="inner">
+		<ul class="copyright">
+			<li>&copy; Human Computing 3.0. All rights reserved</li><li>Design: Paulino E. Bermúdez R.</li>
+		</ul>
+	</div>
+</footer> 
+</div>
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+Ficheros y Directorios Importantes
+File/Directory -------------------------> Prop�sito
+/opt/lampp/bin/ ------------------------> The XAMPP commands home. /opt/lampp/bin/mysql calls for example the MySQL monitor.
+/opt/lampp/htdocs/ ---------------------> The Apache DocumentRoot directory.
+/opt/lampp/etc/httpd.conf --------------> The Apache configuration file.
+/opt/lampp/etc/my.cnf ------------------> The MySQL configuration file.
+/opt/lampp/etc/php.ini -----------------> The PHP configuration file.
+/opt/lampp/etc/proftpd.conf ------------> The ProFTPD configuration file. (since 0.9.5)
+/opt/lampp/phpmyadmin/config.inc.php ---> The phpMyAdmin configuration file.

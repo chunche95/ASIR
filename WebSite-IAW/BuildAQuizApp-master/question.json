@@ -1,0 +1,91 @@
+[
+  {
+	question: "Inside which HTML element do we put the JavaScript??",
+    choice1: "<script>",
+    choice2: "<javascript>",
+    choice3: "<js>",
+    choice4: "<scripting>",
+    answer: 1
+  },
+  {
+    question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
+    choice1: "<script href='xxx.js'>",
+    choice2: "<script name='xxx.js'>",
+    choice3: "<script src='xxx.js'>",
+    choice4: "<script file='xxx.js'>",
+    answer: 3
+  },
+  {
+	question: " How do you write 'Hello World' in an alert box?",
+    choice1: "msgBox('Hello World');",
+    choice2: "alertBox('Hello World');",
+    choice3: "msg('Hello World');",
+    choice4: "alert('Hello World');",
+    answer: 4
+  },
+  {
+	question: "What is Elvis Presley s middle name?",
+	choice1: "Scott",
+    choice2: "Logan",
+    choice3: "Aaron",
+    choice4: "Flint",
+	answer: 3
+  },
+  {
+	question: "Which group did have a hit with the Macarena?",
+	choice1: "Michael Jackson",
+    choice2: "Jukebox Fenty",
+    choice3: "Megan Thee Stallion",
+    choice4: "Los Del Rio",
+	answer: 4
+  },
+  {
+	question: "In which Spanish city did the Joan Miro museum open in 1975?",
+	choice1: "Madrid",
+    choice2: "Valencia",
+    choice3: "Barcelona",
+    choice4: "Murcia",
+	answer: 3
+  },
+  {
+	question: "In which English town did Adolf Hitler study art?",
+	choice1: "London",
+    choice2: "Liverpool",
+    choice3: "Glasgo",
+    choice4: "Cambridge",
+	answer: 2
+  },
+  {
+	question: "Who was the original author of Dracula?",
+	choice1: "Gustave Eiffel",
+    choice2: "Michelangelo",
+    choice3: "Bram Stoker",
+    choice4: "Mary Shelley",
+	answer: 3
+  },
+  {
+	question: "Which device do we use to look at the stars?",
+	choice1: "Telescope",
+    choice2: "Lens",
+    choice3: "Microscope",
+    choice4: "Radio",
+	answer: 1
+  },
+  {
+	question: "Who invented the barometer?",
+	choice1: "Torricelli",
+    choice2: "James Watt",
+    choice3: "Picasso",
+    choice4: "Rene Descartes",
+	answer: 1
+  },
+  {
+	question: "What is the name of the infamous novel by Vladimir Nabokov?",
+	choice1: "Isis",
+    choice2: "Frankenstein",
+    choice3: "Lolita",
+    choice4: "Hamlet",
+	answer: 3
+  }			
+			
+]

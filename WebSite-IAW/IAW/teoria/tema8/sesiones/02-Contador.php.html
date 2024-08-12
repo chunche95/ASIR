@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc119 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc122 {
+	color: #FF8000;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc125 {
+	color: #008000;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc18">&lt;?php</span><span class="sc118">
+    session_start</span><span class="sc127">();</span><span class="sc118">
+    </span><span class="sc125">//session_register('contador') //Funci�n obsoleta. Uso antiguo;</span><span class="sc118">
+</span><span class="sc18">?&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;HTML&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;HEAD&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;TITLE&gt;</span><span class="sc0">Contador con Variables de sesi�nc</span><span class="sc1">&lt;/TITLE&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!--Tomamos la Hoja de Estilo CSS de forma din�mica desde una cookie--&gt;</span><span class="sc0">
+    </span><span class="sc18">&lt;?php</span><span class="sc118"> </span><span class="sc121">include_once</span><span class="sc127">(</span><span class="sc119">"cookiesdinamicas.php"</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc18">?&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/HEAD&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;BODY&gt;</span><span class="sc0">
+    </span><span class="sc18">&lt;?php</span><span class="sc118">
+        </span><span class="sc121">if</span><span class="sc127">(</span><span class="sc118"> </span><span class="sc127">!</span><span class="sc121">isset</span><span class="sc127">(</span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'contador'</span><span class="sc127">])</span><span class="sc118"> </span><span class="sc127">){</span><span class="sc118">
+            </span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'contador'</span><span class="sc127">]=</span><span class="sc122">0</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118">
+        </span><span class="sc127">++</span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'contador'</span><span class="sc127">];</span><span class="sc118">
+        </span><span class="sc121">echo</span><span class="sc118"> </span><span class="sc119">"&lt;hr&gt;&lt;p align=\"center\"&gt; Has recargado esta &lt;a href=\"contador.php\"&gt;p�gina "</span><span class="sc127">.</span><span class="sc118"> </span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'contador'</span><span class="sc127">].</span><span class="sc119">" veces&lt;/a&gt;"</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc18">?&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;form</span><span class="sc8"> </span><span class="sc3">action</span><span class="sc8">=</span><span class="sc6">"09-Contador.php"</span><span class="sc8"> </span><span class="sc3">method</span><span class="sc8">=</span><span class="sc6">"POST"</span><span class="sc1">&gt;</span><span class="sc0">
+      </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"recargar"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"submit"</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"recargar"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"Recargar la Pagina"</span><span class="sc1">&gt;</span><span class="sc0">
+      </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">  
+    </span><span class="sc1">&lt;/form&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;hr&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!--Codigo del boton para volver al menu principal--&gt;</span><span class="sc0">
+    </span><span class="sc18">&lt;?php</span><span class="sc118"> </span><span class="sc121">include</span><span class="sc127">(</span><span class="sc119">"botonvolvermenu.php"</span><span class="sc127">);</span><span class="sc118"> </span><span class="sc18">?&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/BODY&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/HTML&gt;</span><span class="sc0"> </span></div></body>
+</html>

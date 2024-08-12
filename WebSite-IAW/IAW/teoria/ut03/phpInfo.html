@@ -1,0 +1,137 @@
+<!--
+	Phantom @ajlkn
+-->
+<html>
+	<head>
+		<title>Lineas de PHP Info</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../teoria.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+							<!-- Logo -->
+                            <a href="../../iaw.html" class="logo">
+                                <span class="title"><img src="../../images/logo.svg"  alt="Logo" width="60" height="60">HC3.0</span>
+							</a>
+							
+						</div>
+					</header>
+		<!-- Main -->
+		<div id="main">
+					<div class="inner">
+							<header>
+                                <h1>phpInfo.</h1>
+                            </header>
+                            <p>
+                                (PHP 4, PHP 5) <br>
+
+                                phpinfo — Muestra información sobre la configuración de PHP.<br>
+
+                                Descripción.<br>
+                                bool phpinfo ([ int $what = INFO_ALL ] )<br>
+                                Muestra gran cantidad de información sobre el estado actual de PHP. 
+                                Incluye información sobre las opciones de compilación y extensiones de PHP, versión de PHP,
+                                información del servidor y entrono (si se compiló como módulo), entorno PHP, versión del OS,
+                                rutas, valor de las opciones de configuración locales y generales, cabeceras HTTP y licencia de PHP.<br>
+
+                                Como cada sistema se instala diferente phpinfo() se usa comúnmente para revisar opciones de
+                                configuración y variables predefinidas disponibles en un sistema dado, phpinfo() también es
+                                una valiosa herramienta de depuración ya que contiene todos valores
+                                EGPCS (Environment, GET, POST, Cookie, Server).<br>
+
+                                <h2>Parámetros<br></h2>
+                                    <i>what</i><br>
+                                        El resultado de salida puede ser personalizado al pasar una o más de las
+                                        siguientes constantes sumadas juntas bit a bit en el parámetro opcional what.
+                                        También se pueden combinar las respectivas constantes con el operador bit a bit or.<br>
+                            </p>
+
+                            <!-- Table -->
+									<h2>Tabla phpInfo</h2>
+										<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nombre(constante).</th>
+													<th>Valor.</th>
+													<th>Descripción.</th>
+											    </tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>INFO_GENERAL</td>
+													<td>1</td>
+                                                    <td>La línea de configuración, ubicación de php.ini, fecha de compilación, servidor Web, sistema y más.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>INFO_CREDITS</td>
+                                                    <td>2</td>
+                                                    <td>Créditos de PHP. Ver también phpcredits().</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>INFO_CONFIGURATION</td>
+                                                    <td>4</td>
+                                                    <td>Valores Locales y Maestros actuales de las directivas PHP. Ver también ini_get().</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>INFO_MODULES</td>
+                                                    <td>8</td>
+                                                    <td>Módulos cargados y sus respectivos parámetros Ver también get_loaded_extensions().</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>INFO_ENVIRONMENT</td>
+                                                    <td>16</td>
+                                                    <td>Información de las variables de entorno. Tambien disponibles en $_ENV.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>INFO_VARIABLES</td>
+                                                    <td>32</td>
+                                                    <td>Muestra todas las variables predefinidas de EGPCS (Environment, GET, POST, Cookie, Server).</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>INFO_LICENSE</td>
+                                                    <td>64</td>
+                                                    <td>Información de Licencia de PHP. Ver también el » FAQ de licencia.</td>
+                                                </tr>      
+                                                <tr>
+                                                    <td>INFO_ALL</td>
+                                                    <td>-1</td>
+                                                    <td>Muestra toda la información anterior</td>
+                                                </tr>    
+
+											</tbody>
+                                        </table>
+                            <h2> Ver más detalles. </h2>                                        
+                                <a href="phpinfo/copia.config.inc.php.html"> Ver configuracion config.inc.php</a> <br>
+                                <a href="phpinfo/copiahttpd.conf.html">Ver configuracion httpd.conf</a> <br>
+                                <a href="phpinfo/copiamy.cnf.html"> Ver my.cnf </a> <br>
+                                <a href="phpinfo/copiaphp.ini.html"> Ver php.ini</a> <br>
+                                <a href="phpinfo/copiaproftpd.conf.html"> Ver ftpd.conf</a> <br><br>
+                                <br><br>
+					</div>
+					<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Human Computing 3.0. All rights reserved</li><li>Design: Paulino E. Bermúdez R.</li>
+							</ul>
+						</div>
+					</footer> 
+</div>
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

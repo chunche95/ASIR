@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(169, 169, 172);
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(251, 255, 0);
+}
+h1 {
+    color: rgb(19, 68, 226);
+}
+h2 {    
+    color: rgb(221, 0, 0);
+}
+h3 {
+    color: gray;
+}

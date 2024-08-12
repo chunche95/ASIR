@@ -1,0 +1,163 @@
+<!--
+	Phantom @ajlkn
+-->
+<html>
+	<head>
+		<title>Instalar y configurar XAMPP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../teoria.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+                            <a href="../../iaw.html" class="logo">
+                                <span class="symbol"><center><img src="../../images/logo.svg"  alt="Logo" width="100" height="80"</center></span><span class="title"> <center> HC 3.0 </center></span>
+							</a>
+							<!-- Footer -->
+							<footer id="footer">
+								<div class="inner">
+									<ul class="copyright">
+										<li>&copy; Human Computing 3.0. All rights reserved</li><li>Design: Paulino E. Bermúdez R.</li>
+									</ul>
+								</div>
+							</footer>
+							<hr>
+							<a href="../ejerciciosTemas1al3.html" class="button" >Volver atrás</a> <br><br>
+					</header>	
+		<!-- Main -->
+		<div id="main">
+					<div class="inner">
+							
+                                <h1>Instalación y configuración básica de XAMPP.</h1>
+                            
+                            
+                        <p>
+							<FONT SIZE=12>U</FONT>na vez tenemos nuestro Ubuntu instalado. Vamos a instalar el Xampp. Pero antes ... <br>
+                            <b><i>¿Qué es esto del Xampp?</i></b><br>
+                            &nbsp &nbsp  Pues bien, <b>Xampp</b> es un paquete de instalación (un todo en uno) para webs, 
+                            con lenguaje php, conexión a base de datos MySql o MariaDB (LAMPP= Linux + Apache + MySQL + PHP + Perl).
+                            Instalando Xampp podemos tener un servidor Web funcionando con todo 
+                            lo necesario para instalar los gestores de contenido gratuitos como WordPress, Joomla, Drupal…<br>
+                            <i>Ahora hay que ponerse manos a la obra...</i>
+
+                        </p>
+
+                    <p>
+                        <hr>
+                        <h2>Pasos para instalar Xampp</h2>
+                        <hr>
+							&nbsp &nbsp  Descarga la última versión de <a href="https://sourceforge.net/projects/xampp/" target="_blank" >XAMPP</a>.
+
+                            &nbsp &nbsp   Si no sabes que versión te tienes que descargar, recuerda que puedes teclear el siguiente comando: 
+                            Abre un terminal CTL+ALT+T El sistema te va a decir que si tienes un ordenador de 32 o 64 bits.<br><br>
+                                    <div align="left">
+                                        <code><i> $ uname -m </i></code>
+                                    </div>
+                            <br>&nbsp &nbsp  El siguiente paso es ejecutar el comando <code><i>$run</i></code> que te has descargado. <br>
+                            Para ello, con el terminal ,sitúate en la carpeta de descarga y ejecuta el siguiente comando, 
+                            comandos que hemos de lanzar como administradores.<br><br>
+                                    <div align="left">
+                                        <code>
+                                            $ cd /home/humancomputing/Downloads
+                                            $ sudo bash
+                                        </code>
+                                    </div>
+                            <br>&nbsp &nbsp  Al estar en modo <i><u>sudo</u></i>, podeís ver que la ventana de comando, cambia tu nombre de 
+                            <i>“nombredeusuario@”</i> a <i>“root@“</i>. Ejecuta el siguiente comando:<br><br>
+                                    <div align="left">
+                                        <code>
+                                            $ /home/humancomputing/Downloads/xampp-linux-1.8.3-4-installer.run
+                                        </code>
+                                    </div>
+                            <br>&nbsp &nbsp  Con ésto te abre la ventana del instalación ya sólo nos queda seguir los pasos del instalador.
+                            Dale al botón siguiente (Next>).<br><br>
+											<img src="../../images/xamppinstalador.png" width="350" height="281" alt="instalador de Xampp." />
+                            <br><br>&nbsp &nbsp  Empieza la instalación.<br> 
+											<img src="../../images/xamppsetup.jpg" width="350" height="281" alt="setup Xampp." />
+                            <br>&nbsp &nbsp  En éste punto te dice donde se vá a crear la carpeta raiz de XAMPP: En <code><i> /opt/lampp </i></code>
+							Carpeta donde se instalará: <code><i> /opt/lampp </i></code><br>
+
+                            Seleccionamos los componentes que queremos instalar. En mi caso, por defecto.<br>
+											<img src="../../images/xamppconfig.png" width="350" height="281" alt="Configuracion de Xampp." />
+							<br><br>&nbsp &nbsp  Te sale el mensaje de <u><i>Bienvenido a Xampp</i></u>, mientras carga tu configuración.<br>
+											<img src="../../images/xamppwelcome.jpg" width="350" height="281" alt="Fin de instalacion" />
+                            <br><br>&nbsp &nbsp  Una vez configurado, dale click a <i>“Siguiente”</i>, para que lo instale.<br>
+											
+                            <br>&nbsp &nbsp  Una vez instalado, os muestra el <i>“log de aplicación”</i>, un fichero que os dá la información del Xampp funcionando.
+                            Iniciando los servicios.<br>
+											<img src="../../images/xampppanel.png" width="350" height="281" alt="panel Xampp." />
+
+                            <br><br>¡Ya tenemos el Xampp funcionando!<br>
+                            En el navegador, se abre la ventana de Xampp. 
+                            Si navegas por el menú izquierdo de la página verás que te dá información de todo lo que has instalado.<br>
+							<br>
+                            <i><u>&nbsp &nbsp  Tu configuración básica del Xampp ya estaría terminada.<br></u></i>
+							<hr>
+							&nbsp &nbsp  Para lanzar por terminal Xampp debemos abrir una terminal y escribir:
+								<blockquote> 
+									- Para iniciar Xampp.
+									<blockquote>	
+										<code>
+											<i>$ sudo /opt/lampp/lampp start</i>
+										</code>
+									</blockquote>
+									-Para detener los servicios.
+									<blockquote>	
+										<code>
+											<i>$ sudo /opt/lampp/lampp stop</i>
+										</code>
+									</blockquote>
+								</blockquote>
+							<hr>
+							<br>&nbsp &nbsp  Por último y no menos importante nos queda es añadir el inicio de Xampp al arranque de Ubuntu.<br>
+							Para ello, Ubuntu dispone del archivo   <code>rc.local</code>   alojado en  <i>/etc</i>  que sirve para que podamos 
+							iniciar scripts o cualquier ‘demonio’ que no disponga de inico automático, sin tener que hacer modificaciones en los
+							scripts del sistema y que se ejecuta al inicio antes de que nos logueemos.
+							En una terminal editamos como <u>root</u> el archivo   rc.local   con el editor que deseemos, en mi caso he usado el <i>gedit</i>.<br>
+									<blockquote>	
+										<code>
+											<i>$ sudo /gedit /etc/rc.local</i>
+										</code>
+									</blockquote>
+							<br>&nbsp &nbsp  Tal y como nos dicen las líneas de comentario en el archivo, debemos poner nuestros comandos antes de la línea del   ‘exit 0′ .
+							Debemos tener presente que no podemos alterar esa línea ya que se produciría un error.<br><br>
+											<img src="../../images/xampprclocal.png" width="350" height="281" alt="rc.local Xampp." />
+							<br><br>&nbsp &nbsp  Guardamos los cambios y cerramos el editor, ya sólo nos queda reiniciar el sistema para poner a prueba nuestro <i><u><b>'StartUp de XAMPP.'</b></u></i></i><br>
+							
+							<p>
+								&nbsp &nbsp  
+								Para comprobar el buen funcionando de nuestro programa, que está activo tras el inicio de nuestro sistema
+								abriremos una terminal y escribiremos: <br>
+									<blockquote>	
+										<code>
+											<i>$ sudo /opt/lampp/lampp status</i>
+										</code>
+									</blockquote>
+								<br>
+									<img src="../../images/xamppstatus.png" width="550" height="281" alt="status Xampp">
+							</p>
+                    </p>
+					</div>
+		</div>
+
+        
+</div>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

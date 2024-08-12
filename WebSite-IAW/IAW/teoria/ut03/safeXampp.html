@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom  @ajlkn
+-->
+<html>
+	<head>
+		<title>Seguridad XAMPP.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../teoria.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+                <header id="header">
+                    <div class="title">
+                    <!-- Logo -->
+                    <a href="../../iaw.html" class="logo">
+                        <span class="title"><img src="../../images/logo.svg"  alt="Logo" width="60" height="90">HC3.0</span>
+                    </a>
+                    </div>
+                </header>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+                            <h1>Ejercicio 03.01.05</h1>
+
+                            <p>
+                                <u>Seguridad en el servidor XAMPP.</u> <br>
+
+                                    &nbsp &nbsp &nbsp &nbsp  Para el tema de seguridad, como mencione anteriormente, xampp esta configurado 
+                                para ser utilizado de forma totalmente abierta, esto es perfecto para entornos locales,
+                                pero para producción puede representar graves problemas, 
+                                incluso en entornos LAN nuestras aplicaciones están abiertas a diferentes ataques. <br>
+                                <hr>
+                                <i><u>Xampp por defecto presenta los siguientes problemas:</u></i>
+                                
+                                <ol>
+                                    <li value="1">El usuario root (administrador) de MySQL/MariaDB no tiene contraseña.</li>
+                                    <li>El proceso de MySQL/MariaDB es accesible a través de la red.</li>
+                                    <li>ProFTPD usa una contraseña predefinida, <i>"lammp"</i>.</li>
+                                    <li>PhpMyAdmin es accesible a través de la red.</li>
+                                    <li>Apache y MySQL o MariaDB (según sea) corren bajo el mismo usuario <i>nobody</i></li>
+                                </ol>
+                                &nbsp &nbsp &nbsp &nbsp Como tenemos que XAMPP se inicie al arrancar Ubuntu, para detenerlo: <br>
+                                        <code>
+                                            <i>$ sudo /opt/lampp/lampp stop</i>
+                                        </code>
+                                
+                                <br> &nbsp &nbsp &nbsp &nbsp El siguiente comando ejecuta un script interactivo en la terminal que permite solucionar estos problemas de seguridad. <br>
+
+                                        <code>
+                                            <i> $ sudo /opt/lampp/lampp security </i>
+                                        </code>
+                                
+                                <br> <br>
+                                        <img src="../../images/xamppsecurity.png" width="550" height="281" alt="Seguridad XAMPP.">
+                                <br> <br> &nbsp &nbsp &nbsp &nbsp Ahora tendremos un par de preguntas que nos hará el script para configurar la seguridad del programa, son:
+                                <br>
+                                        <code>
+                                            <i>
+                                                XAMPP: Your XAMPP pages are NOT secured by a password. 
+                                            </i>
+                                        </code> <br>
+                                        <code>
+                                            <i>
+                                                XAMPP: Do you want to set a password? [yes] 
+                                            </i>
+                                        </code>
+                                <br> &nbsp &nbsp &nbsp &nbsp Y por supuesto queremos cambiar la contraseña. entonces escribimos <i>'yes'</i>
+                                <br> 
+                                        <code>
+                                            <i>
+                                                yes
+                                            </i>
+                                        </code>
+                                        
+                                <br> &nbsp &nbsp &nbsp &nbsp Presionamos Enter. Anota la contraseña o crea una que recuerdes, es importante para el correcto funcionamiento del programa. <br>
+                                    <i>Las siguientes preguntas que realiza el script son similares, lo recomendable es cambiar las contraseñas por defecto y poner
+                                    varias que nos sean de facil recordatorio.</i>
+                                    <br> 
+                                        <code>
+                                            <i>
+                                                XAMPP: The MySQL/phpMyAdmin user has no password set! 
+                                            </i>
+                                        </code> 
+                                    <br>
+                                        <code>
+                                                <i>
+                                                XAMPP: Do you want to set a password? [yes] 
+                                            </i>
+                                        </code>  
+                                <br> , <br>
+                                        <code>
+                                            <i>
+                                                XAMPP: MySQL has no root password set! 
+                                            </i>
+                                        </code>
+                                    <br>
+                                        <code>
+                                            <i>
+                                                XAMPP: Do you want to set a password? [yes] 
+                                            </i>
+                                        </code>  
+                                <br> y <br>
+                                        <code>
+                                            <i>      
+                                                XAMPP: The FTP password is still set to 'lampp'. 
+                                            </i>
+                                        </code>
+                                    <br>
+                                        <code>
+                                            <i>
+                                                XAMPP: Do you want to change it? [yes] 
+                                            </i>
+                                        </code>
+                                <br> Respuesta: <br> 
+                                        <code>
+                                            <i>
+                                                yes
+                                            </i>
+                                        </code>
+                                        
+                                <br> &nbsp &nbsp &nbsp &nbsp Para todas las preguntas acerca del cambio o asignación de contraseñas. 
+                                <br> &nbsp &nbsp &nbsp &nbsp Por último, debemos poner un nombre y contrasela para el usuario xampp. 
+                                    Con esto tendremos una buena seguridad en XAMPP y en sus paquetes.
+                                    <br> 
+                                        <code>
+                                            <i>
+                                                The xampp user name is:  lampp 
+                                            </i>
+                                        </code>
+                                <br> &nbsp &nbsp &nbsp &nbsp Después de haber terminado con la configuración, nos queda volver a iniciar XAMPP.
+                                    Para ello escribimos en la terminal:
+                                    <br>
+                                        <code>
+                                            <i>
+                                                sudo /opt/lammp/lammp start
+                                            </i>
+                                        </code>    
+                                    <br>
+                                <br> &nbsp &nbsp &nbsp &nbsp  Tenemos ahora que comprobar que  se ha validado el servicio de seguridad, para ello
+                                    escribimos en el navegador que tengamos:
+                                    <br>
+                                        <code>
+                                            <i>
+                                                http://localhost/phpMyAdmin
+                                            </i>
+                                        </code>
+                                    <br> &nbsp &nbsp &nbsp &nbsp  Como podemos ver, en la figura inferior, la configuración de seguridad se ha guardado correctamente,
+                                    ya tenemos XAMPP seguro. 
+                                    <br>
+
+                                        <img src="../../images/xamppnewsafe.png" alt="Nueva seguridad-Error de acceso a PHPMyAdmin">
+                                    
+                                    <hr>
+                                    <i>
+                                   
+                                        En caso de que el error persista, esta es la solución:
+
+                                        Hay que editar <u>/opt/lampp/etc/extra/httpd-xampp.conf</u>
+                                        y agregar las siguiente linea Require all granted abajo de <u>< Directory “/opt/lampp/phpmyadmin” ></u>
+                                        queda asi: <br>
+                                        <blockquote>
+                                            <i>
+                                        <pre>
+                                        < Directory “/opt/lampp/phpmyadmin” >
+                                        AllowOverride AuthConfig Limit
+                                        Order allow,deny
+                                        Allow from all
+                                        <b> Require all granted </b>
+                                        < /Directory >
+                                        </pre>
+                                            </i>
+                                        </blockquote>
+                                
+                                </i>
+                                <hr>
+                             </p>
+                            </div>
+                        </div>
+                               <!-- Footer -->
+                               <footer id="footer">
+                                <div class="inner">
+                                    <ul class="copyright">
+                                        <li>&copy; Human Computing 3.0. All rights reserved</li><li>Design: Paulino E. Bermúdez R.</li>
+                                    </ul>
+                                </div>
+                            </footer>
+                        </div>
+	
+                </div>
+                
+                
+                <!-- Scripts -->
+                <script src="../assets/js/jquery.min.js"></script>
+                <script src="../assets/js/browser.min.js"></script>
+                <script src="../assets/js/breakpoints.min.js"></script>
+                <script src="../assets/js/util.js"></script>
+                <script src="../assets/js/main.js"></script>
+                
+    </body>
+</html>

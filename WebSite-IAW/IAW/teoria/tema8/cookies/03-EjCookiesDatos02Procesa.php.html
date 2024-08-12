@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>/home/andres/Documentos/MisDatos/Instituto/Asignaturas/ImplantacionAppWeb/10-Apuntes/ut09PHP/srcIAW/ejemplos/03-Cookies/03-EjCookiesDatos02Procesa.php</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.32" />
+	<meta name="date" content="2018-02-07T10:04:04+0100" />
+	<style type="text/css">
+	body
+	{
+		font-family: Monospace, monospace;
+		font-size: 10pt;
+	}
+	.style_0
+	{
+		color: #000000;
+		background-color: #ffffff;
+	}
+	.style_1
+	{
+		color: #2e8b57;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_3
+	{
+		color: #003030;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_6
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_8
+	{
+		color: #404080;
+		background-color: #ffffff;
+	}
+	.style_18
+	{
+		color: #400080;
+		background-color: #ffffff;
+	}
+	.style_21
+	{
+		color: #000000;
+		background-color: #ffffff;
+	}
+	.style_22
+	{
+		color: #400080;
+		background-color: #ffffff;
+	}
+	.style_23
+	{
+		color: #003030;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_24
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_118
+	{
+		color: #000000;
+		background-color: #ffffff;
+	}
+	.style_119
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_121
+	{
+		color: #003030;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_122
+	{
+		color: #400080;
+		background-color: #ffffff;
+	}
+	.style_123
+	{
+		color: #808000;
+		background-color: #ffffff;
+	}
+	.style_127
+	{
+		color: #300080;
+		background-color: #ffffff;
+	}
+
+	</style>
+</head>
+
+<body>
+<p>
+<span class="style_21">&lt;!</span><span class="style_22">DOCTYPE&nbsp;</span><span class="style_23">HTML&nbsp;</span><span class="style_21">PUBLIC&nbsp;</span><span class="style_24">"-//W3C//DTD&nbsp;HTML&nbsp;4.01&nbsp;Transitional//EN"&nbsp;"http://www.w3.org/TR/html4/loose.dtd"</span><span class="style_21">&gt;</span><br />
+<span class="style_1">&lt;html&gt;</span><br />
+<span class="style_1">&lt;head&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;title&gt;</span><span class="style_0">Ejemplo&nbsp;Formulario</span><span class="style_1">&lt;/title&gt;</span><br />
+&nbsp;&nbsp;<span class="style_18">&lt;?php&nbsp;</span><span class="style_121">include</span><span class="style_127">(&nbsp;</span><span class="style_119">"cookiesdinamicas.php"&nbsp;</span><span class="style_127">);&nbsp;</span><span class="style_18">?&gt;</span><br />
+<span class="style_1">&lt;/head&gt;</span><br />
+<span class="style_1">&lt;body&gt;</span><br />
+<br />
+<span class="style_1">&lt;h1&gt;</span><span class="style_0">Procesamiento&nbsp;de&nbsp;Formulario&nbsp;para&nbsp;Cookies&nbsp;</span><span class="style_1">&lt;/h1&gt;</span><br />
+<span class="style_1">&lt;hr&gt;</span><br />
+<span class="style_1">&lt;br&gt;</span><br />
+<span class="style_1">&lt;p&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"center"</span><span class="style_1">&gt;</span><br />
+<span class="style_18">&lt;?php</span><br />
+&nbsp;&nbsp;<span class="style_123">$V_nombre&nbsp;</span><span class="style_127">=&nbsp;</span><span class="style_123">$_POST</span><span class="style_127">[</span><span class="style_119">"nombre"</span><span class="style_127">];</span><br />
+&nbsp;&nbsp;<span class="style_123">$V_edad&nbsp;</span><span class="style_127">=&nbsp;</span><span class="style_123">$_POST</span><span class="style_127">[</span><span class="style_119">"edad"</span><span class="style_127">];</span><br />
+<br />
+&nbsp;&nbsp;<span class="style_121">echo&nbsp;&nbsp;</span><span class="style_123">$V_nombre&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_119">"&nbsp;tiene&nbsp;"&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_123">$V_edad&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_119">"&nbsp;a&amp;ntilde;os"</span><span class="style_127">;</span><br />
+<span class="style_18">?&gt;</span><br />
+<span class="style_1">&lt;/p&gt;</span><br />
+<br />
+<span class="style_18">&lt;?php</span><br />
+&nbsp;&nbsp;<span class="style_118">setcookie</span><span class="style_127">(</span><span class="style_119">"nombre"</span><span class="style_127">,</span><span class="style_123">$V_nombre</span><span class="style_127">,</span><span class="style_118">time</span><span class="style_127">()+</span><span class="style_122">3600</span><span class="style_127">);</span><br />
+&nbsp;&nbsp;<span class="style_118">setcookie</span><span class="style_127">(</span><span class="style_119">"edad"</span><span class="style_127">,</span><span class="style_123">$V_edad</span><span class="style_127">,</span><span class="style_118">time</span><span class="style_127">()+</span><span class="style_122">3600</span><span class="style_127">);</span><br />
+<span class="style_18">?&gt;</span><br />
+<br />
+<span class="style_1">&lt;form&nbsp;</span><span class="style_3">action</span><span class="style_8">=</span><span class="style_6">"03-EjCookiesDatos01Pide.php"&nbsp;</span><span class="style_3">method</span><span class="style_8">=</span><span class="style_6">"POST"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;p&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"center"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;input&nbsp;</span><span class="style_3">type</span><span class="style_8">=</span><span class="style_6">"submit"&nbsp;</span><span class="style_3">name</span><span class="style_8">=</span><span class="style_6">"submit"&nbsp;</span><span class="style_3">value</span><span class="style_8">=</span><span class="style_6">"Volver&nbsp;a&nbsp;Pide&nbsp;Valores"&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"middle"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;/p&gt;</span><br />
+<span class="style_1">&lt;/form&gt;</span><br />
+<br />
+<span class="style_1">&lt;form&nbsp;</span><span class="style_3">action</span><span class="style_8">=</span><span class="style_6">"03-EjCookiesDatos03Lee.php"&nbsp;</span><span class="style_3">method</span><span class="style_8">=</span><span class="style_6">"POST"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;p&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"center"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_1">&lt;input&nbsp;</span><span class="style_3">type</span><span class="style_8">=</span><span class="style_6">"submit"&nbsp;</span><span class="style_3">name</span><span class="style_8">=</span><span class="style_6">"submit"&nbsp;</span><span class="style_3">value</span><span class="style_8">=</span><span class="style_6">"Leer&nbsp;Cookies"&nbsp;</span><span class="style_3">align</span><span class="style_8">=</span><span class="style_6">"middle"</span><span class="style_1">&gt;</span><br />
+&nbsp;&nbsp;<span class="style_1">&lt;/p&gt;</span><br />
+<span class="style_1">&lt;/form&gt;</span><br />
+<br />
+<br />
+<span class="style_1">&lt;hr&gt;</span><br />
+<span class="style_1">&lt;br&gt;</span><br />
+<span class="style_1">&lt;/body&gt;</span><br />
+<span class="style_1">&lt;/html&gt;</span><br />
+
+</p>
+</body>
+</html>

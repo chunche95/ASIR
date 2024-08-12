@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+.sc11 {
+	color: #0000FF;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc24 {
+}
+.sc26 {
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc119 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE HTML PUBLIC "</span><span class="sc21">-//W3C//DTD HTML 4.01 Transitional//EN</span><span class="sc24">"
+    "</span><span class="sc21">http://www.w3.org/TR/html4/loose.dtd</span><span class="sc24">"</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;title&gt;</span><span class="sc0">Ejemplo Sesiones</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!--Tomamos la Hoja de Estilo CSS de forma din?mica desde una cookie--&gt;</span><span class="sc0">
+</span><span class="sc18">&lt;?php</span><span class="sc118"> </span><span class="sc121">include_once</span><span class="sc127">(</span><span class="sc119">"../03-Cookies/cookiesdinamicas.php"</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc18">?&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;h1</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc1">&gt;</span><span class="sc0"> Formulario sencillo para Almacenar Sesiones</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc1">&gt;</span><span class="sc18">&lt;?php</span><span class="sc118"> </span><span class="sc121">echo</span><span class="sc118"> </span><span class="sc123">$_SERVER</span><span class="sc127">[</span><span class="sc120">'PHP_SELF'</span><span class="sc127">];</span><span class="sc118"> </span><span class="sc18">?&gt;</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;hr&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;form</span><span class="sc8"> </span><span class="sc3">action</span><span class="sc8">=</span><span class="sc6">"20-EjVariablesSesion02.php"</span><span class="sc8"> </span><span class="sc3">method</span><span class="sc8">=</span><span class="sc6">"POST"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc1">&gt;</span><span class="sc0">
+   Nombre : 
+     </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"nombre"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc1">&gt;</span><span class="sc0">
+   Valor : 
+     </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"valor"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc1">&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"submit"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"submit"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"Enviar los datos a procesar en la Sesion"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/form&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;form</span><span class="sc8"> </span><span class="sc3">action</span><span class="sc8">=</span><span class="sc6">"indiceSesiones.html"</span><span class="sc8"> </span><span class="sc3">method</span><span class="sc8">=</span><span class="sc6">"POST"</span><span class="sc1">&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"submit"</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"submit2"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"Volver"</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"middle"</span><span class="sc1">&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/form&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

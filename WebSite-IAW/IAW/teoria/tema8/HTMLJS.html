@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+        <title>Ejemplo de código JavaScript de DOM y Eventos</title>
+        <script type="text/javascript">
+            function Muestra(numero){ //===============================
+                switch( numero ){
+                case "2" :
+                    alert( "Es 2" );
+                    break;
+                case "3" :
+                    alert( "Es 3" );
+                    break;
+                case "5" :
+                    alert( "Es 5" );
+                    break;
+                default :
+                    alert( "No es ni 2 ni 3 ni 5" );
+                }
+            }
+            function IntroduceNumero(){ //==============================
+                var num = prompt("Introducde un numero");
+                Muestra(num);
+                // Crear nodo de tipo Element
+                var parrafo = document.createElement("p");
+                // Crear nodo de tipo Text
+                var contenido = document.createTextNode("Numero Introducido : " + num);
+                // Añadir el nodo Text como hijo del nodo Element
+                parrafo.appendChild(contenido);
+                // Añadir el nodo Element como hijo de la pagina
+                document.body.appendChild(parrafo);             
+            }
+            function resalta(elemento) {
+                switch(elemento.style.borderColor) {
+                case 'silver':
+                case 'silver silver silver silver':
+                case '#c0c0c0':
+                    elemento.style.borderColor = 'black';
+                    break;
+                case 'black':
+                case 'black black black black':
+                default:
+                    elemento.style.borderColor = 'silver';
+                    break;
+                }
+            }
+            function MiFunctionCambioColor() { //Cambio de todos los parafos de color de fondo==============.
+                    var myNodelist = document.getElementsByTagName("p");
+                    var i;
+                    for( i in myNodelist ){ //Con buble especifico de arrays.
+                    /*for (i = 0; i < myNodelist.length; i++) {  //Con bucle tradicional */
+                        switch( myNodelist[i].style.backgroundColor ){
+                            case "yellow" :
+                                myNodelist[i].style.backgroundColor = "lightblue";
+                                break;
+                            case "lightblue" :
+                                myNodelist[i].style.backgroundColor = "lightgreen";
+                                break;
+                            case "lightgreen" :
+                                myNodelist[i].style.backgroundColor = "yellow";
+                                break;
+                            default :
+                                myNodelist[i].style.backgroundColor = "yellow";
+                                break;
+                        }
+                    }
+            }
+            function muestraMensaje() { //Manejadores de Eventos Semanticos================== Función externa
+                alert('Ejemplo de Manejador de Eventos Semanticos');
+            }
+            function inicializa(){ //Se Inicializan las funciones de Eventos Semanticos tras cargar la página.
+                // Asignar la función externa al elemento Boton1.
+                document.getElementById("Boton1").onclick = muestraMensaje;
+                // Asignar la función externa al elemento Contenido3.
+                document.getElementById("contenido3").onclick = MiFunctionCambioColor;
+            }
+        
+        </script>
+    </head>
+<body onload=inicializa()>
+    <h1>Ejemplo de DOM y Eventos</h1>
+    <p id="contenido1" style="width:350px; height:60px; border:thick solid silver" 
+            onclick="IntroduceNumero()" 
+            onmouseover="resalta(this)" 
+            onmouseout="resalta(this)">
+        Pincha el recuadro o pasa el ratón para ver el resultado</p>
+
+    <p id="contenido2" style="width:350px; height:60px; border:thin solid silver"
+            onmouseover="this.style.borderColor='yellow';"
+            onmouseout="this.style.borderColor='silver';">
+        Otro contenido que se resalta de otra forma </p>
+
+    <p id="contenido3" style="width:350px; height:60px; border:thin solid silver">
+        Tercer caso de Contenido. Pincha y cambiaran los colores </p>
+        
+    <input id="Boton1" type="button" value="Pinchame y verás" />
+
+</body>
+</html>

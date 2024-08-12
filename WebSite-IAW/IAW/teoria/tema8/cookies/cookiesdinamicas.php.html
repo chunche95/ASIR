@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>/home/andres/Documentos/MisDatos/Instituto/Asignaturas/ImplantacionAppWeb/10-Apuntes/ut09PHP/srcIAW/ejemplos/03-Cookies/cookiesdinamicas.php</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.32" />
+	<meta name="date" content="2018-02-07T10:03:35+0100" />
+	<style type="text/css">
+	body
+	{
+		font-family: Monospace, monospace;
+		font-size: 10pt;
+	}
+	.style_18
+	{
+		color: #400080;
+		background-color: #ffffff;
+	}
+	.style_119
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_120
+	{
+		color: #008000;
+		background-color: #ffffff;
+	}
+	.style_121
+	{
+		color: #003030;
+		background-color: #ffffff;
+		font-weight: bold;
+	}
+	.style_123
+	{
+		color: #808000;
+		background-color: #ffffff;
+	}
+	.style_125
+	{
+		color: #808080;
+		background-color: #ffffff;
+	}
+	.style_127
+	{
+		color: #300080;
+		background-color: #ffffff;
+	}
+
+	</style>
+</head>
+
+<body>
+<p>
+<span class="style_18">&lt;?php</span><br />
+<span class="style_125">//Ejemplo&nbsp;ejecucion&nbsp;de&nbsp;css&nbsp;dinamico&nbsp;con&nbsp;Cookies.</span><br />
+<br />
+<span class="style_125">//si&nbsp;existe&nbsp;la&nbsp;Cookie&nbsp;"estilo"&nbsp;entonces&nbsp;usamos&nbsp;su&nbsp;nombre&nbsp;almacenado&nbsp;como&nbsp;archivo&nbsp;de&nbsp;estilo,&nbsp;con&nbsp;extensión&nbsp;CSS</span><br />
+&nbsp;&nbsp;<span class="style_121">if&nbsp;</span><span class="style_127">(</span><span class="style_121">isset</span><span class="style_127">(</span><span class="style_123">$_COOKIE</span><span class="style_127">[</span><span class="style_119">"estilo"</span><span class="style_127">]))</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_121">echo&nbsp;</span><span class="style_120">'&lt;link&nbsp;rel="STYLESHEET"&nbsp;type="text/css"&nbsp;href="'&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_119">"../"&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_123">$_COOKIE</span><span class="style_127">[</span><span class="style_119">"estilo"</span><span class="style_127">]&nbsp;.&nbsp;</span><span class="style_120">'.css"&gt;'</span><span class="style_127">;</span><br />
+&nbsp;&nbsp;<span class="style_121">else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_121">echo&nbsp;</span><span class="style_120">'&lt;link&nbsp;rel="STYLESHEET"&nbsp;type="text/css"&nbsp;href="'&nbsp;</span><span class="style_127">.&nbsp;</span><span class="style_120">'../ejemplos.css"&gt;'</span><span class="style_127">;</span><br />
+<span class="style_18">?&gt;</span><br />
+
+</p>
+</body>
+</html>

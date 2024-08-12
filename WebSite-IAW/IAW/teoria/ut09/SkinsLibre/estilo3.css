@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(231, 77, 77);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+    color: rgb(105, 212, 63);
+}
+h1 {
+    color: rgb(58, 41, 41);
+}
+h2 {    
+    color: rgb(141, 163, 211);
+}
+h3 {
+    color: purple;
+}

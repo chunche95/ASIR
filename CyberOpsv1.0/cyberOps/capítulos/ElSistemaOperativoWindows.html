@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>HC3 - CO. Ch 3.</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="módulos de contenido, laboratorios, actividades, videos y cuestionarios de análisis a la ciberseguridad.">
+<meta name="keywords" content="paulino, bermudez, Chunche95, github, cyber, cyberops, windows, ciberseguridad, cisco, CyberOps, pau">
+<meta name="author" content="Chunche95">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/magnific-popup.css">
+<link rel="stylesheet" href="../css/owl.theme.css">
+<link rel="stylesheet" href="../css/owl.carousel.css">
+<link rel="shortcut icon" href="../images/logo.ico" type="image/x-icon">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="../css/tooplate-style.css">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+<div class="preloader">
+     <div class="spinner">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+<a class="section-up-button"  javascript:void(0) title="Volver arriba">
+     <span class="fa-stack">
+       <i class="fa fa-circle fa-stack-2x"></i>
+       <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+     </span>
+</a>
+
+<!-- MENU -->
+<div class="navbar custom-navbar navbar-fixed-top" role="navigation">
+     <div class="container">
+
+          <!-- NAVBAR HEADER -->
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <!-- lOGO -->
+               <a href="../index.html" class="navbar-brand">CyberOps</a>
+          </div>
+          <!-- MENU LINKS -->
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Inicio</a></li>
+                    <li><a href="#about" class="smoothScroll">Introducción</a></li>      
+                    <li>
+                        <label for="dark-mode" class="dark-mode">
+                            <span>
+                                <i class="fas fa-sun"></i>|
+                            </span>
+                            <span>
+                                <i class="fas fa-moon"></i>
+                            </span>
+                        </label>
+                    </li>             
+               </ul>
+          </div>
+     </div>
+</div>
+
+<!-- HOME -->
+<section id="home" class="parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-8 col-sm-12">
+                    <div class="home-text">
+                         <h1>El sistema operativo Windows.</h1>
+                         <p></p>
+                         <ul class="section-btn">
+                              <a href="#about" class="smoothScroll"><span data-hover="Empecemos.">Empecemos.</span></a>
+                         </ul>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+
+     <!-- Video -->
+     <video controls autoplay loop muted>
+          <source src="../videos/helloWorld.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+     </video>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="parallax-section">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="about-info">
+                         <h3>¿Por qué debería realizar este módulo?</h3>
+                         <p>
+                           Desde sus humildes comienzos hace más de 35 años en 1985, el sistema operativo Windows ha experimentado muchas iteraciones, desde Windows 1.0 hasta la versión de escritorio actual, Windows 10, y la versión del servidor, Windows Server 2019. <br>
+                           Este módulo cubre algunos de los conceptos básicos de Windows, incluido el funcionamiento del sistema operativo y las herramientas usadas para proteger los puntos finales de Windows.
+                         </p>
+                         <h3>¿Qué aprenderé en este módulo?</h3>
+                         <p>
+                             <h5>Título del módulo.</h5> El sistema operativo Windows. 
+                             <h5>Objetivo del módulo.</h5> Explicar las características de seguridad del sistema operativo Windows.
+                             <table>
+                                <tr>
+                                    <td><strong>Título del tema</strong></td>  <td></td><td></td> <td><strong>Objetivo del tema</strong></td>
+                                </tr>
+                                <tr>                                
+                                    <td>Historial de Windows </td>  <td></td><td></td> <td>Describe la historia del sistema operativo Windows</td>
+                                </tr>
+                                <tr>
+                                    <td>Arquitectura y operaciones de Windows </td> <td></td><td></td> <td>Explique la arquitectura de Windows y su funcionamiento</td>
+                                </tr>
+                                <tr>                                     
+                                    <td>Configuración y supervisión de Windows </td>  <td></td><td></td>  <td>Explique cómo configurar y monitorear Windows</td>
+                                </tr>
+                                <tr>                                     
+                                    <td>Seguridad de Windows </td>  <td></td><td></td> <td>Explique cómo se puede mantener seguro Windows</td>
+                                 </tr>
+                             </table>
+                             <ul class="section-btn">
+                                <a href="#project" class="smoothScroll"><span data-hover="Veamos...">Continuemos con la actividad.</span></a>
+                           </ul>
+                         </p>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project" >
+     <div class="container">
+          <div class="">
+               <!-- CONTENTS ITEM -->
+               <div class="container">
+                   <h2>Actividad de clase: Identificar procesos en ejecución.</h2>
+                   <p>
+                       En esta actividad, usará TCP/UDP EndPoint Viewer, que es una herramienta de Windows Sysinternal Suite, para identificar los procesos en ejecución en su computadora. 
+                       <div>
+                           <a href="../docs/3/3.0.3-class-activity---identify-running-processes.pdf" target="_blank" rel="noopener noreferrer">Identify Running Processes</a>
+                       </div>
+                   </p>
+                   <h2>Historial de Windows</h2>
+                   <h3>Sistema operativo de disco</h3>
+                   <p>
+                        Las primeras computadoras no tenían dispositivos de almacenamiento modernos como discos duros, unidades ópticas o almacenamiento flash. Los primeros métodos de almacenamiento usaban tarjetas perforadas, cintas de papel, cinta magnética e incluso casetes de audio. <br>
+                        El almacenamientoen disquete y disco duro requiere software para leer, escribir y administrar los datos que almacenan. El sistema operativo de disco (DOS) es un sistema operativo que usa la computadora para permitir que estos dispositivos de almacenamiento de datos lean 
+                        y escriban archivos. DOS proporciona un sistema de archivos que organiza los archivos de una manera específica en el disco. Microsoft compró DOS y desarrolló MS-DOS. <br>
+                        MS-DOS usó una línea de comandos como interfaz para que las personas crearan programas y manipularan archivos de datos, como se muestra en la salida del comando. Los comandos de DOS se muestran en negrita.
+                        <div>
+                            <img src="../images/MS-DOS.PNG" alt="">
+                        </div>
+                        Con MS-DOS, la computadora tenía un conocimiento básico de cómo acceder a la unidad de disco y cargar los archivos del sistema operativo directamente desde el disco como parte del proceso de arranque. Cuando se cargó, MS-DOS podía acceder fácilmente al disco porque estaba integrado en el sistema operativo. <br>
+                        Las primeras versiones de Windows consistían en una interfaz gráfica de usuario (GUI) que se ejecutaba sobre MS-DOS, comenzando con Windows 1.0 en 1985. El sistema operativo de disco aún controlaba la computadora y su hardware. Un sistema operativo moderno como Windows 10 no se considera un sistema operativo de disco. 
+                        Está construido sobre Windows NT, que significa "Nuevas Tecnologías". El propio sistema operativo tiene el control directo de la computadora y su hardware. NT es un sistema operativo con soporte para múltiples procesos de usuario. Esto es muy diferente al MS-DOS de un solo proceso y un solo usuario. <br>
+                        Hoy en día, muchas cosas que solían lograrse a través de la interfaz de línea de comandos de MS-DOS se pueden lograr en la GUI de Windows. Aún puede experimentar cómo era usar MS-DOS abriendo una ventana de comandos, pero lo que ve ya no es MS-DOS, es una función de Windows. Para experimentar 
+                        un poco cómo era trabajar en MS-DOS, abra una ventana de comandos escribiendo cmd en la búsqueda de Windows y presionando Enter . La tabla enumera algunos comandos que puede utilizar. Ingrese ayuda seguida del comando para obtener más información sobre el comando.
+                        <div>
+                            <img src="../images/comandos_MS-DOS.PNG" alt="">
+                        </div>
+                   </p>
+                   <h3>Versiones de Windows</h3>
+                   <p>
+                    Desde 1993, ha habido más de 20 versiones de Windows que se basan en el sistema operativo NT. La mayoría de estas versiones estaban destinadas al público en general y a las empresas debido a la seguridad de archivos que ofrece el sistema de archivos que utilizaba el sistema operativo NT. 
+                    Las empresas también adoptaron sistemas operativos Windows basados ​​en NT OS. Esto se debe a que muchas ediciones se crearon específicamente para estaciones de trabajo, profesionales, servidores, servidores avanzados y servidores de centros de datos, por nombrar solo algunas de las muchas versiones diseñadas específicamente. <br>
+                    A partir de Windows XP, estaba disponible una edición de 64 bits. El sistema operativo de 64 bits era una arquitectura completamente nueva. Tenía un espacio de direcciones de 64 bits en lugar de un espacio de direcciones de 32 bits. 
+                    Esto no es simplemente el doble de espacio porque estos bits son números binarios. Mientras que Windows de 32 bits puede abordar un poco menos de 4 GB de RAM, Windows de 64 bits teóricamente puede abordar 16.8 millones de terabytes. Cuando el sistema operativo y el hardware admiten el funcionamiento de 64 bits, 
+                    se pueden utilizar conjuntos de datos extremadamente grandes. Estos grandes conjuntos de datos incluyen bases de datos muy grandes, computación científica y manipulación de video digital de alta definición con efectos especiales. En general, las computadoras y los sistemas operativos de 64 bits son 
+                    compatibles con programas anteriores de 32 bits, pero los programas de 64 bits no se pueden ejecutar en hardware antiguo de 32 bits. <br> 
+                    Con cada lanzamiento posterior de Windows, el sistema operativo se ha vuelto más refinado al incorporar más funciones. Windows 7 se ofreció con seis ediciones diferentes, Windows 8 con hasta cinco y Windows 10 con ocho ediciones diferentes. Cada edición no solo ofrece diferentes capacidades,
+                    sino también diferentes puntos de precio. Microsoft ha dicho que Windows 10 es la última versión de Windows y que Windows se ha convertido en un servicio en lugar de solo un sistema operativo. Dicen que en lugar de comprar nuevos sistemas operativos, los usuarios simplemente actualizarán Windows 10. <br> 
+                    La tabla enumera las versiones comunes de Windows.
+                    <div>
+                        <img src="../images/Versiones de Windows.PNG" alt="">
+                    </div>
+                   </p>
+                   <h3>GUI de Windows</h3>
+                   <p>
+                       Windows tiene una interfaz gráfica de usuario (GUI) para que los usuario trabajen con archivos de datos y software. La GUI tiene un área principal llamada Escritorio, que se muestra a continuación. 
+                       <div>
+                           <img src="../images/GUI Windows 10.PNG" alt="">
+                       </div>
+                       El escritorio se puede personalizar con varios colores e imágenes de fondo. Windows admite varios usuarios, por lo que cada usuario puede personalizar el escritorio a su gusto. El escritorio puede almacenar archivos, carpetas, accesos directos a ubicaciones, programas y aplicaciones. 
+                       El escritorio también tiene un icono de papelera de reciclaje, donde los archivos se almacenan cuando el usuario los elimina. Los archivos se pueden restaurar desde la papelera de reciclaje o se pueden vaciar los archivos de la papelera de reciclaje, lo que realmente los elimina. <br>
+                       En la parte inferior del escritorio está la barra de tareas. La barra de tareas tiene tres áreas que se utilizan para diferentes propósitos. A la izquierda está el menú Inicio. Se utiliza para acceder a todos los programas instalados, opciones de configuración y la función de búsqueda. 
+                       En el centro de la barra de tareas, los usuarios colocan iconos de inicio rápido que ejecutan programas específicos o abren carpetas específicas cuando se hace clic en ellos. Finalmente, a la derecha de la barra de tareas está el área de notificación. El área de notificación muestra, 
+                       de un vistazo, la funcionalidad de muchos programas y funciones diferentes. Por ejemplo, un icono de sobre parpadeante puede indicar un nuevo correo electrónico, o un icono de red con una "x" roja puede indicar un problema con la red. <br>
+                       A menudo, al hacer clic con el botón derecho en un icono, aparecerán funciones adicionales que se pueden utilizar. Esta lista se conoce como menú contextual, que se muestra en la figura.
+                       <div>
+                           <img src="../images/funciones adicionales de windows 10.PNG" alt="">
+                       </div>
+                       Hay menús contextuales para los íconos en el área de notificación, para los íconos de inicio rápido, íconos de configuración del sistema y para archivos y carpetas. El menú contextual proporciona muchas de las funciones más utilizadas con solo hacer clic. Por ejemplo, el menú contextual de un archivo contendrá elementos como 
+                       copiar, eliminar, compartir e imprimir. Para abrir carpetas y manipular archivos, Windows usa el Explorador de archivos de Windows.
+                   </p>
+                   <h3>Vulnerabilidades del sistema operativo</h3>
+                   <p>
+                         Los sistemas operativos constan de millones de líneas de código. El software  instalado también puede contener millones de líneas de código. Contodo este código vienen las vulnerabilidades. Una vulnerabilidad es un defecto o debilidad que un atacane puede aprovechar para reducir la viabilidad de la información de una computadora
+                         Para aprovechar una vulnerabilidad del sistema operativo, el atacante debe usar una técnica  o una herramienta para aprovechar la vulnerabilidad. El atacante puede entonces usar la vulnerabilidad para hacer que la computadora actúe de una manera diferente a su diseño previsto. En general, el objetivo es obtener el control no autorizado de la computadora, cambiar los permisos 
+                         o manipular o robar datos. <br>
+                         La tabla enumera algunas recomendaciones comunes de seguridad del sistema operativo Windows.
+                         <div>
+                              <table>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Recomendación
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <strong>
+                                                  Descripción
+                                             </strong>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Protección contra virus o malware
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>De forma predeterminada, Windows usa Windows Defender para la protección contra malware.</li>
+                                                  <li>Windows Defender proporciona un conjunto de herramientas de protección integrada en el sistema.</li>
+                                                  <li>Si Windows Defender está apagado, el sistema se vuelve más vulnerable a ataques y malware.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Servicios desconocidos o no administrados
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>Hay muchos servicios que se ejecutan entre bastidores.</li>
+                                                  <li>Es importante asegurarse de que cada servicio sea identificable y seguro.</li>
+                                                  <li>con un servicio desconocido ejecutándose en segundo plano, la computadora puede ser vulnerable a ataques.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Cifrado
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>Cuando los datos no están cifrados, se pueden recopilar y explotar fácilmente.</li>
+                                                  <li>Esto no solo es importante para las computadoras de escritorio, sino especialmente para los dispositivos móviles.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Política de seguridad
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>Se debe configurar y seguir una buena políica de seguridad.</li>
+                                                  <li>Muchas configuraciones en el control de la Política de Seguridad de Windows puede prevenir ataques.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Cortafuegos
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>De forma predeterminada, Windows usa el Firewall de Windows para limitar la comunicación con los dispositivos de la red.</li>
+                                                  <li>Con el timepo, es posible que las reglas ya no se apliquen.</li>
+                                                  <li>Por ejemplo, se puede dejar abierto un puerto que ya no debería estar disponible.</li>
+                                                  <li>Es importante revisar la vonfiguración del firewall periódicamente para asegurarse de que las reglas sigan siendo aplicables y eliminar las que ya no se apliquen.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Permisos de archivo y uso compartido
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>Estos permisos deben configurarse correctamente.</li>
+                                                  <li>Es fácil simplemente dar el control total al grupo "Todos",  pero esto permite que todas las personas hagan lo que quieran con todos los recursos.</li>
+                                                  <li>Es mejor proporcionar a cada usuario o grupo los permisos mínimos necesarios para todos los archivos y carpetas.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Contraseña débil o sin contraseña
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>Mucha gente elige contraseñas débiles o no las usa en absoluto.</li>
+                                                  <li>Es especialmente importante asegurarse de que todas las cuentas, especialmente la cuenta de administrador, tengan una contraseña muy segura.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                                   <tr>
+                                        <td>
+                                             <strong>
+                                                  Iniciar sesión como administrador
+                                             </strong>
+                                        </td>
+                                        <td>
+                                             <ul>
+                                                  <li>Cuando un usuario inicia sesión como administrador, cualquier programa que ejecutr tendrá los privilegios de esa cuenta.</li>
+                                                  <li>Es mejor iniciar sesión como usuario estándar y usar solo la contraseña de administrador para realizar ciertas tareas.</li>
+                                             </ul>
+                                        </td>
+                                   </tr>
+                              </table>
+                         </div>
+                   </p>
+                   <h3>Capa de abstracción de hardware</h3>
+                   <p>
+                        Las computadoras con Windows usan muchos tipos diferentes de hardware. El sistema operativo puede instalarse en una computadora comprada o en un computador ensamblado por el usuario.  Cuando se instala el sistema operativo, debe aislarse de las diferencias 
+                        de hardware. La arquitectura básica de Windows se muestra en la figura.
+                        <div>
+                              <img src="../images/arquitectura-basica-windows.PNG" alt="">
+                         </div>
+                         Una capa de abstracción de hardware (HAL) es un software que maneja toda la comunicación entre el hardware y el kernel. El kernel es el núcleo del sistemap operativo y tiene control sobre toda la computadora. Maneja todas las solicitudes de entrada y salida, la memoria y todos los 
+                         periféricos conectados a la PC.
+                         En algunos casos, el kernel aún se comunica con el hardware directamente, por lo que no es completamente independiente de HAL. HAL también necesita el kernel para realizar algunas funciones.
+                   </p>
+                   <h3>Modo de usuario y modo de kernel</h3>
+                   <p>
+                        Como se muestra en la figura siguiente, hay dos modos diferentes en los que una CPU funciona cuando la computadora tiene Windows instalado: el modo usuario y el modo kernel.
+                        <div>
+                             <img src="../images/mod-user-and-kernel.PNG" alt="">
+                        </div>
+                        Las aplicaciones instaladas se ejecutan en modo de usuario y el código del sistema operativo se ejecuta en modo de kernel. El código que se ejecuta en modo kernel tiene acceso sin restricciones al hardware subyace y es capaz de ejecutar cualquier instrucción de la CPU. El código del modo 
+                        kernel también puede hacer referencia a cualquier dirección de memoria directamente. <br>
+                        Generalmente reservado para las funciones más confiables del SO, los bloques en el código que se ejecuta en modo kernel detienen el funcionamiento de toda la computadora. Por el contrario, los programas, como las aplicaciones de usuario, se ejecutan en modo de usuario y no tienen acceso directo 
+                        a ubicaciones de hardware o memoria. El código de modo de usuario debe pasar por el sistema operativo para acceder a los recursos de hardware. Debido al aislamiento proporcionado por el modo de usuario, los bloques en el modo usuario están restringidos solo a la aplicación y son recuperables. La 
+                        mayoría de los programas de Windows se ejecutan en modo de usuario, Controladores de dispositivo.
+                        <hr>
+                        Todo el código que se ejecuta en modo kernel usa el mismo espacio de direcciones. Los controladores en modo kernel no están aislados del sistema operativo. Si ocurre un error con el controlador ejecutándose en modo kernel y escribe en el espacio de direcciones incorrecto, el SO u otro controlador en modo kernel podría verse 
+                        afectados negativamente. En este sentido, el controlador podría bloquearse, provocando que todo el sistema operativo se bloquee.
+                        <hr>
+                        Cuando se ejecuta el código del modo de usuario, el kernel le otorga su propio espacio de direcciones restringido, junto con un proceso creado específicamente para la aplicación. El motivo de esta funcionalidad ees principalmente patra evitar que las aplicacionescambien el código del sistema operativo que se ejecuta 
+                        al mismo tiempo. Al tener su propio proceso, esa aplicación tiene su propio espacio de direcciones privadas, lo que hace que otras aplicaciones no puedan modificar los datos que contiene. Esto también ayuda a evitar que el SO y otras aplicaciones se bloqueen si esa aplicación falla.
+                   </p>
+                   <h3>Sistema de archivos de Windows</h3>
+                   <p>
+                        Un sistema de archivos es cómo se organiza la información en los medios de almacenamiento. Algunos sistemas de archivos pueden ser una mejor opción para usar que otros, según el tipo de medio que se usará. La tabla enumera los sistemas de archivos que admite Windows.
+                        <table>
+                             <tr>
+                                  <td>
+                                        <strong>Sistema de archivos de Windows.</strong>
+                                  </td>
+                                  <td>
+                                        exFAT
+                                  </td>
+                                  <td>  
+                                        Sistema de archivos jerárquicoplus (HFS+)
+                                  </td>
+                                  <td>
+                                        Sistema de archivo (EXT)
+                                  </td>
+                                  <td>
+                                        Sistema de archivos de nueva tecnología (NTFS)
+                                  </td>
+                             </tr>
+                             <tr>
+                                  <td>
+                                        <strong>Descripción</strong>
+                                  </td>
+                                  <td>
+                                        Este es un sistema de archivos compatible con muchos sistemas operativos diferentes. Fat tiene limitaciones en la cantidad de particiones, tamaños de particiones y tamaños de archivo que puede abordar, porlo que generalmente ya no se usa para discos duros (HD) o unidades de estado sólido (SSD). <br>
+                                        Tanto FAT16 como FAT32 están disponibles para su uso, siendo FAT32 el más común porque tiene muchas menos restricciones que FAT16.
+                                  </td>
+                                  <td>
+                                        Este sistema de archivos se usa en computadoras Mac-OS X y permite nombres de archivos, tamaños de archivo y tamaños de partición mucho más largos que los sistemas de archivos anteriores. Aunque no es compatible con Windows sin un software especial, Windows puede leer datos de particiones HFS+.
+                                  </td>
+                                  <td>
+                                        Este sistema de archivos se usa con equipos sados en Lux Aunque no es comptible con Windows, Windows puede leer datosde particiones EXT con un softe especilal.
+                                  </td>
+                                  <td>
+                                        Este es el sistema de archivos más utilizado al instalar Windows. Todas las versiones de Windows y Linux admiten NTFS. Las PC's Mac-OS X solo pueden leer una partición NTFS. Puede escribir en una partición NTFS despuésde instalar controladores especiales.
+                                  </td>
+                             </tr>
+                        </table>
+                        NTFS es el sistema de archivos más usado para Windows por muchas razzones. NTFS admite archivos y particiones muy grandes y es uy compatible con otros SO's. NTFS también es muy confiable y admite funciones de recuperación, lo más importante es que admite muchas funciones de seguridad. El control de acceso a los datos se logra mediante descriptores 
+                        de seguridad. Estos descriptores de seguridad contienen la propiedad y los permisos los archivos hasta el nivel del archivo. NTFS también rastrea muchas marcas de tiempo para rastrear la actividad de los archivos. A veces denominadas MACE, las marcas de tiempo Modificar Acceso, Crear y Entrada modificada se usan a menudo en investigaciones forenses para determinar el historial de un archivo o carpeta. NTFS también admite 
+                        el cifrado del sistema de archivos para proteger todo el medio de almacenamiento. <br>
+                        Antes de poder utulizar un dispositivo de almacenamiento, como un disco, debe formatearse con un sstema de archivos. A su vez, antes de que un sistema de archivos pueda instalarse en un dispositivo de almacenamiento, es necesario particionar el dispositivo.  Un disco duro se divide en áreas llamadas particiones. 
+                        Cada partición es una unidad de almacenamiento lógica que se puede formatear para almacenar información, como archivos de datos o aplicaciones. Durante el proceso de instalación, la mayoría de los sistemas operativos particionan y formatean automáticamente el espacio disponible en el disco con un sistema de archivos como NTFS. <br>
+                        El formateo NTFS crea estructuras importantes en el disco para el almacenamiento de archivos y tablas para registrar las ubicaciones de los archivos:
+                        <ul>
+                             <li>
+                                   <strong>Sector de arranque de partición.</strong> Estos son los primeros 16 sectores de la unidad. Contiene la ubicación de la tabla maestra de archivos (MFT). Los últimos 16 sectores contienen una copia del sector de arranque.
+                             </li>
+                             <li>
+                                   <strong>Tabla maestra de archivos (MFT).</strong> Esta tabla contiene las ubicaciones de todos los archivos y directorios de la partición, incluidos los atributos de archivo, como información de seguridad y marcas de tiempo.
+                             </li>
+                             <li>
+                                   <strong>Archivo de sistema.</strong> Estos son archivos ocultos que almacenan información sobre otros volúmenes y atributos de archivo.
+                             </li>
+                             <li>
+                                   <strong>Área de archivos.</strong> El área principal de la partición donde se almacenan los archivos y directorios.
+                             </li>
+                        </ul>
+                        <strong>Nota:</strong> Al formatear una partición, es posible que los datos anteriores aún se puedan recuperar porque no todos los datos se eliminan por completo. Se puede examinar el espacio libre y se pueden recuperar archivos que pueden comprometer la seguridad. Se recomienda realizar una limpieza segura en una unidad que se está reutilizando. 
+                        El borrado seguro escribirá datos en todo el disco varias veces para garantizar que no queden datos.
+                   </p>
+                   <h3>Flujos de datos alternativos</h3>
+                   <p>
+                        NTFS almacena archivos como una serie de atributos, como el nombre del archivo o una marca de tiempo. Los datos que contiene el archivo se almacenan en el atributo $DATA  y se conocen como flujo de datos. Al usar NTFS, puede conectar flujos de datos alternativos (ADS) al archivo. A veces, esto lo usan aplicaciones que almacenan información adicional sobre el archivo.
+                        El ADS es un factor importante cuando se habla de malware. Esto se debe a que es fácil ocultar datos en un ADS. Un atacante podría almacenar código malicioso dentro de un ADS que luego se puede llamar desde un archivo diferente. <br>
+                        En el sistema de archivos NTFS, un archivo con ADS se identifica después del nombre de archivo y dos puntos, por ejemplo, Testfile.txt: ADS . Este nombre de archivo indica que un ADS llamado ADS está asociado con el archivo llamado Testfile.txt . Un ejemplo de ADS se muestra en la salida del comando.
+                        <div>
+                             <img src="../images/flujos-de-datos-alternativos.PNG" alt="">
+                        </div>
+                        En la salida:
+                        <ul>
+                             <li>El primer comando coloca el texto "DATOS ALTERNATIVOS AQUÍ" en un ADS del archivo Testfile.txt llamado "ADS"</li>
+                             <li>Después de eso, dir, muestra que el archivo fue creado,pero el ADS no es visible.</li>
+                             <li>El siguiente comando 'more &gt; Testfile.txt', muestra que hay datos en testfile.txt: flujo de datos ADS.</li>
+                             <li>El último comando muestra el ADS del archivo Testfile.txt porque el modificador '/r' se usó con el comando dir.</li>
+                        </ul>
+                   </p>
+                   <h3>Proceso de arranque de Windows</h3>
+                   <p>
+                        Muchas acciones ocurren entre el momento en que se presiona el botón de encendido de la computadora y Windows está completamente cargado, como se muestra en la figura.
+                        <div>
+                             <img src="../images/Proceso-de-arranque-windows.PNG" alt="">
+                             <hr>
+                             <img src="../images/tiempo-de-arranque-de-sistema.PNG" alt="">
+                        </div>
+                        Esto se conoce como el proceso de inicio de Windows. <br>
+                        Existen dos tipos de wirmware de computadora:
+                        <ul>
+                             <li>
+                                   <b>Sistema básico de entrada y salida (BIOS).</b> El firmware de la BIOS se creó a principios de la década de 1980 y funciona de la misma manera que cuando se creó. A medida que evolucionaron las computadoras, se hizo difícil para el firmware del BIOS admitir todas las nuevas funciones solicitadas por los usuarios.
+                             </li>
+                             <li>
+                                   <b>Interfaz de firmware extensible unificada (UEFI).</b> UEFI se diseño para reemplazar BIOS y admitir las nuevas funciones.
+                             </li>
+                        </ul>
+                        En el firmware del BIOS, el proceso comienza con la fase de inicialización del BIOS. Esto es cuando se inicializan los dispositivos de hardware y se realiza una autoprueba de encendido (POST) para asegurarse de que todos estos dispositivos se estén comunicando. Cuando se descubre el disco del sistema, la POST finaliza. La última instrucción en la POST es buscar el registro de arranque maestro (MBR).
+                        El MBR contiene un pequeño programa que se encarga de localizar y cargar el sistema operativo. El BIOS ejecuta este código y el sistema operativo comienza a cargarse.
+                        A diferencia del firmware del BIOS, el firmware UEFI tiene mucha visibilidad del proceso de arranque. UEFI arranca cargando archivos de programa EFI, almacenados como archivos .efi en una partición de disco especial, conocida como EFI System Partition (ESP).
+                        Nota : una computadora que usa UEFI almacena el código de arranque en el firmware. Esto ayuda a aumentar la seguridad de la computadora en el momento del arranque porque la computadora pasa directamente al modo protegido.
+                        Ya sea que el firmware sea BIOS o UEFI, después de encontrar una instalación válida de Windows, se ejecuta el archivo Bootmgr.exe . Bootmgr.exe cambia el sistema del modo real al modo protegido para que se pueda utilizar toda la memoria del sistema.
+                        Bootmgr.exe lee la base de datos de configuración de arranque (BCD). El BCD contiene cualquier código adicional necesario para iniciar la computadora, junto con una indicación de si la computadora está saliendo de la hibernación o si se trata de un inicio en frío. Si el equipo sale de la hibernación, el proceso de arranque continúa con Winresume.exe . Esto permite que la computadora lea el archivo Hiberfil.sys que contiene el estado de la computadora cuando se puso en hibernación.
+                        Si la computadora se inicia desde un inicio en frío, entonces se carga el archivo Winload.exe . El archivo Winload.exe crea un registro de la configuración del hardware en el registro. El registro es un registro de todas las configuraciones, opciones, hardware y software que tiene la computadora. El registro se explorará en profundidad más adelante en este capítulo. Winload.exe también utiliza la firma de código en modo kernel (KMCS) para asegurarse de que todos los controladores estén firmados digitalmente. Esto asegura que los controladores sean seguros para cargar cuando se inicia la computadora.
+                        Una vez examinados los controladores, Winload.exe ejecuta Ntoskrnl.exe, que inicia el kernel de Windows y configura HAL. Finalmente, el Subsistema de administrador de sesión (SMSS) lee el registro para crear el entorno de usuario, iniciar el servicio Winlogon y preparar el escritorio de cada usuario a medida que inician sesión.
+                   </p>
+                   <h2>Inicio de Windows</h2>
+                   <p>
+                        Hay dos elementos de registro importantesque se utilizan para iniciar automáticamente aplicaciones y servicios.
+                        <ul>
+                             <li>
+                                   <strong>HKEY_LOCAL_MACHINE</strong>. Varios aspectos de la configuración de Windows se almacenan en esta clave, incluida la información sobre los servicios que comienzan con cada inicio.
+                             </li>
+                             <li>
+                                   <strong>HKEY_CURRENT_USER</strong>. En esta clave se almacenan variuos aspectos relacionados con el usuario que ha iniciado sesión, incluida la información sobre los servicios que se inician solo cuando el usuario inicia sesión en la computadora.
+                             </li>
+                        </ul>
+                        Las diferentes entradas en estas ubicaciones de registro definen qué servicios y aplicaciones se iniciarán, según lo indicado por su tipo de entrada. Estos tipos incluyen Run, RunOnce, RunServices, RunServicesOnce y Userinit. Estas entradas se pueden ingresar manualmente en el registro, pero es mucho más seguro usar la herramienta Msconfig.exe . Esta herramienta se utiliza para ver y cambiar todas las opciones de inicio de la computadora. Utilice el cuadro de búsqueda para buscar y abrir la herramienta Msconfig. <br>
+                        La herramienta Msconfig abre la ventana Configuración del sistema. Hay cinco pestañas que contienen las opciones de configuración <br>
+                        <div>
+                             <img src="../images/msconfig.PNG" alt=""> <br>
+                             Aquí se pueden elegir tres tipos de inicio diferentes. Carga normal todos los controladores y servicios. El diagnóstico solo carga controladores y servicios básicos. Selectivo permite al usuario elegir qué cargar al inicio.
+                        </div>                        
+                         <div>
+                              <img src="../images/msconfig-arranque.PNG" alt=""> <br>
+                              Cualquier sistema operativo instalado se puede elegir aquí para comenzar. También hay opciones para el inicio seguro, que se utiliza para solucionar problemas de inicio.
+                         </div>
+                         <div>
+                              <img src="../images/msconfig-servicios.PNG" alt=""> <br>
+                              Todos los servicios instalados se enumeran aquí para que se puedan elegir para comenzar al inicio.
+                         </div>
+                         <div>
+                              <img src="../images/msconfig-inicio.PNG" alt=""> <br>
+                              Todas las aplicaciones y servicios que están configurados para comenzar automáticamente al inicio se pueden habilitar o deshabilitar abriendo el administrador de tareas desde esta pestaña.
+                         </div>
+                         <div>
+                              <img src="../images/msconfig-herramientas.PNG" alt=""> <br>
+                              Muchas herramientas comunes del sistema operativo se pueden iniciar directamente desde esta pestaña.
+                         </div>
+
+                   </p>
+                   <h2>Apagado de Windows</h2>
+                   <p>
+                    Siempre es mejor realizar un apagado adecuado para apagar la computadora. Los archivos que quedan abiertos, los servicios que se cierran fuera de servicio y las aplicaciones que se cuelgan pueden dañarse si se apaga la alimentación sin informar primero al sistema operativo. La computadora necesita tiempo para cerrar cada aplicación, apagar cada servicio y registrar cualquier cambio de configuración antes de que se pierda la energía. <br>
+                    Durante el apagado, la computadora cerrará primero las aplicaciones en modo de usuario, seguidas de los procesos en modo kernel. Si un proceso de modo de usuario no responde dentro de un cierto período de tiempo, el sistema operativo mostrará una notificación y permitirá al usuario esperar a que la aplicación responda o finalizar el proceso por la fuerza. Si un proceso en modo kernel no responde, parecerá que el apagado se cuelga y puede que sea necesario apagar la computadora con el botón de encendido. <br>
+                    Hay varias formas de apagar una computadora con Windows: las opciones de energía del menú Inicio, el comando de línea de comando apagar y usar Ctrl + Alt + Supr y hacer clic en el ícono de energía. Hay tres opciones diferentes entre las que elegir al apagar la computadora:
+                    <ul>
+                         <li>
+                              <b>Apagar.</b> Apaga el equipo.
+                         </li>
+                         <li>
+                              <b>Reiniciar.</b> Reinicia la computadora (apague y encienda).
+                         </li>
+                         <li>
+                              <b>Hibernar.</b> Registra el estado actual de la computadora y el entorno del usuario y lo almacena en un archivo. La hibernación permite al usuario retomar muy rápidamente donde lo dejó con todos sus archivos y programas aún abiertos.
+                         </li>
+                    </ul>
+                   </p>
+                   <h2>Procesos, subprocesos y servicios</h2>
+                   <p>
+                        Una aplicación de Windows se compone de procesos. La aplicación puede tener uno o varios procesos dedicados a ella. Un proceso es cualquier programa que se esté ejecutando  actualmente. Cada proceso que se ejecuta se compone de al menos un hilo. Un hilo es parte del proceso que se puede ejecutar. El procesador realiza cálculos sobre el hilo. Para configurar los procesos de Windows, busque Administrador de tareas. La pestaña Procesos del Administrador se muestra en la figura.
+                        <div>
+                             <img src="../images/adm-tareas.PNG" alt="">
+                        </div>
+                        Todos los hilos dedicados a un proceso están contenidos en el mismo espacio de direcciones. Esto significa que estos subprocesos no pueden acceder al espacio de direcciones de ningún otro proceso. Esto evita la corrupción de otros procesos. Debido a que Windows realiza múltiples tareas, se pueden ejecutar varios subprocesos al mismo tiempo. La cantidad de subprocesos que se pueden ejecutar al mismo tiempo depende del número de procesadores de la computadora. <br>
+                        Algunos de los procesos que ejecuta Windows son servicios. Estos son programas que se ejecutan en segundo plano para admitir el sistema operativo y las aplicaciones. Se pueden configurar para que se inicien automáticamente cuando Windows arranca o se pueden iniciar manualmente. También se pueden detener, reiniciar o deshabilitar. <br>
+                        Los servicios brindan una funcionalidad de larga duración, como acceso inalámbrico o acceso a un servidor FTP. Para configurar los servicios de Windows, busque servicios. El subprograma del panel de control de Servicios de Windows se muestra en la figura.
+                         <div>
+                              <img src="../images/services.PNG" alt="">
+                         </div>          
+                         Tenga mucho cuidado al manipular la configuración de estos servicios. Algunos programas dependen de uno o más servicios para funcionar correctamente. Cerrar un servicio puede afectar negativamente a las aplicaciones u otros servicios.          
+                   </p>
+                   <h2>Asignación de memoria y asas</h2>
+                   <p>
+                    Una computadora funciona almacenando instrucciones en la RAM hasta que la CPU las procesa. El espacio de direcciones virtuales de un proceso es el conjunto de direcciones virtuales que puede utilizar el proceso. La dirección virtual no es la ubicación física real en la memoria, sino una entrada en una tabla de páginas que se utiliza para traducir la dirección virtual a la dirección física. <br>
+                    Cada proceso en una computadora con Windows de 32 bits admite un espacio de direcciones virtuales que permite direccionar hasta 4 gigabytes. Cada proceso en una computadora con Windows de 64 bits admite un espacio de direcciones virtuales de 8 terabytes. <br>                    
+                    Cada proceso de espacio de usuario se ejecuta en un espacio de direcciones privado, separado de otros procesos de espacio de usuario. Cuando el proceso del espacio de usuario necesita acceder a los recursos del kernel, debe utilizar un identificador de proceso. Esto se debe a que el proceso del espacio de usuario no puede acceder directamente a estos recursos del kernel. El identificador de proceso proporciona el acceso que necesita el proceso de espacio de usuario sin una conexión directa a él. <br>                    
+                    Una herramienta poderosa para ver la asignación de memoria es RAMMap, que se muestra en la figura. RAMMap es parte del conjunto de herramientas de Windows Sysinternals. Puede descargarse de Microsoft. RAMMap proporciona una gran cantidad de información sobre cómo Windows ha asignado la memoria del sistema al kernel, los procesos, los controladores y las aplicaciones. 
+                    <div>
+                         <img src="../images/ramMap.PNG" alt="">
+                    </div>
+                   </p>
+                   <h2>El registro de Windows</h2>
+                   <p>
+                    Windows almacena toda la información sobre el hardware, las aplicaciones, los usuarios y la configuración del sistema en una gran base de datos conocida como registro. También se registran las formas en que estos objetos interactúan, como qué archivos abre una aplicación y todos los detalles de las propiedades de las carpetas y aplicaciones. El registro es una base de datos jerárquica donde el nivel más alto se conoce como colmena, debajo de ella hay claves, seguidas de subclaves. 
+                    Los valores almacenan datos y se almacenan en las claves y subclaves. Una clave de registro puede tener hasta 512 niveles de profundidad. <br>
+                    La tabla enumera las cinco colmenas del registro de Windows. 
+                    <table>
+                         <tr>
+                              <td>Estructura de registro</td>
+                              <td>HKEY_CURRENT_USER(HKCU)</td>
+                              <td>HKEY_USERS(HKU)</td>
+                              <td>HKEY_CLASSES_ROOT(HKCR)</td>
+                              <td>HKEY_LOCAL_MACHINE(HKLM)</td>
+                              <td>HKEY_CURRENT_CONFIG(HKCC)</td>
+                         </tr>
+                         <tr>
+                              <td>Descripción</td>
+                              <td>
+                                   Contiene información sobre el usuario actualmente conectado.
+                              </td>
+                              <td>
+                                   Contiene información sobre todas las cuentas de usuario en el host.
+                              </td>
+                              <td>
+                                   Contiene información sobre los registros de vinculación e incrustación de objetos (OLE). OLE permite a los usuarios incrustrar objetos de otras aplicaciones (como una hoja de cálculo) en un solo documento (como un doc. Word).
+                              </td>
+                              <td>
+                                   Contiene información relacionada con el sistema.
+                              </td>
+                              <td>
+                                   Contiene información sobre el perfil de hardware actual.
+                              </td>
+                         </tr>
+                    </table>
+                    No se pueden crear nuevas colmenas. Las claves de registro y los valores de las colmenas se pueden crear, modificar o eliminar mediante una cuenta con privilegios administrativos. Como se muestra en la figura, la herramienta regedit.exe se utiliza para modificar el registro. Tenga mucho cuidado al utilizar esta herramienta. Los cambios menores en el registro pueden tener efectos masivos o incluso catastróficos.
+                    <div>
+                         <img src="../images/registro.PNG" alt="">
+                    </div>
+                    La navegación en el registro es muy similar al explorador de archivos de Windows. Use el panel izquierdo para navegar por las colmenas y la estructura debajo de él y use el panel derecho para ver el contenido del elemento resaltado en el panel izquierdo. Con tantas claves y subclaves, la ruta de la clave puede llegar a ser muy larga. La ruta se muestra en la parte inferior de la ventana como referencia. Debido a que cada clave y subclave es esencialmente un contenedor,
+                    la ruta se representa de manera muy similar a una carpeta en un sistema de archivos. La barra invertida ( \ ) se utiliza para diferenciar la jerarquía de la base de datos. <br>
+                    Las claves de registro pueden contener una subclave o un valor. Los diferentes valores que pueden contener las claves son los siguientes:
+                    <ul>
+                         <li>REG_BINARY. Números o valores booleanos.</li>
+                         <li>REG_DWORD. Números mayores de 32 bits o datos brutos.</li>
+                         <li>REG_SZ. Valores de cadena.</li>
+                    </ul>
+                    Debido a que el registro contiene casi toda la información del sistema operativo y del usuario, es fundamental asegurarse de que no se vea comprometido. Las aplicaciones potencialmente malintencionadas pueden agregar claves de registro para que se inicien cuando se inicia la computadora. Durante un arranque normal, el usuario no verá el inicio del programa porque la entrada está en el registro y la aplicación no muestra ninguna ventana o indicación de inicio cuando arranca la computadora. 
+                    Un keylogger, por ejemplo, sería devastador para la seguridad de una computadora si se iniciara desde el inicio sin el conocimiento o consentimiento del usuario. Cuando realice auditorías de seguridad normales o repare un sistema infectado, revise las ubicaciones de inicio de la aplicación dentro del registro para asegurarse de que cada elemento sea conocido y seguro de ejecutar.
+                    El registro también contiene la actividad que realiza un usuario durante el uso diario normal de la computadora. Esto incluye el historial de los dispositivos de hardware, incluidos todos los dispositivos que se han conectado a la computadora, incluido el nombre, el fabricante y el número de serie. Otra información, como qué documentos han abierto un usuario y un programa, dónde se encuentran y cuándo se accede a ellos, se almacena en el registro. Toda esta información es muy útil cuando 
+                    es necesario realizar una investigación forense.
+                   </p>
+                   <h2>Práctica de laboratorio: Exploración de procesos, subprocesos, manejadores y registro de Windows.</h2>
+                   <p>
+                    En esta práctica de laboratorio, explorará los procesos, subprocesos y manejadores utilizando Process Explorer en Sysinternals Suite. También utilizará el Registro de Windows para cambiar una configuración.
+                    <a href="../docs/3/3.2.11-lab---exploring-processes,-threads,-handles,-and-windows-registry.pdf" target="_blank" rel="noopener noreferrer">Exploración de procesos, subprocesos, controles y registro de Windows</a>
+                   </p>
+                   <h2>Test. Identifique el subárbol del registro de Windows.</h2>
+                   <p>
+                        <a href="../images/test.PNG"></a>
+                   </p>
+                   <h3>Configuración y supervisión de Windows</h3>
+                   <h2>Ejecutar como administrador.</h2>
+                   <p>
+                    Como práctica recomendada de seguridad, no es recomendable iniciar sesión en Windows con la cuenta de administrador o una cuenta con privilegios administrativos. Esto se debe a que cualquier programa que se ejecute mientras está conectado con esos privilegios heredará los privilegios administrativos. El malware que tiene privilegios administrativos tiene acceso completo a todos los archivos y carpetas de la computadora. <br>
+                    A veces, es necesario ejecutar o instalar software que requiere los privilegios del administrador. Para lograr esto, hay dos formas diferentes de instalarlo. <br>
+                    <div>
+                         <img src="../images/cmd-admin-1.png" alt=""> <br>
+                         Administrador desde Símbolo de sistema. <br>
+                         <img src="../images/cmd-menuWin.png" alt=""> <br>
+                         Administrador buscado desde menú de Windows.
+                    </div>                    
+                   </p>
+                   <h2>Usuarios y dominios locales</h2>
+                   <p>
+                    Cuando inicie una computadora nueva por primera vez o instale Windows, se le pedirá que cree una cuenta de usuario. Esto se conoce como usuario local. Esta cuenta contendrá todas sus configuraciones de personalización, permisos de acceso, ubicaciones de archivos y muchos otros datos específicos del usuario. También hay otras dos cuentas que están presentes, el invitado y el administrador. Ambas cuentas están deshabilitadas de forma predeterminada. <br>
+                    Como práctica recomendada de seguridad, no habilite la cuenta de administrador y no otorgue privilegios administrativos a los usuarios estándar. Si un usuario necesita realizar alguna función que requiera privilegios administrativos, el sistema le pedirá la contraseña de administrador y solo permitirá que esa tarea se realice como administrador. Solicitar la contraseña de administrador protege la computadora al evitar que cualquier software que no esté autorizado instale, ejecute o acceda a archivos. <br> 
+                    La cuenta de invitados no debe estar habilitada. La cuenta de invitado no tiene una contraseña asociada porque se crea cuando una computadora va a ser utilizada por muchas personas diferentes que no tienen cuentas en la computadora. Cada vez que la cuenta de invitado inicia sesión, se les proporciona un entorno predeterminado con privilegios limitados. <br>
+                    Para facilitar la administración de usuarios, Windows utiliza grupos. Un grupo tendrá un nombre y un conjunto específico de permisos asociados. Cuando un usuario se coloca en un grupo, los permisos de ese grupo se otorgan a ese usuario. Se puede colocar a un usuario en varios grupos para que se le otorguen muchos permisos diferentes. Cuando los permisos se superponen, ciertos permisos, como "denegar explícitamente" anularán el permiso proporcionado por un grupo diferente. 
+                    Hay muchos grupos de usuarios diferentes integrados en Windows que se utilizan para tareas específicas. Por ejemplo, el grupo Usuarios del registro de rendimiento permite a los miembros programar el registro de contadores de rendimiento y recopilar registros de forma local o remota. Los usuarios y grupos locales se administran con el subprograma del panel de control lusrmgr.msc, como se muestra en la figura.
+                    <div>
+                         <img src="../images/lusrmgr.PNG" alt="">
+                    </div>
+                    Además de los grupos, Windows también puede usar dominios para establecer permisos. Un dominio es un tipo de servicio de red en el que todos los usuarios, grupos, computadoras, periféricos y configuraciones de seguridad se almacenan y controlan en una base de datos. Esta base de datos se almacena en equipos especiales o grupos de equipos denominados controladores de dominio (DC). Cada usuario y computadora en el dominio debe autenticarse contra el DC para iniciar sesión y acceder a los recursos de la red.
+                    El DC establece la configuración de seguridad para cada usuario y cada computadora para cada sesión. Cualquier configuración proporcionada por DC se establece de forma predeterminada en la computadora local o la configuración de la cuenta de usuario.
+                   </p>
+                   <h2>CLI y PowerShell</h2>
+                   <p>
+                    La interfaz de línea de comandos de Windows (CLI) se puede utilizar para ejecutar programas, navegar por el sistema de archivos y administrar archivos y carpetas. Además, se pueden crear archivos denominados archivos por lotes para ejecutar varios comandos en sucesión, al igual que un script básico. <br>
+                    Para abrir la CLI de Windows, busque cmd.exe y haga clic en el programa. Recuerde que al hacer clic con el botón derecho del ratón en el programa, se da la opción de Ejecutar como administrador, dando mucha más potencia a los comandos que se utilizarán. <br>                    
+                    El mensaje muestra la ubicación actual dentro del sistema de archivos. Estas son algunas cosas para recordar al usar la CLI:
+                    <ul>
+                         <li> Los nombres de archivo y las rutas no distinguen entre mayúsculas y minúsculas, de forma predeterminada. </li>
+                         <li> A los dispositivos de almacenamiento se les asigna una letra como referencia. La letra de la unidad va seguida de dos puntos y una barra invertida ( \ ). Esto indica la raíz, o el nivel más alto, del dispositivo. La jerarquía de carpetas y archivos en el dispositivo se indica separándolos con la barra invertida. Por ejemplo, la ruta <i>C:\Users\Pauli\Desktop\file.txt</i> se refiere a un archivo llamado file.txt que se encuentra en la carpeta Escritorio dentro de la carpeta Jim dentro de la carpeta Usuarios en la raíz de la unidad C:. </li>
+                         <li> Los comandos que tienen modificadores opcionales utilizan la barra inclinada (/) para delinear entre el comando y la opción de cambio. </li>
+                         <li> Puede utilizar la tecla Tab para completar automáticamente los comandos cuando se hace referencia a directorios o archivos. </li>
+                         <li> Windows mantiene un historial de los comandos que se ingresaron durante una sesión de CLI. Acceda a los comandos ingresados ​​previamente usando las teclas de flecha hacia arriba y hacia abajo. </li>
+                         <li> Para cambiar entre dispositivos de almacenamiento, escriba la letra del dispositivo, seguida de dos puntos y luego presione Entrar. </li>
+                    </ul>
+                    Aunque la CLI tiene muchos comandos y funciones, no puede funcionar junto con el núcleo de Windows o la GUI. Otro entorno, llamado Windows PowerShell, se puede utilizar para crear scripts para automatizar tareas que la CLI normal no puede crear. PowerShell también proporciona una CLI para iniciar comandos. PowerShell es un programa integrado dentro de Windows y se puede abrir buscando "powershell" y haciendo clic en el programa. Al igual que la CLI, PowerShell también se puede ejecutar con privilegios administrativos. <br>                    
+                    Estos son los tipos de comandos que puede ejecutar PowerShell:
+                    <ul>
+                         <li><b>cmdlets:</b> estos comandos realizan una acción y devuelven una salida u objeto al siguiente comando que se ejecutará.</li>
+                         <li><b>Secuencias de comandos de PowerShell:</b> estos son archivos con una extensión .ps1 que contienen comandos de PowerShell que se ejecutan.</li>
+                         <li><b>Funciones de PowerShell:</b> son fragmentos de código a los que se puede hacer referencia en un script.</li>
+                    </ul>
+                    Para ver más información sobre Windows PowerShell y comenzar a usarlo, escriba ayuda en PowerShell, como se muestra en el resultado del comando.
+                    <div>
+                         <img src="../images/PS.PNG" alt="">
+                    </div>
+                    Hay cuatro niveles de ayuda en Windows PowerShell.
+                    <ul>Comandos:
+                         <li>
+                              <b>get-help</b>: Muestra ayuda básica para un comando.
+                         </li>
+                         <li>
+                              <b>get-help [- examples]</b>: Muestra ayuda detallada para un comando con ejemplos.
+                         </li>
+                         <li>
+                              <b>get-help [-details]</b>: Muestra ayuda detallada para un comando con ejemplos.
+                         </li>
+                         <li>
+                              <b>get-help [complete]</b>: Muestra toda la información de ayuda de un comando con ejemplos en mayor profundidad.
+                         </li>
+                    </ul>
+                   </p>
+                   <h2>Instrumentación de Administración Windows</h2>
+                   <p>
+                    El Instrumental de administración de Windows (WMI) se utiliza para administrar equipos remotos. Puede recuperar información sobre componentes de la computadora, estadísticas de hardware y software, y monitorear el estado de las computadoras remotas. Para abrir el control WMI desde el Panel de control, haga doble clic en Herramientas administrativas > Administración de equipos para abrir la ventana Administración de equipos, expanda el árbol Servicios y aplicaciones y haga clic con el botón derecho en el icono de Control de WMI>Propiedades.
+                    La ventana Propiedades del control WMI se muestra en la figura.
+                    <div>
+                         <img src="../images/wmi Control properties.PNG" alt="">
+                    </div>
+                    Estas son las cuatro pestañas de la ventana Propiedades del control WMI:
+                    <ul>
+                         <li>
+                              General : información resumida sobre el equipo local y WMI
+                         </li>
+                         <li>
+                              Copia de seguridad / restauración : permite la copia de seguridad manual de las estadísticas recopiladas por WMI
+                         </li>
+                         <li>
+                              Seguridad : configuración para configurar quién tiene acceso a diferentes estadísticas de WMI
+                         </li>
+                         <li>
+                              Avanzado : configuración para configurar el espacio de nombres predeterminado para WMI
+                         </li>
+                    </ul>
+                    Actualmente, algunos ataques utilizan WMI para conectarse a sistemas remotos, modificar el registro y ejecutar comandos. WMI les ayuda a evitar la detección porque es un tráfico común, con mayor frecuencia en el que confían los dispositivos de seguridad de la red y los comandos WMI remotos no suelen dejar evidencia en el host remoto. Debido a esto, el acceso a WMI debe estar estrictamente limitado.
+                   </p>
+                   <h2>El comando 'net'</h2>
+                   <p>
+                    Windows tiene muchos comandos que se pueden ingresar en la línea de comandos. Un comando importante es el comando net , que se utiliza en la administración y mantenimiento del sistema operativo. El comando net admite muchos subcomandos que siguen al comando net y se pueden combinar con interruptores para enfocarse en una salida específica. <br>
+                    Para ver una lista de los muchos comandos de red , escriba net help en el símbolo del sistema. La salida del comando muestra los comandos que puede utilizar el comando net . Para ver ayuda detallada sobre cualquiera de los comandos net, escriba C: \ > net help , como se muestra a continuación.
+                    <div>
+                         <img src="../images/net-help.PNG" alt="">
+                    </div>
+                    La tabla enumera algunos comandos de 'net' comunes.
+                    <table>
+                         <tr>
+                              <td><b>Command</b></td>
+                              <td>net accounts</td>
+                              <td>net session</td>
+                              <td>net share</td>
+                              <td>net start</td>
+                              <td>net stop</td>
+                              <td>net use</td>
+                              <td>net view</td>
+                         </tr>
+                         <tr>
+                              <td><b>Description</b></td>
+                              <td>Establece requisitos de contraseña e inicio de sesión para los usuarios</td>
+                              <td>Enumera o desconecta sesiones entre una computadora y otras computadores en la red</td>
+                              <td>Crea, elimina o administra recursos compartidos</td>
+                              <td>Inicia un servicio de red o enumera los servicios de red en ejecución</td>
+                              <td>Detiene un servicio de red</td>
+                              <td>Conecta desconecta y muestra información sobre recursos de red compartidos</td>
+                              <td>Muestra una lista de computadoras y dispositivos de red en la red</td>
+                         </tr>
+                    </table>
+                   </p>
+                   <h2>Administrador de tareas y monitor de recursos</h2>
+                   <p>
+                    Hay dos herramientas muy importantes y útiles para ayudar a un administrador a comprender las diferentes aplicaciones, servicios y procesos que se ejecutan en una computadora con Windows. Estas herramientas también brindan información sobre el rendimiento de la computadora, como la CPU, la memoria y el uso de la red. Estas herramientas son especialmente útiles cuando se investiga un problema en el que se sospecha que existe malware. Cuando un componente no funciona como debería, estas herramientas se pueden utilizar para determinar cuál podría ser el problema.
+                    <h4>Administrador de tareas</h4>
+                    El Administrador de tareas, que se muestra en la figura, proporciona mucha información sobre el software que se está ejecutando y el rendimiento general de la computadora.
+                    <div>
+                         <img src="../images/taskManager.PNG" alt="">
+                    </div>
+                    Descipción del administrador de tareas. <br>
+                    <pre>
+<b>Procesos</b>
+Enumera todos los programas y procesos que se están ejecutando actualmente.
+Muestra el uso de CPU, memoria, disco y red de cada proceso.
+Las propiedades de un proceso se pueden examinar o finalizar si no se comporta correctamente o se ha estancado.
+
+<b>Actuación</b>
+Una vista de todas las estadísticas de rendimiento proporciona una descripción general útil del rendimiento de la CPU, la memoria, el disco y la red.
+Al hacer clic en cada elemento del panel izquierdo, se mostrarán estadísticas detalladas de ese elemento en el panel derecho.
+
+<b>Historial de aplicaciones</b>
+El uso de recursos por aplicación a lo largo del tiempo proporciona información sobre las aplicaciones que consumen más recursos de los que deberían.
+Haga clic en Opciones y Mostrar historial de todos los procesos para ver el historial de cada proceso que se ha ejecutado desde que se inició la computadora.
+
+<b>Puesta en marcha</b>
+En esta pestaña se muestran todas las aplicaciones y servicios que se inician cuando se inicia el equipo.
+Para evitar que un programa se inicie en el inicio, haga clic con el botón derecho en el elemento y seleccione Desactivar .
+
+<b>Usuarios</b>
+Todos los usuarios que han iniciado sesión en la computadora se muestran en esta pestaña.
+También se muestran todos los recursos que utilizan las aplicaciones y los procesos de cada usuario.
+Desde esta pestaña, un administrador puede desconectar a un usuario de la computadora.
+
+<b>Detalles</b>
+De manera similar a la pestaña Procesos, esta pestaña proporciona opciones de administración adicionales para los procesos, como establecer una prioridad para que el procesador dedique más o menos tiempo a un proceso.
+La afinidad de la CPU también se puede establecer, lo que determina qué núcleo o CPU utilizará un programa.
+Además, una función útil llamada Analizar cadena de espera muestra cualquier proceso que esté esperando otro proceso.
+Esta función ayuda a determinar si un proceso simplemente está esperando o está estancado.
+
+<b>Servicios</b>
+Todos los servicios que se cargan se muestran en esta pestaña.
+El ID del proceso (PID) y una breve descripción también se muestran junto con el estado de En ejecución o Detenido.
+En la parte inferior, hay un botón para abrir la consola de Servicios que proporciona una gestión adicional de los servicios.
+                    </pre>
+                    <h4>Monitor de recursos</h4>
+                    <p>
+                         Cuando se necesita información más detallada sobre el uso de recursos, puede utilizar el Monitor de Recursos, como se muestra en la figura.
+                         <div>
+                              <img src="../images/monitorDeRecursos.PNG" alt="">
+                         </div>
+                         Al buscar la razón por la que una computadora puede estar actuando de manera errática, el Monitor de recursos puede ayudar a encontrar la fuente del problema. <br>
+                         La tabla describe las cinco pestañas del Monitor de recursos.
+                         <pre>
+<b>Visión general</b>
+La pestaña muestra el uso general de cada recurso.
+Si selecciona un solo proceso, se filtrará en todas las pestañas para mostrar solo las estadísticas de ese proceso.
+
+<b>UPC</b>
+Se muestra el PID, el número de subprocesos, qué CPU está usando el proceso y el uso promedio de CPU de cada proceso.
+Se puede ver información adicional sobre los servicios en los que se basa el proceso y los identificadores y módulos asociados expandiendo las filas inferiores.
+
+<b>Memoria</b>
+En esta pestaña se muestra toda la información estadística sobre cómo cada proceso usa la memoria.
+Además, se muestra una descripción general del uso de toda la RAM debajo de la fila Procesos.
+
+<b>Disco</b>
+En esta pestaña se muestran todos los procesos que utilizan un disco, con estadísticas de lectura / escritura y una descripción general de cada dispositivo de almacenamiento.
+
+<b>Red</b>
+Todos los procesos que están usando la red se muestran en esta pestaña, con estadísticas de lectura / escritura.
+Lo más importante es que se muestran las conexiones TCP actuales, junto con todos los puertos que están escuchando.
+Esta pestaña es muy útil cuando se intenta determinar qué aplicaciones y procesos se comunican a través de la red.
+Permite saber si un proceso no autorizado está accediendo a la red, escuchando una comunicación y la dirección con la que se está comunicando.                              
+                         </pre>                              
+                    </p>
+                    <h2>Redes</h2>
+                    <p>
+                         Una de las características más importantes de cualquier sistema operativo es la capacidad de la computadora para conectarse a una red. Sin esta función, no hay acceso a los recursos de la red ni a Internet. Para configurar las propiedades de red de Windows y probar la configuración de red, se utiliza el Centro de redes y recursos compartidos. La forma más sencilla de ejecutar esta herramienta es buscarla y hacer clic en ella. Utilice el Centro de redes y recursos compartidos para verificar o crear conexiones de red, configurar el uso compartido de redes y cambiar la configuración del adaptador de red.
+                         <h4>nslookup y netstat</h4>
+                         El sistema de nombres de dominio (DNS) también debe probarse porque es esencial encontrar la dirección de los hosts traduciéndola de un nombre, como una URL. Utilice el comando nslookup para probar DNS. Escriba nslookup cisco.com en el símbolo del sistema para encontrar la dirección del servidor web de Cisco. Cuando se devuelve la dirección, sabe que el DNS funciona correctamente. También puede verificar qué puertos están abiertos, dónde están conectados y cuál es su estado actual. Escriba netstat en la línea de comando para ver los detalles de las conexiones de red activas, como se muestra en el resultado del comando. 
+                         El comando netstat se examinará más adelante en este módulo.
+                    </p>
+                   </p>
+                   <h2>Acceso a los recursos de la red</h2>
+                   <p>
+                    Al igual que otros sistemas operativos, Windows utiliza redes para muchas aplicaciones diferentes, como servicios web, de correo electrónico y de archivos. Desarrollado originalmente por IBM, Microsoft ayudó en el desarrollo del protocolo Server Message Block (SMB) para compartir recursos de red. SMB se usa principalmente para acceder a archivos en hosts remotos. El formato de Convención de nomenclatura universal (UNC) se utiliza para conectarse a recursos, por ejemplo: <br>
+                    <b>\\ServerName\sharename\archivo</b>
+                    En la UNC, servername es el servidor que aloja el recurso. Puede ser un nombre DNS, un nombre NetBIOS o simplemente una dirección IP. El nombre compartido es la raíz de la carpeta en el sistema de archivos del host remoto, mientras que el archivo es el recurso que el host local está tratando de encontrar. El archivo puede estar más profundo dentro del sistema de archivos y será necesario indicar esta jerarquía. <br>
+                    Al compartir recursos en la red, será necesario identificar el área del sistema de archivos que se compartirá. El control de acceso se puede aplicar a las carpetas y archivos para restringir a los usuarios y grupos a funciones específicas como leer, escribir o denegar. También hay recursos compartidos especiales que Windows crea automáticamente. Estas acciones se denominan acciones administrativas. Una acción administrativa se identifica mediante el signo de dólar ($) que viene después del nombre de la acción. 
+                    Cada volumen de disco tiene un recurso compartido administrativo, representado por la letra del volumen y el $, como C $, D $ o E $. La carpeta de instalación de Windows se comparte como admin $, la carpeta de las impresoras se comparte como print $ y hay otros recursos compartidos administrativos que se pueden conectar. Solo los usuarios con privilegios administrativos pueden acceder a estos recursos compartidos. <br>
+                    La forma más fácil de conectarse a un recurso compartido es escribir el UNC del recurso compartido en el Explorador de archivos de Windows, en el cuadro en la parte superior de la pantalla que muestra la lista de rutas de navegación de la ubicación actual del sistema de archivos. Cuando Windows intente conectarse al recurso compartido, se le pedirá que proporcione las credenciales para acceder al recurso. Recuerde que debido a que el recurso está en una computadora remota, las credenciales deben ser para la computadora remota, no para la computadora local. <br>
+                    Además de acceder a recursos compartidos en hosts remotos, también puede iniciar sesión en un host remoto y manipular esa computadora, como si fuera local, para realizar cambios de configuración, instalar software o solucionar un problema. En Windows, esta función utiliza el Protocolo de escritorio remoto (RDP). Al investigar incidentes de seguridad, un analista de seguridad usa RDP a menudo para acceder a computadoras remotas. Para iniciar RDP y conectarse a una computadora remota, busque escritorio remoto y haga clic en la aplicación. La ventana Conexión a Escritorio remoto se muestra en la figura. <br>
+                    <div>
+                         <img src="../images/remoteDesktop.PNG" alt="">
+                    </div>
+                    Debido a que RDP está diseñado para permitir que los usuarios remotos controlen hosts individuales, es un objetivo natural para los actores de amenazas. Se debe tener cuidado al activar RDP, especialmente en versiones heredadas de Windows sin parches, como las que todavía se encuentran en los sistemas de control industrial. Se debe tener cuidado para limitar la exposición de RDP a Internet, y se deben utilizar enfoques de seguridad y políticas de control de acceso, como Zero Trust, para limitar el acceso a hosts internos. <br>
+                   </p>
+                   <h2>Servidor de Windows</h2>
+                   <p>
+                    La mayoría de las instalaciones de Windows se realizan como instalaciones de escritorio en equipos de escritorio y portátiles. Existe otra edición de Windows que se usa principalmente en centros de datos llamada Windows Server. Esta es una familia de productos de Microsoft que comenzó con Windows Server 2003. Windows Server aloja muchos servicios diferentes y puede cumplir diferentes roles dentro de una empresa. <br>
+                    Nota : aunque existe un Windows Server 2000, se considera una versión de cliente de Windows NT 5.0. Windows Server 2003 es un servidor basado en NT 5.2 y comienza una nueva familia de versiones de Windows Server. <br>
+                    Estos son algunos de los servicios que proporciona Windows Server:
+                    <pre>
+Servicios de red : DNS, DHCP, servicios de terminal, controlador de red y virtualización de red Hyper-V.
+Servicios de archivos : SMB, NFS y DFS.
+Servicios web : FTP, HTTP y HTTPS.
+Gestión : política de grupo y control de servicios de dominio de Active Directory.
+                    </pre>
+                   </p>
+                   <h2>Laboratorios.</h2>
+                   <p>
+                         <a href="../docs/3/3.3.10-lab---create-user-accounts.pdf" target="_blank" rel="noopener noreferrer">Create user accounts</a>
+                         <a href="../docs/3/3.3.11-lab---using-windows-powershell.pdf" target="_blank" rel="noopener noreferrer">- Using Windows PowerShell</a>
+                         <a href="../docs/3/3.3.12-lab---windows-task-manager.pdf" target="_blank" rel="noopener noreferrer">Windows Task Manager</a>
+                         <a href="../docs/3/3.3.13-lab---monitor-and-manage-system-resources-in-windows.pdf" target="_blank" rel="noopener noreferrer">Monitor and Manage System Resources in Windows</a>                          
+                   </p>
+                   <h2>El comando netstat</h2>
+                   <p>
+                    Cuando hay malware en una computadora, a menudo abre puertos de comunicación en el host para enviar y recibir datos. El comando <code>netstat</code> se puede utilizar para buscar conexiones entrantes o salientes que no están autorizadas. Cuando se usa solo, el comando netstat mostrará todas las conexiones TCP activas. <br>
+                    Al examinar estas conexiones, es posible determinar cuáles de los programas están escuchando conexiones que no están autorizadas. Cuando se sospecha que un programa es malware, se puede realizar una pequeña investigación para determinar su legitimidad. Desde allí, el proceso se puede cerrar con el Administrador de tareas y se puede usar un software de eliminación de malware para limpiar la computadora. <br>
+                    Para facilitar este proceso, puede vincular las conexiones a los procesos en ejecución que las crearon en el Administrador de tareas. Para hacer esto, abra un símbolo del sistema con privilegios administrativos e ingrese el comando <code>netstat -abno</code> , como se muestra en el resultado del comando. <br>
+                    <div>
+                         <img src="../images/netstat-abno.PNG" alt="">
+                    </div>
+                    <b>Nota:</b> Si no está en modo administrador, aparecerá el mensaje "La operación solicitada requiere elevación". Busque el símbolo del sistema. Haga clic con el botón derecho en Símbolo del sistema y elija Ejecutar como administrador. <br>
+                    Al examinar las conexiones TCP activas, un analista debería poder determinar si hay programas sospechosos que estén escuchando conexiones entrantes en el host. También puede rastrear ese proceso hasta el Administrador de tareas de Windows y cancelar el proceso. Puede haber más de un proceso listado con el mismo nombre. Si este es el caso, use el PID para encontrar el proceso correcto. Cada proceso que se ejecuta en la computadora tiene un PID único. Para mostrar los PID de los procesos en el Administrador de tareas, abra el Administrador de tareas , haga clic con el botón derecho en el encabezado de la tabla y seleccione PID.
+                   </p>
+                   <h2>Visor de eventos</h2>
+                   <p>
+                    El Visor de eventos de Windows registra el historial de eventos de aplicaciones, seguridad y sistema. Estos archivos de registro son una valiosa herramienta para la resolución de problemas porque proporcionan la información necesaria para identificar un problema. <br>
+                    Windows incluye dos categorías de registros de eventos: registros de Windows y registros de aplicaciones y servicios. Cada una de estas categorías tiene varios tipos de registros. Los eventos que se muestran en estos registros tienen un nivel: información, advertencia, error o crítico. También tienen la fecha y hora en que ocurrió el evento, junto con la fuente del evento y una identificación que se relaciona con ese tipo de evento. <br>
+                    También es posible crear una vista personalizada. Esto es útil cuando se buscan ciertos tipos de eventos, se encuentran eventos que ocurrieron durante un período de tiempo determinado, se muestran eventos de cierto nivel y muchos otros criterios. Hay una vista personalizada incorporada llamada Eventos administrativos que muestra todos los eventos críticos, de error y de advertencia de todos los registros administrativos. Esta es una buena vista para empezar cuando se intenta solucionar un problema. <br>
+                    Los registros de eventos de seguridad se encuentran en Registros de Windows. Usan ID de eventos para identificar el tipo de evento.
+                   </p>
+                   <h2>Gestión de actualizaciones de Windows</h2>
+                    <p>
+                         Ningún software es perfecto y el sistema operativo Windows no es una excepción. Los atacantes constantemente encuentran nuevas formas de poner en peligro las computadoras y explotar el código incorrecto. Algunos de estos ataques se producen tan rápidamente que aún no se han diseñado ni distribuido las defensas contra ellos. Estos se denominan exploits de día cero. Microsoft y los desarrolladores de software de seguridad siempre intentan adelantarse a los atacantes, pero no siempre tienen éxito. Para garantizar el nivel más alto de protección contra estos ataques, asegúrese siempre de que Windows esté actualizado con los últimos paquetes de servicios y parches de seguridad. <br>
+                         Los parches son actualizaciones de código que proporcionan los fabricantes para evitar que un virus o gusano recién descubierto realice un ataque exitoso. De vez en cuando, los fabricantes combinan parches y actualizaciones en una aplicación de actualización integral llamada service pack. Muchos ataques de virus devastadores podrían haber sido mucho menos graves si más usuarios hubieran descargado e instalado el último paquete de servicios. Es muy conveniente que las empresas utilicen sistemas que distribuyan, instalen y rastreen automáticamente las actualizaciones de seguridad. <br>
+                         Windows comprueba periódicamente el sitio web de Windows Update en busca de actualizaciones de alta prioridad que puedan ayudar a proteger una computadora de las últimas amenazas de seguridad. Estas actualizaciones incluyen actualizaciones de seguridad, actualizaciones críticas y paquetes de servicios. Dependiendo de la configuración que elija, Windows descarga e instala automáticamente las actualizaciones de alta prioridad que su computadora necesita o le notifica cuando estas actualizaciones están disponibles. Para configurar los ajustes para la actualización de Windows, busque Windows Update y haga clic en la aplicación. <br>
+                         El estado de la actualización, que se muestra en la figura, le permite buscar actualizaciones manualmente y ver el historial de actualizaciones de la computadora. <br>
+                         También hay configuraciones para las horas en las que la computadora no se reiniciará automáticamente, por ejemplo, durante el horario comercial habitual. También puede elegir cuándo reiniciar la computadora después de una actualización, si es necesario, con las opciones de Reinicio. Las opciones avanzadas también están disponibles para elegir cómo se instalan las actualizaciones y cómo se actualizan otros productos de Microsoft.
+                    </p>
+                    <h2>Política de seguridad local</h2>
+                    <p>
+                         Una política de seguridad es un conjunto de objetivos que garantiza la seguridad de una red, los datos y los sistemas informáticos de una organización. La política de seguridad es un documento en constante evolución basado en los cambios en la tecnología, el negocio y los requisitos de los empleados. <br>
+                         En la mayoría de las redes que usan computadoras con Windows, Active Directory está configurado con dominios en un servidor Windows. Las computadoras con Windows se unen al dominio. El administrador configura una Política de seguridad de dominio que se aplica a todas las computadoras que se unen al dominio. Las políticas de cuenta se establecen automáticamente cuando un usuario inicia sesión en una computadora que es miembro de un dominio. La Política de seguridad local de Windows, que se muestra en la figura, se puede utilizar para equipos independientes que no forman parte de un dominio de Active Directory. <br>
+                         Para abrir el subprograma de Política de seguridad local, busque Política de seguridad local y haga clic en el programa. <br>
+                         Las pautas de contraseña son un componente importante de una política de seguridad. Cualquier usuario que deba iniciar sesión en una computadora o conectarse a un recurso de red debe tener una contraseña. Las contraseñas ayudan a prevenir el robo de datos y actos maliciosos. Las contraseñas también ayudan a confirmar que el registro de eventos es válido al garantizar que el usuario sea la persona que dice ser. En la Política de seguridad local, la Política de contraseñas se encuentra en Políticas de cuenta y define los criterios para las contraseñas para todos los usuarios en la computadora local. <br>
+                         Utilice la Política de bloqueo de cuenta en Políticas de cuenta para evitar intentos de inicio de sesión por fuerza bruta. Por ejemplo, puede configurar la política para permitir que el usuario ingrese un nombre de usuario y / o contraseña incorrectos cinco veces. Después de cinco intentos, la cuenta se bloquea durante 30 minutos. Después de 30 minutos, el número de intentos se restablece a cero y el usuario puede intentar iniciar sesión nuevamente. <br>
+                         Es importante asegurarse de que las computadoras estén seguras cuando los usuarios no estén. Una política de seguridad debe contener una regla sobre la necesidad de que una computadora se bloquee cuando se inicia el protector de pantalla. Esto asegurará que después de un breve período fuera de la computadora, el protector de pantalla se inicie y luego la computadora no se pueda usar hasta que el usuario inicie sesión. <br>
+                         Si la política de seguridad local en todos los equipos independientes es la misma, utilice la función de política de exportación. Guarde la política con un nombre, como workstation.inf. Copie el archivo de política en un medio externo o unidad de red para usarlo en otras computadoras independientes. Esto es particularmente útil si el administrador necesita configurar políticas locales extensas para los derechos de usuario y las opciones de seguridad. <br>
+                         El subprograma de Política de seguridad local contiene muchas otras configuraciones de seguridad que se aplican específicamente a la computadora local. Puede configurar derechos de usuario, reglas de firewall e incluso la capacidad de restringir los archivos que los usuarios o grupos pueden ejecutar con AppLocker.
+                    </p>
+                    <h2>Windows Defender</h2>
+                    <p>
+                         El malware incluye virus, gusanos, troyanos, registradores de pulsaciones de teclas, spyware y adware. Estos están diseñados para invadir la privacidad, robar información, dañar la computadora o corromper datos. Es importante que proteja las computadoras y los dispositivos móviles mediante un software antimalware de buena reputación. Están disponibles los siguientes tipos de programas antimalware:
+                         <ul>
+                             <li>Protección antivirus : este programa supervisa continuamente la presencia de virus. Cuando se detecta un virus, se advierte al usuario y el programa intenta poner en cuarentena o eliminar el virus.</li>
+                             <li>Protección contra programas publicitarios: este programa busca continuamente programas que muestren publicidad en su computadora.</li>
+                             <li>Protección contra phishing : este programa bloquea las direcciones IP de sitios web de phishing conocidos y advierte al usuario sobre sitios sospechosos.</li>
+                             <li>Protección contra software espía : este programa busca registradores de pulsaciones de teclas y otros programas espía.</li>
+                             <li>Fuentes confiables / no confiables : este programa le advierte sobre programas inseguros que se van a instalar o sitios web inseguros antes de visitarlos.</li>
+                         </ul>
+                         Pueden ser necesarios varios programas diferentes y varios análisis para eliminar completamente todo el software malicioso. Ejecute solo un programa de protección contra malware a la vez. <br>
+                         Varias organizaciones de seguridad de renombre como McAfee, Symantec y Kaspersky ofrecen protección integral contra malware para computadoras y dispositivos móviles. Windows tiene protección antivirus y antispyware incorporada llamada Windows Defender, como se muestra en la figura. Windows Defender está activado de forma predeterminada para proporcionar protección en tiempo real contra infecciones. <br>
+                         Para abrir Windows Defender, búsquelo y haga clic en el programa. Aunque Windows Defender funciona en segundo plano, puede realizar análisis manuales de la computadora y los dispositivos de almacenamiento. También puede actualizar manualmente las definiciones de virus y software espía en la pestaña Actualizar . Además, para ver todos los elementos que se encontraron durante exploraciones anteriores, haga clic en la pestaña Historial.
+                    </p>
+                    <h2>Firewall de Windows Defender</h2>
+                    <p>
+                         Un firewall niega selectivamente el tráfico a una computadora o segmento de red. Los cortafuegos generalmente funcionan abriendo y cerrando los puertos utilizados por varias aplicaciones. Al abrir solo los puertos necesarios en un firewall, está implementando una política de seguridad restrictiva. Se deniega cualquier paquete no permitido explícitamente. Por el contrario, una política de seguridad permisiva permite el acceso a través de todos los puertos, excepto aquellos denegados explícitamente. En el pasado, el software y el hardware se enviaban con configuraciones permisivas. 
+                         Como los usuarios se olvidaron de configurar su equipo, la configuración permisiva predeterminada dejó muchos dispositivos expuestos a los atacantes. La mayoría de los dispositivos ahora se envían con configuraciones lo más restrictivas posible, al mismo tiempo que permiten una configuración fácil. <br>
+                         Para permitir el acceso del programa a través del Firewall de Windows Defender, busque Paneles de control . En Sistemas y seguridad , busque Firewall de Windows Defender . Haga clic en Permitir una aplicación o función a través del Firewall de Windows Defender , como se muestra en la figura. <br>
+                         Si desea utilizar un firewall de software diferente, deberá deshabilitar el Firewall de Windows. Para desactivar el Firewall de Windows, haga clic en Activar o desactivar el Firewall de Windows. <br>
+                         <div>
+                              <img src="../images/firewall.PNG" alt="">
+                         </div>
+                         Se pueden encontrar muchas configuraciones adicionales en Configuración avanzada . Aquí puede crear reglas de tráfico entrante o saliente basadas en diferentes criterios. También puede importar y exportar políticas o monitorear diferentes aspectos del firewall. <br>
+                    </p>
+                    <h2>Resumen del sistema operativo Windows</h2>
+                    <h3>¿Qué aprendí en este módulo?</h3>
+                    <p>
+                         <pre>
+<strong>Historial de Windows</strong>
+Las primeras computadoras requerían un sistema operativo de disco (DOS) para crear y administrar archivos. Microsoft desarrolló MS-DOS como una interfaz de línea 
+de comandos (CLI) para acceder a la unidad de disco y cargar los archivos del sistema operativo. Las primeras versiones de Windows consistían en una interfaz gráfica 
+de usuario (GUI) que se ejecutaba en MS-DOS. Sin embargo, las versiones modernas de Windows controlan directamente la computadora y su hardware y admiten múltiples procesos de usuario. 
+Esto es muy diferente al proceso único, usuario único MS-DOS. Desde 1993, ha habido más de 20 versiones de Windows que se basan en el sistema operativo NT. <br>
+Los usuarios usan una GUI de Windows para trabajar con archivos de datos y software. La GUI tiene un área principal que se conoce como Escritorio y una barra de 
+tareas situada debajo del escritorio. La barra de tareas incluye el menú Inicio, iconos de inicio rápido y un área de notificación. Windows tiene muchas vulnerabilidades. 
+Las recomendaciones para proteger el sistema operativo Windows incluyen el uso de protección contra virus o malware, el uso de contraseñas seguras, 
+el uso de firewall y el uso limitado de la cuenta de administrador, entre otras.
+
+<strong>Arquitectura y operaciones de Windows</strong>
+Windows consta de una capa de abstracción de hardware (HAL) que es un software que maneja toda la comunicación entre el hardware y el kernel. 
+El núcleo tiene control sobre toda la computadora y maneja las solicitudes de entrada y salida, la memoria y todos los periféricos conectados a la computadora. 
+Windows funciona en dos modos diferentes. El primero es el modo de usuario. La mayoría de los programas de Windows se ejecutan en modo de usuario. 
+El segundo es el modo kernel. Permite el acceso directo del código del sistema operativo al hardware de la computadora. Windows admite varios sistemas 
+de archivos diferentes, pero NTFS es el más utilizado. <br>
+Los volúmenes NTFS incluyen el sector de arranque de la partición, la tabla maestra de archivos, los archivos del sistema y el área de archivos. 
+Cuando una computadora arranca, primero accede a la información del sistema y al código que se almacena en el hardware del BIOS. 
+El código de arranque del BIOS realiza una autoprueba del sistema denominada POST, localiza y carga el sistema operativo Windows y carga otros programas 
+asociados para iniciar el sistema operativo. Windows siempre debe cerrarse correctamente. <br>
+Una computadora funciona almacenando instrucciones en la RAM hasta que la CPU las procesa. 
+Cada proceso en una computadora con Windows de 32 bits admite un espacio de direcciones virtuales que permite direccionar hasta 4 gigabytes. 
+Cada proceso en una computadora con Windows de 64 bits admite un espacio de direcciones virtuales de hasta 8 terabytes. Windows almacena toda 
+la información sobre el hardware, las aplicaciones, los usuarios y la configuración del sistema en una gran base de datos conocida como registro. 
+El registro es una base de datos jerárquica donde el nivel más alto se conoce como colmena, debajo de ella hay claves, seguidas de subclaves. <br>
+Hay cinco secciones de registro que contienen datos sobre la configuración y el funcionamiento de Windows. Hay cientos de claves y subclaves.
+
+<strong>Configuración y supervisión de Windows</strong>
+Por razones de seguridad, no es recomendable iniciar sesión en Windows utilizando la cuenta de administrador o una cuenta con privilegios administrativos. 
+No otorgue privilegios administrativos a los usuarios estándar. No habilite la cuenta de Invitados a menos que la computadora sea utilizada por muchas 
+personas diferentes que no tengan cuentas. Utilice grupos de Windows para facilitar la administración de usuarios. Los usuarios y grupos locales se 
+administran con el subprograma del panel de control lusrmgr.msc. <br>
+Puede usar la CLI o Windows PowerShell para ejecutar comandos. PowerShell se puede utilizar para crear scripts para automatizar tareas que la CLI normal no puede automatizar.
+ El Instrumental de administración de Windows (WMI) se utiliza para administrar equipos remotos. El comando 'netn se puede combinar con interruptores para 
+ enfocarse en una salida específica. El Administrador de tareas proporciona mucha información sobre lo que se está ejecutando y el rendimiento general de la computadora. 
+ El Monitor de recursos proporciona información más detallada sobre el uso de recursos. El Centro de redes y recursos compartidos 
+se utiliza para configurar las propiedades de red de Windows y probar la configuración de red. 
+El protocolo Server Message Block (SMB) se utiliza para compartir recursos de red, como archivos en hosts remotos. El formato de Convención de nomenclatura universal (UNC) 
+se utiliza para conectarse a los recursos. Windows Server es una edición de Windows que se utiliza principalmente en centros de datos. Proporciona servicios de red, archivos, 
+web y administración a una red o dominio de Windows.
+
+<strong>Seguridad de Windows</strong>
+El malware puede abrir puertos de comunicación para comunicarse y propagarse. El netstat de Windows
+El comando muestra todos los puertos de comunicación abiertos en una computadora y también puede mostrar los procesos de software que están asociados con los puertos. 
+Esto permite identificar y cerrar software desconocido potencialmente malicioso. El Visor de eventos de Windows proporciona acceso a numerosos eventos registrados 
+relacionados con el funcionamiento de una computadora. Windows registra eventos de Windows y eventos de aplicaciones y servicios. Los niveles de gravedad de los eventos 
+registrados varían a través de los niveles de información, advertencia, error o crítico. <br>
+Es muy importante mantener Windows actualizado para protegerse contra nuevas amenazas de seguridad. <br>
+Los parches de software, las actualizaciones y los paquetes de servicios abordan las vulnerabilidades de seguridad a medida que se descubren. Windows debe configurarse 
+para descargar e instalar automáticamente las actualizaciones a medida que estén disponibles.
+                         </pre>
+                    </p>
+                    <h2>Examen</h2>
+                    <p>
+                         <video src="../videos/CyberOps-Associate--Windows-Configuration-and-Monitoring.mp4" muted autoplay></video>
+                    </p>
+               </div>
+               <ul class="section-btn">
+                    <a href="LinuxGeneral.html" class="smoothScroll"><span data-hover="Vamos!">Ir al capítulo 4.</span></a>
+               </ul>
+          </div>
+     </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-5 col-sm-6">
+                    <h2>Human Computing 3.0</h2>
+                    <p>Portfolio de mis trayectos.<br> HC3.0 &reg;.<br> <a href="https://github.com/chunche95" target="_blank" rel="noopener noreferrer">Chunche95.</a></p>   
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6247514.786672666!2d-8.201777377645262!3d40.13015720874784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc42e3783261bc8b%3A0xa6ec2c940768a3ec!2zRXNwYcOxYQ!5e0!3m2!1ses!2ses!4v1602193537915!5m2!1ses!2ses" width="210" height="160" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                 
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <div class="footer-info">
+                    	<h2>Contacto.</h2>
+                         <p><a href="https://api.whatsapp.com/send?phone=34667332151&text=Hola!%20Quiero%20saber%20de%20...">+34-667-33-21-51</a></p>
+                         <p><a href="mailto:humancomputing3@gmail.com" class="fa fa-mail">humancomputing3@hc3.es</a></p>
+                    </div>
+               </div>
+
+               <div class="col-md-3 col-sm-12">
+               		
+                    <h2>Más sobre mi</h2>
+                    <p>Otras formas de encontrarme son:</p>
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/chunche95" class="fa fa-github"></a></li>
+                         <li><a href="https://www.linkedin.com/in/paulinoestebanbr" class="fa fa-linkedin"></a></li>
+                         <li><a href="https://paulinobermudez.github.io/home/" class="fa fa-globe"></a></li>
+               </div>
+
+               <div class="clearfix"></div>
+
+               <div class="col-md-12 col-sm-12">
+                    <div class="copyright-text">
+                         <p align="center">Copyright © 2020 Human Computing 3.0 | Design: Pauchino09</p>
+                    </div>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.parallax.js"></script>
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/jquery.magnific-popup.min.js"></script>
+<script src="../js/magnific-popup-options.js"></script>
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/smoothscroll.js"></script>
+<script src="../js/custom.js"></script>
+<script src="../js/up.js"></script>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
